@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: '#', redirectTo: '/login' },
   { path: 'login', component: LoginComponent},
   //added for new login html
-  { path: 'user', loadChildren: './site-coordinator/site-coordinator.module#SiteCoordinatorModule' },
+  { path: 'user', loadChildren: () => import('./site-coordinator/site-coordinator.module').then(m => m.SiteCoordinatorModule) },
 
 
 ];
