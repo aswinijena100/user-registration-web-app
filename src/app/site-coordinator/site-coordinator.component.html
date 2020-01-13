@@ -1,3 +1,41 @@
-<p>
-  site-coordinator works!
-</p>
+<header>
+  <div class="bs-example bs__example">
+    <nav class="navbar navbar-expand-md ">
+        <a href="#" class="navbar-brand">Google Logo</a>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            
+          
+            <div class="navbar-nav ml-auto">
+              <div class="navbar-nav display-flex-center">
+                <div class="navbar-nav inner-addon right-addon search-icon">
+                  <i class="glyphicon glyphicon-search "></i>
+                  <input type="text" placeholder="Search by site or study ID or name" class="form-control search-box" />
+              </div>
+                <a href="#" class="nav-item nav-link active">DashBoard</a>
+                <a href="#" class="nav-item nav-link">Location</a>
+                <a href="#" class="nav-item nav-link">User</a>
+                <a href="#" class="nav-item nav-link">My Account <span class="navbar__name">J</span></a>
+            </div>
+            </div>
+        </div>
+    </nav>
+  </div>
+</header>
+
+<router-outlet></router-outlet>
+
+<footer>
+  <div class="text-center flex__container">
+    <div>@2020 FDA My Studies. All rights reserved.</div>
+    <div class="flex__container">
+      <ul>
+      <li><a  href="#">About</a></li>
+      <li><a  href="#">Terms of Service</a></li>
+    </ul>
+  </div>
+  </div>
+</footer>
