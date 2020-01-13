@@ -296,6 +296,9 @@ Version: 		1.0
 .pl-xlg {
 	padding-left: 30px !important;
 }
+.pl-xxlg {
+	padding-left: 40px !important;
+}
 
 /* spacement right	*/
 .pr-none {
@@ -404,9 +407,18 @@ a.w-link,a.w-link:hover{
 .display-inline-block{
 	display: inline-block !important;
 }
-/*common css*/
-
- 
+.display-flex-center{
+	display: flex !important;
+	align-items: center !important;
+}
+.flex__row{
+    display:flex;
+    flex-flow:row;
+}
+.flex__row__reverse{
+    display:flex;
+    flex-flow:row-reverse;
+}
 .error__msg{
 	color: #ff2525;
     font-size: 12px;
@@ -422,19 +434,36 @@ a.w-link,a.w-link:hover{
 .font13{
 	font-size:13px;
 }
-/*common css*/
+
+.width__auto{
+    width:auto !important;
+}
+/************theme.css******************/
+
+//************ common css*****************/
+
 .blue__btn {
     color: #fff;
-    background-color: #1a73e8;
-    border-color: #1a73e8;
+	background-color: #1a73e8 !important;
+    border-color: #1a73e8 !important;
+    font-size: 16px !important;
+    padding: 5px 20px !important
+}
+.blue__btn:hover{
+    color: #fff !important;
+    background-color: #1a73e8 !important;
+	border-color: #1a73e8 !important;
 }
 .blue__link {
-    color: #1a73e8 !important;
+    color: #4285f4 !important;
     font-size:12px;
-    text-decoration: none;
+	text-decoration: none;
+	cursor: pointer;
 }
-
-/************theme.css******************/
+.blue__link:hover{
+	color: #4285f4 !important;
+}
+//************ common css*****************/
 
 /* You can add global styles to this file, and also import other style files */
 body{
@@ -442,25 +471,13 @@ body{
     color:#353a3e;
 }
 input,textarea,select{
-    font-size:20px;
+	font-size:20px;
+	cursor: pointer;
 }
 input:focus,textarea:focus,select:focus,button:focus{
     outline:none;
     box-shadow: none;
 }
-
-.flex__row{
-    display:flex;
-    flex-flow:row;
-}
-.flex__row__reverse{
-    display:flex;
-    flex-flow:row-reverse;
-}
-.width__auto{
-    width:auto !important;
-}
-
 .font24__353a3e{
     font-size:24px;
     color:#353a3e;
