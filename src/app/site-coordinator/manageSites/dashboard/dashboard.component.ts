@@ -17,7 +17,8 @@ export class DashboardComponent implements OnInit {
   constructor() {   }
 
   ngOnInit() {
-    this.data = [{'name':'Anil', 'anil.singh581@gmail.com' :'ssd', 'age' :'34', 'city':'Noida, UP, India' },
+    this.data = [
+    {'name':'Anil','email':'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida, UP, India' },
     {'name':'Anil', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
     {'name':'Sunil', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
     {'name':'Alok', 'email' :'anil.singh581@gmail.com', 'age' :'34', 'city':'Noida' },
