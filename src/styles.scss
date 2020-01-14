@@ -463,7 +463,7 @@ a.w-link,a.w-link:hover{
 .blue__link:hover{
 	color: #4285f4 !important;
 }
-//************ common css*****************/
+
 
 /* You can add global styles to this file, and also import other style files */
 body{
@@ -487,12 +487,22 @@ ul{
     font-size:24px;
     color:#353a3e;
 }
-.bs__example{
+
+.flex__container {
+	display: flex;
+	justify-content: center;
+}
+
+//************ common css*****************/
+
+/********** header *********/
+header{
+	background: #fff;
+	padding: 0 40px;
 	border-bottom: 1px solid #a6b5cc;
-	background: #fff !important;
 }
 .navbar__name{
-	background: grey;
+	background: #a6b5cc;
     color: #fff;
     width: 30px;
     height: 30px;
@@ -504,16 +514,20 @@ ul{
 }
 
 .bs__example a.nav-link{
-	color:grey;
+	color:#a6b5cc;
 	font-size:18px;
 }
 .bs__example a.nav-link:hover{
-	color:grey;
+	color:#a6b5cc;
 }
-.flex__container {
-	display: flex;
-	justify-content: center;
+.subheader{
+	height:50px;
+	line-height:50px;
+	background: #fff;
+	padding: 0 40px;
 }
+/********** header *********/
+
 /********** footer *********/
 footer {
 	position:absolute;
@@ -532,6 +546,41 @@ footer ul li{
 	display:inline-block;
 }
 footer ul li  a{
-
+	color:#a6b5cc;
 	padding: 0 25px;
+	border-right: 1px solid #a6b5cc;
 }
+footer ul li:last-child  a{
+	border-right:0;
+}
+/********** footer *********/
+
+/********** Main *********/
+.bg__white{
+	background: #fff;
+}
+.cards{
+	padding:40px;
+	margin: 20px 40px;
+	border-radius:7px;
+}
+.box__shadow-cmn{
+    box-shadow: 1px 1px 5px 0px #b5c5de;
+}
+.progress{
+	border-radius:30px !important;
+}
+.progress-bar {
+	border-radius:30px;
+	background-color:#4285f4;
+}
+.width__auto{
+	width:auto;
+}
+.align-items-center{
+	align-items: center;
+}
+.flex-wrap-unset{
+    flex-wrap: unset !important;
+}
+/********** Main *********/
