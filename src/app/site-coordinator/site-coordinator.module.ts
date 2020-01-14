@@ -13,6 +13,8 @@ import { ManageUsersComponent } from './manageUsers/manage-users/manage-users.co
 import { AddNewUserComponent } from './manageUsers/add-new-user/add-new-user.component';
 import { UserDetailsComponent } from './manageUsers/user-details/user-details.component';
 import { UserProfileComponent } from './manageAccount/user-profile/user-profile.component';
+import {DataTableModule} from "angular-6-datatable";//by prasanna
+
 @NgModule({
   declarations: [SiteCoordinatorComponent,
     DashboardComponent,
@@ -27,7 +29,8 @@ import { UserProfileComponent } from './manageAccount/user-profile/user-profile.
     UserProfileComponent],
   imports: [
     CommonModule,
-    SiteCoordinatorRoutingModule
+    SiteCoordinatorRoutingModule,
+    DataTableModule // by prasanna
   ]
 })
 export class SiteCoordinatorModule { }
