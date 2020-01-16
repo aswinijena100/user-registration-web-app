@@ -573,6 +573,31 @@ header{
 .subheader{
 	box-shadow: 0 0px 4px 0 rgba(32, 33, 36, 0.18)
 }
+.header__logo__text{
+	color:#5e6164;
+	//font-weight:600;
+	font-size:14px;
+}
+
+.subheader__title{
+	color:#8495a5;
+	font-size:16px;
+}
+.subheader__menu ul li{
+	list-style: none;
+	display:inline-block;
+}
+.subheader__menu ul li a{
+	color:#8495a5;
+	font-weight:600;
+	font-size:16px;
+	margin-right:40px;
+	padding-bottom: 5px;
+}
+.subheader__menu ul li.active a{
+	color:#4285f4;
+	border-bottom: 2px solid #4285f4;
+}
 /********** header *********/
 
 /********** footer *********/
@@ -637,10 +662,6 @@ footer ul li:last-child  a{
     flex-wrap: unset !important;
 }
 
-.subheader__title{
-	color:#8495a5;
-	font-size:16px;
-}
 
 // table css
 .table th,.table td{
