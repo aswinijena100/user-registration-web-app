@@ -661,6 +661,51 @@ footer ul li:last-child  a{
 .flex-wrap-unset{
     flex-wrap: unset !important;
 }
+.progress-label {
+    float: left;
+    margin-right: 10px;
+}
+.progress__bar{
+	margin:20px 0;
+}
+.progress__bar .progress{
+	height:8px;
+}
+.progress__bar__row{
+	padding: 11px 0;
+    border-top: 1px solid #c4d1e6;
+}
+.progress__bar__row:last-child{
+	border-bottom: 1px solid #c4d1e6;
+}
+.lh__6{
+	line-height: 6px;
+}
+.font__bold{
+	font-weight: 600;
+}
+.text__353a3e__20{
+	color: #353a3e;
+    font-size: 20px;
+    font-weight: 600;
+}
+.text__353a3e__14{
+	color: #353a3e;
+    font-size: 14px;
+    font-weight: 600;
+}
+.text__757b80__12{
+	color: #757b80;
+    font-size: 12px;
+    font-weight: 600;
+}
+.text__63bb67__12{
+	color: #63bb67;
+    font-size: 12px;
+}
+.text__ffbc00__12{
+	color:#ffbc00
+}
 
 
 // table css
@@ -708,3 +753,7 @@ footer ul li:last-child  a{
 }
 // table css
 /********** Main *********/
+.row{
+	margin-left:0 !important;
+	margin-right:0 !important;
+}
