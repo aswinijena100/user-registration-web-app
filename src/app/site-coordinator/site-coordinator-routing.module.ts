@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './manageSites/dashboard/dashboard.component';
-import { CreateSiteComponent } from './manageSites/create-site/create-site.component';
 import { SiteParticipantsListComponent } from './manageSites/site-participants-list/site-participants-list.component';
 import { StudyParticipantsListComponent } from './manageSites/study-participants-list/study-participants-list.component';
 import { AppParticipantsListComponent } from './manageSites/app-participants-list/app-participants-list.component';
@@ -11,12 +10,30 @@ import { AddNewUserComponent } from './manageUsers/add-new-user/add-new-user.com
 import { UserDetailsComponent } from './manageUsers/user-details/user-details.component';
 import { UserProfileComponent } from './manageAccount/user-profile/user-profile.component';
 import { SiteCoordinatorComponent } from "./site-coordinator.component";
+import { LocationsComponent } from './locations/locations/locations.component';
+import { AddLocationComponent } from './locations/add-location/add-location.component';
+import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 const routes: Routes = [{
   path: "",
   component: SiteCoordinatorComponent,
   children: [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: DashboardComponent },
+    { path: 'siteParticipants', component: SiteParticipantsListComponent },
+    { path: 'studyParticipants', component: StudyParticipantsListComponent },
+    { path: 'appParticipants', component: AppParticipantsListComponent },
+    { path: 'participantDetail', component: ParticipantDetailsComponent },
+
+    { path: 'manageUsers', component: ManageUsersComponent },
+    { path: 'addNewUser', component: AddNewUserComponent },
+    { path: 'userDetails', component: UserDetailsComponent },
+
+    { path: 'locations', component: LocationsComponent },
+    { path: 'addNewLocation', component: AddLocationComponent },
+    { path: 'locationDetails', component: LocationDetailsComponent },
+
+    { path: 'userProfile', component: UserProfileComponent },
+
   ]
 }];
 

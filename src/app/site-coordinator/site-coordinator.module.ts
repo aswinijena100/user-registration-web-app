@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+// components
 import { SiteCoordinatorRoutingModule } from './site-coordinator-routing.module';
 import { SiteCoordinatorComponent } from './site-coordinator.component';
 import { DashboardComponent } from './manageSites/dashboard/dashboard.component';
-import { CreateSiteComponent } from './manageSites/create-site/create-site.component';
 import { SiteParticipantsListComponent } from './manageSites/site-participants-list/site-participants-list.component';
 import { StudyParticipantsListComponent } from './manageSites/study-participants-list/study-participants-list.component';
 import { AppParticipantsListComponent } from './manageSites/app-participants-list/app-participants-list.component';
@@ -13,12 +13,22 @@ import { ManageUsersComponent } from './manageUsers/manage-users/manage-users.co
 import { AddNewUserComponent } from './manageUsers/add-new-user/add-new-user.component';
 import { UserDetailsComponent } from './manageUsers/user-details/user-details.component';
 import { UserProfileComponent } from './manageAccount/user-profile/user-profile.component';
-import {DataTableModule} from "angular-6-datatable";//by prasanna
+import { LocationsComponent } from './locations/locations/locations.component';
+import { AddLocationComponent } from './locations/add-location/add-location.component';
+import { LocationDetailsComponent } from './locations/location-details/location-details.component';
+
+//services
+import { ManageAccountService } from "./manageAccount/manage-account.service";
+import { ManageSitesService } from "./manageSites/manage-sites.service";
+import { ManageUsersService } from "./manageUsers/manage-users.service";
+import { LocationService } from "./locations/location.service";
+//libraries
+import { DataTableModule } from "angular-6-datatable";
+//by prasanna
 
 @NgModule({
   declarations: [SiteCoordinatorComponent,
     DashboardComponent,
-    CreateSiteComponent,
     SiteParticipantsListComponent,
     StudyParticipantsListComponent,
     AppParticipantsListComponent,
@@ -26,11 +36,20 @@ import {DataTableModule} from "angular-6-datatable";//by prasanna
     ManageUsersComponent,
     AddNewUserComponent,
     UserDetailsComponent,
-    UserProfileComponent],
+    UserProfileComponent,
+    LocationsComponent,
+    AddLocationComponent,
+    LocationDetailsComponent],
   imports: [
     CommonModule,
     SiteCoordinatorRoutingModule,
     DataTableModule // by prasanna
+  ],
+  providers: [
+    ManageAccountService,
+    ManageSitesService,
+    ManageUsersService,
+    LocationService
   ]
 })
 export class SiteCoordinatorModule { }
