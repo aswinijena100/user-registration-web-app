@@ -567,11 +567,11 @@ header{
 .subheader{
 	background: #fff;
 	padding: 0 40px;
+	padding-left:40px !important;
 	height: 70px;
 	line-height:70px;
-}
-.subheader{
-	box-shadow: 0 0px 4px 0 rgba(32, 33, 36, 0.18)
+	box-shadow: 0 0px 4px 0 rgba(32, 33, 36, 0.18);
+	border-bottom:none !important; 
 }
 .header__logo__text{
 	color:#5e6164;
@@ -583,18 +583,18 @@ header{
 	color:#8495a5;
 	font-size:16px;
 }
-.subheader__menu ul li{
+ul.subheader__menu li{
 	list-style: none;
 	display:inline-block;
 }
-.subheader__menu ul li a{
+ul.subheader__menu li a{
 	color:#8495a5;
 	font-weight:600;
 	font-size:16px;
 	margin-right:40px;
 	padding-bottom: 5px;
 }
-.subheader__menu ul li.active a{
+ul.subheader__menu li.active a{
 	color:#4285f4;
 	border-bottom: 2px solid #4285f4;
 }
@@ -602,7 +602,7 @@ header{
 
 /********** footer *********/
 footer {
-	position:absolute;
+	position:fixed;
 	bottom:0;
 	width:100%;
 	height:80px;   /* Height of the footer */
@@ -632,7 +632,7 @@ footer ul li:last-child  a{
 	background: #fff;
 }
 .cards{
-	padding:40px;
+	padding:30px;
 	margin: 20px 40px;
 	border-radius:7px;
 }
@@ -641,6 +641,9 @@ footer ul li:last-child  a{
 	padding:0px;
 	margin: 20px 140px;
 	border-radius:7px;
+}
+.cards__var{
+	padding: 25px;
 }
 .box__shadow-cmn{
     box-shadow: 1px 1px 5px 0px #a7b5cc;
@@ -667,9 +670,15 @@ footer ul li:last-child  a{
 }
 .progress__bar{
 	margin:20px 0;
+	//background-color: #007bff !important;
 }
 .progress__bar .progress{
-	height:8px;
+	height:7px;
+	//width:65%;
+	width: 190px;
+}
+.progress-bar{
+	background-color: #007bff !important;
 }
 .progress__bar__row{
 	padding: 11px 0;
@@ -677,6 +686,9 @@ footer ul li:last-child  a{
 }
 .progress__bar__row:last-child{
 	border-bottom: 1px solid #c4d1e6;
+}
+.progress{
+	background: #cbddfb !important;
 }
 .lh__6{
 	line-height: 6px;
@@ -718,6 +730,7 @@ footer ul li:last-child  a{
 .text__b6c5db__50{
 	color:#b6c5db;
 	font-size:50px;
+	line-height:50px;
 }
 
 
@@ -788,7 +801,7 @@ footer ul li:last-child  a{
 		max-width: 92%;
 		margin: 10px auto !important;
 	}
-	.subheader .max__w__1280{
+	.subheader.max__w__1280{
 		margin-top: 0px !important;
 	}
 }
