@@ -8,6 +8,7 @@ import { LoginComponent } from './site-coordinator/manageAccount/login/login.com
 import { SiteCoordinatorModule } from "./site-coordinator/site-coordinator.module";
 import { SetUpAccountComponent } from './site-coordinator/manageAccount/set-up-account/set-up-account.component';
 import { ForgotPasswordComponent } from './site-coordinator/manageAccount/forgot-password/forgot-password.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ForgotPasswordComponent } from './site-coordinator/manageAccount/forgot
     BrowserModule,
     AppRoutingModule,
     SiteCoordinatorModule,
-    DataTableModule// by prasanna
+    DataTableModule,
+    ModalModule.forRoot()// by prasanna
   ],
   providers: [],
   bootstrap: [AppComponent]

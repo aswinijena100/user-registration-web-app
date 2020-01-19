@@ -1,1 +1,43 @@
-<p>locations works!</p>
+<div class="subheader ">
+    <div class="max__w__1280 m-none">
+      <div class="row" >
+        <div class="col-md-6 pl-none subheader__title font__bold">Locations</div>
+        <div class="col-md-6 pr-none align__flex__right" ><button class="btn btn-primary  width__auto blue__btn font14">Add Location</button></div>
+      </div>
+    </div>
+  </div> 
+  <div class="cards1 max__w__1280">
+    <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+      <thead>
+      <tr>
+        <th>
+          <mfDefaultSorter by="name">Location ID</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="email">Location Name</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="age">Associated Studies</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="city">Status</mfDefaultSorter>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let user of mf.data">
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.age}}</td>
+        <td>{{user.city | uppercase}}</td>
+      </tr>
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="4">
+          <mfBootstrapPaginator></mfBootstrapPaginator>
+        </td>
+      </tr>
+      </tfoot>
+      </table>
+  </div>

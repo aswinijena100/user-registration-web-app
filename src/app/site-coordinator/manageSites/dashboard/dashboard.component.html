@@ -7,9 +7,10 @@
     <li><a data-toggle="tab" href="#menu2">Studies</a></li>
     <li><a data-toggle="tab" href="#menu3">Apps</a></li>
   </ul>
+ 
   <div class="tab-content">
     <div id="menu1" class="tab-pane fade in active">
-      <div class="bg__white cards  box__shadow-cmn pl-md max__w__1280">
+      <div class="bg__white cards  box__shadow-cmn pl-md ">
         <div class="row">
           <div class="col-xs-12 col-md-1 p-none text-center">
             <img class="" src="../../../assets/images/site-list-tab.gif" alt="A Study for Pregnant Women">
@@ -24,41 +25,49 @@
                 </div>
                 <div class="col-xs-12 col-md-12 p-none text__353a3e__14 progress__bar">
                   <div class="row display-flex-center progress__bar__row">
-                    <div class="col-xs-12 col-md-9 p-none">Site1 loreum ipsim A</div>
-                    <div class="col-xs-12 col-md-3 p-none lh__6">
-                      <div class="progress-label font__bold text__63bb67__12">30/50</div>
-                      <div class="progress">
-                        <span class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+                    <div class="col-xs-12 col-md-8 p-none">Site1 loreum ipsim A</div>
+                    <div class="col-xs-12 col-md-4 p-none lh__6">
+                      <div class="prog">
+                        <div class="pro__base">
+                          <div class="pro__top" style="width:30%"></div>
+                        </div>
+                        <div class="progress-label font__bold text__63bb67__12">30/50</div>
                       </div>
                     </div>
                     <div class="clearfix"></div>
                   </div>
                   <div class="row display-flex-center progress__bar__row">
-                    <div class="col-xs-12 col-md-9 p-none">Site2 loreum ipsim A</div>
-                    <div class="col-xs-12 col-md-3 p-none lh__6">
-                      <div class="progress-label font__bold text__ffbc00__12">30/50</div>
-                      <div class="progress">
-                        <span class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+                    <div class="col-xs-12 col-md-8 p-none">Site2 loreum ipsim A</div>
+                    <div class="col-xs-12 col-md-4 p-none lh__6">
+                      <div class="prog">
+                        <div class="pro__base">
+                          <div class="pro__top" style="width:30%"></div>
+                        </div>
+                        <div class="progress-label font__bold text__63bb67__12">30/50</div>
                       </div>
                     </div>
                     <div class="clearfix"></div>
                   </div>
                   <div class="row display-flex-center progress__bar__row">
-                    <div class="col-xs-12 col-md-9 p-none">Site3 loreum ipsim A</div>
-                    <div class="col-xs-12 col-md-3 p-none lh__6">
-                      <div class="progress-label font__bold text__f85555__12">30/50</div>
-                      <div class="progress">
-                        <span class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+                    <div class="col-xs-12 col-md-8 p-none">Site3 loreum ipsim A</div>
+                    <div class="col-xs-12 col-md-4 p-none lh__6">
+                      <div class="prog">
+                        <div class="pro__base">
+                          <div class="pro__top" style="width:30%"></div>
+                        </div>
+                        <div class="progress-label font__bold text__63bb67__12">30/50</div>
                       </div>
                     </div>
                     <div class="clearfix"></div>
                   </div>
                   <div class="row display-flex-center progress__bar__row">
-                    <div class="col-xs-12 col-md-9 p-none">Site4 loreum ipsim A</div>
-                    <div class="col-xs-12 col-md-3 p-none lh__6">
-                      <div class="progress-label font__bold text__63bb67__12">30/50</div>
-                      <div class="progress">
-                        <span class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+                    <div class="col-xs-12 col-md-8 p-none">Site4 loreum ipsim A</div>
+                    <div class="col-xs-12 col-md-4 p-none lh__6">
+                      <div class="prog">
+                        <div class="pro__base">
+                          <div class="pro__top" style="width:30%"></div>
+                        </div>
+                        <div class="progress-label font__bold text__63bb67__12">30/50</div>
                       </div>
                     </div>
                     <div class="clearfix"></div>
@@ -67,12 +76,12 @@
               </div>
             </div>
             <div>
-              <button class="bt__4285f4 font__bold">+ Add Site</button>
+              <button #template class="bt__4285f4 font__bold" (click)="openModal(template)">+ Add Site</button>
             </div>
           </div>
         </div>
       </div>
-      <div class="bg__white cards  box__shadow-cmn pl-md max__w__1280">
+      <div class="bg__white cards  box__shadow-cmn pl-md">
         <div class="row">
           <div class="col-xs-12 col-md-1 p-none text-center">
             <img class="" src="../../../assets/images/fitness.gif" alt="A Study for Fitness">
@@ -87,11 +96,13 @@
                 </div>
                 <div class="col-xs-12 col-md-12 p-none text__353a3e__14 progress__bar">
                   <div class="row display-flex-center progress__bar__row">
-                    <div class="col-xs-12 col-md-9 p-none">Site1 loreum ipsim A</div>
-                    <div class="col-xs-12 col-md-3 p-none lh__6">
-                      <div class="progress-label font__bold text__63bb67__12">30/50</div>
-                      <div class="progress">
-                        <span class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+                    <div class="col-xs-12 col-md-8 p-none">Site1 loreum ipsim A</div>
+                    <div class="col-xs-12 col-md-4 p-none lh__6">
+                      <div class="prog">
+                        <div class="pro__base">
+                          <div class="pro__top" style="width:30%"></div>
+                        </div>
+                        <div class="progress-label font__bold text__63bb67__12">30/50</div>
                       </div>
                     </div>
                     <div class="clearfix"></div>
@@ -102,7 +113,7 @@
           </div>
         </div>
       </div>
-      <div class="bg__white cards  box__shadow-cmn pl-md max__w__1280">
+      <div class="bg__white cards  box__shadow-cmn pl-md ">
         <div class="row">
           <div class="col-xs-12 col-md-1 p-none text-center">
             <img class="" src="../../../assets/images/list-default.gif" alt="Diet and Nutrition Study">
@@ -117,31 +128,37 @@
                 </div>
                 <div class="col-xs-12 col-md-12 p-none text__353a3e__14 progress__bar">
                   <div class="row display-flex-center progress__bar__row">
-                    <div class="col-xs-12 col-md-9 p-none">Site1 loreum ipsim A</div>
-                    <div class="col-xs-12 col-md-3 p-none lh__6">
-                      <div class="progress-label font__bold text__63bb67__12">30/50</div>
-                      <div class="progress">
-                        <span class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+                    <div class="col-xs-12 col-md-8 p-none">Site1 loreum ipsim A</div>
+                    <div class="col-xs-12 col-md-4 p-none lh__6">
+                      <div class="prog">
+                        <div class="pro__base">
+                          <div class="pro__top" style="width:30%"></div>
+                        </div>
+                        <div class="progress-label font__bold text__63bb67__12">30/50</div>
                       </div>
                     </div>
                     <div class="clearfix"></div>
                   </div>
                   <div class="row display-flex-center progress__bar__row">
-                    <div class="col-xs-12 col-md-9 p-none">Site2 loreum ipsim A</div>
-                    <div class="col-xs-12 col-md-3 p-none lh__6">
-                      <div class="progress-label font__bold text__63bb67__12">30/50</div>
-                      <div class="progress">
-                        <span class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+                    <div class="col-xs-12 col-md-8 p-none">Site2 loreum ipsim A</div>
+                    <div class="col-xs-12 col-md-4 p-none lh__6">
+                      <div class="prog">
+                        <div class="pro__base">
+                          <div class="pro__top" style="width:30%"></div>
+                        </div>
+                        <div class="progress-label font__bold text__63bb67__12">30/50</div>
                       </div>
                     </div>
                     <div class="clearfix"></div>
                   </div>
                   <div class="row display-flex-center progress__bar__row">
-                    <div class="col-xs-12 col-md-9 p-none">Site3 loreum ipsim A</div>
-                    <div class="col-xs-12 col-md-3 p-none lh__6">
-                      <div class="progress-label font__bold text__63bb67__12">30/50</div>
-                      <div class="progress">
-                        <span class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+                    <div class="col-xs-12 col-md-8 p-none">Site3 loreum ipsim A</div>
+                    <div class="col-xs-12 col-md-4 p-none lh__6">
+                      <div class="prog">
+                        <div class="pro__base">
+                          <div class="pro__top" style="width:30%"></div>
+                        </div>
+                        <div class="progress-label font__bold text__63bb67__12">30/50</div>
                       </div>
                     </div>
                     <div class="clearfix"></div>
@@ -150,30 +167,32 @@
               </div>
             </div>
             <div>
-              <button class="bt__4285f4 font__bold">+ Add Site</button>
+              <button #template  class="bt__4285f4 font__bold" (click)="openModal(template)">+ Add Site</button>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div id="menu2" class="tab-pane fade">
-      <div class="bg__white cards cards__var box__shadow-cmn pl-md max__w__1280">
+      <div class="bg__white cards cards__var box__shadow-cmn pl-md ">
         <div class="row display-flex-center ">
           <div class="col-xs-12 col-md-1 p-none text-center">
             <img class="" src="../../../assets/images/site-list-tab.gif" alt="A Study for Pregnant Women">
           </div>
-          <div class="col-xs-12  col-md-6 p-none">
+          <div class="col-xs-12  col-md-5 p-none">
             <div class="text__4285f4__12 text-capitalize">STUDY003</div>
             <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Pregnant Women</div>
             <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
               <div class="col-xs-6 col-md-12  p-none">4 sites</div>
             </div>
           </div>
-          <div class="col-xs-12  col-md-3 p-none progress__bar">
+          <div class="col-xs-12  col-md-4 p-none progress__bar">
             <div class="col-xs-12  p-none lh__6">
-              <div class="progress-label font__bold text__63bb67__12">30/50</div>
-              <div class="progress">
-                <span class="progress-bar" role="progressbar" style="width: 53%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+              <div class="prog">
+                <div class="pro__base">
+                  <div class="pro__top" style="width:30%"></div>
+                </div>
+                <div class="progress-label font__bold text__63bb67__12">30/50</div>
               </div>
             </div>
           </div>
@@ -183,23 +202,25 @@
           </div>
         </div>
       </div>
-      <div class="bg__white cards cards__var box__shadow-cmn pl-md max__w__1280">
+      <div class="bg__white cards cards__var box__shadow-cmn pl-md">
         <div class="row display-flex-center ">
           <div class="col-xs-12 col-md-1 p-none text-center">
             <img class="" src="../../../assets/images/fitness.gif" alt="A Study for Pregnant Women">
           </div>
-          <div class="col-xs-12  col-md-6 p-none">
+          <div class="col-xs-12  col-md-5 p-none">
             <div class="text__4285f4__12 text-capitalize">STUDY658</div>
             <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Fitness</div>
             <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
               <div class="col-xs-6 col-md-12  p-none">4 sites</div>
             </div>
           </div>
-          <div class="col-xs-12  col-md-3 p-none progress__bar">
+          <div class="col-xs-12  col-md-4 p-none progress__bar">
             <div class="col-xs-12  p-none lh__6">
-              <div class="progress-label font__bold text__63bb67__12">30/50</div>
-              <div class="progress">
-                <span class="progress-bar" role="progressbar" style="width: 82%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+              <div class="prog">
+                <div class="pro__base">
+                  <div class="pro__top" style="width:30%"></div>
+                </div>
+                <div class="progress-label font__bold text__63bb67__12">30/50</div>
               </div>
             </div>
           </div>
@@ -211,20 +232,22 @@
       </div>
     </div>
     <div id="menu3" class="tab-pane fade">
-      <div class="bg__white cards  box__shadow-cmn  max__w__1280 p-xl">
+      <div class="bg__white cards  box__shadow-cmn   p-xl">
         <div class="row display-flex-center ">
-          <div class="col-xs-12  col-md-7 p-none">
+          <div class="col-xs-12  col-md-6 p-none">
             <div class="text__4285f4__12 text-capitalize">STUDY003</div>
             <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Pregnant Women</div>
             <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
               <div class="col-xs-6 col-md-12  p-none">4 sites</div>
             </div>
           </div>
-          <div class="col-xs-12  col-md-3 p-none progress__bar">
+          <div class="col-xs-12  col-md-4 p-none progress__bar">
             <div class="col-xs-12  p-none lh__6">
-              <div class="progress-label font__bold text__63bb67__12">30/50</div>
-              <div class="progress">
-                <span class="progress-bar" role="progressbar" style="width: 53%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+              <div class="prog">
+                <div class="pro__base">
+                  <div class="pro__top" style="width:30%"></div>
+                </div>
+                <div class="progress-label font__bold text__63bb67__12">30/50</div>
               </div>
             </div>
           </div>
@@ -238,20 +261,22 @@
           </div>
         </div>
       </div>
-      <div class="bg__white cards  box__shadow-cmn  max__w__1280 p-xl">
+      <div class="bg__white cards  box__shadow-cmn   p-xl">
         <div class="row display-flex-center ">
-          <div class="col-xs-12  col-md-7 p-none">
+          <div class="col-xs-12  col-md-6 p-none">
             <div class="text__4285f4__12 text-capitalize">STUDY658</div>
             <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Fitness</div>
             <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
               <div class="col-xs-6 col-md-12  p-none">4 sites</div>
             </div>
           </div>
-          <div class="col-xs-12  col-md-3 p-none progress__bar">
+          <div class="col-xs-12  col-md-4 p-none progress__bar">
             <div class="col-xs-12  p-none lh__6">
-              <div class="progress-label font__bold text__63bb67__12">30/50</div>
-              <div class="progress">
-                <span class="progress-bar" role="progressbar" style="width: 82%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></span>
+              <div class="prog">
+                <div class="pro__base">
+                  <div class="pro__top" style="width:30%"></div>
+                </div>
+                <div class="progress-label font__bold text__63bb67__12">30/50</div>
               </div>
             </div>
           </div>
@@ -267,51 +292,47 @@
       </div>
     </div>
 </div>
-<!-- location -->
-<!-- <div class="subheader padding__0__140">
-  <div class="container">
-    <div class="row" >
-      <div class="col-md-6 pl-none subheader__title">Locations</div>
-      <div class="col-md-6 pr-none align__flex__right" ><button class="btn btn-primary  width__auto blue__btn font14">Add Location</button></div>
-    </div>
-  </div>
-</div> 
-<div class="cards1">
-  <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
-    <thead>
-    <tr>
-      <th>
-        <mfDefaultSorter by="name">Location ID</mfDefaultSorter>
-      </th>
-      <th>
-        <mfDefaultSorter by="email">Location Name</mfDefaultSorter>
-      </th>
-      <th>
-        <mfDefaultSorter by="age">Associated Studies</mfDefaultSorter>
-      </th>
-      <th>
-        <mfDefaultSorter by="city">Status</mfDefaultSorter>
-      </th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let user of mf.data">
-      <td>{{user.name}}</td>
-      <td>{{user.email}}</td>
-      <td>{{user.age}}</td>
-      <td>{{user.city | uppercase}}</td>
-    </tr>
-    </tbody>
-    <tfoot>
-    <tr>
-      <td colspan="4">
-        <mfBootstrapPaginator></mfBootstrapPaginator>
-      </td>
-    </tr>
-    </tfoot>
-    </table>
-</div> -->
 
+<!-- loader -->
 <div class="text-center mb-lg">
   <img src="../../../assets/images/loader-dot.gif" alt="Lpading">
 </div>
+<!-- loader -->
+
+ <!-- modal -->
+<ng-template #template>
+  <div class="modal-body modal__body">
+    <form>
+      <div class="row border__bottom__c4d1e6 background__dfe4ec">
+        <div class="col-xs-12 col-md-5 p-none">
+          <div class="form-group ">
+            <label for="study">study</label>
+            <input type="text" class="form-control" id="study" value="A Study for Pregnant Women" readonly>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-7 p-none">
+          <div class="form-group ">
+            <label for="app">app</label>
+            <input type="text" class="form-control" id="app" value="Better Tommorrow App" readonly>
+          </div>
+        </div>
+      </div>
+      <div class="row border__bottom__c4d1e6">
+        <div class="col-xs-12 col-md-12 p-none">
+          <div class="form-group">
+            <label for="Location">Location</label>
+            <select class="form-control">
+              <option value="Select Location">Select Location</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    
+      <div class="p-xlg">
+        <button type="submit" class="btn bt__add mr-sm">Add</button>
+        <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+ <!-- modal -->
