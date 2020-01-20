@@ -1,1 +1,98 @@
-<p>location-details works!</p>
+<div class="subheader p-none pl-none">
+    <div class="max__w__1280 m-none">
+        <div class="row" >
+            <div class="col-xs-12 col-md-6 p-none ">
+                <a href="#" class="subheader__title">
+                    <img class="mr-sm" src="../../../../assets/images/left-arrow.gif" alt="Add new location">
+                    <span>Location Details</span>
+                </a>
+            </div>
+            <div class="col-xs-12 col-md-6 p-none text-right">
+                <button class="btn font12__8495a5 p-none" #template (click)="openModal(template)">
+                    <img class="mr-xs" src="../../../../assets/images/edit-icon.gif" alt="Edit Location Details">
+                    <span class="text__deco__8495a5 font12__8495a5"> Edit Location Details</span>
+                </button>
+            </div>
+        </div>
+    </div> 
+</div>
+
+<div class="max__w__1280 add__location">
+    <div class="bg__white card__inside__pad box__shadow-cmn m-none">
+        <div class="row border-bottom__c4d1e6">
+            <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
+            <div class="form-group ">
+                <label for="study">Location ID</label>
+                <div class="font16__353a3e">Location -Id</div>
+            </div>
+            </div>
+            <div class="col-xs-12 col-md-6 p-none pl-xlg">
+            <div class="form-group ">
+                <label for="app">Location Name</label>
+                <div class="font16__353a3e">Location - Lorem Impsum 1</div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12 p-none">
+            <div class="form-group">
+                <label for="Location">Description</label>
+                <div class="font16__353a3e">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad 
+                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="cards__list mb-xlg">
+        <div class="subheader__title mb-lg mt-xlg">Associated Studies ( 6 )</div>
+        <ul>
+            <li>A Study for Pregnant Women</li>
+            <li>A Study for Fitness</li>
+            <li>Diet and Nutrietion Study</li>
+            <li>Pregnant Women Study</li>
+            <li>A Study for Diet </li>
+            <li>Daily Health Study</li>
+        </ul>
+    </div>
+</div>
+ 
+ <!-- modal -->
+ <ng-template #template>
+    <div class="modal-body modal__body">
+      <form>
+        <div class="row border__bottom__c4d1e6 background__dfe4ec">
+          <div class="col-xs-12 col-md-5 p-none">
+            <div class="form-group ">
+              <label for="study">study</label>
+              <input type="text" class="form-control" id="study" value="A Study for Pregnant Women" readonly>
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-7 p-none">
+            <div class="form-group ">
+              <label for="app">app</label>
+              <input type="text" class="form-control" id="app" value="Better Tommorrow App" readonly>
+            </div>
+          </div>
+        </div>
+        <div class="row border__bottom__c4d1e6">
+          <div class="col-xs-12 col-md-12 p-none">
+            <div class="form-group">
+              <label for="Location">Location</label>
+              <select class="form-control">
+                <option value="Select Location">Select Location</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      
+        <div class="p-xlg">
+          <button type="submit" class="btn bt__add mr-sm">Add</button>
+          <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+   <!-- modal -->
