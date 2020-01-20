@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SiteCoordinatorComponent implements OnInit {
 
+  opencloseNavval:boolean= false;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  opencloseNav(){
+    this.opencloseNavval =!this.opencloseNavval;
+  }
 }
