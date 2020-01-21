@@ -25,11 +25,7 @@ const imageHttpOptions = {
 }
 @Injectable()
 export class DataService {
-
-  // baseUrl = 'http://localhost:8080/safetherapeutics/';  //local server URL to web api
-
-  // baseUrl = 'http://http://172.246.126.44:8080/safetherapeutics/';  //QA server URL to web api
-  baseUrl = 'http://3.130.105.203:8080/safetherapeutics/';  //UAT server URL to web api
+  baseUrl = 'http://localhost:8080/urwebappws/';  //local server URL to web api
   serviceUrl: string;
   count: number = 0;
   headersFromService: {};
@@ -84,28 +80,13 @@ export class DataService {
     this.spinner.show();
     this.serviceUrl = '';
     this.serviceUrl = this.baseUrl + urlpath;
-    if (urlpath.startsWith("search/autocomplete") || urlpath.startsWith("search/searchResults")) {
-      httpOptions.headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': 'true',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
-      });
-    } else {
-      httpOptions.headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': 'true',
-        'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
-        'Cache-Control': 'no-cache',
-        'Pragma': 'no-cache',
-        'Expires': 'Sat, 01 Jan 2000 00:00:00 GMT'
-      });
-
-    }
-
+    httpOptions.headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': 'true',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+    });
     if (headers != '' && headers != 'undefined' && headers != undefined) {
       this.headersFromService = JSON.parse(headers);
       if (Object.keys(this.headersFromService).length > 0) {

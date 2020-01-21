@@ -1,73 +1,33 @@
 export class User {
 
-    userId: number;
-
-    userName: String;
-
-    fName: String
-
-    lName: String;
+    id: number;
 
     email: String;
 
-    phone: String;
+    firstName: String
 
-    accessCode: String;
+    lastName: String;
 
-    passwordAccessCode: String;
+    phoneNumber: String;
 
-    passwordSecurityToken:String;
+    emailChanged: number;
+
+    status: number  ;
+
+    manageUsers: number;
+
+    manageLocations:number;
     
-    authKey: string;
+    urAdminAuthId: string;
 
-    authId:number;
+    created:String;
 
-    userEnteredAccessCode: string;
+    createdBy: number;
 
-    healthcareNetworkId: number;
-
-    occupationId: number;
-
-    specialityId: number;
-
-    subSpecialityId: number;
-
-    healthcareNetworkText: string;
-
-    occupationText: string;
-
-    specialityText: string;
-
-    subSpecialityText: string;
-
-    yearsInPracticeId: number=0;
-    currentPassword:string ;
-    
     newPassword: String;
 
     password: String;
 
     confirmPassword: string;
 
-    update: boolean = false;
-
-    reminderOptIn: number;
-
-    stRole: number;
-
-    active: number;
-
-    archive: number;
-
-    createdBy: String;
-
-    modifiedBy: String;
-
-    createdDatetime: String;
-
-    modifiedDatetime: String;
-
-    st_healthcare_network_name:String;
-
-    checked:boolean=true;
 }
