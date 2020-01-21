@@ -1,4 +1,97 @@
-<p>
-  site-participants-list works!
-</p>
+<div class="subheader p-none pl-none">
+  <div class="max__w__1280 m-none">
+      <div class="flex__justify__space-between" >
+        <div class="subheader__title flex__justify__space-between align__items__baseline">
+          <div>
+            <img class="mr-sm" src="../../../../assets/images/left-arrow.gif" alt="Add new location">
+          </div>
+          <div>
+            <div class="mb-xs">Site Participant Registry</div>
+            <div class="flex__justify__space-between ">
+              <div class="pr-xlg">
+                <div class="text__4285f4__up__11">SITE</div>
+                <div class="text__8495a5__12">Site Lorem Impsum A</div>
+              </div>
+              <div class="pr-xlg">
+                <div class="text__4285f4__up__11">SITE</div>
+                <div class="text__8495a5__12">Site Lorem Impsum A</div>
+              </div>
+              <div>
+                <div class="text__4285f4__up__11">SITE</div>
+                <div class="text__8495a5__12">Site Lorem Impsum A</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div>
+            <div class="">
+              <div class="dropdown">
+                <button class="dropbtn btn bt__1a73e8 mr-sm" (click)="myFunction()">Add Participants
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content" id="myDropdown">
+                  <a href="#">Link 1</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+                <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font14">Decommission Site for Study</button>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+  </div> 
+</div>
+
+<div class="max__w__1280  p-none">
+  <ul class="yel__tabs nav nav-tabs bg__white">
+    <li class="active"><a data-toggle="tab" href="#menu1">All <span class="text__fbbc05__11">(120)</span></a></li>
+    <li><a data-toggle="tab" href="#menu2">Studies</a></li>
+    <li><a data-toggle="tab" href="#menu3">Apps</a></li>
+    <li><a data-toggle="tab" href="#menu4">Apps</a></li>
+    <li><div class="active__34a853n enable__active">Active</div></li>
+  </ul>
+  
+  <div class="tab-content">
+    <div id="menu1" class="tab-pane fade in active">
+      <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+        <thead>
+        <tr>
+          <th>
+            <mfDefaultSorter by="name">Location ID</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter by="email">Location Name</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter by="age">Associated Studies</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter by="city">Status</mfDefaultSorter>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of mf.data">
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.age}}</td>
+          <td>{{user.city | uppercase}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="4">
+            <mfBootstrapPaginator></mfBootstrapPaginator>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div id="menu2" class="tab-pane fade">Studies</div>
+    <div id="menu3" class="tab-pane fade">Apps</div>
+    <div id="menu4" class="tab-pane fade">Apps</div>
+  </div>
+</div>
 

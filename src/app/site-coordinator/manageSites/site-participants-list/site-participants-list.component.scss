@@ -1,0 +1,59 @@
+.yel__tabs{
+    margin-top:20px;
+    border-radius: 10px 10px 0 0;
+}
+.yel__tabs li a{
+    padding: 14px 30px !important;
+    display: inline-block;
+}
+.yel__tabs li a{
+	color:#8495a5;
+	font-size:15px;
+}
+.yel__tabs li.active:nth-child(1) a{
+	color:#fbbc05;
+    font-size:15px;
+    border-bottom: 2px solid #fbbc05;
+}
+.yel__tabs li.active:nth-child(2) a{
+	color:#4285f4;
+    font-size:15px;
+    border-bottom: 2px solid #4285f4;
+}
+.yel__tabs li.active:nth-child(3) a{
+	color:#34a853;
+    font-size:15px;
+    border-bottom: 2px solid #34a853;
+}
+.yel__tabs li.active:nth-child(4) a{
+	color:#ea4335;
+    font-size:15px;
+    border-bottom: 2px solid #ea4335;
+}
+  
+.dropdown .dropbtn {
+    color: white;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.fa-caret-down:before {
+    content: "\f0d7";
+    font-size: 14px;
+    margin-left: 6px;
+}
