@@ -31,9 +31,17 @@
                   <i class="fa fa-caret-down"></i>
                 </button>
                 <div class="dropdown-content" id="myDropdown">
-                  <a href="#">Link 1</a>
-                  <a href="#">Link 2</a>
-                  <a href="#">Link 3</a>
+                  <div class="flex__justify__space-between mb-xs">
+                    <div class="mr-sm">
+                      <button  class="bt__4285f4 font__bold" #template (click)="openModal(template)">Add Email</button>
+                    </div>
+                    <div>
+                      <button  class="bt__4285f4 font__bold">Import Email List</button>
+                    </div>
+                  </div>
+                  <div class=" flex__row__reverse">
+                    <div class="text__4285f4__10">Download Template</div>
+                  </div>
                 </div>
                 <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font14">Decommission Site for Study</button>
               </div> 
@@ -44,14 +52,35 @@
   </div> 
 </div>
 
-<div class="max__w__1280  p-none">
-  <ul class="yel__tabs nav nav-tabs bg__white">
-    <li class="active"><a data-toggle="tab" href="#menu1">All <span class="text__fbbc05__11">(120)</span></a></li>
-    <li><a data-toggle="tab" href="#menu2">Studies</a></li>
-    <li><a data-toggle="tab" href="#menu3">Apps</a></li>
-    <li><a data-toggle="tab" href="#menu4">Apps</a></li>
-    <li><div class="active__34a853n enable__active">Active</div></li>
-  </ul>
+<div class="max__w__1280  p-none site__participant">
+  <div class="flex__justify__space-between bg__white yel__tabs border-bottom__dee2e6">
+    <div>
+      <ul class=" nav nav-tabs ">
+        <li class="active"><a data-toggle="tab" href="#menu1">All <span class="text__fbbc05__11">(120)</span></a></li>
+        <li><a data-toggle="tab" href="#menu2">New <span class="text__747d84__11">(40)</span></a></li>
+        <li><a data-toggle="tab" href="#menu3">Invited <span class="text__747d84__11">(70)</span></a></li>
+        <li><a data-toggle="tab" href="#menu4">Disabled <span class="text__747d84__11">(10)</span></a></li>
+        <li></li>
+      </ul>
+    </div>
+    <div class="pr-xlg">
+      
+      <div class="flex__justify__space-between mb-xs">
+        <div class="mr-sm">
+          <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113" >Send Invitation</button>
+        </div>
+        <div class="mr-sm">
+          <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113" >Resend Invitation</button>
+        </div>
+        <div>
+          <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 bt__font12__pad113">Disable Invitation</button>
+        </div>
+        <div>
+          <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113 bg__34a853" >Enable Invitation</button>
+        </div>
+      </div>
+    </div>
+  </div>
   
   <div class="tab-content">
     <div id="menu1" class="tab-pane fade in active">
@@ -59,25 +88,43 @@
         <thead>
         <tr>
           <th>
-            <mfDefaultSorter by="name">Location ID</mfDefaultSorter>
+            <mfDefaultSorter by="name">Participant Email</mfDefaultSorter>
           </th>
           <th>
-            <mfDefaultSorter by="email">Location Name</mfDefaultSorter>
+            <mfDefaultSorter by="email">Onboarding Status</mfDefaultSorter>
           </th>
           <th>
-            <mfDefaultSorter by="age">Associated Studies</mfDefaultSorter>
+            <mfDefaultSorter by="age">Enrollment Status </mfDefaultSorter>
           </th>
           <th>
-            <mfDefaultSorter by="city">Status</mfDefaultSorter>
+            <mfDefaultSorter by="city">Enrollment Date</mfDefaultSorter>
           </th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let user of mf.data">
-          <td>{{user.name}}</td>
-          <td>{{user.email}}</td>
-          <td>{{user.age}}</td>
-          <td>{{user.city | uppercase}}</td>
+        <tr>
+          <td>andreasbrixen@gmail.com</td>
+          <td>New</td>
+          <td>Yet to Enroll</td>
+          <td>12/18/2020</td>
+        </tr>
+        <tr>
+          <td>andreasbrixen@gmail.com</td>
+          <td>
+            <div class=" text__353a3e__14">Invited</div>
+          </td> 
+          <td>
+            <div class="text__8495a5__14">Withdrown</div>
+          </td>
+          <td>12/18/2020</td>
+        </tr>
+        <tr>
+          <td>andreasbrixen@gmail.com</td>
+          <td>
+            <div class="text__8495a5__14">Disabled</div>
+          </td>
+          <td><div class="text__353a3e__14">Enrolled</div></td>
+          <td>12/18/2020</td>
         </tr>
         </tbody>
         <tfoot>
@@ -89,9 +136,138 @@
         </tfoot>
       </table>
     </div>
-    <div id="menu2" class="tab-pane fade">Studies</div>
-    <div id="menu3" class="tab-pane fade">Apps</div>
-    <div id="menu4" class="tab-pane fade">Apps</div>
+    <div id="menu2" class="tab-pane fade"> 
+      <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+        <thead>
+          <tr>
+            <th>
+              <mfDefaultSorter by="name"> 
+                <div class="form-group mb-none">
+                  <input type="checkbox" id="css">
+                  <label for="css">Participant Email</label>
+                </div>
+              </mfDefaultSorter>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              <div>
+                <div class="form-group mb-none">
+                  <input type="checkbox" id="css1">
+                  <label for="css1">andreasbrixen@gmail.com</label>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="4">
+            <mfBootstrapPaginator></mfBootstrapPaginator>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div id="menu3" class="tab-pane fade">
+      <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+        <thead>
+          <tr>
+            <th>
+              <mfDefaultSorter by="name"> 
+                <div class="form-group mb-none">
+                  <input type="checkbox" id="css">
+                  <label for="css">Participant Email</label>
+                </div>
+              </mfDefaultSorter>
+            </th>
+            <th>Last Invited On</th>
+            <th>Enrollment Status</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              <div>
+                <div class="form-group mb-none">
+                  <input type="checkbox" id="css1">
+                  <label for="css1">andreasbrixen@gmail.com</label>
+                </div>
+              </div>
+            </td>
+            <td>12/19/2020</td>
+            <td><div class="text__353a3e__14">Enrolled</div></td>
+          </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="4">
+            <mfBootstrapPaginator></mfBootstrapPaginator>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div id="menu4" class="tab-pane fade">
+      <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+        <thead>
+          <tr>
+            <th>
+              <mfDefaultSorter by="name"> 
+                <div class="form-group mb-none">
+                  <input type="checkbox" id="css">
+                  <label for="css">Participant Email</label>
+                </div>
+              </mfDefaultSorter>
+            </th>
+            <th>Date Disabled</th>
+            <th>Enrollment Status</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>
+              <div>
+                <div class="form-group mb-none">
+                  <input type="checkbox" id="css1">
+                  <label for="css1">andreasbrixen@gmail.com</label>
+                </div>
+              </div>
+            </td>
+            <td>12/19/2020</td>
+            <td><div class="text__353a3e__14">Enrolled</div></td>
+          </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="4">
+            <mfBootstrapPaginator></mfBootstrapPaginator>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
   </div>
 </div>
 
+<ng-template #template>
+  <div class="modal-body modal__body">
+    <form>
+      <div class="row border__bottom__c4d1e6">
+        <div class="col-xs-12 col-md-12 p-none ">
+          <div class="form-group border-radius__77">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="study" value="" placeholder="Enter Email">
+          </div>
+        </div>
+      </div>
+      <div class="p-xlg flex__justify__space-between">
+          <div><button type="submit" class="btn bt__add mr-sm">Add</button>
+              <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button>
+          </div>
+      </div>
+    </form>
+  </div>
+</ng-template>
