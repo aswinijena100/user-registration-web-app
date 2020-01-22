@@ -17,29 +17,29 @@ export class AuthService {
   userloginedOrNot(): Observable<boolean> {
   this.user=JSON.parse(window.localStorage.getItem("currentUser"));
  
-    if (this.user && this.user != null && this.user != undefined && Object.keys(this.user).length > 0 && this.user.stRole==2) {
-      this.flag = true;
-    } else {
-      this.flag = false;
-    }
+    // if (this.user && this.user != null && this.user != undefined && Object.keys(this.user).length > 0 && this.user.stRole==2) {
+    //   this.flag = true;
+    // } else {
+    //   this.flag = false;
+    // }
     return of(this.flag);
   }
   
   getauthorisationToken(): string {
     let authtoken = "";
-    this.user=JSON.parse(window.localStorage.getItem("currentUser"));
-    if (this.user && this.user != null && this.user != undefined && Object.keys(this.user).length > 0) {     
-      authtoken = this.user.authKey;
-    }
+    // this.user=JSON.parse(window.localStorage.getItem("currentUser"));
+    // if (this.user && this.user != null && this.user != undefined && Object.keys(this.user).length > 0) {     
+    //   authtoken = this.user.authKey;
+    // }
     return authtoken;
   }
 
   getUserId(): string {
     let userId ='';
-    this.user=JSON.parse(window.localStorage.getItem("currentUser"));
-    if (this.user && this.user != null && this.user != undefined && Object.keys(this.user).length > 0) {    
-      userId = this.user.userId.toString();
-    }
+    // this.user=JSON.parse(window.localStorage.getItem("currentUser"));
+    // if (this.user && this.user != null && this.user != undefined && Object.keys(this.user).length > 0) {    
+    //   userId = this.user.userId.toString();
+    // }
 
     return userId;
   }
