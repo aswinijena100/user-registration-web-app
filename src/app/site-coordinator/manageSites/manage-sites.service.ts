@@ -9,7 +9,7 @@ export class ManageSitesService {
 
   constructor(private dataService: DataService) { }
 
-  getSites() {
+  getstudiesWithSite() {
 
     return this.dataService.HttpGetRequest('sites?userId=1', '');
 

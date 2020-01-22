@@ -24,6 +24,8 @@ import { ManageUsersService } from "./manageUsers/manage-users.service";
 import { LocationService } from "./locations/location.service";
 //libraries
 import { DataTableModule } from "angular-6-datatable";
+import { FormsModule } from '@angular/forms';
+
 //by prasanna
 
 @NgModule({
@@ -43,8 +45,8 @@ import { DataTableModule } from "angular-6-datatable";
   imports: [
     CommonModule,
     SiteCoordinatorRoutingModule,
-    DataTableModule // by prasanna
-  ],
+    DataTableModule,
+    FormsModule],
   providers: [
     ManageAccountService,
     ManageSitesService,

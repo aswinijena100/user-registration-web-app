@@ -10,29 +10,39 @@ import { ManageSitesService } from "../manage-sites.service";
 export class DashboardComponent implements OnInit {
 
   modalRef: BsModalRef;
-  sites: any[] = [];
+  studiesWithSites: any[] = [];
   data: any[] = [];
-
-  constructor(private modalService: BsModalService, private manageSitesService: ManageSitesService) { }
+  activeTab: string = 'sites';
+  addSite: any = {};
+  constructor(private modalService: BsModalService, private manageSiteService: ManageSitesService) { }
 
 
   ngOnInit() {
-    this.getSites();
+    this.getstudiesWithSite();
   }
 
-  getSites() {
-    console.log("sites")
-    this.sites = [];
-    this.manageSitesService.getSites().subscribe(data => {
-      this.sites = data;
-      this.data = JSON.parse(JSON.stringify(this.sites));
+  getstudiesWithSite() {
+    console.log("studiesWithSite")
+    this.studiesWithSites = [];
+    this.manageSiteService.getstudiesWithSite().subscribe(data => {
+      this.studiesWithSites = data;
+      this.data = JSON.parse(JSON.stringify(this.studiesWithSites));
     }, error => {
-      this.sites = [];
+      this.studiesWithSites = [];
       console.log("error");
     });
   }
-  openModal(template: TemplateRef<any>) {
+  openAddSiteModal(template: TemplateRef<any>, study: any) {
     this.modalRef = this.modalService.show(template);
+    if (study != undefined && study != null) {
+      this.addSite.studyId = study.id;
+      this.addSite.studyCustomId = study.customId;
+      this.addSite.appId = study.appId;
+      this.addSite.appInfoId = study.appInfoId;
+    }
+  
   }
+  addSiteData(){
 
+  }
 }
