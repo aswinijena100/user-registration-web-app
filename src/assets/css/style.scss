@@ -573,6 +573,8 @@ footer ul li:last-child  a{
     line-height: 19px;
 }
 
+
+
 /*Style Guide*/
 
 /*Normal text1*/
@@ -585,7 +587,10 @@ footer ul li:last-child  a{
 	font-size:14px;
 	color:#4285f4;
 }
-
+.text__4285f4__12{
+	font-size:12px;
+	color:#4285f4;
+}
 .text__4285f4__up__11{
 	font-size:11px;
 	color:#4285f4;
@@ -677,6 +682,18 @@ footer ul li:last-child  a{
 .flex__{
 	display: flex;
 }
+.flex__wrap{
+	flex-wrap:wrap !important;
+}
+.flex__wrap__reverse{
+	flex-wrap:wrap-reverse !important;
+}
+.flex__row{
+	flex-flow:row !important;
+}
+.flex__row__reverse{
+	flex-flow:row-reverse !important;
+}
 .flex__justify__space-between{
 	display: flex;
 	justify-content: space-between;
@@ -692,14 +709,12 @@ footer ul li:last-child  a{
 .align__items__center{
 	align-items: center !important;
 }
+.width__100{
+	width:100% !important;
+}
 .show {
 	display: block !important;
   }
-.flex__wrap{
-	flex-wrap:wrap !important;
-}
-.flex__wrap__reverse{
-	flex-wrap:wrap-reverse !important;
-}
+
 /*Responssive */
 
