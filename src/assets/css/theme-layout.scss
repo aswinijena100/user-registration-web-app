@@ -33,9 +33,6 @@
 	.progress-label{
 		float:left;
 	}
-	.progress__bar__row >div{
-		margin-bottom:10px;
-	}
 	.progress__bar+div.text-right{
 		text-align:center !important;
     }
@@ -48,7 +45,7 @@
 	}
 	
 	.img__container__left{
-		padding-right:20px;
+		padding-right:10px;
 	}
 	.mb__display__none{
 		display:none;
@@ -57,13 +54,16 @@
 		width:100%;
 	}
 	.progress-label{
-		margin-top:10px;
+		margin-top:5px;
 	}
 	.progress__bar__next{
 		padding-left:20px;
 	}
 	.mb__width__100{
 		width:100%;
+	}
+	.cards{
+		padding:16px;
 	}
 }
 @media (min-width: 768px) {
@@ -76,9 +76,6 @@
 	}
 	.btn__container{
 		margin-top:30px !important;
-	}
-	.progress__bar__row >div{
-		margin-bottom:0px;
 	}
 	.progress__bar+div.text-right{
 		text-align:right !important;
@@ -101,6 +98,12 @@
 	}
 	.mb__width__100{
 		width:auto;
+	}
+	.cards{
+		padding:30px;
+	}
+	.img__container__left{
+		padding-right:20px;
 	}
 }
 @media (min-width: 1020px) {

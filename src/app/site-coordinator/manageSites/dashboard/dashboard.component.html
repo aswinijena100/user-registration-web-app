@@ -4,9 +4,9 @@
 
 <div>
   <ul class="subheader subheader__menu nav nav-tabs ">
-    <li [ngClass]="{'active':activeTab=='sites'}"><a (click)="changeHeader('sites')" data-toggle="tab">Sites</a></li>
-    <li [ngClass]="{'active':activeTab=='studies'}"><a (click)="changeHeader('studies')" data-toggle="tab">Studies</a></li>
-    <li [ngClass]="{'active':activeTab=='apps'}"><a (click)="changeHeader('apps')" data-toggle="tab">Apps</a>
+    <li [ngClass]="{'active':activeTab=='sites'}"><a (click)="activeTab='sites'" data-toggle="tab">Sites</a></li>
+    <li [ngClass]="{'active':activeTab=='studies'}"><a (click)="activeTab='studies'" data-toggle="tab">Studies</a></li>
+    <li [ngClass]="{'active':activeTab=='apps'}"><a (click)="activeTab='apps'" data-toggle="tab">Apps</a>
     </li>
   </ul>
  
@@ -23,10 +23,10 @@
               <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
                 <div class="col-xs-6 col-md-3  p-none"><span *ngIf="study.type!='OPEN'">{{study.sites.length}}
                     sites</span><span *ngIf="study.type=='OPEN'">Open Study</span></div>
-                <div class=" col-xs-6 col-md-9 text-right p-none">Enrolled/<span
+                <div class=" col-xs-6 col-md-9 text-right p-none mb__display__none">Enrolled/<span
                     *ngIf="study.type!='OPEN'">Invited</span><span *ngIf="study.type=='OPEN'">Target</span></div>
               </div>
-              <div class="col-xs-12 col-md-12 p-none text__353a3e__14 border__bottom__red progress__bar">
+              <div class="col-xs-12 col-md-12 p-none  border__bottom__red progress__bar">
                 <div *ngFor="let site of study.sites" class="row display-flex-center progress__bar__row">
                   <div class="col-xs-12 col-md-8 p-none">{{site.name}}</div>
                   <div class="col-xs-12 col-md-4 p-none lh__6">
@@ -73,7 +73,7 @@
                 <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Fitness</div>
                 <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
                   <div class="col-xs-6 col-md-3  p-none">Open Study</div>
-                  <div class="col-xs-6 col-md-9 text-right p-none">Enrolled/Invited</div>
+                  <div class="col-xs-6 col-md-9 text-right p-none mb__display__none">Enrolled/Invited</div>
                 </div>
                 <div class="col-xs-12 col-md-12 p-none progress__bar">
                   <div class="row display-flex-center progress__bar__row">
@@ -105,7 +105,7 @@
                 <div class="col-xs-12  col-md-12 p-none text__353a3e__20">Diet and Nutrition Study</div>
                 <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
                   <div class="col-xs-6 col-md-3  p-none">3 sites</div>
-                  <div class="col-xs-6 col-md-9 text-right p-none">Enrolled/Invited</div>
+                  <div class="col-xs-6 col-md-9 text-right p-none mb__display__none">Enrolled/Invited</div>
                 </div>
                 <div class="col-xs-12 col-md-12 p-none progress__bar">
                   <div class="row display-flex-center progress__bar__row">
@@ -147,9 +147,9 @@
                 </div>
               </div>
             </div>
-            <div *ngIf="study.type!='OPEN' && study.totalSitesCount==study.sitesWithEditPermissionCount">
-              <button class="bt__4285f4 font__bold" (click)="openAddSiteModal(template,study)">+ Add Site</button>
-            </div>
+            <!-- <div>
+              <button #template  class="bt__4285f4 font__bold" (click)="openModal(template)">+ Add Site</button>
+            </div> -->
           </div>
         </div>
       </div>
@@ -273,3 +273,5 @@
  <!-- modal -->
 
 <!-- ************************************************************************************* -->
+
+
