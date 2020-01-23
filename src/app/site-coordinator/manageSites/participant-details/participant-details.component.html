@@ -1,3 +1,124 @@
-<p>
-  participant-details works!
-</p>
+<div class="subheader p-none pl-none">
+  <div class="max__w__1280 m-none">
+    <div class="flex__justify__space-between" >
+      <div class="subheader__title flex__justify__space-between align__items__baseline">
+        <div>
+          <img class="mr-sm" src="../../../../assets/images/left-arrow.gif" alt="Add new location">
+        </div>
+        <div>
+          <div class="mb-xs">Participant Details</div>
+          <div class="flex__justify__space-between ">
+            <div class="pr-xlg">
+              <div class="text__4285f4__up__11">SITE</div>
+              <div class="text__8495a5__12">Site Lorem Impsum A</div>
+            </div>
+            <div class="pr-xlg">
+              <div class="text__4285f4__up__11">Study</div>
+              <div class="text__8495a5__12">Study Lorem Impsum A</div>
+            </div>
+            <div>
+              <div class="text__4285f4__up__11">App</div>
+              <div class="text__8495a5__12">App Lorem Impsum A</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex__justify__space-between">
+        <div class="mr-sm">
+          <button type="submit" class="btn bt__1a73e8 text__fff flex__row__reverse pad__5__13 font14 ">Resend Invitation</button>
+        </div>
+        <div>
+          <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font14">Disable Invitation</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+</div>
+
+  <div class="max__w__1280 m-none site__participant">
+    <div class="bg__white card__inside__pad box__shadow-cmn m-none p-xlg">
+      <div>
+        <div>
+          <div class="text__4285f4__up__11">SITE</div>
+          <div>andreasbrixen@gmail.com</div>
+        </div>
+        <div>
+          <div class="flex__justify__space-between ">
+            <div class="pr-xlg">
+              <div class="text__4285f4__up__11">SITE</div>
+              <div class="text__8495a5__12">Site Lorem Impsum A</div>
+            </div>
+            <div class="pr-xlg">
+              <div class="text__4285f4__up__11">Study</div>
+              <div class="text__8495a5__12">Study Lorem Impsum A</div>
+            </div>
+            <div>
+              <div class="text__4285f4__up__11">App</div>
+              <div class="text__8495a5__12">App Lorem Impsum A</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="subheader__title mb-lg">Consent History</div>
+
+    <div class="cards1 m-none">
+      <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+        <thead>
+          <tr>
+            <th>
+              <mfDefaultSorter by="name">Participant Email</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="email">Site ID</mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="age">Onboarding Status </mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="age">Enrollment Status </mfDefaultSorter>
+            </th>
+            <th>
+              <mfDefaultSorter by="city">Enrollment Date</mfDefaultSorter>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>andreasbrixen@gmail.com</td>
+            <td>Site 1 Lorem Impsum A</td>
+            <td>New</td>
+            <td>Yet to Enroll</td>
+            <td>12/18/2020</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">
+              <mfBootstrapPaginator></mfBootstrapPaginator>
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+  </div>
+  </div>
+
+<ng-template #template>
+  <div class="modal-body modal__body">
+    <form>
+      <div class="row border__bottom__c4d1e6">
+        <div class="col-xs-12 col-md-12 p-none ">
+          <div class="form-group border-radius__77">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="study" value="" placeholder="Enter Email">
+          </div>
+        </div>
+      </div>
+      <div class="p-xlg flex__justify__space-between">
+          <div><button type="submit" class="btn bt__add mr-sm">Add</button>
+              <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button>
+          </div>
+      </div>
+    </form>
+  </div>
+</ng-template>
