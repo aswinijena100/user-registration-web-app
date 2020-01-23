@@ -356,7 +356,7 @@ footer ul li:last-child  a{
 .table td{
 	border-top :1px solid #c4d1e6  !important;
 	color: #353a3e;
-	font-size:12px;
+	font-size:14px;
 	font-weight:600;
 	padding: 12px 30px !important
 }
@@ -683,14 +683,23 @@ footer ul li:last-child  a{
 	align-items:center;
 }
 .flex__row__reverse{
-	display: flex;
-	flex-flow:row-reverse;
+	display: flex !important;
+	flex-flow:row-reverse !important;
 }
 .align__items__baseline{
-	align-items: baseline;
+	align-items: baseline !important;
+}
+.align__items__center{
+	align-items: center !important;
 }
 .show {
 	display: block !important;
   }
+.flex__wrap{
+	flex-wrap:wrap !important;
+}
+.flex__wrap__reverse{
+	flex-wrap:wrap-reverse !important;
+}
 /*Responssive */
 
