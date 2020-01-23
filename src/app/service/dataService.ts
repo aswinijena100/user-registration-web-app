@@ -25,7 +25,8 @@ const imageHttpOptions = {
 }
 @Injectable()
 export class DataService {
-  baseUrl = 'http://localhost:8080/urwebappws/';  //local server URL to web api
+  // baseUrl = 'http://localhost:8080/urwebappws/';  //local server URL to web api
+  baseUrl = "http://192.168.0.122:8080/urwebappws/";//firdose system
   serviceUrl: string;
   count: number = 0;
   headersFromService: {};
