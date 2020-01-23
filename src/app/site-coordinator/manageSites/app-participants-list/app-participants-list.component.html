@@ -1,3 +1,78 @@
-<p>
-  app-participants-list works!
-</p>
+<div class="subheader p-none pl-none">
+  <div class="max__w__1280 m-none">
+      <div class="flex__justify__space-between" >
+        <div class="subheader__title flex__justify__space-between align__items__baseline">
+          <div>
+            <img class="mr-sm" src="../../../../assets/images/left-arrow.gif" alt="Add new location">
+          </div>
+          <div>
+            <div class="mb-xs">App Participant Registry</div>
+            <div class=" ">
+              <div class="pr-xlg flex__justify__space-between">
+                <div class="text__4285f4__up__11 mr-xs">APP003 : </div>
+                <div class="text__8495a5__12">Better Tomorrow App</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div> 
+</div>
+
+<div class="max__w__1280 m-none site__participant">
+  <div class="cards1 m-none">
+  <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <thead>
+      <tr>
+        <th>
+          <mfDefaultSorter by="Email">Participant Email</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="Date">App registration Date</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="Status">App account Status</mfDefaultSorter>
+        </th>
+        <th>
+          <mfDefaultSorter by="Enrolled">No of Studies Enrolled</mfDefaultSorter>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>andreasbrixen@gmail.com</td>
+        <td>12/18/2020</td>
+        <td><div class="text__353a3e__14">Active</div></td>
+        <td>2</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4">
+          <mfBootstrapPaginator></mfBootstrapPaginator>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+</div>
+
+<ng-template #template>
+  <div class="modal-body modal__body">
+    <form>
+      <div class="row border__bottom__c4d1e6">
+        <div class="col-xs-12 col-md-12 p-none ">
+          <div class="form-group border-radius__77">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" id="study" value="" placeholder="Enter Email">
+          </div>
+        </div>
+      </div>
+      <div class="p-xlg flex__justify__space-between">
+          <div><button type="submit" class="btn bt__add mr-sm">Add</button>
+              <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button>
+          </div>
+      </div>
+    </form>
+  </div>
+</ng-template>
