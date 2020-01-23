@@ -1,55 +1,45 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Event as NavigationEvent } from "@angular/router";
 import { NavigationEnd } from "@angular/router";
 import { Router } from "@angular/router";
-import { DashboardComponent } from "./manageSites/dashboard/dashboard.component";
 @Component({
   selector: 'app-site-coordinator',
   templateUrl: './site-coordinator.component.html',
-  styleUrls: ['./site-coordinator.component.scss']
+  styleUrls: ['./site-coordinator.component.scss'],
 })
 export class SiteCoordinatorComponent implements OnInit {
-  @ViewChild(DashboardComponent, { static: false }) dashboardComponent: DashboardComponent;
+
+  searchPlaceholder: string = "Search by site or study ID or name"
   opencloseNavval: boolean = false;
-  public activated: {
-    dashboard: boolean;
-    siteParticipantList: boolean;
-  };
-  private router: Router;
+  componentRef: any;
+
   constructor(router: Router) {
-    this.router = router;
-    this.activated = {
-      dashboard: false,
-      siteParticipantList: false,
-    };
-
-    // Listen for routing events so we can update the activated route indicator
-    // as the user navigates around the application.
-    this.router.events.subscribe(
-      (event: NavigationEvent): void => {
-
-        if (event instanceof NavigationEnd) {
-
-          this.activated.dashboard = this.router.isActive("/", true);
-          this.activated.dashboard = this.router.isActive("user/dashboard", true);
-          this.activated.siteParticipantList = this.router.isActive("user/siteParticipants", true);
-          console.log(this.activated)
-          if (this.activated.dashboard) {
-            console.log(this.dashboardComponent.activeTab)
-          }
-        }
-
-      }
-    );
 
   }
-
-
   ngOnInit() {
 
   }
 
   opencloseNav() {
     this.opencloseNavval = !this.opencloseNavval;
+  }
+  search() {
+    this.componentRef.search();
+  }
+  onActivate(componentRef) {
+    this.componentRef = componentRef;
+    //Below will subscribe to the tab change emitter
+    componentRef.tabChangeItem.subscribe((data) => {
+      // Will receive the data from child here 
+      console.log("tab chnage event triggered " + data)
+      if (data == 'studies') {
+        this.searchPlaceholder = "Search by  study ID or name"
+      } else if (data == 'apps') {
+        this.searchPlaceholder = "Search by APP ID or name"
+      } else if (data == 'sites') {
+        this.searchPlaceholder = "Search by site or study ID or name"
+      }
+    })
+
   }
 }

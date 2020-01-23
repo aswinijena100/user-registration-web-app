@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ManageSitesService } from "../manage-sites.service";
 
@@ -8,7 +8,7 @@ import { ManageSitesService } from "../manage-sites.service";
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  @Output() tabChangeItem: EventEmitter<any> = new EventEmitter();
   modalRef: BsModalRef;
   studiesWithSites: any[] = [];
   data: any[] = [];
@@ -40,9 +40,16 @@ export class DashboardComponent implements OnInit {
       this.addSite.appId = study.appId;
       this.addSite.appInfoId = study.appInfoId;
     }
-  
-  }
-  addSiteData(){
 
+  }
+  addSiteData() {
+
+  }
+  search() {
+    console.log("inside dashboard " + this.activeTab)
+  }
+  changeHeader(tab) {
+    this.activeTab = tab;
+    this.tabChangeItem.emit(tab);
   }
 }

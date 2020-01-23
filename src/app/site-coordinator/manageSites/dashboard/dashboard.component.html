@@ -1,8 +1,8 @@
 <div>
   <ul class="subheader subheader__menu nav nav-tabs ">
-    <li [ngClass]="{'active':activeTab=='sites'}"><a (click)="activeTab='sites'" data-toggle="tab">Sites</a></li>
-    <li [ngClass]="{'active':activeTab=='studies'}"><a (click)="activeTab='studies'" data-toggle="tab">Studies</a></li>
-    <li [ngClass]="{'active':activeTab=='apps'}"><a (click)="activeTab='apps'" data-toggle="tab">Apps</a>
+    <li [ngClass]="{'active':activeTab=='sites'}"><a (click)="changeHeader('sites')" data-toggle="tab">Sites</a></li>
+    <li [ngClass]="{'active':activeTab=='studies'}"><a (click)="changeHeader('studies')" data-toggle="tab">Studies</a></li>
+    <li [ngClass]="{'active':activeTab=='apps'}"><a (click)="changeHeader('apps')" data-toggle="tab">Apps</a>
     </li>
   </ul>
 

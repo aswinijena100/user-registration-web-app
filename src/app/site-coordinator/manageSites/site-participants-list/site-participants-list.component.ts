@@ -1,4 +1,4 @@
-import { Component, OnInit,TemplateRef} from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -9,8 +9,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class SiteParticipantsListComponent implements OnInit {
 
   modalRef: BsModalRef;
-  constructor(private modalService: BsModalService) {}
- 
+  constructor(private modalService: BsModalService) { }
+
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
@@ -18,8 +18,10 @@ export class SiteParticipantsListComponent implements OnInit {
   ngOnInit() {
   }
 
-   myFunction() {
+  myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
-
+  search() {
+    console.log("inside site " )
+  }
 }

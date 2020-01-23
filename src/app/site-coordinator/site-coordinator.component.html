@@ -2,41 +2,43 @@
   <div id="desktop-menu">
     <div class="bs-example bs__example">
       <nav class="navbar navbar-expand-md p-none ">
-          <a href="#" class="navbar-brand"><img class="mr-sm" src="../../../assets/images/landing-logo.gif" /><span class="header__logo__text">FDA MyStudies </span></a>
-          <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <a href="#" class="navbar-brand"><img class="mr-sm" src="../../../assets/images/landing-logo.gif" /><span
+            class="header__logo__text">FDA MyStudies </span></a>
+        <!-- <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
               <span class="navbar-toggler-icon"></span>
           </button> -->
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-              <div class="navbar-nav ml-auto">
-                <div class="navbar-nav display-flex-center">
-                  <div class="navbar-nav inner-addon right-addon search-icon">
-                    <input type="text" placeholder="Search by site or study ID or name" class="form-control search-box search__" />
-                  </div>
-                    <a href="#" class="nav-item nav-link active">DashBoard</a>
-                    <a href="#" class="nav-item nav-link">Location</a>
-                    <a href="#" class="nav-item nav-link">User</a>
-                    <a href="#" class="nav-item nav-link">My Account <span class="navbar__name">J</span></a>
-                </div>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ml-auto">
+            <div class="navbar-nav display-flex-center">
+              <div class="navbar-nav inner-addon right-addon search-icon">
+                <input type="text" [attr.placeholder]="searchPlaceholder" class="form-control search-box search__" />
               </div>
+              <a href="#" class="nav-item nav-link active">DashBoard</a>
+              <a href="#" class="nav-item nav-link">Location</a>
+              <a href="#" class="nav-item nav-link">User</a>
+              <a href="#" class="nav-item nav-link">My Account <span class="navbar__name">J</span></a>
+            </div>
           </div>
+        </div>
       </nav>
     </div>
   </div>
 
-  <div id="mobile-menu"> 
-    <div  id="mySidenav__menubar">
-      <div class=""> 
+  <div id="mobile-menu">
+    <div id="mySidenav__menubar">
+      <div class="">
         <a href="#" class="text-center">
           <img class="mr-sm" src="../../../assets/images/landing-logo.gif" />
           <span class="header__logo__text">FDA MyStudies </span>
         </a>
-        <span class="openNav"  style="float:right" (click)="opencloseNav()">&#9776;</span> 
+        <span class="openNav" style="float:right" (click)="opencloseNav()">&#9776;</span>
       </div>
     </div>
     <div id="mySidenav" class="sidenav" [ngClass]="opencloseNavval ? 'display__block' : 'display__none'">
-      <a href="javascript:void(0)" class="closebtn mb-md" id="closeMobile" (click)="opencloseNav()" style="font-size: 30px !important;line-height:15px;float:right">×</a>
+      <a href="javascript:void(0)" class="closebtn mb-md" id="closeMobile" (click)="opencloseNav()"
+        style="font-size: 30px !important;line-height:15px;float:right">×</a>
       <div class="search-icon mb-md">
-        <input type="text" placeholder="Search by site or study ID or name" class="form-control search-box search__" />
+        <input type="text" [attr.placeholder]="searchPlaceholder" class="form-control search-box search__" />
       </div>
       <ul class="user__profile__ul">
         <li><a href="#" class="nav-item nav-link active">DashBoard</a></li>
@@ -49,7 +51,7 @@
 </header>
 
 
-<router-outlet></router-outlet>
+<router-outlet (activate)="onActivate($event)"></router-outlet>
 
 <!-- <footer>
   <div class="text-center flex__container">
