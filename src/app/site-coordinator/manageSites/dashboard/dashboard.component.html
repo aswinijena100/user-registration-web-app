@@ -1,3 +1,7 @@
+
+
+
+
 <div>
   <ul class="subheader subheader__menu nav nav-tabs ">
     <li [ngClass]="{'active':activeTab=='sites'}"><a (click)="activeTab='sites'" data-toggle="tab">Sites</a></li>
@@ -5,190 +9,232 @@
     <li [ngClass]="{'active':activeTab=='apps'}"><a (click)="activeTab='apps'" data-toggle="tab">Apps</a>
     </li>
   </ul>
-
+ 
   <div class="tab-content">
-    <div *ngIf="activeTab=='sites'" class="  ">
-      <div *ngFor="let study of studiesWithSites" class="bg__white cards  box__shadow-cmn pl-md ">
-        <div class="row">
-          <div class="col-xs-12 col-md-1 p-none text-center">
+    <div *ngIf="activeTab=='sites'" >
+      <div *ngFor="let study of studiesWithSites" class="bg__white cards  box__shadow-cmn">
+        <div class="flex__ flex__row">
+          <div class="img__container__left">
             <img class="" src="../../../assets/images/site-list-tab.gif" alt="A Study for Pregnant Women">
           </div>
-          <div class="col-xs-12  col-md-11 p-none">
-            <div>
-              <div class=" row">
-                <div class="col-xs-12  col-md-12 p-none text__353a3e__20">{{study.customId}}</div>
-                <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
-                  <div class="col-xs-6 col-md-3  p-none"><span *ngIf="study.type!='OPEN'">{{study.sites.length}}
-                      sites</span><span *ngIf="study.type=='OPEN'">Open Study</span></div>
-                  <div class=" col-xs-6 col-md-9 text-right p-none">Enrolled/<span
-                      *ngIf="study.type!='OPEN'">Invited</span><span *ngIf="study.type=='OPEN'">Target</span></div>
-                </div>
-                <div class="col-xs-12 col-md-12 p-none text__353a3e__14 border__bottom__red progress__bar">
-                  <div *ngFor="let site of study.sites" class="row display-flex-center progress__bar__row">
-                    <div class="col-xs-12 col-md-8 p-none">{{site.name}}</div>
-                    <div class="col-xs-12 col-md-4 p-none lh__6">
-                      <div class="prog">
-                        <div class="pro__base">
-                          <div *ngIf="study.type!='OPEN' && site.invitedCount!=0">
-                            <div class="pro__top" [style.width.%]="(site.enrolledCount/site.invitedCount)*100"></div>
-                          </div>
-                          <div *ngIf="study.type=='OPEN' && site.targetEnrollment!=0">
-                            <div class="pro__top" [style.width.%]="(site.enrolledCount/site.targetEnrollment)*100">
-                            </div>
+          <div class="width__100">
+            <div class=" row">
+              <div class="col-xs-12  col-md-12 p-none text__353a3e__20">{{study.customId}}</div>
+              <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
+                <div class="col-xs-6 col-md-3  p-none"><span *ngIf="study.type!='OPEN'">{{study.sites.length}}
+                    sites</span><span *ngIf="study.type=='OPEN'">Open Study</span></div>
+                <div class=" col-xs-6 col-md-9 text-right p-none">Enrolled/<span
+                    *ngIf="study.type!='OPEN'">Invited</span><span *ngIf="study.type=='OPEN'">Target</span></div>
+              </div>
+              <div class="col-xs-12 col-md-12 p-none text__353a3e__14 border__bottom__red progress__bar">
+                <div *ngFor="let site of study.sites" class="row display-flex-center progress__bar__row">
+                  <div class="col-xs-12 col-md-8 p-none">{{site.name}}</div>
+                  <div class="col-xs-12 col-md-4 p-none lh__6">
+                    <div class="prog">
+                      <div class="pro__base">
+                        <div *ngIf="study.type!='OPEN' && site.invitedCount!=0">
+                          <div class="pro__top" [style.width.%]="(site.enrolledCount/site.invitedCount)*100"></div>
+                        </div>
+                        <div *ngIf="study.type=='OPEN' && site.targetEnrollment!=0">
+                          <div class="pro__top" [style.width.%]="(site.enrolledCount/site.targetEnrollment)*100">
                           </div>
                         </div>
-                        <div class="progress-label font__bold text__63bb67__12">
-                          <div *ngIf="study.type!='OPEN'"><span
-                              *ngIf="site.invitedCount!=0">{{site.enrolledCount}}/{{site.invitedCount}}</span><span
-                              *ngIf="site.invitedCount==0">N/A</span></div>
-                          <div *ngIf="study.type=='OPEN'">
-                            <span
-                              *ngIf="site.targetEnrollment!=0">{{site.enrolledCount}}/{{site.targetEnrollment}}</span><span
-                              *ngIf="site.targetEnrollment==0">N/A</span>
-                          </div>
+                      </div>
+                      <div class="progress-label font__bold text__63bb67__12">
+                        <div *ngIf="study.type!='OPEN'"><span
+                            *ngIf="site.invitedCount!=0">{{site.enrolledCount}}/{{site.invitedCount}}</span><span
+                            *ngIf="site.invitedCount==0">N/A</span></div>
+                        <div *ngIf="study.type=='OPEN'">
+                          <span
+                            *ngIf="site.targetEnrollment!=0">{{site.enrolledCount}}/{{site.targetEnrollment}}</span><span
+                            *ngIf="site.targetEnrollment==0">N/A</span>
                         </div>
                       </div>
                     </div>
                   </div>
-                  <!-- <div class="clearfix"></div> -->
                 </div>
-                <div *ngIf="study.type!='OPEN' && study.totalSitesCount==study.sitesWithEditPermissionCount">
-                  <button class="bt__4285f4 font__bold" (click)="openAddSiteModal(template,study)">+ Add Site</button>
+                <!-- <div class="clearfix"></div> -->
+              </div>
+              <div *ngIf="study.type!='OPEN' && study.totalSitesCount==study.sitesWithEditPermissionCount">
+                <button class="bt__4285f4 font__bold" (click)="openAddSiteModal(template,study)">+ Add Site</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg__white cards  box__shadow-cmn">
+        <div class="flex__ flex__row">
+          <div class="img__container__left">
+            <img class="" src="../../../assets/images/fitness.gif" alt="A Study for Fitness">
+          </div>
+          <div class="width__100">
+            <div>
+              <div class=" row">
+                <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Fitness</div>
+                <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
+                  <div class="col-xs-6 col-md-3  p-none">Open Study</div>
+                  <div class="col-xs-6 col-md-9 text-right p-none">Enrolled/Invited</div>
+                </div>
+                <div class="col-xs-12 col-md-12 p-none progress__bar">
+                  <div class="row display-flex-center progress__bar__row">
+                    <div class="col-xs-12 col-md-8 p-none">Site1 loreum ipsim A</div>
+                    <div class="col-xs-12 col-md-4 p-none lh__6">
+                      <div class="prog">
+                        <div class="pro__base">
+                          <div class="pro__top" style="width:30%"></div>
+                        </div>
+                        <div class="progress-label font__bold text__63bb67__12">30/50</div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-
         </div>
       </div>
-    </div>
-
-  </div>
-  <div *ngIf="activeTab=='studies'">
-    <div class="bg__white cards cards__var box__shadow-cmn pl-md ">
-      <div class="row display-flex-center ">
-        <div class="col-xs-12 col-md-1 p-none text-center">
-          <img class="" src="../../../assets/images/site-list-tab.gif" alt="A Study for Pregnant Women">
-        </div>
-        <div class="col-xs-12  col-md-5 p-none">
-          <div class="text__4285f4__12 text-capitalize">STUDY003</div>
-          <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Pregnant Women</div>
-          <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
-            <div class="col-xs-6 col-md-12  p-none">4 sites</div>
+      <div class="bg__white cards  box__shadow-cmn ">
+        <div class="flex__ flex__row">
+          <div class="img__container__left">
+            <img class="" src="../../../assets/images/list-default.gif" alt="Diet and Nutrition Study">
           </div>
-        </div>
-        <div class="col-xs-12  col-md-4 p-none progress__bar">
-          <div class="col-xs-12  p-none lh__6">
-            <div class="prog">
-              <div class="pro__base">
-                <div class="pro__top" style="width:30%"></div>
+          <div class="width__100">
+            <div>
+              <div class=" row">
+                <div class="col-xs-12  col-md-12 p-none text__353a3e__20">Diet and Nutrition Study</div>
+                <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
+                  <div class="col-xs-6 col-md-3  p-none">3 sites</div>
+                  <div class="col-xs-6 col-md-9 text-right p-none">Enrolled/Invited</div>
+                </div>
+                <div class="col-xs-12 col-md-12 p-none progress__bar">
+                  <div class="row display-flex-center progress__bar__row">
+                    <div class="col-xs-12 col-md-8 p-none">Site1 loreum ipsim A</div>
+                    <div class="col-xs-12 col-md-4 p-none lh__6">
+                      <div class="prog">
+                        <div class="pro__base">
+                          <div class="pro__top" style="width:30%"></div>
+                        </div>
+                        <div class="progress-label font__bold text__63bb67__12">30/50</div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="row display-flex-center progress__bar__row">
+                    <div class="col-xs-12 col-md-8 p-none">Site2 loreum ipsim A</div>
+                    <div class="col-xs-12 col-md-4 p-none lh__6">
+                      <div class="prog">
+                        <div class="pro__base">
+                          <div class="pro__top" style="width:30%"></div>
+                        </div>
+                        <div class="progress-label font__bold text__63bb67__12">30/50</div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="row display-flex-center progress__bar__row">
+                    <div class="col-xs-12 col-md-8 p-none">Site3 loreum ipsim A</div>
+                    <div class="col-xs-12 col-md-4 p-none lh__6">
+                      <div class="prog">
+                        <div class="pro__base">
+                          <div class="pro__top" style="width:30%"></div>
+                        </div>
+                        <div class="progress-label font__bold text__63bb67__12">30/50</div>
+                      </div>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>         
+                </div>
               </div>
-              <div class="progress-label font__bold text__63bb67__12">30/50</div>
+            </div>
+            <div *ngIf="study.type!='OPEN' && study.totalSitesCount==study.sitesWithEditPermissionCount">
+              <button class="bt__4285f4 font__bold" (click)="openAddSiteModal(template,study)">+ Add Site</button>
             </div>
           </div>
         </div>
-        <div class="col-xs-12  col-md-2 p-none text-right">
-          <div class="text__b6c5db__50">53%</div>
-          <div class="text__757b80__12">Enrolled/Invited</div>
-        </div>
       </div>
     </div>
-    <div class="bg__white cards cards__var box__shadow-cmn pl-md">
-      <div class="row display-flex-center ">
-        <div class="col-xs-12 col-md-1 p-none text-center">
-          <img class="" src="../../../assets/images/fitness.gif" alt="A Study for Pregnant Women">
-        </div>
-        <div class="col-xs-12  col-md-5 p-none">
-          <div class="text__4285f4__12 text-capitalize">STUDY658</div>
-          <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Fitness</div>
-          <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
-            <div class="col-xs-6 col-md-12  p-none">4 sites</div>
-          </div>
-        </div>
-        <div class="col-xs-12  col-md-4 p-none progress__bar">
-          <div class="col-xs-12  p-none lh__6">
-            <div class="prog">
-              <div class="pro__base">
-                <div class="pro__top" style="width:30%"></div>
+    <div *ngIf="activeTab=='studies'">
+      <div class="bg__white cards cards__var box__shadow-cmn">
+        <div class="flex__justify__space-between flex__wrap">
+          <div class="">
+            <div class="flex__ flex__row align__items__center ">
+              <div class="img__container__left">
+                <img class="" src="../../../assets/images/site-list-tab.gif" alt="A Study for Pregnant Women">
               </div>
-              <div class="progress-label font__bold text__63bb67__12">30/50</div>
+              <div>
+                <div class="text__4285f4__12 text-capitalize">STUDY003</div>
+                <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Pregnant Women</div>
+                <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
+                  <div class="col-xs-6 col-md-12  p-none">4 sites</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mb__width__100">
+            <div class="flex__ flex__row align__items__center ">
+              <div class="progress__bar mb__width__100">
+                <div class="col-xs-12  p-none lh__6">
+                  <div class="prog">
+                    <div class="pro__base">
+                      <div class="pro__top" style="width:30%"></div>
+                    </div>
+                    <div class="progress-label font__bold text__63bb67__12">30/50</div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-right progress__bar__next">
+                <div class="text__b6c5db__50">53%</div>
+                <div class="text__757b80__12">Enrolled/Invited</div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-xs-12  col-md-2 p-none text-right">
-          <div class="text__b6c5db__50">82%</div>
-          <div class="text__757b80__12">Enrolled/Invited</div>
-        </div>
       </div>
     </div>
-  </div>
-  <div *ngIf="activeTab=='apps'">
-    <div class="bg__white cards  box__shadow-cmn   p-xl">
-      <div class="row display-flex-center ">
-        <div class="col-xs-12  col-md-6 p-none">
-          <div class="text__4285f4__12 text-capitalize">STUDY003</div>
-          <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Pregnant Women</div>
-          <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
-            <div class="col-xs-6 col-md-12  p-none">4 sites</div>
-          </div>
-        </div>
-        <div class="col-xs-12  col-md-4 p-none progress__bar">
-          <div class="col-xs-12  p-none lh__6">
-            <div class="prog">
-              <div class="pro__base">
-                <div class="pro__top" style="width:30%"></div>
+    <div *ngIf="activeTab=='apps'">
+      <div class="bg__white cards  box__shadow-cmn   p-xl">
+        <div class="flex__justify__space-between flex__wrap">
+          <div class="">
+            <div class="">
+              <div class="text__4285f4__12 text-capitalize">STUDY003</div>
+              <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Pregnant Women</div>
+              <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
+                <div class="col-xs-6 col-md-12  p-none">4 sites</div>
               </div>
-              <div class="progress-label font__bold text__63bb67__12">30/50</div>
+            </div>
+          </div>
+          <div class="mb__width__100">
+            <div class="flex__ flex__row align__items__center ">
+              <div class="progress__bar mb__width__100">
+                <div class="col-xs-12  p-none lh__6">
+                  <div class="prog">
+                    <div class="pro__base">
+                      <div class="pro__top" style="width:30%"></div>
+                    </div>
+                    <div class="progress-label font__bold text__63bb67__12">30/50</div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-right progress__bar__next">
+                <div class="text__b6c5db__50">53%</div>
+                <div class="text__757b80__12">Enrolled/Invited</div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-xs-12  col-md-2 p-none text-right">
-          <div class="text__b6c5db__50">53%</div>
-          <div class="text__757b80__12">
-            <span class="tool" data-tip="By adding this class you can provide almost any element with a tool tip."
-              tabindex="1">
-              Enrolled Progress
-            </span>
-          </div>
-        </div>
       </div>
     </div>
-    <div class="bg__white cards  box__shadow-cmn   p-xl">
-      <div class="row display-flex-center ">
-        <div class="col-xs-12  col-md-6 p-none">
-          <div class="text__4285f4__12 text-capitalize">STUDY658</div>
-          <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Fitness</div>
-          <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
-            <div class="col-xs-6 col-md-12  p-none">4 sites</div>
-          </div>
-        </div>
-        <div class="col-xs-12  col-md-4 p-none progress__bar">
-          <div class="col-xs-12  p-none lh__6">
-            <div class="prog">
-              <div class="pro__base">
-                <div class="pro__top" style="width:30%"></div>
-              </div>
-              <div class="progress-label font__bold text__63bb67__12">30/50</div>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12  col-md-2 p-none text-right">
-          <div class="text__b6c5db__50">82%</div>
-          <div class="text__757b80__12">
-            <span class="tool" data-tip="By adding11111 this class you can provide almost any element with a tool tip."
-              tabindex="1">
-              Enrolled Progress
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
+<!-- loader -->
+<div class="text-center mb-lg">
+  <img src="../../../assets/images/loader-dot.gif" alt="Lpading">
+</div>
+<!-- loader -->
 
-<!-- modal -->
-<ng-template #template>
+ <!-- modal -->
+ <ng-template #template>
   <div class="modal-body modal__body">
     
       <div class="row border__bottom__c4d1e6 background__dfe4ec">
@@ -224,4 +270,6 @@
     </form>
   </div>
 </ng-template>
-<!-- modal -->
+ <!-- modal -->
+
+<!-- ************************************************************************************* -->

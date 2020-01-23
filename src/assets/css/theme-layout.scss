@@ -45,7 +45,26 @@
     .add__location .border-right__c4d1e6{
         border-right :none !important; 
         border-bottom :1px solid #c4d1e6 !important;
-    }
+	}
+	
+	.img__container__left{
+		padding-right:20px;
+	}
+	.mb__display__none{
+		display:none;
+	}
+	.pro__base{
+		width:100%;
+	}
+	.progress-label{
+		margin-top:10px;
+	}
+	.progress__bar__next{
+		padding-left:20px;
+	}
+	.mb__width__100{
+		width:100%;
+	}
 }
 @media (min-width: 768px) {
     .modal{
@@ -70,7 +89,19 @@
     .add__location .border-right__c4d1e6{
         border-right :1px solid #c4d1e6 !important;
         border-bottom :none !important;
-    }
+	}
+	.mb__display__none{
+		display:inline-block;
+	}
+	.pro__base{
+		width:189px;
+	}
+	.progress-label{
+		margin-top:0px;
+	}
+	.mb__width__100{
+		width:auto;
+	}
 }
 @media (min-width: 1020px) {
     #mobile-menu{
