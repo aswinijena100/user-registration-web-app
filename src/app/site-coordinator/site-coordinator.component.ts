@@ -12,7 +12,7 @@ export class SiteCoordinatorComponent implements OnInit {
   searchPlaceholder: string = "Search by site or study ID or name"
   opencloseNavval: boolean = false;
   componentRef: any;
-
+  filterQuery: string = "";
   constructor(router: Router) {
 
   }
@@ -24,7 +24,7 @@ export class SiteCoordinatorComponent implements OnInit {
     this.opencloseNavval = !this.opencloseNavval;
   }
   search() {
-    this.componentRef.search();
+    this.componentRef.search(this.filterQuery);
   }
   onActivate(componentRef) {
     this.componentRef = componentRef;
