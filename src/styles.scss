@@ -4,7 +4,11 @@
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 @font-face {
-    font-family: 'Product Sans';
-    src: url('assets/fonts/ProductSans-Regular.ttf') format("opentype");
+    font-family: 'Product Sans Medium' !important;
     src: url('assets/fonts/ProductSans-Medium.ttf') format("opentype");
+}
+
+@font-face {
+    font-family: 'Product Sans' !important;
+    src: url('assets/fonts/ProductSans-Regular.ttf') format("opentype");
 }
