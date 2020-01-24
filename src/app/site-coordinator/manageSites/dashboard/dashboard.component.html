@@ -11,7 +11,7 @@
   </ul>
  
   <div class="tab-content">
-    <div *ngIf="activeTab=='sites'" >
+    <div *ngIf="activeTab=='sites'"  class="site__content">
       <div *ngFor="let study of studiesWithSites" class="bg__white cards  box__shadow-cmn">
         <div class="flex__ flex__row">
           <div class="img__container__left">
@@ -56,7 +56,7 @@
                 <!-- <div class="clearfix"></div> -->
               </div>
               <div *ngIf="study.type!='OPEN' && study.totalSitesCount==study.sitesWithEditPermissionCount">
-                <button class="bt__4285f4 font__bold" (click)="openAddSiteModal(template,study)">+ Add Site</button>
+                <button class="bt__4285f4 add__site" (click)="openAddSiteModal(template,study)">+ Add Site</button>
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@
               </div>
             </div>
             <!-- <div>
-              <button #template  class="bt__4285f4 font__bold" (click)="openModal(template)">+ Add Site</button>
+              <button #template  class="bt__4285f4" (click)="openModal(template)">+ Add Site</button>
             </div> -->
           </div>
         </div>
@@ -173,7 +173,7 @@
           </div>
           <div class="mb__width__100">
             <div class="flex__ flex__row align__items__center ">
-              <div class="progress__bar mb__width__100">
+              <div class=" mb__width__100">
                 <div class="col-xs-12  p-none lh__6">
                   <div class="prog">
                     <div class="pro__base">
@@ -206,7 +206,7 @@
           </div>
           <div class="mb__width__100">
             <div class="flex__ flex__row align__items__center ">
-              <div class="progress__bar mb__width__100">
+              <div class=" mb__width__100">
                 <div class="col-xs-12  p-none lh__6">
                   <div class="prog">
                     <div class="pro__base">

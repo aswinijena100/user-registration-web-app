@@ -79,6 +79,20 @@
 	.mb__mt-lg{
 		margin-top:20px;
 	}
+	.site__content .progress-label {
+		margin-top: 0px;
+	}
+	.pro__base {
+		width: 85%;
+	}
+	.progress__bar__row{
+		padding-top: 12px;
+		padding-bottom: 8px;
+		border-top: 1px solid #c4d1e6;
+	}
+	.progress__bar__row > div{
+		margin-bottom:8px;
+	}
 }
 @media (min-width: 768px) {
     .modal{
@@ -129,6 +143,13 @@
 	}
 	.subheader__menu{
 		justify-content: unset;
+	}
+	.progress__bar__row{
+		padding-top: 16px;
+		padding-bottom: 16px;
+	}
+	.progress__bar__row > div{
+		margin-bottom:0;
 	}
 }
 @media (min-width: 1020px) {

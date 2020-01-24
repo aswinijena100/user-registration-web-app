@@ -20,7 +20,6 @@ ul{
 .font16__353a3e{
 	font-size:16px;
 	color:#353a3e;
-	font-weight: 600;
 }
 .font24__353a3e{
     font-size:24px;
@@ -252,6 +251,10 @@ footer ul li:last-child  a{
 }
 .progress__bar{
 	margin:20px 0;
+	margin-bottom:0
+}
+.site__content .add__site{
+	margin-top:20px;
 }
 .progress__bar .progress{
 	height:7px;
@@ -260,10 +263,7 @@ footer ul li:last-child  a{
 .progress-bar{
 	background-color: #007bff !important;
 }
-.progress__bar__row{
-	padding: 11px 0;
-    border-top: 1px solid #c4d1e6;
-}
+
 .progress__bar__row:last-child{
 	border-bottom: 1px solid #c4d1e6;
 }
@@ -280,6 +280,9 @@ footer ul li:last-child  a{
 	color:#b6c5db;
 	font-size:50px;
 	line-height:50px;
+}
+.img__container__left img{
+	border-radius:50%;
 }
 
 
@@ -298,7 +301,6 @@ footer ul li:last-child  a{
     font-size: 16px !important;
 	background: #b6c5db !important;
 	color:#424e60 !important;
-	font-weight:600  !important;
 }
 .bt__1a73e8 {
 	color: #fff;
@@ -350,14 +352,12 @@ footer ul li:last-child  a{
 	border-top:none !important;
 	color: #1a73e8;
 	font-size:12px;
-	font-weight:600;
 	padding: 15px 30px !important
 }
 .table td{
 	border-top :1px solid #c4d1e6  !important;
 	color: #353a3e;
 	font-size:14px;
-	font-weight:600;
 	padding: 12px 30px !important
 }
 .table tfoot tr td{
@@ -446,7 +446,6 @@ footer ul li:last-child  a{
 .modal__body .form-control{
 	padding:0px !important;
 	color: #353a3e;
-	font-weight:600;
 	height:auto !important;
 	font-size: 13px;
 }
@@ -461,7 +460,6 @@ footer ul li:last-child  a{
 	font-size: 12px;
     color: #4285f4;
 	text-transform: capitalize;
-	font-weight:600;
 }
 .modal__body input{
 	background: transparent;
@@ -504,14 +502,12 @@ footer ul li:last-child  a{
 	font-size: 12px;
     color: #4285f4;
 	text-transform:capitalize;
-	font-weight:600;
 }
 .bg__white input{
 	background: transparent;
 	font-size:16px;
 	padding:0px !important;
 	color: #353a3e;
-	font-weight:600;
 	height:auto !important;
 }
 .bg__white .form-group{
@@ -547,7 +543,6 @@ footer ul li:last-child  a{
 	border-bottom: 1px solid #c4d1e6 !important;
     color: #353a3e;
     font-size: 14px;
-    font-weight: 600;
 	padding: 12px 30px !important;
 	background: #fff;
 }
@@ -629,7 +624,7 @@ footer ul li:last-child  a{
 
 /*Title*/
 .text__353a3e__20{
-	color: #202124;
+	color: #353a3e;
     font-size: 20px;
 }
 
@@ -637,14 +632,12 @@ footer ul li:last-child  a{
 .text__757b80__12{
 	color: #757b80;
     font-size: 12px;
-    font-weight: 600;
 }
 
 /*Page Title / Section Title  */
 .subheader__title{
 	color:#8495a5;
 	font-size:16px;
-	font-weight:600;
 }
 
 .text__63bb67__12{
