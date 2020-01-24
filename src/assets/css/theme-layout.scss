@@ -54,7 +54,7 @@
 		width:100%;
 	}
 	.progress-label{
-		margin-top:5px;
+		margin-top:8px;
 	}
 	.progress__bar__next{
 		padding-left:20px;
@@ -64,6 +64,34 @@
 	}
 	.cards{
 		padding:16px;
+	}
+	.bg__white .form-group {
+		padding: 20px 20px;
+	}
+	.text__b6c5db__50 {
+		color: #b6c5db;
+		font-size: 40px;
+		line-height: 40px;
+	}
+	.subheader__menu{
+		justify-content: center;
+	}
+	.mb__mt-lg{
+		margin-top:20px;
+	}
+	.site__content .progress-label {
+		margin-top: 0px;
+	}
+	.pro__base {
+		width: 85%;
+	}
+	.progress__bar__row{
+		padding-top: 12px;
+		padding-bottom: 8px;
+		border-top: 1px solid #c4d1e6;
+	}
+	.progress__bar__row > div{
+		margin-bottom:8px;
 	}
 }
 @media (min-width: 768px) {
@@ -104,6 +132,24 @@
 	}
 	.img__container__left{
 		padding-right:20px;
+	}
+	.bg__white .form-group {
+		padding: 25px 30px;
+	}
+	.text__b6c5db__50 {
+		color: #b6c5db;
+		font-size: 50px;
+		line-height: 50px;
+	}
+	.subheader__menu{
+		justify-content: unset;
+	}
+	.progress__bar__row{
+		padding-top: 16px;
+		padding-bottom: 16px;
+	}
+	.progress__bar__row > div{
+		margin-bottom:0;
 	}
 }
 @media (min-width: 1020px) {
