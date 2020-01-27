@@ -3,7 +3,7 @@ body{
     background: #f2f5f8 !important;
 	color: #353a3e !important;
     font-size: 14px !important;
-	font-family: 'ProductSans-Medium', sans-serif !important;
+	font-family: 'Product Sans Medium' !important;
 }
 input,textarea,select{
 	font-size:20px;
@@ -80,7 +80,6 @@ header{
 	border: transparent !important;
 	min-width: 300px;
 	height: 32px !important;
-	line-height: 32px !important;
 	font-size:14px !important;
 	background-color:  #f1f3f4 !important;
 	background-image: url(../images/search-icon.gif);
@@ -323,6 +322,12 @@ footer ul li:last-child  a{
 	border-radius: 4px;
     padding: 5px 13px;
 }
+.bt__so{
+	padding: 7px 32px;
+    color: #ea4335;
+    font-size: 16px;
+}
+
 .bg__white{
 	background: #fff !important;
 }
@@ -472,7 +477,9 @@ footer ul li:last-child  a{
 	border-radius: 9px 9px 0 0;
 }
 
-
+.fa-question-circle-o:before{
+	color:#4285f4;
+}
 
 
 .pro__base{
@@ -524,17 +531,17 @@ footer ul li:last-child  a{
 /*input paceholder text color */
 ::-webkit-input-placeholder { /* Edge */
 	color: #353a3e;
-	font-weight: normal;
+	font-family: 'Product Sans' !important;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
 	color: #353a3e;
-	font-weight: normal;
+	font-family: 'Product Sans' !important;
 }
 
 ::placeholder {
 	color: #353a3e;
-	font-weight: normal;
+	font-family: 'Product Sans' !important;
 }
 /*input paceholder text color*/
 

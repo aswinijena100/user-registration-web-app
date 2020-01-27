@@ -68,6 +68,10 @@
 	.bg__white .form-group {
 		padding: 20px 20px;
 	}
+	form .bg__white .form-group 
+	{
+		padding: 10px 15px;
+	}
 	.text__b6c5db__50 {
 		color: #b6c5db;
 		font-size: 40px;
@@ -79,6 +83,7 @@
 	.mb__mt-lg{
 		margin-top:20px;
 	}
+	
 	.site__content .progress-label {
 		margin-top: 0px;
 	}
@@ -93,6 +98,7 @@
 	.progress__bar__row > div{
 		margin-bottom:8px;
 	}
+	
 }
 @media (min-width: 768px) {
     .modal{
@@ -134,6 +140,9 @@
 		padding-right:20px;
 	}
 	.bg__white .form-group {
+		padding: 25px 30px;
+	}
+	form .bg__white .form-group {
 		padding: 25px 30px;
 	}
 	.text__b6c5db__50 {
