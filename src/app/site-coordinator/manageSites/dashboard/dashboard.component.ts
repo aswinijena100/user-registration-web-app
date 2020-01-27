@@ -79,12 +79,7 @@ export class DashboardComponent implements OnInit {
     else if (this.activeTab == 'studies') {
       if (query && query.trim() != '' && query.trim() != undefined) {
         this.studies = this.studiesBackup.filter(function (a) {
-          return a.sites.some(function (b) {
-            debugger;
-            return ((b.customId != null && b.customId != undefined && b.customId.toLowerCase().includes(query.toLowerCase()))
-              || (b.name != null && b.name != undefined && b.name.toLowerCase().includes(query.toLowerCase()))
-              || (a.name != null && a.name != undefined && a.name.toLowerCase().includes(query.toLowerCase())));
-          });
+          return (a.name != null && a.name != undefined && a.name.toLowerCase().includes(query.toLowerCase()));
         });
       } else {
         this.studies = this.studiesBackup;
