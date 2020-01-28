@@ -45,8 +45,7 @@
               </div>
               <!-- <div class="clearfix"></div> -->
             </div>
-            <div
-              *ngIf="studyWithSite.type!='OPEN' && studyWithSite.totalSitesCount==studyWithSite.sitesWithEditPermissionCount">
+            <div *ngIf="studyWithSite.type!='OPEN' && studyWithSite.studyPermission==2">
               <button class="bt__4285f4 add__site" (click)="openAddSiteModal(template,studyWithSite)">+ Add
                 Site</button>
             </div>
@@ -82,7 +81,8 @@
                   <div *ngIf="study.invitedCount!=0" class="pro__base">
                     <div class="pro__top" [style.width.%]="study.enrollmentPercentage"></div>
                   </div>
-                  <div class="progress-label font__bold" [ngClass]="(study.enrollmentPercentage<30)?'text__f85555__12':(study.enrollmentPercentage<70?'text__ffbc00__12':'text__63bb67__12')">
+                  <div class="progress-label font__bold"
+                    [ngClass]="(study.enrollmentPercentage<30)?'text__f85555__12':(study.enrollmentPercentage<70?'text__ffbc00__12':'text__63bb67__12')">
                     <span *ngIf="study.invitedCount!=0">{{study.enrolledCount}}/{{study.invitedCount}}</span><span
                       *ngIf="study.invitedCount==0">N/A</span>
                   </div>
