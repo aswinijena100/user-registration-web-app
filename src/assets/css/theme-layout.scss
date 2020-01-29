@@ -1,5 +1,5 @@
 /* media queries scss */
-@media (min-width: 320px) {
+@media (min-width: 375px) {
     #mobile-menu{
         display:block;
     }
@@ -7,11 +7,11 @@
         display:none;
     }
 	.max__w__1280{
-		max-width: 92%;
+		max-width: 90%;
 		margin:  auto !important;
 	}
 	.max__w__850{
-		max-width: 92%;
+		max-width: 90%;
 		margin:  auto !important;
 	}
 	.cards1,.cards,.card__inside__pad{
@@ -98,7 +98,15 @@
 	.progress__bar__row > div{
 		margin-bottom:8px;
 	}
-	
+	.desk__view{
+		display: none;
+	}
+	.mobile__view{
+		display: block;
+	}
+	header{
+		padding: 20px 15px;
+	}
 }
 @media (min-width: 768px) {
     .modal{
@@ -159,6 +167,15 @@
 	}
 	.progress__bar__row > div{
 		margin-bottom:0;
+	}
+	.desk__view{
+		display: block;
+	}
+	.mobile__view{
+		display: none;
+	}
+	header{
+		padding: 10px 40px;
 	}
 }
 @media (min-width: 1020px) {
