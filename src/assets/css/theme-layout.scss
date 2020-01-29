@@ -107,6 +107,37 @@
 	header{
 		padding: 20px 15px;
 	}
+
+	.table td{
+		display:flex;
+	}
+	
+	.table td:first-child{
+		border-radius:7px 7px 0 0;
+	}
+	.table td:last-child{
+		border-radius:0 0 7px 7px;
+		padding-bottom:12px !important;
+	}
+	.table{
+		border-collapse: separate;
+		border-spacing: 0 15px;
+	}
+	.table td {
+		border-top: none !important;
+		padding-bottom: 0 !important;
+	}
+	.table thead th{
+		background: red;
+		padding: 0 10px !important;
+		margin-right: 20px;
+		margin-bottom: 10px;
+		border-radius: 0 !important;
+	}
+	.table thead tr{
+		display:flex;
+		flex-wrap:wrap;
+	}
 }
 @media (min-width: 768px) {
     .modal{
@@ -190,6 +221,33 @@
 	}
 	.cards {
 		margin: 20px 40px;
+	}
+
+	.table td{
+		display:table-cell;
+	}
+	.table td:first-child{
+		border-radius:0;
+	}
+	.table td:last-child{
+		border-radius:0;
+	}
+	.table{
+		border-collapse: collapse;
+		border-spacing: 0 15px;
+	}
+	.table td {
+		border-top: 1px solid #c4d1e6 !important;
+	}
+	.table thead th{
+		background: #fff;
+		padding: 15px 30px !important;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		border-radius: inherit !important;
+	}
+	.table thead tr{
+		display:contents;
 	}
 }
 @media (min-width: 1300px) {

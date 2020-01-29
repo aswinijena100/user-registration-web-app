@@ -22,8 +22,9 @@
 <section class="max__w__1280 m-none site__participant">
   <div class="cards1 m-none">
     <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
-      <!-- <thead>
+      <thead>
         <tr>
+          <span class="text__8495a5__14" style="background:transparent">Sort By: </span>
           <th>
             <mfDefaultSorter by="Email">Participant Email</mfDefaultSorter>
           </th>
@@ -37,19 +38,19 @@
             <mfDefaultSorter by="Enrolled">No of Studies Enrolled</mfDefaultSorter>
           </th>
         </tr>
-      </thead> -->
+      </thead> 
       <tbody>
         <tr>
-          <td>Participant Email: andreasbrixen@gmail.com</td>
-          <td>App registration Date: 12/18/2020</td>
-          <td>App account Status: Active</td>
-          <td>No of Studies Enrolled: 2</td>
+          <td><span class="text__8495a5__14">Participant Email :</span> andreasbrixen@gmail.com</td>
+          <td><span class="text__8495a5__14">App registration Date:</span>  12/18/2020</td>
+          <td><span class="text__8495a5__14">App account Status :</span> Active</td>
+          <td><span class="text__8495a5__14">No of Studies Enrolled:</span> 2</td>
         </tr>
         <tr>
-          <td>Participant Email: andreasbrixen@gmail.com</td>
-          <td>App registration Date: 12/18/2020</td>
-          <td>App account Status: Active</td>
-          <td>No of Studies Enrolled: 2</td>
+          <td><span class="text__8495a5__14">Participant Email :</span> prasanna@gmail.com</td>
+          <td><span class="text__8495a5__14">App registration Date:</span>  12/18/2020</td>
+          <td><span class="text__8495a5__14">App account Status :</span> Active</td>
+          <td><span class="text__8495a5__14">No of Studies Enrolled:</span> 2</td>
         </tr>
       </tbody>
       <tfoot>
@@ -63,7 +64,7 @@
   </div>
 </section>
 
-<section class="mobile__view">
+<!-- <section class="mobile__view">
   <section class="mobile__view max__w__1280 m-none ">
     <section class="mb-md mt-md">
       <span class="text__8495a5__14">Sort By:</span>
@@ -100,7 +101,7 @@
       </ul>                                                             
     </section>
   </section>
-</section>
+</section> -->
 
 <ng-template #template>
   <div class="modal-body modal__body">
