@@ -1,4 +1,4 @@
-<div class="subheader p-none pl-none">
+<section class="subheader p-none pl-none">
   <div class="max__w__1280 m-none">
     <div class="flex__justify__space-between" >
       <div class="subheader__title flex__justify__space-between align__items__baseline">
@@ -7,7 +7,7 @@
         </div>
         <div>
           <div class="mb-xs">Participant Details</div>
-          <div class="flex__justify__space-between ">
+          <div class="flex__justify__space-between">
             <div class="pr-xlg">
               <div class="text__4285f4__up__11">SITE</div>
               <div class="text__8495a5__12">Site Lorem Impsum A</div>
@@ -23,85 +23,109 @@
           </div>
         </div>
       </div>
-      <div class="flex__justify__space-between">
-        <div class="mr-sm">
-          <button type="submit" class="btn bt__1a73e8 text__fff flex__row__reverse pad__5__13 font14 ">Resend Invitation</button>
+      <!-- for desk__view button cotainer -->
+      <section class="desk__view">
+        <div class="flex__justify__space-between ">
+          <div class="mr-sm">
+            <button type="submit" class="btn bt__1a73e8 text__fff flex__row__reverse pad__5__13 font14 ">Resend Invitation</button>
+          </div>
+          <div>
+            <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font14">Disable Invitation</button>
+          </div>
         </div>
-        <div>
-          <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font14">Disable Invitation</button>
-        </div>
-      </div>
+      </section>
+       <!-- for desk__view button cotainer -->
     </div>
   </div> 
-</div>
+</section>
 
-  <div class="max__w__1280 m-none site__participant">
-    <div class="bg__white card__inside__pad box__shadow-cmn m-none p-xlg">
+<!-- for mobile button cotainer -->
+<section class="subheader p-none pl-none mobile__view border-top__c4d1e6">
+  <div class=" flex__ flex__justify__center ">
+    <button type="submit" class="btn bt__1a73e8 text__fff  pad__5__13 font14 mr-sm">Resend Invitation</button>
+    <button type="submit" class="btn bt__757575  pad__5__13 font14">Disable Invitation</button>
+  </div>
+</section>
+<!-- for mobile button cotainer -->
+
+<section class="max__w__1280 m-none site__participant ">
+  <div class="bg__white card__inside__pad box__shadow-cmn m-none p-xlg">
+    <div>
+      <div class="mb-lg">
+        <div class="text__4285f4__up__11 ">Participant Email</div>
+        <div class="font24">andreasbrixen@gmail.com</div>
+      </div>
       <div>
-        <div>
-          <div class="text__4285f4__up__11">SITE</div>
-          <div>andreasbrixen@gmail.com</div>
-        </div>
-        <div>
-          <div class="flex__justify__space-between ">
-            <div class="pr-xlg">
-              <div class="text__4285f4__up__11">SITE</div>
-              <div class="text__8495a5__12">Site Lorem Impsum A</div>
-            </div>
-            <div class="pr-xlg">
-              <div class="text__4285f4__up__11">Study</div>
-              <div class="text__8495a5__12">Study Lorem Impsum A</div>
-            </div>
-            <div>
-              <div class="text__4285f4__up__11">App</div>
-              <div class="text__8495a5__12">App Lorem Impsum A</div>
-            </div>
+        <div class="flex__justify__space-between flex__wrap">
+          <div class="pr-xlg">
+            <div class="text__4285f4__up__11">Onboarding Status </div>
+            <div class="text__353a3e__14">Invited</div>
+          </div>
+          <div class="pr-xlg">
+            <div class="text__4285f4__up__11">Last Invitation Sent</div>
+            <div class="text__8495a5__14">20/12/2019</div>
+          </div>
+          <div>
+            <div class="text__4285f4__up__11">Enrollment Status </div>
+            <div class="text__8495a5__14">Yet to Enroll</div>
+          </div>
+          <div>
+            <div class="text__4285f4__up__11">Date of Enrollment </div>
+            <div class="text__8495a5__14">-</div>
+          </div>
+          <div>
+            <div class="text__4285f4__up__11">Date of Withdrawal  </div>
+            <div class="text__8495a5__14">-</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="subheader__title mb-lg">Consent History</div>
+  </div>
+  
+  <h2 class="subheader__title mb-sm">Consent History</h2>
 
-    <div class="cards1 m-none">
-      <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
-        <thead>
-          <tr>
-            <th>
-              <mfDefaultSorter by="name">Participant Email</mfDefaultSorter>
-            </th>
-            <th>
-              <mfDefaultSorter by="email">Site ID</mfDefaultSorter>
-            </th>
-            <th>
-              <mfDefaultSorter by="age">Onboarding Status </mfDefaultSorter>
-            </th>
-            <th>
-              <mfDefaultSorter by="age">Enrollment Status </mfDefaultSorter>
-            </th>
-            <th>
-              <mfDefaultSorter by="city">Enrollment Date</mfDefaultSorter>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>andreasbrixen@gmail.com</td>
-            <td>Site 1 Lorem Impsum A</td>
-            <td>New</td>
-            <td>Yet to Enroll</td>
-            <td>12/18/2020</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="4">
-              <mfBootstrapPaginator></mfBootstrapPaginator>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
-  </div>
-  </div>
+  <section class="cards1 m-none">
+    <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+      <thead>
+        <tr>
+          <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
+          <th>
+            <mfDefaultSorter by="name">Consent Version</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter by="email">Primary Consent Status</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter by="age">Data Sharing Permisions </mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter by="age">Consent Document</mfDefaultSorter>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>V1</td>
+          <td>Provided</td>
+          <td>Provided</td>
+          <td>
+            <div>
+              <img src="../../../../assets/images/download-img.gif" alt="download">
+              <span class="text__797f84__10">Download</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4">
+            <mfBootstrapPaginator></mfBootstrapPaginator>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+</section>
 
 <ng-template #template>
   <div class="modal-body modal__body">

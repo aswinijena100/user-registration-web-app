@@ -1,5 +1,5 @@
 /* media queries scss */
-@media (min-width: 320px) {
+@media (min-width: 375px) {
     #mobile-menu{
         display:block;
     }
@@ -7,11 +7,11 @@
         display:none;
     }
 	.max__w__1280{
-		max-width: 92%;
+		max-width: 90%;
 		margin:  auto !important;
 	}
 	.max__w__850{
-		max-width: 92%;
+		max-width: 90%;
 		margin:  auto !important;
 	}
 	.cards1,.cards,.card__inside__pad{
@@ -98,7 +98,101 @@
 	.progress__bar__row > div{
 		margin-bottom:8px;
 	}
+	.desk__view{
+		display: none;
+	}
+	.mobile__view{
+		display: block;
+	}
+	header{
+		padding: 20px 15px;
+	}
+
+	/*table css */
+	.table td{
+		display:flex;
+	}
 	
+	.table td:first-child{
+		border-radius:7px 7px 0 0;
+		padding-top:16px !important;
+	}
+	.table td:last-child{
+		border-radius:0 0 7px 7px;
+		padding-bottom:16px !important;
+	}
+	.table tfoot td:first-child{
+		padding-bottom:0 !important;
+		padding-top:0 !important;
+	}
+	.table tfoot td:last-child{
+		padding-bottom:0 !important;
+		padding-top:0 !important;
+	}
+	.table{
+		border-collapse: separate;
+		border-spacing: 0 15px;
+		margin-top: -15px;
+	}
+	.table td {
+		border-top: none !important;
+		padding-bottom: 0 !important;
+		padding:12px 20px;
+	}
+	.table thead th{
+		background: #dfe3e8;
+		padding: 2px 10px !important;
+		margin-right: 10px;
+		margin-bottom: 10px;
+		border-radius: 10px !important;
+		color:#555d67;
+		font-size:12px;
+	}
+	.table thead tr{
+		display:flex;
+		flex-wrap:wrap;
+	}
+	.table tbody tr:last-child td:first-child{
+		border-radius: 10px 10px 0px 0px !important;
+	}
+	.table tbody tr:last-child td:last-child{
+		border-radius: 0px 0px 10px 10px !important;
+	}
+	.table th:first-child{
+		border-radius: 10px !important;
+	}
+	.table th:last-child{
+		border-radius: 10px !important;
+	}
+	.table td {
+		padding: 3px 20px !important;
+	}
+	.table tbody tr{
+		background: #fff !important;
+		display: block;
+		margin-bottom: 12px;
+		/* border-radius */
+		-webkit-border-radius: 10px;
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+		/* box-shadow */
+		-webkit-box-shadow:1px 1px 5px 0px #a7b5cc;
+		-moz-box-shadow: 1px 1px 5px 0px #a7b5cc;
+		box-shadow: 1px 1px 5px 0px #a7b5cc;
+	}
+	.table tbody tr:last-child{
+		margin-bottom:0;
+	}
+	.table tbody tr:first-child{
+		margin-top: -5px;
+	}
+	.table tfoot td mfbootstrappaginator{
+		width: 100%;
+	}
+	.tbl__td__label{
+		display:inline-block;
+	}
+	/*table css */
 }
 @media (min-width: 768px) {
     .modal{
@@ -174,11 +268,78 @@
 	.cards {
 		margin: 20px 40px;
 	}
+
+	.desk__view{
+		display: block;
+	}
+	.mobile__view{
+		display: none;
+	}
+	header{
+		padding: 10px 40px;
+	}
+
+	/*table css */
+	.table td{
+		display:table-cell;
+	}
+	.table td:first-child{
+		border-radius:0;
+	}
+	.table td:last-child{
+		border-radius:0;
+	}
+	.table{
+		border-collapse: collapse;
+		margin-top: 0px;
+	}
+	.table td {
+		border-top: 1px solid #c4d1e6 !important;
+		padding:15px 30px;
+	}
+	.table thead th{
+		background: #fff;
+		padding: 15px 30px !important;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		border-radius: unset !important;
+		color:#1a73e8;
+	}
+	.table thead tr{
+		display:contents;
+	}
+	.table tbody tr:last-child td:first-child{
+		border-radius: 0px 0px 0px 10px !important;
+	}
+	.table tbody tr:last-child td:last-child{
+		border-radius: 0px 0px 10px 0px !important;
+	}
+	.table thead th:last-child{
+		border-radius: 0 10px 0 0 !important;
+	}
+	.table thead th:first-child {
+		border-radius: 10px 0 0 0 !important;
+	}
+	.table td {
+		padding: 12px 30px !important;
+	}
+	.table tbody tr{
+		background: #fff !important;
+		display: table-row;
+		margin-bottom: 0px;
+		box-shadow: none;
+	}
+	.table tbody tr:first-child{
+		margin-top: 0px;
+	}
+	.tbl__td__label{
+		display:inline-block;
+	}
+	/* table css */
 }
 @media (min-width: 1300px) {
     .max__w__1280{
 		max-width: 1200px;
-		//margin: auto !important;
 	}
 	.max__w__850{
 		max-width: 850px;

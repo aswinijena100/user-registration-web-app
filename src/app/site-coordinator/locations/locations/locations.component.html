@@ -1,7 +1,7 @@
 <div class="subheader p-none">
   <div class="max__w__1280 m-none">
     <div class="flex__justify__space-between" >
-      <div class="subheader__title font__bold">Locations</div>
+      <div class="subheader__title">Locations</div>
       <div class="" ><button class="btn btn-primary  width__auto blue__btn font14">Add Location</button></div>
     </div>
   </div>
@@ -11,8 +11,9 @@
     <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
       <thead>
       <tr>
+        <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
         <th>
-          <mfDefaultSorter by="name">Location ID</mfDefaultSorter>
+           <mfDefaultSorter by="name">Location ID</mfDefaultSorter>
         </th>
         <th>
           <mfDefaultSorter by="email">Location Name</mfDefaultSorter>
@@ -27,10 +28,10 @@
       </thead>
       <tbody>
       <tr *ngFor="let user of mf.data">
-        <td>{{user.name}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.age}}</td>
-        <td>{{user.city | uppercase}}</td>
+        <td><span class="tbl__td__label">Location ID:</span>{{user.name}}</td>
+        <td><span class="tbl__td__label">Location Name:</span>{{user.email}}</td>
+        <td><span class="tbl__td__label">Associated Studies:</span>{{user.age}}</td>
+        <td><span class="tbl__td__label">Status:</span>{{user.city | uppercase}}</td>
       </tr>
       </tbody>
       <tfoot>

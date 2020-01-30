@@ -1,4 +1,4 @@
-<div class="subheader p-none pl-none">
+<section class="subheader p-none pl-none">
   <div class="max__w__1280 m-none">
       <div class="flex__justify__space-between" >
         <div class="subheader__title flex__justify__space-between align__items__baseline">
@@ -17,62 +17,117 @@
         </div>
       </div>
   </div> 
-</div>
+</section>
 
-<div class="max__w__1280 m-none site__participant">
+<section class="max__w__1280 m-none site__participant">
   <div class="cards1 m-none">
-  <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
-    <thead>
-      <tr>
-        <th>
-          <mfDefaultSorter by="Email">Participant Email</mfDefaultSorter>
-        </th>
-        <th>
-          <mfDefaultSorter by="Date">App registration Date</mfDefaultSorter>
-        </th>
-        <th>
-          <mfDefaultSorter by="Status">App account Status</mfDefaultSorter>
-        </th>
-        <th>
-          <mfDefaultSorter by="Enrolled">No of Studies Enrolled</mfDefaultSorter>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>andreasbrixen@gmail.com</td>
-        <td>12/18/2020</td>
-        <td><div class="text__353a3e__14">Active</div></td>
-        <td>2</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="4">
-          <mfBootstrapPaginator></mfBootstrapPaginator>
-        </td>
-      </tr>
-    </tfoot>
-  </table>
-</div>
-</div>
+    <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+      <thead>
+        <tr>
+          <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
+          <th>
+            <mfDefaultSorter by="Email">Participant Email</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter by="Date">App registration Date</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter by="Status">App account Status</mfDefaultSorter>
+          </th>
+          <th>
+            <mfDefaultSorter by="Enrolled">No of Studies Enrolled</mfDefaultSorter>
+          </th>
+        </tr>
+      </thead> 
+      <tbody>
+        <tr>
+          <td><span class="tbl__td__label">Participant Email:</span> andreasbrixen@gmail.com</td>
+          <td><span class="tbl__td__label">App registration Date:</span>  12/18/2020</td>
+          <td><span class="tbl__td__label">App account Status:</span> Active</td>
+          <td><span class="tbl__td__label">No of Studies Enrolled:</span> 2</td>
+        </tr>
+        <tr>
+          <td><span class="tbl__td__label">Participant Email:</span> ansadsddreasbrixen@gmail.com</td>
+          <td><span class="tbl__td__label">App registration Date:</span>  12/18/2020</td>
+          <td><span class="tbl__td__label">App account Status:</span> Active</td>
+          <td><span class="tbl__td__label">No of Studies Enrolled:</span><span class="no_st_en" #template (click)="openModal(template)">3</span></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="4">
+            <mfBootstrapPaginator></mfBootstrapPaginator>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</section>
+
+<!-- <section class="mobile__view">
+  <section class="mobile__view max__w__1280 m-none ">
+    <section class="mb-md mt-md">
+      <span class="text__8495a5__14">Sort By:</span>
+      <select class="background__trans text__4285f4__14">
+        <option value='email'>Email</option>
+      </select>
+    </section>
+    <section class="mb-xlg">
+      <ul class="mb__table__view__list">
+        <li>
+          <div>
+            <div class="flex__justify__space-between mb-xs">
+              <div>andreasbrixen@gmail.com</div>
+              <div>12/18/2020</div>
+            </div>
+           <div>
+            <div class="mb-xs"><span class="text__8495a5__14">App account Status: </span><span>Inactive</span></div>
+            <div><span  class="text__8495a5__14">No of Studies Enrolled: </span><span  #template  (click)="openModal(template)">2</span></div>
+           </div>
+          </div>
+        </li>
+        <li>
+          <div>
+            <div class="flex__justify__space-between mb-xs">
+              <div>andreasbrixen@gmail.com</div>
+              <div>12/18/2020</div>
+            </div>
+           <div>
+            <div class="mb-xs"><span class="text__8495a5__14">App account Status: </span><span>Inactive</span></div>
+            <div><span  class="text__8495a5__14">No of Studies Enrolled: </span><span  #template  (click)="openModal(template)">2</span></div>
+           </div>
+          </div>
+        </li>
+      </ul>                                                             
+    </section>
+  </section>
+</section> -->
 
 <ng-template #template>
   <div class="modal-body modal__body">
-    <form>
-      <div class="row border__bottom__c4d1e6">
-        <div class="col-xs-12 col-md-12 p-none ">
-          <div class="form-group border-radius__77">
-            <label for="email">Email</label>
-            <input type="text" class="form-control" id="study" value="" placeholder="Enter Email">
-          </div>
+    <button type="button" class="close pad__15__20" (click)="modalRef.hide()">&times;</button>
+    <ul class="app__level__pop__list">
+      <li>
+        <div class="text__4285f4__12 text-capitalize">STUDY003</div>
+        <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Pregnant Women</div>
+        <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
+          <div class="col-xs-6 col-md-12  p-none">Site ID : <span class="text__4285f4__12">Site 2 Lorem ipsum dolor sit amet A</span></div>
         </div>
-      </div>
-      <div class="p-xlg flex__justify__space-between">
-          <div><button type="submit" class="btn bt__add mr-sm">Add</button>
-              <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button>
-          </div>
-      </div>
-    </form>
+      </li>
+      <li>
+        <div class="text__4285f4__12 text-capitalize">STUDY003</div>
+        <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Fitness</div>
+        <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
+          <div class="col-xs-6 col-md-12  p-none">Site ID : <span class="text__4285f4__12">Site 2 Lorem ipsum dolor sit amet B</span></div>
+        </div>
+      </li>
+      <li>
+        <div class="text__4285f4__12 text-capitalize">STUDY003</div>
+        <div class="col-xs-12  col-md-12 p-none text__353a3e__20">Diet and Nutrition Study</div>
+        <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
+          <div class="col-xs-6 col-md-12  p-none">Site ID : <span class="text__4285f4__12">Site 2 Lorem ipsum dolor sit amet C</span></div>
+        </div>
+      </li>
+    </ul>
   </div>
 </ng-template>
