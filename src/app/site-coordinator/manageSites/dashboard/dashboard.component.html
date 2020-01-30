@@ -102,14 +102,15 @@
     </div>
   </div>
   <div *ngIf="activeTab=='apps'">
-    <div class="bg__white cards  box__shadow-cmn   p-xl">
+    <div *ngFor="let app of apps" class="bg__white cards  box__shadow-cmn   p-xl">
       <div class="flex__justify__space-between flex__wrap">
         <div class="">
           <div class="">
-            <div class="text__4285f4__12 text-capitalize">STUDY003</div>
-            <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Pregnant Women</div>
+            <div class="text__4285f4__12 text-capitalize">{{app.customId}}</div>
+            <div class="col-xs-12  col-md-12 p-none text__353a3e__20">{{app.name}}</div>
             <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
-              <div class="col-xs-6 col-md-12  p-none">4 sites</div>
+              <div class="col-xs-6 col-md-12  p-none">{{app.totalStudiesCount}} Studies<span
+                  *ngIf="app.appPermission!=0">, {{app.appUsersCount}}  App Users</span></div>
             </div>
           </div>
         </div>
@@ -121,12 +122,18 @@
                   <div class="pro__base">
                     <div class="pro__top" style="width:30%"></div>
                   </div>
-                  <div class="progress-label font__bold text__63bb67__12">30/50</div>
+                  <div class="progress-label font__bold"
+                    [ngClass]="(app.enrollmentPercentage<30)?'text__f85555__12':(app.enrollmentPercentage<70?'text__ffbc00__12':'text__63bb67__12')">
+                    <span *ngIf="app.invitedCount!=0">{{app.enrolledCount}}/{{app.invitedCount}}</span><span
+                      *ngIf="app.invitedCount==0">N/A</span>
+                  </div>
                 </div>
               </div>
             </div>
             <div class="text-right progress__bar__next">
-              <div class="text__b6c5db__50">53%</div>
+              <div class="text__b6c5db__50"> <span
+                  *ngIf="app.invitedCount!=0">{{app.enrollmentPercentage| number : '.2-2' }}%</span><span
+                  *ngIf="app.invitedCount==0">N/A</span></div>
               <div class="text__757b80__12">Enrolled/Invited</div>
             </div>
           </div>
@@ -137,9 +144,9 @@
 </div>
 
 <!-- loader -->
-<div class="text-center mb-lg">
+<!-- <div class="text-center mb-lg">
   <img src="../../../assets/images/loader-dot.gif" alt="Lpading">
-</div>
+</div> -->
 <!-- loader -->
 
 <!-- modal -->

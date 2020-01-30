@@ -14,6 +14,8 @@ export class DashboardComponent implements OnInit {
   studiesWithSitesBackup: any[] = [];
   studies: any[] = [];
   studiesBackup: any[] = [];
+  apps: any[] = [];
+  appsBackup: any[] = [];
   activeTab: string = 'sites';
   addSite: any = {};
 
@@ -44,6 +46,17 @@ export class DashboardComponent implements OnInit {
     }, error => {
       this.studies = [];
       this.studiesBackup = [];
+    });
+  }
+  getApps() {
+    this.apps = [];
+    this.appsBackup = [];
+    this.manageSiteService.getApps().subscribe(data => {
+      this.apps = data;
+      this.appsBackup = JSON.parse(JSON.stringify(this.studies));
+    }, error => {
+      this.apps = [];
+      this.appsBackup = [];
     });
   }
   openAddSiteModal(template: TemplateRef<any>, study: any) {
@@ -79,13 +92,23 @@ export class DashboardComponent implements OnInit {
     else if (this.activeTab == 'studies') {
       if (query && query.trim() != '' && query.trim() != undefined) {
         this.studies = this.studiesBackup.filter(function (a) {
-          return (a.name != null && a.name != undefined && a.name.toLowerCase().includes(query.toLowerCase()));
+          return ((a.name != null && a.name != undefined && a.name.toLowerCase().includes(query.toLowerCase()) ||
+            (a.customId != null && a.customId != undefined && a.customId.toLowerCase().includes(query.toLowerCase()))));
         });
       } else {
         this.studies = this.studiesBackup;
       }
     }
-
+    else if (this.activeTab == 'apps') {
+      if (query && query.trim() != '' && query.trim() != undefined) {
+        this.apps = this.appsBackup.filter(function (a) {
+          return ((a.name != null && a.name != undefined && a.name.toLowerCase().includes(query.toLowerCase()) ||
+            (a.customId != null && a.customId != undefined && a.customId.toLowerCase().includes(query.toLowerCase()))));
+        });
+      } else {
+        this.apps = this.appsBackup;
+      }
+    }
   }
   changeTab(tab) {
     this.activeTab = tab;
@@ -94,6 +117,8 @@ export class DashboardComponent implements OnInit {
       this.getstudiesWithSite();
     } else if (this.activeTab == 'studies') {
       this.getStudies();
+    } else if (this.activeTab == 'apps') {
+      this.getApps();
     }
   }
 }

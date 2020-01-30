@@ -15,4 +15,7 @@ export class ManageSitesService {
   getStudies() {
     return this.dataService.HttpGetRequest('studies?userId=1', '');
   }
+  getApps() {
+    return this.dataService.HttpGetRequest('apps?userId=1', '');
+  }
 }
