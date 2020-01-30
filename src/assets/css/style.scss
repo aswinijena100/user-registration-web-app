@@ -386,18 +386,8 @@ footer ul li:last-child  a{
 .table tfoot tr td{
 	border-top:none !important;
 }
-.table th:first-child{
-	border-radius: 7px 0 0 0;
-}
-.table th:last-child{
-	border-radius: 0 7px 0 0;
-}
-.table tr:last-child td:first-child{
-	border-radius: 0px 0px 0px 10px;
-}
-.table tr:last-child td:last-child{
-	border-radius: 0px 0px 10px 0px;
-}
+
+
 .table tfoot tr td{
 	background: transparent;
 }
@@ -523,6 +513,11 @@ footer ul li:last-child  a{
 	padding: 18px 20px;
 	margin-bottom:10px;
 }
+.tbl__td__label{
+	color:#8495a5;
+	font-size:14px;
+	margin-right:5px !important;
+}
 /********** Main *********/
 
 .row{
@@ -641,6 +636,10 @@ footer ul li:last-child  a{
 	font-size:12px;
 	color:#4285f4;
 }
+.text__387fea__12{
+	color:#387fea;
+	font-size:12px
+}
 .text__4285f4__up__11{
 	font-size:11px;
 	color:#4285f4;
@@ -667,6 +666,11 @@ footer ul li:last-child  a{
 	color:#8495a5;
 	font-size:14px;
 }
+.text__858d93__14{
+	color:#858d93;
+	font-size:14px;
+}
+
 .text__353a3e__14{
 	color:#34a853;
 	font-size:14px;

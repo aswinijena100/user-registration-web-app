@@ -84,10 +84,11 @@
   
   <h2 class="subheader__title mb-sm">Consent History</h2>
 
-  <section class="cards1 m-none desk__view">
+  <section class="cards1 m-none">
     <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
       <thead>
         <tr>
+          <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
           <th>
             <mfDefaultSorter by="name">Consent Version</mfDefaultSorter>
           </th>
@@ -114,17 +115,6 @@
             </div>
           </td>
         </tr>
-        <tr>
-          <td>V3.1</td>
-          <td>Not Provided</td>
-          <td>Not Provided</td>
-          <td>
-            <div>
-              <img src="../../../../assets/images/download-img.gif" alt="download">
-              <span class="text__797f84__10">Download</span>
-            </div>
-          </td>
-        </tr>
       </tbody>
       <tfoot>
         <tr>
@@ -134,55 +124,6 @@
         </tr>
       </tfoot>
     </table>
-  </section>
-</section>
-
-<section class="mobile__view max__w__1280 m-none ">
-  <section class="mb-md">
-    <span class="text__8495a5__14">Sort By:</span>
-    <select class="background__trans text__4285f4__14">
-      <option value='email'>Email</option>
-    </select>
-  </section>
-  <section class="mb-xlg">
-    <ul class="mb__table__view__list">
-      <li>
-        <div>
-          <div class="flex__justify__space-between mb-xs">
-            <div>V1</div>
-            <div><img src="../../../../assets/images/download-img.gif" alt="download"></div>
-          </div>
-         <div>
-          <div class="mb-xs"><span class="text__8495a5__14">Primary Consent Status : </span><span>Provided</span></div>
-          <div><span  class="text__8495a5__14">Data Sharing Permisions : </span><span>Provided</span></div>
-         </div>
-        </div>
-      </li>
-      <li>
-        <div>
-          <div class="flex__justify__space-between mb-xs">
-            <div>V1</div>
-            <div><img src="../../../../assets/images/download-img.gif" alt="download"></div>
-          </div>
-         <div>
-          <div class="mb-xs"><span class="text__8495a5__14">Primary Consent Status : </span><span>Provided</span></div>
-          <div><span  class="text__8495a5__14">Data Sharing Permisions : </span><span>Provided</span></div>
-         </div>
-        </div>
-      </li>
-      <li>
-        <div>
-          <div class="flex__justify__space-between mb-xs">
-            <div>V1</div>
-            <div><img src="../../../../assets/images/download-img.gif" alt="download"></div>
-          </div>
-         <div>
-          <div class="mb-xs"><span class="text__8495a5__14">Primary Consent Status : </span><span>Provided</span></div>
-          <div><span  class="text__8495a5__14">Data Sharing Permisions : </span><span>Provided</span></div>
-         </div>
-        </div>
-      </li>
-    </ul>                                                             
   </section>
 </section>
 

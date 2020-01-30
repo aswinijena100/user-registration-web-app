@@ -11,7 +11,7 @@
     <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
       <thead>
       <tr>
-        <span class="text__8495a5__14" style="background:transparent">Sort By: </span>
+        <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
         <th>
            <mfDefaultSorter by="name">Location ID</mfDefaultSorter>
         </th>
@@ -28,10 +28,10 @@
       </thead>
       <tbody>
       <tr *ngFor="let user of mf.data">
-        <td><mfDefaultSorter by="name">{{user.name}}</mfDefaultSorter></td>
-        <td>{{user.email}}</td>
-        <td>{{user.age}}</td>
-        <td>{{user.city | uppercase}}</td>
+        <td><span class="tbl__td__label">Location ID:</span>{{user.name}}</td>
+        <td><span class="tbl__td__label">Location Name:</span>{{user.email}}</td>
+        <td><span class="tbl__td__label">Associated Studies:</span>{{user.age}}</td>
+        <td><span class="tbl__td__label">Status:</span>{{user.city | uppercase}}</td>
       </tr>
       </tbody>
       <tfoot>
