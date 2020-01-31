@@ -8,7 +8,7 @@
 </div> 
 <div class="max__w__1280 m-none">
   <div class="cards1 m-none">
-    <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <table class="table table-striped" [mfData]="locations" #mf="mfDataTable" [mfRowsOnPage]="5">
       <thead>
       <tr>
         <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
@@ -27,12 +27,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let user of mf.data">
-        <td><span class="tbl__td__label">Location ID:</span>{{user.name}}</td>
-        <td><span class="tbl__td__label">Location Name:</span>{{user.email}}</td>
-        <td><span class="tbl__td__label">Associated Studies:</span>{{user.age}}</td>
-        <td><span class="tbl__td__label">Status:</span>{{user.city | uppercase}}</td>
-      </tr>
+        <tr *ngFor="let location of mf.data">
+          <td><span class="tbl__td__label">Location ID:</span>{{location.customId}}</td>
+          <td><span class="tbl__td__label">Location Name:</span>{{location.name}}</td>
+          <td><span class="tbl__td__label">Associated Studies:</span>{{location.studiesCount}}</td>
+          <td><span class="tbl__td__label">Status:</span>{{location.status | uppercase}}</td>
+        </tr>
       </tbody>
       <tfoot>
       <tr>
