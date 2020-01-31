@@ -5,7 +5,6 @@
     <li [ngClass]="{'active':activeTab=='apps'}"><a (click)="changeTab('apps')" data-toggle="tab">Apps</a>
     </li>
   </ul>
-
   <div class="tab-content">
     <div *ngIf="activeTab=='sites'" class="site__content">
       <div *ngFor="let studyWithSite of studiesWithSites" class="bg__white cards  box__shadow-cmn">
