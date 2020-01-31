@@ -8,14 +8,19 @@
           <div class="navbar-nav ml-auto">
             <div class="navbar-nav display-flex-center">
               <div class="navbar-nav inner-addon right-addon search-icon">
-                <input type="text" [attr.placeholder]="searchPlaceholder" autocomplete="off" [(ngModel)]="filterQuery" class="form-control search-box search__" />
+                <input type="text" [attr.placeholder]="searchPlaceholder" autocomplete="off" [(ngModel)]="filterQuery"
+                  class="form-control search-box search__" />
                 <button (click)="search()">search</button>
               </div>
-              
-              <a href="#" class="nav-item nav-link active">DashBoard</a>
-              <a href="#" class="nav-item nav-link">Location</a>
-              <a href="#" class="nav-item nav-link">User</a>
-              <a href="#" class="nav-item nav-link">My Account <span class="navbar__name">J</span></a>
+
+              <a routerLink="/user/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                class="nav-item nav-link">DashBoard</a>
+              <a routerLink="/user/locations" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                class="nav-item nav-link">Location</a>
+              <a routerLink="/user/manageUsers" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                class="nav-item nav-link">User</a>
+              <a routerLink="/user/userProfile" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+                class="nav-item nav-link">My Account <span class="navbar__name">J</span></a>
             </div>
           </div>
         </div>
@@ -26,11 +31,14 @@
   <div id="mobile-menu">
     <div id="mySidenav__menubar" class="flex__justify__space-between">
       <div class="">
-        <span class="openNav display-inline-block mr-sm" (click)="opencloseNav()" >
+        <span class="openNav display-inline-block mr-sm" (click)="opencloseNav()">
           <svg height="16px" viewBox="0 -53 384 384" width="20px" xmlns="http://www.w3.org/2000/svg">
-            <path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
-            <path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
-            <path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/>
+            <path
+              d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
+            <path
+              d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
+            <path
+              d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
           </svg>
         </span>
         <a href="#" class="">

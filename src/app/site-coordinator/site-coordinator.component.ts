@@ -28,18 +28,23 @@ export class SiteCoordinatorComponent implements OnInit {
   }
   onActivate(componentRef) {
     this.componentRef = componentRef;
+    console.log(this.componentRef.constructor.name)
     //Below will subscribe to the tab change emitter
-    componentRef.tabChangeItem.subscribe((data) => {
-      // Will receive the data from child here 
-      console.log("tab chnage event triggered " + data)
-      if (data == 'studies') {
-        this.searchPlaceholder = "Search by  study ID or name"
-      } else if (data == 'apps') {
-        this.searchPlaceholder = "Search by APP ID or name"
-      } else if (data == 'sites') {
-        this.searchPlaceholder = "Search by site or study ID or name"
-      }
-    })
+    if (this.componentRef.constructor.name == "DashboardComponent") {
+      componentRef.tabChangeItem.subscribe((data) => {
+        // Will receive the data from child here 
+        console.log("tab chnage event triggered " + data)
+        if (data == 'studies') {
+          this.searchPlaceholder = "Search by  study ID or name"
+        } else if (data == 'apps') {
+          this.searchPlaceholder = "Search by APP ID or name"
+        } else if (data == 'sites') {
+          this.searchPlaceholder = "Search by site or study ID or name"
+        }
+      })
+    } else if (this.componentRef.constructor.name == "LocationsComponent") {
+      this.searchPlaceholder = "Search by location"
 
+    }
   }
 }
