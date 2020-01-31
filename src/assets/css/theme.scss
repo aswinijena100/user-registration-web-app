@@ -408,6 +408,9 @@ a.w-link,a.w-link:hover{
 	display: flex !important;
 	align-items: center !important;
 }
+.display-webkit-box{
+	display: -webkit-box;
+}
 .flex__row{
     display:flex;
     flex-flow:row;
@@ -421,6 +424,9 @@ a.w-link,a.w-link:hover{
     font-size: 12px;
     text-align: right;
     visibility: visible;
+}
+.overflow__auto{
+	overflow: auto;
 }
 .font12{
 	font-size:12px;

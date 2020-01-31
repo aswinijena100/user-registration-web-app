@@ -83,7 +83,12 @@
 	.mb__mt-lg{
 		margin-top:20px;
 	}
-	
+	.mb__mt-sm{
+		margin-top:10px;
+	}
+	.mb__mb-sm{
+		margin-bottom:10px;
+	}
 	.site__content .progress-label {
 		margin-top: 0px;
 	}
@@ -128,11 +133,15 @@
 	.table tfoot td:last-child{
 		padding-bottom:0 !important;
 		padding-top:0 !important;
+		margin-top: -5px;
 	}
 	.table{
 		border-collapse: separate;
 		border-spacing: 0 15px;
 		margin-top: -15px;
+	}
+	.site__table .table{
+		margin-top: 4px;
 	}
 	.table td {
 		border-top: none !important;
@@ -193,6 +202,23 @@
 		display:inline-block;
 	}
 	/*table css */
+	.mb__padding__lg{
+		padding:20px !important;
+	}
+	.yel__tabs{
+		margin-top: 0;
+		background: #fff;
+		border-radius: 0;
+		border-top: 1px solid #c4d1e6;
+		box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
+	}
+	.yel__tabs li a{
+		padding: 14px 15px !important;
+		display: inline-block;
+	}
+	.yel__tabs .nav-tabs{
+		border-bottom: 1px solid #c4d1e6;
+	}
 }
 @media (min-width: 768px) {
     .modal{
@@ -253,6 +279,12 @@
 	}
 	.progress__bar__row > div{
 		margin-bottom:0;
+	}
+	.mb__mt-sm{
+		margin-top:0px;
+	}
+	.mb__mb-sm{
+		margin-bottom:20px;
 	}
 }
 @media (min-width: 1020px) {
@@ -317,7 +349,7 @@
 	.table thead th:last-child{
 		border-radius: 0 10px 0 0 !important;
 	}
-	.table thead th:first-child {
+	.table thead th:first-child{
 		border-radius: 10px 0 0 0 !important;
 	}
 	.table td {
@@ -335,7 +367,26 @@
 	.tbl__td__label{
 		display:inline-block;
 	}
+	.table tfoot td:last-child{
+		padding-bottom:0 !important;
+		padding-top:10px !important;
+		margin-top: 0px;
+	}
 	/* table css */
+
+	.mb__padding__lg{
+		padding:30px !important;
+	}
+	.yel__tabs{
+		margin-top:20px;
+		border-radius: 10px 10px 0 0;
+		box-shadow: none;
+		border:none;
+	}
+	.yel__tabs li a{
+		padding: 14px 30px !important;
+		display: inline-block;
+	}
 }
 @media (min-width: 1300px) {
     .max__w__1280{
