@@ -881,6 +881,11 @@ footer ul li:last-child  a{
 .text__fff{
 	color:#fff !important;
 }
+.text__353a3e__16{
+	font-size: 16px !important;
+	color: #353a3e !important;
+	line-height: 16px;
+}
 /*Style Guide*/
 
 /*Responssive */
@@ -941,4 +946,133 @@ footer ul li:last-child  a{
 .box__shadow-cmn:hover{
 	box-shadow: 0 2px 4px 0 rgba(60, 64, 67, .3), 0 6px 11px 5px rgba(60, 64, 67, .15);
 	transform: translateY(-4px);
+}
+.select__form-control{
+	padding: 0 !important;
+    text-indent: 0px !important;
+    height: auto !important;
+}
+.select__form-control__parent{
+	border: 1px solid #c4d1e6 !important;
+	padding:20px;
+	border-radius:7px;
+}
+
+.wrap {
+    overflow: hidden;
+    position: relative;
+    display: block;
+}
+
+.wrap:after {
+    content: "\f0dd";
+    font-family: FontAwesome;
+    color: #4d4d4d;
+    position: absolute;
+    right: 0;
+    top: 10px;
+    height: 100%;
+    font-size: 14px;
+    cursor: pointer;
+}
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+.fa__plus__minus .fa{
+	color:#1a73e4;
+	font-size:16px;
+}
+[type=button], [type=reset], [type=submit], button{
+	-webkit-appearance: none !important;
+}
+
+/*.card-header:after{
+	background: url(../images/down-arrow.gif) no-repeat;
+	content:"\f067";
+	display: block;
+	position: absolute;
+	font-family: 'FontAwesome';
+	top: 50%;
+	right:10px;
+  	color: #1a73e4;
+    font-size: 16px;
+}*/
+.fa__plus__minus{
+	background: url(../images/plus.gif) no-repeat;
+	display: block;
+	background-position: 98%;
+	width: 30px;
+    height: 30px;
+}
+.fa__plus__minus.collapsed{
+	background: url(../images/minus.gif) no-repeat;
+	display: block;
+	background-position: 98%;
+	width:16px;
+	height:16px;
+}
+
+.accordion>.card {
+	margin-bottom: 8px;
+	border: none;
+    border-bottom: none !important;
+}
+.card-body{
+	border: 1px solid #c4d1e6;
+	border-radius: 0 0 7px 7px;
+	border-top: 0;
+	margin-top: -5px;
+}
+.card-header:first-child {
+    border-radius: 7px !important;
+}
+.card-header{
+	border: 1px solid #c4d1e6 !important;	
+	border-radius:7px  !important;
+}
+.accordion>.card .card-header {
+    margin-bottom: 0 !important;
+}
+div.show + div{
+	border-radius: 7px !important;
+}
+.collapse.show + .card-header{
+	border-radius:7px 7px 0 0 !important;
+}
+.show .card-body{
+	margin-top: -5px;
+}
+
+.sub__accordian .card-header{
+	border: none !important;
+	background: #fff !important;
+	padding:0;
+}
+.sub__accordian .card-body{
+	border: none !important;
+	padding-top:0;
+	padding-bottom :0;
+	padding-left:50px;
+}
+.acc__dele{
+	width: -webkit-fill-available;
+    margin-right: 15px;
+}
+.card-body__pad{
+	padding:0 25px;
+}
+.card-body__pad .custom__labels__radio{
+	padding:0 25px;
+}
+
+.sub__sub__accordian .card-body {
+    border: none !important;
+    padding-top: 10px;
+    padding-bottom: 0;
+    padding-left: 26px;
+}
+.sub__accordian .custom__labels label{
+	font-size:14px !important;
 }

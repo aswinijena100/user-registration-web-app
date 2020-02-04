@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     LoginComponent,
     SetUpAccountComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     SiteCoordinatorModule,
     DataTableModule,
     HttpClientModule,
-    ModalModule.forRoot()// by prasanna
+    ModalModule.forRoot(),
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

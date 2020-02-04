@@ -41,12 +41,13 @@ import { FormsModule } from '@angular/forms';
     UserProfileComponent,
     LocationsComponent,
     AddLocationComponent,
-    LocationDetailsComponent],
+    LocationDetailsComponent,
+    ],
   imports: [
     CommonModule,
     SiteCoordinatorRoutingModule,
     DataTableModule,
-    FormsModule],
+    FormsModule,],
   providers: [
     ManageAccountService,
     ManageSitesService,
