@@ -5,6 +5,9 @@ body{
     font-size: 14px !important;
 	font-family: 'Product Sans Medium' !important;
 }
+body,html{
+	height:100%;
+}
 input,textarea,select{
 	font-size:20px;
 	border:none !important;
@@ -1031,6 +1034,7 @@ select{
 .card-header{
 	border: 1px solid #c4d1e6 !important;	
 	border-radius:7px  !important;
+	padding: 15px 20px;
 }
 .accordion>.card .card-header {
     margin-bottom: 0 !important;
@@ -1052,9 +1056,12 @@ div.show + div{
 }
 .sub__accordian .card-body{
 	border: none !important;
-	padding-top:0;
-	padding-bottom :0;
-	padding-left:50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+}
+.sub__accordian.accordion>.card{
+	margin-bottom:0 !important;
 }
 .acc__dele{
 	width: -webkit-fill-available;
@@ -1075,4 +1082,20 @@ div.show + div{
 }
 .sub__accordian .custom__labels label{
 	font-size:14px !important;
+}
+.sub__accordian .card-header{
+    border-radius: 0 !important;
+    margin-bottom: 10px !important;
+}
+.sub__accordian .card{
+	border-bottom: 1px solid #c4d1e6 !important;
+	border-radius: 0 !important;
+	padding: 10px 0;
+}
+.pad__T10__B20{
+	padding-top: 5px !important;
+	padding-bottom:15px !important;
+}
+.pad__T10{
+	padding-top: 10px !important;
 }

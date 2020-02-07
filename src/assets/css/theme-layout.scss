@@ -7,12 +7,17 @@
         display:none;
     }
 	.max__w__1280{
+		min-height:100%;
 		max-width: 90%;
 		margin:  auto !important;
 	}
 	.max__w__850{
+		min-height:100%;
 		max-width: 90%;
 		margin:  auto !important;
+	}
+	footer{
+		margin-top:-71px
 	}
 	.cards1,.cards,.card__inside__pad{
 		margin-top:20px !important;
@@ -425,6 +430,9 @@
 		justify-content: center;
 		align-items: center;
 		margin-top:30px;
+	}
+	footer{
+		margin-top:-70px
 	}
 }
 @media (min-width: 1300px) {
