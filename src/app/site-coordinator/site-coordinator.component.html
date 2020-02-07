@@ -50,20 +50,26 @@
         <i style="font-size: 18px;" class="fa fa-search" aria-hidden="true"></i>
       </div>
     </div>
-    <div id="mySidenav" class="sidenav" [ngClass]="opencloseNavval ? 'display__block' : 'display__none'">
-      <a href="javascript:void(0)" class="closebtn mb-md" id="closeMobile" (click)="opencloseNav()"
-        style="font-size: 30px !important;line-height:15px;float:right">×</a>
-      <div class="search-icon mb-md">
-        <input type="text" [attr.placeholder]="searchPlaceholder" class="form-control search-box search__" />
-        <button (click)="search()">search</button>
+    <div id="mySidenav" class="sidenav" [ngClass]="opencloseNavval ? 'width__268 ' : 'width__0 '">
+      <div [ngClass]="opencloseNavval ? 'width__268 display__block ' : 'display__none '">
+        <div class="mob__bo" >
+          <a href="javascript:void(0)" class="closebtn" id="closeMobile" (click)="opencloseNav()">×</a>
+          <a href="#" class="">
+            <img class="mr-sm" src="../../../assets/images/landing-logo.gif" />
+            <span class="header__logo__text">FDA MyStudies </span>
+          </a>
+        </div>
+        
+        <ul class="user__profile__ul">
+          <li><a href="#" class="nav-item nav-link active">DashBoard</a></li>
+          <li><a href="#" class="nav-item nav-link">Location</a></li>
+          <li><a href="#" class="nav-item nav-link">User</a></li>
+          <li><a href="#" class="nav-item nav-link">My Account <span class="navbar__name">J</span></a></li>
+        </ul>
       </div>
-      <ul class="user__profile__ul">
-        <li><a href="#" class="nav-item nav-link active">DashBoard</a></li>
-        <li><a href="#" class="nav-item nav-link">Location</a></li>
-        <li><a href="#" class="nav-item nav-link">User</a></li>
-        <li><a href="#" class="nav-item nav-link">My Account <span class="navbar__name">J</span></a></li>
-      </ul>
+      
     </div>
+    <div class="bg__overlay " [ngClass]="opencloseNavval ? 'display__block' : 'display__none'"></div>
   </div>
 </header>
 <!-- <header class="p-none" id="mobile-menu">
