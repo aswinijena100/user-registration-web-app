@@ -10,12 +10,12 @@ export class ManageSitesService {
   constructor(private dataService: DataService) { }
 
   getstudiesWithSite() {
-    return this.dataService.HttpGetRequest('sites?userId=1', '');
+    return this.dataService.HttpGetRequest('sites/1', '');
   }
   getStudies() {
-    return this.dataService.HttpGetRequest('studies?userId=1', '');
+    return this.dataService.HttpGetRequest('studies/1', '');
   }
   getApps() {
-    return this.dataService.HttpGetRequest('apps?userId=1', '');
+    return this.dataService.HttpGetRequest('apps/1', '');
   }
 }

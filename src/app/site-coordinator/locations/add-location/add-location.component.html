@@ -1,45 +1,67 @@
 <div class="subheader p-none pl-none">
     <div class="max__w__850 m-none">
-        <div class="row" >
+        <div class="row">
             <div class="col-xs-12 col-md-12 pl-none">
-                <a href="#" class="subheader__title">
+                <a (click)="navigateToLocations()" class="subheader__title">
                     <img class="mr-sm" src="../../../../assets/images/left-arrow.gif" alt="Add new location">
                     <span>Add New Location</span>
                 </a>
             </div>
         </div>
-    </div> 
+    </div>
 </div>
 
 <div class="max__w__850 add__location">
-    <form>
+    <form #addLocationForm="ngForm" (ngSubmit)="addLocation()" autocomplete="off">
         <div class="bg__white card__inside__pad box__shadow-cmn m-none">
             <div class="row border-bottom__c4d1e6">
                 <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
-                <div class="form-group ">
-                    <label for="study">Location ID</label>
-                    <input type="text" class="form-control" id="study"  placeholder="Enter Location ID">
-                </div>
+                    <div class="form-group ">
+                        <label for="study">Location ID</label>
+                        <input type="text" class="form-control" id="study" placeholder="Enter Location ID"
+                            [(ngModel)]="location.customId" maxlength=15 required name="loationCustomId"
+                            #loationCustomId="ngModel">
+                    </div>
+                    <div *ngIf="loationCustomId.invalid && (loationCustomId.dirty || loationCustomId.touched)">
+                        <span class="help-block with-errors error__msg" *ngIf="loationCustomId.errors.required">
+                            Location ID is required.
+                        </span>
+                    </div>
                 </div>
                 <div class="col-xs-12 col-md-6 p-none">
-                <div class="form-group ">
-                    <label for="app">Location Name</label>
-                    <input type="text" class="form-control" id="app"  placeholder="Enter Location Name">
-                </div>
+                    <div class="form-group ">
+                        <label for="app">Location Name</label>
+                        <input type="text" class="form-control" id="app" placeholder="Enter Location Name"
+                            [(ngModel)]="location.name" required name="loationName" maxlength=200
+                            #loationName="ngModel">
+                    </div>
+                    <div *ngIf="loationName.invalid && (loationName.dirty || loationName.touched)">
+                        <span class="help-block with-errors error__msg" *ngIf="loationName.errors.required">
+                            Location Name is required.
+                        </span>
+                    </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-md-12 p-none">
-                <div class="form-group">
-                    <label for="Location">Description</label>
-                    <input type="text" class="form-control" id="app"  placeholder="Enter Description">
-                </div>
+                    <div class="form-group">
+                        <label for="Location">Description</label>
+                        <input type="text" class="form-control" id="app" placeholder="Enter Description"
+                            [(ngModel)]="location.description" required name="locationDescription" maxlength=500
+                            #locationDescription="ngModel">
+                    </div>
+                    <div
+                        *ngIf="locationDescription.invalid && (locationDescription.dirty || locationDescription.touched)">
+                        <span class="help-block with-errors error__msg" *ngIf="locationDescription.errors.required">
+                            Location Description is required.
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="btn__container">
-            <button type="submit" class="btn bt__add mr-sm">Add</button>
-            <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button>
+            <button type="submit" class="btn bt__add mr-sm" [disabled]="!addLocationForm.form.valid">Add</button>
+            <button type="button" class="btn bt__cancel" (click)="navigateToLocations()">Cancel</button>
         </div>
     </form>
 </div>
