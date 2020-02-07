@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import {DataTableModule} from "angular-6-datatable";//by prasanna
+import {DataTableModule} from "angular-6-datatable";
 import { AppComponent } from './app.component';
 import { LoginComponent } from './site-coordinator/manageAccount/login/login.component'
 import { SiteCoordinatorModule } from "./site-coordinator/site-coordinator.module";
@@ -16,7 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     LoginComponent,
     SetUpAccountComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     SiteCoordinatorModule,
     DataTableModule,
     HttpClientModule,
-    ModalModule.forRoot()// by prasanna
+    ModalModule.forRoot(),
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

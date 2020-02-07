@@ -26,8 +26,6 @@ import { LocationService } from "./locations/location.service";
 import { DataTableModule } from "angular-6-datatable";
 import { FormsModule } from '@angular/forms';
 
-//by prasanna
-
 @NgModule({
   declarations: [SiteCoordinatorComponent,
     DashboardComponent,
@@ -41,12 +39,13 @@ import { FormsModule } from '@angular/forms';
     UserProfileComponent,
     LocationsComponent,
     AddLocationComponent,
-    LocationDetailsComponent],
+    LocationDetailsComponent,
+    ],
   imports: [
     CommonModule,
     SiteCoordinatorRoutingModule,
     DataTableModule,
-    FormsModule],
+    FormsModule,],
   providers: [
     ManageAccountService,
     ManageSitesService,

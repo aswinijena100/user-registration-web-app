@@ -195,7 +195,7 @@
         </tfoot>
       </table>
     </div>
-    <div id="menu2" class="tab-pane fade"> 
+    <div id="menu2" class="tab-pane fade one__column__td"> 
       <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
         <thead>
           <tr>
@@ -211,16 +211,6 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>
-              <div>
-                <div class="form-group mb-none">
-                  <input type="checkbox" id="css1">
-                  <label for="css1">andreasbrixen@gmail.com</label>
-                </div>
-              </div>
-            </td>
-          </tr>
           <tr>
             <td>
               <div>
@@ -336,8 +326,9 @@
         </div>
       </div>
       <div class="p-xlg flex__justify__space-between">
-          <div><button type="submit" class="btn bt__add mr-sm">Add</button>
-              <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button>
+          <div>
+            <button type="submit" class="btn bt__add mr-sm">Add</button>
+            <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button>
           </div>
       </div>
     </form>
