@@ -2,7 +2,7 @@
   <div class="max__w__1280 m-none">
     <div class="flex__justify__space-between" >
       <div class="subheader__title">Locations</div>
-      <div class="" ><button class="btn btn-primary  width__auto blue__btn font14">Add Location</button></div>
+      <div class="" ><button routerLink="/user/addNewLocation"  class="btn btn-primary  width__auto blue__btn font14">Add Location</button></div>
     </div>
   </div>
 </div> 
@@ -27,11 +27,11 @@
       </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let location of mf.data">
+        <tr *ngFor="let location of mf.data" (click)="locationDetails(location.id)">
           <td><span class="tbl__td__label">Location ID:</span>{{location.customId}}</td>
           <td><span class="tbl__td__label">Location Name:</span>{{location.name}}</td>
           <td><span class="tbl__td__label">Associated Studies:</span>{{location.studiesCount}}</td>
-          <td><span class="tbl__td__label">Status:</span>{{location.status | uppercase}}</td>
+          <td><span class="tbl__td__label">Status:</span>{{location.status==1?'Active':'Deactivated' | uppercase}}</td>
         </tr>
       </tbody>
       <tfoot>

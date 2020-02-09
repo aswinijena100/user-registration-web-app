@@ -30,7 +30,7 @@ const routes: Routes = [{
 
     { path: 'locations', component: LocationsComponent },
     { path: 'addNewLocation', component: AddLocationComponent },
-    { path: 'locationDetails', component: LocationDetailsComponent },
+    { path: 'locationDetails/:locationId', component: LocationDetailsComponent },
 
     { path: 'userProfile', component: UserProfileComponent },
 

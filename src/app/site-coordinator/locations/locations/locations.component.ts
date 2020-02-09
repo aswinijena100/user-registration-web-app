@@ -1,27 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { LocationService } from "../location.service";
+import { Location } from "../../../entity/location";
+import { Router } from "@angular/router";
 @Component({
   selector: 'app-locations',
   templateUrl: './locations.component.html',
   styleUrls: ['./locations.component.scss']
 })
 export class LocationsComponent implements OnInit {
-  public data: any;
-  locations: any[] = [];
-  locationBackup: any[] = [];
+  locations: Location[] = [];
+  locationBackup: Location[] = [];
 
-  constructor(private locationService: LocationService) {
-    this.data = [
-      { 'name': 'Anil', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida, UP, India' },
-      { 'name': 'Anil', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-      { 'name': 'Sunil', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-      { 'name': 'Alok', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-      { 'name': 'Tinku', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-      { 'name': 'XYZ', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-      { 'name': 'asas', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-      { 'name': 'erer', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' },
-      { 'name': 'jhjh', 'email': 'anil.singh581@gmail.com', 'age': '34', 'city': 'Noida' }
-    ];
+  constructor(private locationService: LocationService, private router: Router) {
   }
 
   ngOnInit() {
@@ -38,5 +28,10 @@ export class LocationsComponent implements OnInit {
       this.locations = [];
       this.locationBackup = [];
     });
+  }
+  locationDetails(locationId) {
+    console.log(locationId)
+    this.router.navigate(['/user/locationDetails/',locationId])
+
   }
 }

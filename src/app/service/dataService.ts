@@ -26,13 +26,15 @@ const imageHttpOptions = {
 @Injectable()
 export class DataService {
   // baseUrl = 'http://localhost:8080/urwebappws/';  //local server URL to web api
-  baseUrl = "http://192.168.0.122:8080/urwebappws/";//firdose system
+  // baseUrl = "http://localhost:8080/urwebappws/";//firdose system
+  baseUrl = "http://192.168.0.44:8089/urwebappws/";//44 system url
   serviceUrl: string;
   count: number = 0;
   headersFromService: {};
   constructor(private connectionService: ConnectionService, private router: Router, private http: HttpClient, private spinner: NgxSpinnerService) { }
 
   HttpPostRequest(bodydata: any, urlpath: string, headers: string): Observable<any> {
+
     this.spinner.show();
     this.serviceUrl = '';
     this.serviceUrl = this.baseUrl + urlpath;
@@ -42,8 +44,6 @@ export class DataService {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Credentials': 'true',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
-      'Cache-Control': 'no-cache',
-      'Pragma': 'no-cache',
     })
     if (headers != '' && headers != 'undefined' && headers != undefined) {
       this.headersFromService = JSON.parse(headers);
@@ -58,13 +58,13 @@ export class DataService {
       .pipe(
         catchError((err: HttpErrorResponse) => {
           if (err.status == 0) {
-            this.connectionService.monitor().subscribe(isConnected => {
-              console.log(isConnected)
-              if (!isConnected) {
+            // this.connectionService.monitor().subscribe(isConnected => {
+            //   console.log(isConnected)
+            //   if (!isConnected) {
 
-                window.location.reload();
-              }
-            })
+            //     window.location.reload();
+            //   }
+            // })
           } else if (err.status == 401) {
             window.localStorage.clear();
             this.router.navigate(['/login'])
@@ -151,7 +151,7 @@ export class DataService {
         })
       )
   }
-  HttpPutRequest(bodydata: any, urlpath: string): Observable<any> {
+  HttpPutRequest(bodydata: any, urlpath: string, headers: string): Observable<any> {
     this.spinner.show();
     this.serviceUrl = '';
     this.serviceUrl = this.baseUrl + urlpath;
@@ -161,7 +161,16 @@ export class DataService {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Credentials': 'true',
       'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
-    })
+    });
+    if (headers != '' && headers != 'undefined' && headers != undefined) {
+      this.headersFromService = JSON.parse(headers);
+      if (Object.keys(this.headersFromService).length > 0) {
+        for (let key in this.headersFromService) {
+          let value = this.headersFromService[key];
+          httpOptions.headers = httpOptions.headers.append(key, value)
+        }
+      }
+    }
     return this.http.put<any>(this.serviceUrl, bodydata, httpOptions).pipe(
       catchError((err: HttpErrorResponse) => {
         if (err.status == 0) {
