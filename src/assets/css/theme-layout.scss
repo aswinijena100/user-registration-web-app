@@ -248,6 +248,9 @@
 	.user__details__label{
 		width:100%
 	}
+	.bg__white .search__user__details{
+		width:80% !important;
+	}
 }
 @media (min-width: 768px) {
     .modal{
@@ -436,6 +439,9 @@
 	}
 	.user__details__label{
 		width:40%
+	}
+	.bg__white .search__user__details{
+		width:400px !important;
 	}
 }
 @media (min-width: 1300px) {
