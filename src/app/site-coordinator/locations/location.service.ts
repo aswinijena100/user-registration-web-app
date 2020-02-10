@@ -30,7 +30,7 @@ export class LocationService {
     // console.log(userId)
 
     // this.headers = { "authKey": authKey, "userId": userId };
-    this.headers = { "userId": "auth-id" };
+    this.headers = { "userId": "12" };
 
   }
 }
