@@ -26,6 +26,8 @@ export class AddNewUserComponent implements OnInit {
     description: "Third accordion"
 }];
 
+
+
 addItem() {
     this.items.push({
         id: this.items.length + 1,

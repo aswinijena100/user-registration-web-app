@@ -7,7 +7,7 @@ import { AppParticipantsListComponent } from './manageSites/app-participants-lis
 import { ParticipantDetailsComponent } from './manageSites/participant-details/participant-details.component';
 import { ManageUsersComponent } from './manageUsers/manage-users/manage-users.component';
 import { AddNewUserComponent } from './manageUsers/add-new-user/add-new-user.component';
-import { UpdateUserComponent } from './manageUsers/update-user/update-user.component';
+//import { UpdateUserComponent } from './manageUsers/update-user/update-user.component';
 import { UserDetailsComponent } from './manageUsers/user-details/user-details.component';
 import { UserProfileComponent } from './manageAccount/user-profile/user-profile.component';
 import { SiteCoordinatorComponent } from "./site-coordinator.component";
@@ -27,7 +27,7 @@ const routes: Routes = [{
 
     { path: 'manageUsers', component: ManageUsersComponent },
     { path: 'addNewUser', component: AddNewUserComponent },
-    { path: 'updateUser', component: UpdateUserComponent },
+    //{ path: 'updateUser', component: UpdateUserComponent },
     { path: 'userDetails', component: UserDetailsComponent },
 
     { path: 'locations', component: LocationsComponent },

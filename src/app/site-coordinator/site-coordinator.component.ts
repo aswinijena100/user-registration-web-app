@@ -11,6 +11,8 @@ export class SiteCoordinatorComponent implements OnInit {
 
   searchPlaceholder: string = "Search by site or study ID or name"
   opencloseNavval: boolean = false;
+  searchforbobval:boolean = false;
+  searchforbobval1:boolean = true;
   componentRef: any;
   filterQuery: string = "";
   constructor(router: Router) {
@@ -20,6 +22,11 @@ export class SiteCoordinatorComponent implements OnInit {
 
   }
 
+  searchforbob(){
+    this.searchforbobval = !this.searchforbobval;
+    this.searchforbobval1 = !this.searchforbobval1;
+    
+  }
   opencloseNav() {
     this.opencloseNavval = !this.opencloseNavval;
   }

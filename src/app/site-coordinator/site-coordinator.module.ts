@@ -25,7 +25,7 @@ import { LocationService } from "./locations/location.service";
 //libraries
 import { DataTableModule } from "angular-6-datatable";
 import { FormsModule } from '@angular/forms';
-import { UpdateUserComponent } from './manageUsers/update-user/update-user.component';
+//import { UpdateUserComponent } from './manageUsers/update-user/update-user.component';
 
 @NgModule({
   declarations: [SiteCoordinatorComponent,
@@ -41,7 +41,7 @@ import { UpdateUserComponent } from './manageUsers/update-user/update-user.compo
     LocationsComponent,
     AddLocationComponent,
     LocationDetailsComponent,
-    UpdateUserComponent,
+    //UpdateUserComponent,
     ],
   imports: [
     CommonModule,
