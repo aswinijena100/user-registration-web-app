@@ -138,7 +138,8 @@ header{
 	padding-right: 0 !important;
     padding-left: 0 !important;
     margin-left: 20px;
-    margin-right: 20px;
+	margin-right: 20px;
+	font-weight:600;
 }
 .bs__example a.nav-link:last-child{
 	margin-right:0 !important;
@@ -207,6 +208,7 @@ header{
 .header__logo__text{
 	color:#5e6164;
 	font-size:14px;
+	font-weight:700;
 }
 /********** header *********/
 
@@ -365,7 +367,9 @@ footer ul li:last-child  a{
     color: #ea4335;
     font-size: 16px;
 }
-
+button{
+	font-weight:700 !important;
+}
 .bg__white{
 	background: #fff !important;
 }
@@ -395,13 +399,15 @@ footer ul li:last-child  a{
 	border-top:none !important;
 	color: #1a73e8;
 	font-size:12px;
-	padding: 15px 30px !important
+	padding: 15px 30px !important;
+	font-weight:700;
 }
 .table td{
 	border-top :1px solid #c4d1e6  !important;
 	color: #353a3e;
 	font-size:14px;
-	padding: 12px 30px !important
+	padding: 12px 30px !important;
+	font-weight:600;
 }
 .table tfoot tr td{
 	border-top:none !important;
@@ -810,11 +816,12 @@ footer ul li:last-child  a{
 .yel__tabs li a{
 	color:#747d84;
 	font-size:15px;
+	font-weight:700;
 }
 .yel__tabs li.active:nth-child(1) a{
 	color:#fbbc05;
     font-size:15px;
-    border-bottom: 2px solid #fbbc05;
+	border-bottom: 2px solid #fbbc05;
 }
 .yel__tabs li.active:nth-child(2) a{
 	color:#4285f4;
@@ -866,8 +873,14 @@ footer ul li:last-child  a{
 	font-size:10px;
 	color:#4285f4;
 	border-bottom: 1px solid #4285f4;
+	cursor:pointer;
+	font-weight: 700;
 }
-
+.text__353a3e__11{
+	color:#353a3e;
+	font-size:11px;
+	line-height:13px;
+}
 /*Normal text2*/
 .text__353a3e__14{
 	color: #353a3e;
