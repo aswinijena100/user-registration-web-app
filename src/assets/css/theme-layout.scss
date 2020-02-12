@@ -249,7 +249,7 @@
 		width:100%
 	}
 	.bg__white .search__user__details{
-		width:80% !important;
+		min-width: 100% !important;
 	}
 }
 @media (min-width: 768px) {
@@ -361,13 +361,19 @@
 		border-top: 1px solid #c4d1e6 !important;
 		padding:15px 30px;
 	}
-	.table thead th{
+	.table thead tr th{
 		background: #fff;
 		padding: 15px 30px !important;
 		margin-right: 0px;
 		margin-bottom: 0px;
-		border-radius: unset !important;
+		border-radius: initial !important;
 		color:#1a73e8;
+	}
+	.table.table-striped thead tr th:first-child{
+		border-radius: 10px 0 0 0  !important;
+	}
+	.table.table-striped thead tr th:last-child{
+		border-radius: 0 10px 0 0  !important;
 	}
 	.table thead tr{
 		display:contents;
