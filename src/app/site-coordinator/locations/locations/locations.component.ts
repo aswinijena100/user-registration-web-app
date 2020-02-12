@@ -31,7 +31,18 @@ export class LocationsComponent implements OnInit {
   }
   locationDetails(locationId) {
     console.log(locationId)
-    this.router.navigate(['/user/locationDetails/',locationId])
+    this.router.navigate(['/user/locationDetails/', locationId])
 
+  }
+  search(filterQuery) {
+    let query = filterQuery;
+    if (query && query.trim() != '' && query.trim() != undefined) {
+      this.locations = this.locationBackup.filter(function (a) {
+        return ((a.name != null && a.name != undefined && a.name.toLowerCase().includes(query.toLowerCase()) ||
+          (a.customId != null && a.customId != undefined && a.customId.toLowerCase().includes(query.toLowerCase()))));
+      });
+    } else {
+      this.locations = this.locationBackup;
+    }
   }
 }

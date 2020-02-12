@@ -41,10 +41,11 @@ export class SiteCoordinatorComponent implements OnInit {
         } else if (data == 'sites') {
           this.searchPlaceholder = "Search by site or study ID or name"
         }
-      })
+      });
     } else if (this.componentRef.constructor.name == "LocationsComponent") {
       this.searchPlaceholder = "Search by location"
-
+    } else if (this.componentRef.constructor.name == "SiteParticipantsListComponent") {
+      this.searchPlaceholder = "Search by Participant Email"
     }
   }
 }
