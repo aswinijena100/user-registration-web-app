@@ -6,6 +6,7 @@ import { User } from "../../entity/user";
 })
 export class ManageSitesService {
   user: User;
+  headers: {};
 
   constructor(private dataService: DataService) { }
 
@@ -17,5 +18,20 @@ export class ManageSitesService {
   }
   getApps() {
     return this.dataService.HttpGetRequest('apps/1', '');
+  }
+  addParticipant(siteId, participantToBeAdded) {
+    this.generateAuthHeader()
+    return this.dataService.HttpPostRequest(JSON.stringify(participantToBeAdded), 'sites/' + siteId + '/participants', JSON.stringify(this.headers));
+  }
+  generateAuthHeader() {
+
+    // var authKey = window.localStorage.getItem("authKey");
+    // var userId = parseInt(window.localStorage.getItem("userId"));
+    // console.log(authKey)
+    // console.log(userId)
+
+    // this.headers = { "authKey": authKey, "userId": userId };
+    this.headers = { "userId": "1" };
+
   }
 }
