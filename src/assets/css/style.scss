@@ -10,9 +10,13 @@ body{
 body,html{
 	height:100%;
 }
+label{
+	font-weight:700;
+}
 input,textarea,select{
 	font-size:20px;
 	border:none !important;
+	font-weight: 700;
 }
 input:focus,textarea:focus,select:focus,button:focus{
     outline:none !important;
