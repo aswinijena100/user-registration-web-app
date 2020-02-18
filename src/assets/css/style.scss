@@ -1225,3 +1225,13 @@ div.show + div{
     right: 10px;
     font-size: 18px;
 }
+.ng-dropdown-panel{
+	position:inherit !important;
+}
+.ng-value{
+	display:none !important;
+}
+.ng-placeholder{
+	display:block !important;
+
+}

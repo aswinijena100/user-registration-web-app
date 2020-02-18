@@ -11,13 +11,16 @@ export class ManageSitesService {
   constructor(private dataService: DataService) { }
 
   getstudiesWithSite() {
-    return this.dataService.HttpGetRequest('sites/1', '');
+    this.generateAuthHeader();
+    return this.dataService.HttpGetRequest('sites', JSON.stringify(this.headers));
   }
   getStudies() {
-    return this.dataService.HttpGetRequest('studies/1', '');
+    this.generateAuthHeader();
+    return this.dataService.HttpGetRequest('studies', JSON.stringify(this.headers));
   }
-  getApps() {
-    return this.dataService.HttpGetRequest('apps/1', '');
+  getApps() { 
+       this.generateAuthHeader();
+    return this.dataService.HttpGetRequest('apps', JSON.stringify(this.headers));
   }
   addParticipant(siteId, participantToBeAdded) {
     this.generateAuthHeader()

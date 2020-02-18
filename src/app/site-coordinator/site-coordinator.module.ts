@@ -16,6 +16,7 @@ import { UserProfileComponent } from './manageAccount/user-profile/user-profile.
 import { LocationsComponent } from './locations/locations/locations.component';
 import { AddLocationComponent } from './locations/add-location/add-location.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
+import { UpdateUserComponent } from './manageUsers/update-user/update-user.component';
 
 //services
 import { ManageAccountService } from "./manageAccount/manage-account.service";
@@ -25,7 +26,7 @@ import { LocationService } from "./locations/location.service";
 //libraries
 import { DataTableModule } from "angular-6-datatable";
 import { FormsModule } from '@angular/forms';
-//import { UpdateUserComponent } from './manageUsers/update-user/update-user.component';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [SiteCoordinatorComponent,
@@ -41,13 +42,15 @@ import { FormsModule } from '@angular/forms';
     LocationsComponent,
     AddLocationComponent,
     LocationDetailsComponent,
-    //UpdateUserComponent,
-    ],
+    UpdateUserComponent,
+  ],
   imports: [
     CommonModule,
     SiteCoordinatorRoutingModule,
     DataTableModule,
-    FormsModule,],
+    FormsModule,
+    NgSelectModule
+  ],
   providers: [
     ManageAccountService,
     ManageSitesService,
