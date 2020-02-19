@@ -164,6 +164,10 @@ header{
 	left: 0;
 }
 
+.bs__example a.nav-link:last-child.active:after{
+	bottom: -10px;
+}
+
 #mySidenav .user__profile__ul li {
     display: block;
     text-align: left;
@@ -1084,7 +1088,7 @@ select{
 	right:10px;
   	color: #1a73e4;
     font-size: 16px;
-}*/
+}
 .fa__plus__minus{
 	background: url(../images/plus.gif) no-repeat;
 	display: block;
@@ -1098,8 +1102,21 @@ select{
 	background-position: 98%;
 	width:16px;
 	height:16px;
+}*/
+.fa__plus__minus[aria-expanded="true"]{
+	background: url(../images/minus.gif) no-repeat;
+	display: block;
+	background-position: 98%;
+	width:16px;
+	height:16px;
 }
-
+.fa__plus__minus[aria-expanded="false"]{
+	background: url(../images/plus.gif) no-repeat;
+	display: block;
+	background-position: 98%;
+	width: 16px;
+    height: 16px;
+}
 .accordion>.card {
 	margin-bottom: 8px;
 	border: none;
