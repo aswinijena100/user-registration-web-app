@@ -39,6 +39,7 @@ export class SiteCoordinatorComponent implements OnInit {
     //Below will subscribe to the tab change emitter
     if (this.componentRef.constructor.name == "DashboardComponent") {
       componentRef.tabChangeItem.subscribe((data) => {
+       // console.log(data)
         // Will receive the data from child here 
         console.log("tab chnage event triggered " + data)
         if (data == 'studies') {
@@ -51,8 +52,10 @@ export class SiteCoordinatorComponent implements OnInit {
       });
     } else if (this.componentRef.constructor.name == "LocationsComponent") {
       this.searchPlaceholder = "Search by location"
-    } else if (this.componentRef.constructor.name == "SiteParticipantsListComponent") {
+    } else if (this.componentRef.constructor.name == "SiteParticipantsListComponent" || this.componentRef.constructor.name == "AppParticipantsListComponent" ) {
       this.searchPlaceholder = "Search by Participant Email"
-    }
+    } else if(this.componentRef.constructor.name == "StudyParticipantsListComponent"){
+      this.searchPlaceholder = "Search by Site ID or Participant Email"
+    } 
   }
 }

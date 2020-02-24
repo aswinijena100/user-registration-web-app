@@ -21,8 +21,8 @@ const routes: Routes = [{
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'siteParticipants', component: SiteParticipantsListComponent },
-    { path: 'studyParticipants', component: StudyParticipantsListComponent },
-    { path: 'appParticipants', component: AppParticipantsListComponent },
+    { path: 'studyParticipants/:studyId', component: StudyParticipantsListComponent },
+    { path: 'appParticipants/:appId', component: AppParticipantsListComponent },
     { path: 'participantDetail', component: ParticipantDetailsComponent },
 
     { path: 'manageUsers', component: ManageUsersComponent },

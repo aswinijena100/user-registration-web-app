@@ -23,6 +23,15 @@ export class ManageSitesService {
     this.generateAuthHeader()
     return this.dataService.HttpPostRequest(JSON.stringify(participantToBeAdded), 'sites/' + siteId + '/participants', JSON.stringify(this.headers));
   }
+  getstudiesParticipantRegistry(studyId){
+    this.generateAuthHeader()
+    return this.dataService.HttpGetRequest('studies/' + studyId + '/participants',JSON.stringify(this.headers));
+  }
+  getappsParticipantRegistry(appId){
+    this.generateAuthHeader()
+    return this.dataService.HttpGetRequest('apps/' + appId + '/participants',JSON.stringify(this.headers));
+  }
+
   generateAuthHeader() {
 
     // var authKey = window.localStorage.getItem("authKey");
@@ -31,7 +40,7 @@ export class ManageSitesService {
     // console.log(userId)
 
     // this.headers = { "authKey": authKey, "userId": userId };
-    this.headers = { "userId": "1" };
+    this.headers = { "userId": "10" };
 
   }
 }
