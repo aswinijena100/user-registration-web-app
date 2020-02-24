@@ -12,15 +12,17 @@ export class User {
 
     emailChanged: number;
 
-    status: number  ;
+    status: number;
 
     manageUsers: number;
 
-    manageLocations:number;
-    
+    manageLocations: number;
+    manageUsersCheckBox: number;
+
+    manageLocationsCheckBox: number;
     urAdminAuthId: string;
 
-    created:String;
+    created: String;
 
     createdBy: number;
 

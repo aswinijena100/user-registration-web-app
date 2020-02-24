@@ -10,6 +10,7 @@ import { ForgotPasswordComponent } from './site-coordinator/manageAccount/forgot
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { DataService } from "./service/dataService";
 import { HttpClientModule } from '@angular/common/http';
+import { NgSelectModule } from '@ng-select/ng-select';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     SiteCoordinatorModule,
     DataTableModule,
     HttpClientModule,
+    NgSelectModule,
     ModalModule.forRoot(),
   ],
   providers: [DataService],

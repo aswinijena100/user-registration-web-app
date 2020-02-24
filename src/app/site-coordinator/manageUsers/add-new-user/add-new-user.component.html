@@ -1,95 +1,128 @@
 <section class="subheader p-none pl-none">
   <div class="max__w__850 m-none">
-      <div class="row" >
-          <div class="col-xs-12 col-md-12 pl-none">
-              <a href="#" class="subheader__title">
-                  <img class="mr-sm" src="../../../../assets/images/left-arrow.gif" alt="Add new User">
-                  <span>Add New User</span>
-              </a>
-          </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-12 pl-none">
+        <a href="#" class="subheader__title">
+          <img class="mr-sm" src="../../../../assets/images/left-arrow.gif" alt="Add new User">
+          <span>Add New User</span>
+        </a>
       </div>
-  </div> 
+    </div>
+  </div>
 </section>
 
 <section class="max__w__850 add__location">
-  <form>
-      <section class="bg__white card__inside__pad box__shadow-cmn m-none">
-          <div class="row border-bottom__c4d1e6">
-              <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
-              <div class="form-group ">
-                  <label for="fname">First Name</label>
-                  <input type="text" class="form-control" id="fname"  value="Andreas">
-              </div>
-              </div>
-              <div class="col-xs-12 col-md-6 p-none">
-              <div class="form-group ">
-                  <label for="app">Last Name</label>
-                  <input type="text" class="form-control" id="lname"  placeholder="Enter Last Name">
-              </div>
-              </div>
+  <form #addUserForm="ngForm" autocomplete="off">
+    <section class="bg__white card__inside__pad box__shadow-cmn m-none">
+      <div class="row border-bottom__c4d1e6">
+        <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
+          <div class="form-group ">
+            <label for="fname">First Name</label>
+            <input type="text" class="form-control" id="fname" minlength="3" maxlength="50" [(ngModel)]="user.firstName"
+              name="firstName" #firstName="ngModel" required pattern="^[A-Za-z]{3,50}$">
           </div>
-          <div class="row">
-              <div class="col-xs-12 col-md-12 p-none">
-              <div class="form-group">
-                  <label for="emailId">Email ID</label>
-                  <input type="text" class="form-control" id="emailId"  placeholder="Enater Email">
-              </div>
-              </div>
+          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+            <span class="help-block with-errors error__msg" *ngIf="firstName.errors.required">
+              First Name is required.
+            </span>
+            <span class="help-block with-errors error__msg" *ngIf="firstName.errors.pattern">
+              Please enter 3 alphabets with no space.
+            </span>
           </div>
-      </section>
-
-      <h2 class="subheader__title mb-sm">Permissions</h2>
-
-      <section class="bg__white card__inside__pad box__shadow-cmn m-none">
-        <div class="row">
-            <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
-              <div class="form-group">
-                <div class="custom__labels">
-                  <input type="checkbox" id="Users">
-                  <label for="Users">Users</label>
-                </div>
-                <div class="pl-xl pt-xs">
-                  <span>
-                    <input type="radio" id="test1" name="radio-group1">
-                    <label for="test1">View</label>
-                  </span>
-                  <span>
-                    <input type="radio" id="test2" name="radio-group1" checked>
-                    <label for="test2">View And Edit</label>
-                  </span>
-                </div>
-              </div>
-            </div>
-            <div class="col-xs-12 col-md-6 p-none">
-              <div class="form-group ">
-                <div class="custom__labels">
-                  <input type="checkbox" id="pe">
-                  <label for="pe">Participant Email</label>
-                </div>
-                <div class="pl-xl pt-xs">
-                  <span>
-                    <input type="radio" id="test3" name="radio-group2">
-                    <label for="test3">View</label>
-                  </span>
-                  <span>
-                    <input type="radio" id="test4" name="radio-group2">
-                    <label for="test4">View And Edit</label>
-                  </span>
-                </div>
-              </div>
-            </div>
         </div>
+        <div class="col-xs-12 col-md-6 p-none">
+          <div class="form-group ">
+            <label for="app">Last Name</label>
+            <input type="text" minlength="2" maxlength="50" [(ngModel)]="user.lastName" name="lastName" #lastName="ngModel"
+              required pattern="^[A-Za-z]{2,50}$" class="form-control" id="lname" placeholder="Enter Last Name">
+          </div>
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+            <span class="help-block with-errors error__msg" *ngIf="lastName.errors.required">
+              Last Name is required.
+            </span>
+            <span class="help-block with-errors error__msg" *ngIf="lastName.errors.pattern">
+              Please enter 2 alphabets with no space.
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-md-12 p-none">
+          <div class="form-group">
+            <label for="emailId">Email ID</label>
+            <input type="email" class="form-control" id="emailId" placeholder="Enater Email" [(ngModel)]="user.email"
+              name="emailText"
+              pattern='(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)'
+              #emailText="ngModel" required>
+          </div>
+          <div *ngIf="emailText.invalid && (emailText.dirty || emailText.touched)">
+            <span class="help-block with-errors error__msg" *ngIf="emailText.errors.required">
+              Email is required.
+            </span>
+            <span class="help-block with-errors error__msg" *ngIf="emailText.errors.pattern">
+              Email is invalid.
+            </span>
+          </div>
+        </div>
+      </div>
     </section>
 
+    <h2 class="subheader__title mb-sm">Permissions</h2>
+
+    <section class="bg__white card__inside__pad box__shadow-cmn m-none">
+      <div class="row">
+        <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
+          <div class="form-group">
+            <div class="custom__labels">
+              <input type="checkbox" id="Users" [(ngModel)]="user.manageUsersCheckBox" name="manageUsersCheckBox"
+                #manageUsersCheckBox="ngModel">
+              <label for="Users">Users</label>
+            </div>
+            <div class="pl-xl pt-xs">
+              <span>
+                <input type="radio" id="test1" name="radio-group1" [(ngModel)]="user.manageUsersPermission"
+                  name="manageUsersPermission" #manageUsersPermission="ngModel">
+                <label for="test1">View</label>
+              </span>
+              <span>
+                <input type="radio" id="test2" name="radio-group1" [(ngModel)]="user.manageUsersPermission"
+                  name="manageUsersPermission" #manageUsersPermission="ngModel">
+                <label for="test2">View And Edit</label>
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-md-6 p-none">
+          <div class="form-group ">
+            <div class="custom__labels">
+              <input type="checkbox" id="pe" [(ngModel)]="user.manageLocationsCheckBox" name="manageLocationsCheckBox"
+                #manageLocationsCheckBox="ngModel">
+              <label for="pe">Locations</label>
+            </div>
+            <div class="pl-xl pt-xs">
+              <span>
+                <input type="radio" id="test3" name="radio-group2" [(ngModel)]="user.manageLocationsPermission"
+                  name="manageLocationsPermission" #manageLocationsPermission="ngModel">
+                <label for="test3">View</label>
+              </span>
+              <span>
+                <input type="radio" id="test4" name="radio-group2" [(ngModel)]="user.manageLocationsPermission"
+                  name="manageLocationsPermission" #manageLocationsPermission="ngModel">
+                <label for="test4">View And Edit</label>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <section class="bg__white card__inside__pad box__shadow-cmn m-none">
       <div class="form-group">
-        <div class="text__353a3e__16 pb-lg"> Sites, Studies and Apps</div>
+        <div class="text__353a3e__16 pb-lg" > Sites, Studies and Apps</div>
         <div class="select__form-control__parent">
           <label class="wrap">Select and Add App
-            <select class="form-control select__form-control" Placeholder="Enter App ID or Name">
-              <option value="APP001">Health Studies App (APP001)</option>
-            </select>
-         </label>
+            <ng-select [items]="apps" [clearable]="false"	 [multiple]="true" bindLabel="name"  (add)="itemChanged()"  class="form-control select__form-control" placeholder="Enter App ID or Name" [hideSelected]="true" [(ngModel)]="selectedApps"  [ngModelOptions]="{standalone: true}">
+            </ng-select>
+          </label>
         </div>
       </div>
 
@@ -103,10 +136,12 @@
                     <div class="">
                       <div class="custom__labels">
                         <input type="checkbox" id="Users1">
-                        <label for="Users1">Health Studies App <span class="text__353a3e__11 ml-xs">(APP001)</span></label>
+                        <label for="Users1">Health Studies App <span
+                            class="text__353a3e__11 ml-xs">(APP001)</span></label>
                       </div>
                     </div>
-                    <div class=" fa__plus__minus" (click)="collapseEvent()" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"></div>
+                    <div class=" fa__plus__minus" (click)="collapseEvent()" type="button" data-toggle="collapse"
+                      data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne"></div>
                   </div>
                 </div>
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
@@ -114,7 +149,8 @@
                     <div class="card-body__pad">
                       <div class="custom__labels">
                         <input type="checkbox" id="Users1">
-                        <label for="Users1">Health Studies App <span class="text__353a3e__11 ml-xs">(APP001)</span></label>
+                        <label for="Users1">Health Studies App <span
+                            class="text__353a3e__11 ml-xs">(APP001)</span></label>
                       </div>
                       <div class="card-body__pad">
                         <span>
@@ -130,7 +166,7 @@
                   </div>
                 </div>
               </div>
-              <div><img src="../../../../assets/images/delete-icon.gif" alt="delete"></div>
+              <div><img src="../../../../assets/images/delete-icon.gif"  (click)="deleteAppFromList(1)" alt="delete"></div>
             </div>
           </div>
 
@@ -142,7 +178,8 @@
                     <div class="">
                       <div class="custom__labels">
                         <input type="checkbox" id="Users2">
-                        <label for="Users2">Better Tomoorow App <span class="text__353a3e__11 ml-xs">(APP001)</span></label>
+                        <label for="Users2">Better Tomoorow App <span
+                            class="text__353a3e__11 ml-xs">(APP001)</span></label>
                       </div>
                       <div class="pl-xl pt-xs">
                         <span>
@@ -155,7 +192,8 @@
                         </span>
                       </div>
                     </div>
-                    <div class=" fa__plus__minus" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo"></div>
+                    <div class=" fa__plus__minus" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                      aria-expanded="false" aria-controls="collapseTwo"></div>
                   </div>
                 </div>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
@@ -183,10 +221,12 @@
                                 </span>
                               </div>
                             </div>
-                            <div class=" fa__plus__minus" type="button" data-toggle="collapse" data-target="#collapseTwo1" aria-expanded="true" aria-controls="collapseTwo1"></div>
+                            <div class=" fa__plus__minus" type="button" data-toggle="collapse"
+                              data-target="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1"></div>
                           </div>
                         </div>
-                        <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo1" data-parent="#accordionExample1">
+                        <div id="collapseTwo1" class="collapse" aria-labelledby="headingTwo1"
+                          data-parent="#accordionExample1">
                           <div class="card-body">
                             <div class="text__ffbc00__12 pad__T10__B20">Total 2 Sites</div>
                             <div class="">
@@ -210,19 +250,18 @@
                       </div>
                     </div>
                   </div>
+                </div>
               </div>
-            </div>
-            <div><img src="../../../../assets/images/delete-icon.gif" alt="delete"></div>
+              <div><img src="../../../../assets/images/delete-icon.gif" alt="delete"></div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </section> 
 
     <section class="btn__container">
-        <button type="submit" class="btn  bt__add bt__add__auto mr-sm">Create User and Invite</button>
-        <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button>
+      <button type="submit" class="btn  bt__add bt__add__auto mr-sm">Create User and Invite</button>
+      <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button>
     </section>
   </form>
 </section>
-
