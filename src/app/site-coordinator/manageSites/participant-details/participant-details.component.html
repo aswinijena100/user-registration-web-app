@@ -7,18 +7,18 @@
         </div>
         <div>
           <div class="mb-xs">Participant Details</div>
-          <div class="display-webkit-box overflow__auto">
+          <div  class="display-webkit-box overflow__auto">
             <div class="pr-xlg">
-              <div class="text__4285f4__up__11">SITE</div>
-              <div class="text__8495a5__12">Site Lorem Impsum A</div>
+              <div class="text__4285f4__up__11">{{participantDetails.customLocationId}}</div>
+              <div class="text__8495a5__12">{{participantDetails.locationName}}</div>
             </div>
             <div class="pr-xlg">
-              <div class="text__4285f4__up__11">Study</div>
-              <div class="text__8495a5__12">Study Lorem Impsum A</div>
+              <div class="text__4285f4__up__11">{{participantDetails.customStudyId}}</div>
+              <div class="text__8495a5__12">{{participantDetails.studyName}}</div>
             </div>
             <div>
-              <div class="text__4285f4__up__11">App</div>
-              <div class="text__8495a5__12">App Lorem Impsum A</div>
+              <div class="text__4285f4__up__11">{{participantDetails.customAppId}}</div>
+              <div class="text__8495a5__12">{{participantDetails.appName}}</div>
             </div>
           </div>
         </div>
@@ -53,29 +53,31 @@
     <div>
       <div class="mb__mb-sm">
         <div class="text__4285f4__12 ">Participant Email</div>
-        <div class="font24">andreasbrixen@gmail.com</div>
+        <div class="font24">{{participantDetails.email}}</div>
       </div>
-      <div>
+      <div >
         <div class="flex__justify__space-between flex__wrap">
           <div class="">
             <div class="text__4285f4__12">Onboarding Status </div>
-            <div class="text__353a3e__14">Invited</div>
+            <div class="text__353a3e__14">{{participantDetails.onboardringStatus}}</div>
           </div>
           <div class="">
             <div class="text__4285f4__12">Last Invitation Sent</div>
-            <div class="text__8495a5__14">20/12/2019</div>
+            <div class="text__8495a5__14">{{participantDetails.invitationDate}}</div>
           </div>
-          <div class="">
+          <div *ngFor="let enrollmentDetails of participantDetails.enrollments">
+          <div  class="">
             <div class="text__4285f4__12">Enrollment Status </div>
-            <div class="text__8495a5__14">Yet to Enroll</div>
+            <div class="text__8495a5__14">{{enrollmentDetails.enrollmentStatus}}</div>
           </div>
           <div class="mb__mt-sm">
             <div class="text__4285f4__12">Date of Enrollment </div>
-            <div class="text__8495a5__14">-</div>
+            <div class="text__8495a5__14">{{enrollmentDetails.enrollmentDate}}</div>
           </div>
           <div class="mb__mt-sm">
             <div class="text__4285f4__12">Date of Withdrawal  </div>
-            <div class="text__8495a5__14">-</div>
+            <div class="text__8495a5__14">{{enrollmentDetails.withdrawalDate}}</div>
+          </div>
           </div>
         </div>
       </div>
@@ -85,7 +87,7 @@
   <h2 class="subheader__title mb-sm">Consent History</h2>
 
   <section class="cards1 m-none">
-    <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <table class="table table-striped" [mfData]="participantDetails.consentHistory" #mf="mfDataTable" [mfRowsOnPage]="5">
       <thead>
         <tr>
           <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
@@ -93,7 +95,7 @@
             <mfDefaultSorter by="name">Consent Version</mfDefaultSorter>
           </th>
           <th>
-            <mfDefaultSorter by="email">Primary Consent Status</mfDefaultSorter>
+            <mfDefaultSorter by="email">Consented Date</mfDefaultSorter>
           </th>
           <th>
             <mfDefaultSorter by="age">Data Sharing Permisions </mfDefaultSorter>
@@ -104,13 +106,13 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>V1</td>
-          <td>Provided</td>
-          <td>Provided</td>
+        <tr *ngFor="let consentDetails of mf.data">
+          <td>{{consentDetails.consentVersion}}</td>
+          <td>{{consentDetails.consentedDate? consentDetails.consentedDate : 'N/A'}}</td>
+          <td>{{consentDetails.dataSharingPermissions? consentDetails.dataSharingPermissions: 'N/A'}}</td>
           <td>
             <div>
-              <img src="../../../../assets/images/download-img.gif" alt="download" class="mr-xs">
+              <img src="{{consentDetails.consentDocumentPath}}" alt="download" class="mr-xs">
               <span class="text__797f84__10">Download</span>
             </div>
           </td>

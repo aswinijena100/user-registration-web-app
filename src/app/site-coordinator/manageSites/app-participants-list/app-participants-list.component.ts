@@ -16,7 +16,7 @@ export class AppParticipantsListComponent implements OnInit {
   particpantappDetailsBackup: any[] = [];
   modalRef: BsModalRef;
   contents:any[] = [] ;
-  constructor(private modalService: BsModalService,private manageSitesService: ManageSitesService,private route: ActivatedRoute,) {}
+  constructor(private modalService: BsModalService,private manageSitesService: ManageSitesService,private route: ActivatedRoute,private router: Router,) {}
  
   openModal(template: TemplateRef<any>,appDetailID) {
     this.contents = appDetailID;
@@ -43,6 +43,10 @@ export class AppParticipantsListComponent implements OnInit {
       this.appDetails = new AppParticipant();
       this.particpantappDetailsBackup = [];
   });
+ }
+
+ participantsDetails(participantsID){
+   this.router.navigate(['/user/participantDetail/'+participantsID])
  }
 
  search(filterQuery) {

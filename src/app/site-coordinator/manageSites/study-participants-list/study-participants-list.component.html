@@ -25,7 +25,7 @@
 
   <div class="max__w__1280 m-none site__participant">
     <div class="cards1 m-none">
-      <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+      <table class="table table-striped" [mfData]="studyDetails.registryParticipants" #mf="mfDataTable" [mfRowsOnPage]="5">
         <thead>
           <tr>
             <th>
@@ -46,7 +46,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let lists of studyDetails.registryParticipants">
+          <tr *ngFor="let lists of mf.data">
             <td> {{lists.email}}</td>
             <td>Site{{lists.locationName}}</td>
             <td> <div [ngClass]="{'text__353a3e__14': (lists.onboardingStatus == 'Invited'),  'text__8495a5__14': (lists.onboardingStatus == 'Disabled')}">{{lists.onboardingStatus }}</div></td>  

@@ -34,6 +34,11 @@ export class ManageSitesService {
     this.generateAuthHeader()
     return this.dataService.HttpGetRequest('apps/' + appId + '/participants',JSON.stringify(this.headers));
   }
+  showParticipantsDetails(partcipantId){
+    this.generateAuthHeader();
+    return this.dataService.HttpGetRequest('sites/' + partcipantId + '/participant',JSON.stringify(this.headers));
+
+  }
 
   generateAuthHeader() {
 

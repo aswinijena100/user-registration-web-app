@@ -23,7 +23,7 @@ const routes: Routes = [{
     { path: 'siteParticipants', component: SiteParticipantsListComponent },
     { path: 'studyParticipants/:studyId', component: StudyParticipantsListComponent },
     { path: 'appParticipants/:appId', component: AppParticipantsListComponent },
-    { path: 'participantDetail', component: ParticipantDetailsComponent },
+    { path: 'participantDetail/:partcipantId', component: ParticipantDetailsComponent },
 
     { path: 'manageUsers', component: ManageUsersComponent },
     { path: 'addNewUser', component: AddNewUserComponent },
