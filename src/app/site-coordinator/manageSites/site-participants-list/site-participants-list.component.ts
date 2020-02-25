@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild,ElementRef } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild, ElementRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ManageSitesService } from "../manage-sites.service";
 import { NgForm } from '@angular/forms';
