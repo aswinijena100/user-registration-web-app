@@ -20,7 +20,7 @@ const routes: Routes = [{
   children: [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: DashboardComponent },
-    { path: 'siteParticipants', component: SiteParticipantsListComponent },
+    { path: 'siteParticipants/:siteId', component: SiteParticipantsListComponent },
     { path: 'studyParticipants', component: StudyParticipantsListComponent },
     { path: 'appParticipants', component: AppParticipantsListComponent },
     { path: 'participantDetail', component: ParticipantDetailsComponent },

@@ -18,13 +18,21 @@ export class ManageSitesService {
     this.generateAuthHeader();
     return this.dataService.HttpGetRequest('studies', JSON.stringify(this.headers));
   }
-  getApps() { 
-       this.generateAuthHeader();
+  getApps() {
+    this.generateAuthHeader();
     return this.dataService.HttpGetRequest('apps', JSON.stringify(this.headers));
   }
   addParticipant(siteId, participantToBeAdded) {
     this.generateAuthHeader()
     return this.dataService.HttpPostRequest(JSON.stringify(participantToBeAdded), 'sites/' + siteId + '/participants', JSON.stringify(this.headers));
+  }
+  importParticipants(siteId, formData) {
+    this.generateAuthHeader()
+    return this.dataService.HttpPostMultipartFileRequest(formData, 'sites/' + siteId + '/participants/import', JSON.stringify(this.headers));
+  }
+  getsiteParticipants(siteId,selectedTab) {
+    this.generateAuthHeader();
+    return this.dataService.HttpGetRequest('sites/'+siteId+'/participants?onboardingStatus='+selectedTab, JSON.stringify(this.headers));
   }
   generateAuthHeader() {
 
@@ -34,7 +42,7 @@ export class ManageSitesService {
     // console.log(userId)
 
     // this.headers = { "authKey": authKey, "userId": userId };
-    this.headers = { "userId": "1" };
+    this.headers = { "userId": "10" };
 
   }
 }

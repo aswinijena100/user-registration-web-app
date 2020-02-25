@@ -8,13 +8,13 @@
   <div class="tab-content">
     <div *ngIf="activeTab=='sites'" class="site__content">
       <div *ngFor="let studyWithSite of studiesWithSites" class="bg__white cards  box__shadow-cmn">
-        <div class="flex__ flex__row">
+        <div  class="flex__ flex__row">
           <div class="img__container__left">
             <img class="" src="../../../assets/images/site-list-tab.gif" alt="A Study for Pregnant Women">
           </div>
           <div class="width__100">
             <div class=" row">
-              <div class="col-xs-12  col-md-12 p-none text__353a3e__20">{{studyWithSite.customId}}</div>
+              <div class="col-xs-12  col-md-12 p-none text__353a3e__20" >{{studyWithSite.customId}}</div>
               <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
                 <div class="col-xs-6 col-md-3  p-none"><span
                     *ngIf="studyWithSite.type!='OPEN'">{{studyWithSite.sites.length}}
@@ -24,7 +24,7 @@
                     *ngIf="studyWithSite.type=='OPEN'">Target</span></div>
               </div>
               <div class="col-xs-12 col-md-12 p-none  border__bottom__red progress__bar">
-                <div *ngFor="let site of studyWithSite.sites" class="row display-flex-center progress__bar__row">
+                <div *ngFor="let site of studyWithSite.sites" class="row display-flex-center progress__bar__row" (click)="navigateToParticipantList('site',site.id)">
                   <div class="col-xs-12 col-md-8 p-none">{{site.name}}</div>
                   <div class="col-xs-12 col-md-4 p-none lh__6">
                     <div class="prog">
@@ -51,12 +51,13 @@
           </div>
         </div>
       </div>
+      <div *ngIf="studiesWithSites.length==0">{{errorMessage}}</div>
     </div>
 
   </div>
   <div *ngIf="activeTab=='studies'">
     <div *ngFor="let study of studies" class="bg__white cards cards__var box__shadow-cmn">
-      <div class="flex__justify__space-between flex__wrap">
+      <div (click)="navigateToParticipantList('study',studyWithSite.id)" class="flex__justify__space-between flex__wrap">
         <div class="">
           <div class="flex__ flex__row align__items__center ">
             <div class="img__container__left">
@@ -99,10 +100,12 @@
         </div>
       </div>
     </div>
+    <div *ngIf="studies.length==0">{{errorMessage}}</div>
+
   </div>
   <div *ngIf="activeTab=='apps'">
     <div *ngFor="let app of apps" class="bg__white cards  box__shadow-cmn   p-xl">
-      <div class="flex__justify__space-between flex__wrap">
+      <div (click)="navigateToParticipantList('app',studyWithSite.id)" class="flex__justify__space-between flex__wrap">
         <div class="">
           <div class="">
             <div class="text__4285f4__12 text-capitalize">{{app.customId}}</div>
@@ -139,6 +142,8 @@
         </div>
       </div>
     </div>
+    <div *ngIf="apps.length==0">{{errorMessage}}</div>
+
   </div>
 </div>
 

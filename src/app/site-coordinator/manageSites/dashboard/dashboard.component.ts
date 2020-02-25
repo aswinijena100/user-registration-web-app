@@ -1,7 +1,9 @@
 import { Component, OnInit, TemplateRef, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ManageSitesService } from "../manage-sites.service";
+import { Router } from "@angular/router";
 import * as _ from "lodash";
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -18,10 +20,8 @@ export class DashboardComponent implements OnInit {
   appsBackup: any[] = [];
   activeTab: string = 'sites';
   addSite: any = {};
-
-  constructor(private modalService: BsModalService, private manageSiteService: ManageSitesService) { }
-
-
+  errorMessage: String = "";
+  constructor(private router: Router, private modalService: BsModalService, private manageSiteService: ManageSitesService) { }
   ngOnInit() {
     this.getstudiesWithSite();
   }
@@ -29,34 +29,40 @@ export class DashboardComponent implements OnInit {
   getstudiesWithSite() {
     this.studiesWithSites = [];
     this.studiesWithSitesBackup = [];
+    this.errorMessage = "";
     this.manageSiteService.getstudiesWithSite().subscribe(data => {
       this.studiesWithSites = data;
       this.studiesWithSitesBackup = JSON.parse(JSON.stringify(this.studiesWithSites));
     }, error => {
       this.studiesWithSites = [];
       this.studiesWithSitesBackup = [];
+      this.errorMessage = error.error.userMessage;
     });
   }
   getStudies() {
     this.studies = [];
     this.studiesBackup = [];
+    this.errorMessage = "";
     this.manageSiteService.getStudies().subscribe(data => {
       this.studies = data;
       this.studiesBackup = JSON.parse(JSON.stringify(this.studies));
     }, error => {
       this.studies = [];
       this.studiesBackup = [];
+      this.errorMessage = error.error.userMessage;
     });
   }
   getApps() {
     this.apps = [];
     this.appsBackup = [];
+    this.errorMessage = "";
     this.manageSiteService.getApps().subscribe(data => {
       this.apps = data;
       this.appsBackup = JSON.parse(JSON.stringify(this.studies));
     }, error => {
       this.apps = [];
       this.appsBackup = [];
+      this.errorMessage = error.error.userMessage;
     });
   }
   openAddSiteModal(template: TemplateRef<any>, study: any) {
@@ -119,6 +125,15 @@ export class DashboardComponent implements OnInit {
       this.getStudies();
     } else if (this.activeTab == 'apps') {
       this.getApps();
+    }
+  }
+  navigateToParticipantList(type, id) {
+    if (type == "site") {
+      this.router.navigate(["/user/siteParticipants/", id])
+    } else if (type == "study") {
+      this.router.navigate(["/user/studyParticipants/", id])
+    } else if (type == "app") {
+      this.router.navigate(["/user/appParticipants/", id])
     }
   }
 }

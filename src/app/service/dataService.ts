@@ -25,9 +25,9 @@ const imageHttpOptions = {
 }
 @Injectable()
 export class DataService {
-  // baseUrl = 'http://localhost:8080/urwebappws/';  //local server URL to web api
-  // baseUrl = "http://localhost:8080/urwebappws/";//firdose system
-  baseUrl = "http://192.168.0.44:8089/urwebappws/";//44 system url
+  baseUrl = 'http://localhost:8080/urwebappws/';  //local server URL to web api
+  // baseUrl = "http://192.168.0.122:8080/urwebappws/";//firdose system
+  // baseUrl = "http://192.168.0.44:8089/urwebappws/";//44 system url
   serviceUrl: string;
   count: number = 0;
   headersFromService: {};
@@ -238,4 +238,48 @@ export class DataService {
         })
       )
   }
+  HttpPostMultipartFileRequest(bodydata: any, urlpath: string, headers: string): Observable<any> {
+
+    this.spinner.show();
+    this.serviceUrl = '';
+    this.serviceUrl = this.baseUrl + urlpath;
+    httpOptions.headers = new HttpHeaders({
+      // "Content-Type": "multipart/form-data",
+      'Accept': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': 'true',
+      'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
+    })
+    if (headers != '' && headers != 'undefined' && headers != undefined) {
+      this.headersFromService = JSON.parse(headers);
+      if (Object.keys(this.headersFromService).length > 0) {
+        for (let key in this.headersFromService) {
+          let value = this.headersFromService[key];
+          httpOptions.headers = httpOptions.headers.append(key, value)
+        }
+      }
+    }
+    return this.http.post<any>(this.serviceUrl, bodydata, httpOptions)
+      .pipe(
+        catchError((err: HttpErrorResponse) => {
+          if (err.status == 0) {
+            // this.connectionService.monitor().subscribe(isConnected => {
+            //   console.log(isConnected)
+            //   if (!isConnected) {
+
+            //     window.location.reload();
+            //   }
+            // })
+          } else if (err.status == 401) {
+            window.localStorage.clear();
+            this.router.navigate(['/login'])
+          }
+          return throwError(err);
+        }),
+        finalize(() => {
+          this.spinner.hide();
+        })
+      )
+  }
+
 }
