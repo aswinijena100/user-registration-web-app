@@ -20,22 +20,22 @@ const routes: Routes = [{
   children: [
     { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: DashboardComponent },
-    { path: 'siteParticipants', component: SiteParticipantsListComponent },
+    { path: 'siteParticipants/:siteId', component: SiteParticipantsListComponent },
+    { path: 'studyParticipants', component: StudyParticipantsListComponent },
+    { path: 'appParticipants', component: AppParticipantsListComponent },
+    { path: 'participantDetail', component: ParticipantDetailsComponent },
+    { path: 'siteParticipants/:siteId', component: SiteParticipantsListComponent },
     { path: 'studyParticipants/:studyId', component: StudyParticipantsListComponent },
     { path: 'appParticipants/:appId', component: AppParticipantsListComponent },
     { path: 'participantDetail/:partcipantId', component: ParticipantDetailsComponent },
-
     { path: 'manageUsers', component: ManageUsersComponent },
     { path: 'addNewUser', component: AddNewUserComponent },
     { path: 'updateUser', component: UpdateUserComponent },
     { path: 'userDetails', component: UserDetailsComponent },
-
     { path: 'locations', component: LocationsComponent },
     { path: 'addNewLocation', component: AddLocationComponent },
     { path: 'locationDetails/:locationId', component: LocationDetailsComponent },
-
     { path: 'userProfile', component: UserProfileComponent },
-
   ]
 }];
 
