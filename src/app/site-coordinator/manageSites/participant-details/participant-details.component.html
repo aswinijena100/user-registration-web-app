@@ -111,7 +111,7 @@
           <td>{{consentDetails.consentedDate? consentDetails.consentedDate : 'N/A'}}</td>
           <td>{{consentDetails.dataSharingPermissions? consentDetails.dataSharingPermissions: 'N/A'}}</td>
           <td>
-            <div>
+            <div (click)="showpdf(consentDetails.consentDocumentPath)">
               <img src="{{consentDetails.consentDocumentPath}}" alt="download" class="mr-xs">
               <span class="text__797f84__10">Download</span>
             </div>
