@@ -140,5 +140,8 @@
       }
     }
   },
-  "defaultProject": "userRegistrationWeb"
+  "defaultProject": "userRegistrationWeb",
+  "cli": {
+    "analytics": "58bdc6b6-978e-46c0-a5ea-8cfb8afa527c"
+  }
 }

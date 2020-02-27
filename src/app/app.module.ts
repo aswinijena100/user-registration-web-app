@@ -11,6 +11,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { DataService } from "./service/dataService";
 import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     HttpClientModule,
     NgSelectModule,
     ModalModule.forRoot(),
+    ToastrModule.forRoot() // ToastrModule added
+
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
