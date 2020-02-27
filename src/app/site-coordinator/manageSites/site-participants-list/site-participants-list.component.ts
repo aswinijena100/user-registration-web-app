@@ -3,6 +3,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ManageSitesService } from "../manage-sites.service";
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from "@angular/router";
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-site-participants-list',
   templateUrl: './site-participants-list.component.html',
@@ -21,7 +23,7 @@ export class SiteParticipantsListComponent implements OnInit {
   file: any;
   activeTab: string = 'all';
   @ViewChild("addParticipantForm", { static: true }) addParticipantForm: NgForm;
-  constructor(private modalService: BsModalService, private manageSitesService: ManageSitesService, private route: ActivatedRoute) { }
+  constructor(private modalService: BsModalService, private manageSitesService: ManageSitesService, private route: ActivatedRoute,private toastr: ToastrService) { }
 
   openModal(template: TemplateRef<any>) {
     // this.addParticipantForm.resetForm();
@@ -63,12 +65,14 @@ export class SiteParticipantsListComponent implements OnInit {
       "email": this.emailIdToAdd
     }
     this.manageSitesService.addParticipant(this.siteId, participantToBeAdded).subscribe(data => {
-      this.successMessage = "Participant Added successfully.";
+      this.toastr.success('Participant Added successfully.');
+     // this.successMessage = "Participant Added successfully.";
       this.modalRef.hide();
       form.reset();
       this.myFunction();
     }, error => {
-      this.errorMessage = error.error.userMessage;
+      this.toastr.error(error.error.userMessage);
+     // this.errorMessage = error.error.userMessage;
       this.modalRef.hide();
       form.reset();
       this.myFunction();
@@ -96,7 +100,8 @@ export class SiteParticipantsListComponent implements OnInit {
     formData.append('file', this.file, this.file.name);
     console.log(formData)
     this.manageSitesService.importParticipants(this.siteId, formData).subscribe(data => {
-      this.successMessage = "Participant Imported successfully.";
+      this.toastr.success('Participant Imported successfully.');
+     // this.successMessage = "Participant Imported successfully.";
       this.importedFile.nativeElement.value = "";
       this.file = {};
       this.activeTab = "new";
@@ -104,7 +109,8 @@ export class SiteParticipantsListComponent implements OnInit {
       this.myFunction();
 
     }, error => {
-      this.errorMessage = error.error.userMessage;
+      this.toastr.error(error.error.userMessage);
+     // this.errorMessage = error.error.userMessage;
       this.importedFile.nativeElement.value = "";
       this.file = {};
       this.myFunction();

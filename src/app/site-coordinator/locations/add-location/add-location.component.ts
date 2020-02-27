@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from "@angular/router";
 import { Location } from "../../../entity/location";
 import { LocationService } from "../location.service";
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-add-location',
@@ -13,7 +15,7 @@ export class AddLocationComponent implements OnInit {
   location: Location = new Location();
   errorMessage = '';
   successMessage = '';
-  constructor(private router: Router, private locationService: LocationService) { }
+  constructor(private router: Router, private locationService: LocationService,private toastr: ToastrService) { }
 
   ngOnInit() {
   }
@@ -24,10 +26,12 @@ export class AddLocationComponent implements OnInit {
     this.errorMessage = '';
     this.successMessage = '';
     this.locationService.addLocation(this.location).subscribe(data => {
-      this.successMessage = "Location Added successfully."
+      this.toastr.success('Success', 'Location Added successfully.');
+     // this.successMessage = "Location Added successfully."
     }, error => {
       console.log(error);
-      this.errorMessage = error.error.message;
+      this.toastr.error('Error', error.error.message);
+      //this.errorMessage = error.error.message;
     })
   }
 }

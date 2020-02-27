@@ -17,9 +17,11 @@ export class User {
     manageUsers: number;
 
     manageLocations: number;
+
     manageUsersCheckBox: number;
 
     manageLocationsCheckBox: number;
+    
     urAdminAuthId: string;
 
     created: String;

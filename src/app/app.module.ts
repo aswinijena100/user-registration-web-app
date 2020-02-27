@@ -28,8 +28,7 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     NgSelectModule,
     ModalModule.forRoot(),
-    ToastrModule.forRoot() // ToastrModule added
-
+    ToastrModule.forRoot({positionClass : "toast-top-center",preventDuplicates: true,}) // ToastrModule added
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

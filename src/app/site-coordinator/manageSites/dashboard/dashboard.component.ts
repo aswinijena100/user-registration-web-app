@@ -3,6 +3,8 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ManageSitesService } from "../manage-sites.service";
 import { Router } from "@angular/router";
 import * as _ from "lodash";
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -21,7 +23,7 @@ export class DashboardComponent implements OnInit {
   activeTab: string = 'sites';
   addSite: any = {};
   errorMessage: String = "";
-  constructor(private router: Router, private modalService: BsModalService, private manageSiteService: ManageSitesService) { }
+  constructor(private router: Router, private modalService: BsModalService, private manageSiteService: ManageSitesService,private toastr: ToastrService) { }
   ngOnInit() {
     this.getstudiesWithSite();
   }
@@ -36,7 +38,8 @@ export class DashboardComponent implements OnInit {
     }, error => {
       this.studiesWithSites = [];
       this.studiesWithSitesBackup = [];
-      this.errorMessage = error.error.userMessage;
+      this.toastr.error(error.error.userMessage);
+      //this.errorMessage = error.error.userMessage;
     });
   }
   getStudies() {
@@ -49,7 +52,8 @@ export class DashboardComponent implements OnInit {
     }, error => {
       this.studies = [];
       this.studiesBackup = [];
-      this.errorMessage = error.error.userMessage;
+      this.toastr.error(error.error.userMessage);
+      //this.errorMessage = error.error.userMessage;
     });
   }
   getApps() {
@@ -62,7 +66,8 @@ export class DashboardComponent implements OnInit {
     }, error => {
       this.apps = [];
       this.appsBackup = [];
-      this.errorMessage = error.error.userMessage;
+      this.toastr.error(error.error.userMessage);
+     // this.errorMessage = error.error.userMessage;
     });
   }
   openAddSiteModal(template: TemplateRef<any>, study: any) {

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ManageSitesService } from "../manage-sites.service";
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ParticipantDetail } from '../../../entity/participantDetail';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-participant-details',
@@ -12,7 +14,7 @@ export class ParticipantDetailsComponent implements OnInit {
   partcipantId: string = "";
   participantDetails: ParticipantDetail = new ParticipantDetail();
   particpantDetailsBackup: any[] = [];
-  constructor(private manageSitesService: ManageSitesService,private route: ActivatedRoute,) { }
+  constructor(private manageSitesService: ManageSitesService,private route: ActivatedRoute,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -29,6 +31,7 @@ export class ParticipantDetailsComponent implements OnInit {
       this.participantDetails = data;
       this.particpantDetailsBackup = JSON.parse(JSON.stringify(this.participantDetails));
   }, error => {
+    this.toastr.error("There is something wrong.Cant get Details");
       this.participantDetails = new ParticipantDetail();
       this.particpantDetailsBackup = [];
   });
