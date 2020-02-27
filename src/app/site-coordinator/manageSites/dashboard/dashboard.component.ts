@@ -3,6 +3,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ManageSitesService } from "../manage-sites.service";
 import { Router } from "@angular/router";
 import * as _ from "lodash";
+import { LocationService } from "../../locations/location.service";
 
 @Component({
   selector: 'app-dashboard',
@@ -14,6 +15,8 @@ export class DashboardComponent implements OnInit {
   modalRef: BsModalRef;
   studiesWithSites: any[] = [];
   studiesWithSitesBackup: any[] = [];
+  locations: Location[] = [];
+  locationBackup: Location[] = [];
   studies: any[] = [];
   studiesBackup: any[] = [];
   apps: any[] = [];
@@ -21,7 +24,7 @@ export class DashboardComponent implements OnInit {
   activeTab: string = 'sites';
   addSite: any = {};
   errorMessage: String = "";
-  constructor(private router: Router, private modalService: BsModalService, private manageSiteService: ManageSitesService) { }
+  constructor(private locationService: LocationService,private router: Router, private modalService: BsModalService, private manageSiteService: ManageSitesService) { }
   ngOnInit() {
     this.getstudiesWithSite();
   }
@@ -65,20 +68,32 @@ export class DashboardComponent implements OnInit {
       this.errorMessage = error.error.userMessage;
     });
   }
+  getLocation() {
+    this.locations = [];
+    this.locationBackup = [];
+    this.locationService.getLocations().subscribe(data => {
+      this.locations = data;
+      this.locationBackup = JSON.parse(JSON.stringify(this.locations));
+      console.log(this.locations)
+    }, error => {
+      this.locations = [];
+      this.locationBackup = [];
+    });
+  }
   openAddSiteModal(template: TemplateRef<any>, study: any) {
     this.modalRef = this.modalService.show(template);
+    this.getLocation();
     if (study != undefined && study != null) {
       this.addSite.studyId = study.id;
       this.addSite.studyCustomId = study.customId;
       this.addSite.appId = study.appId;
       this.addSite.appInfoId = study.appInfoId;
     }
-
   }
   addSiteData() {
 
   }
-
+  
   search(filterQuery) {
     let query = filterQuery;
     if (this.activeTab == 'sites') {
