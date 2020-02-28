@@ -18,11 +18,15 @@ export class SiteParticipantsListComponent implements OnInit {
   errorMessage = '';
   successMessage = '';
   siteId: String = "";
+  selectedAll: any;
+  checkedEmails: any[] = [];
   siteParticipants: any = {};
   siteParticipantsBackup: any = {};
   file: any;
   activeTab: string = 'all';
+  noOfCheckedEmails: number;
   @ViewChild("addParticipantForm", { static: true }) addParticipantForm: NgForm;
+  selectEmails: any;
   constructor(private modalService: BsModalService, private manageSitesService: ManageSitesService, private route: ActivatedRoute,private toastr: ToastrService) { }
 
   openModal(template: TemplateRef<any>) {
@@ -88,6 +92,27 @@ export class SiteParticipantsListComponent implements OnInit {
   }
   participantDetails(participantRegistryId) {
     console.log(participantRegistryId)
+  }
+  
+  rowCheckBoxChange() {
+    this.checkedEmails = this.siteParticipants.registryParticipants.filter(u => u.newlyCreatedUser == true);
+    this.noOfCheckedEmails = this.checkedEmails.length;
+    if (this.noOfCheckedEmails != this.siteParticipants.registryParticipants.length) {
+      this.selectedAll = false;
+    } else {
+      this.selectedAll = true;
+    }
+  }
+  selectAll() {
+    if (this.selectedAll) {
+      this.checkedEmails = this.siteParticipants.registryParticipants;
+    } else {
+      this.checkedEmails = [];
+    }
+    for (var i = 0; i < this.checkedEmails.length; i++) {
+      this.checkedEmails[i].newlyCreatedUser = this.siteParticipants.registryParticipants; 
+    }
+   // this.noOfCheckedUsers = this.checkedEmails.length;
   }
   onFileChange(evt: any) {
     let file = evt.target.files[0];

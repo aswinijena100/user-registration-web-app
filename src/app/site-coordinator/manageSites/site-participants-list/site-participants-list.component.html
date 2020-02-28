@@ -202,20 +202,20 @@
             <th>
               <mfDefaultSorter by="name">
                 <div class="form-group mb-none">
-                  <input type="checkbox" id="css">
+                  <input type="checkbox" id="css" [(ngModel)]="selectedAll" (change)="selectAll();">
                   <label for="css">Participant Email</label>
                 </div>
               </mfDefaultSorter>
-            </th>
+            </th> 
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let participant of mf.data" (click)="participantDetails(participant.id)">
+          <tr *ngFor="let participant of mf.data">
             <td>
               <div>
                 <div class="form-group mb-none">
-                  <input type="checkbox" id="{{participant.id}}css1">
-                  <label for="css1">{{participant.email}}</label>
+                  <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser" (change)="rowCheckBoxChange()">
+                  <label for="{{participant.id}}" (click)="participantDetails(participant.id)">{{participant.email}}</label>
                 </div>
               </div>
             </td>
@@ -239,7 +239,7 @@
             <th>
               <mfDefaultSorter by="name">
                 <div class="form-group mb-none">
-                  <input type="checkbox" id="css">
+                  <input type="checkbox" id="css" [(ngModel)]="selectedAll" (change)="selectAll();">
                   <label for="css">Participant Email</label>
                 </div>
               </mfDefaultSorter>
@@ -253,7 +253,7 @@
             <td>
               <div>
                 <div class="form-group mb-none">
-                  <input type="checkbox" id="{{participant.id}}css1">
+                  <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser" (change)="rowCheckBoxChange()">
                   <label for="css1">{{participant.email}}</label>
                 </div>
               </div>
@@ -282,7 +282,7 @@
             <th>
               <mfDefaultSorter by="name">
                 <div class="form-group mb-none">
-                  <input type="checkbox" id="css">
+                  <input type="checkbox" id="css" [(ngModel)]="selectedAll" (change)="selectAll();">
                   <label for="css">Participant Email</label>
                 </div>
               </mfDefaultSorter>
@@ -296,7 +296,7 @@
             <td>
               <div>
                 <div class="form-group mb-none">
-                  <input type="checkbox" id="{{participant.id}}css1">
+                  <input type="checkbox" id="{{participant.id}}css1" >
                   <label for="css1">{{participant.email}}</label>
                 </div>
               </div>
