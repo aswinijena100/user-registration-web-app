@@ -10,6 +10,7 @@ import { AddNewUserComponent } from './manageUsers/add-new-user/add-new-user.com
 import { UpdateUserComponent } from './manageUsers/update-user/update-user.component';
 import { UserDetailsComponent } from './manageUsers/user-details/user-details.component';
 import { UserProfileComponent } from './manageAccount/user-profile/user-profile.component';
+// import { SetUpAccountComponent } from './manageAccount/set-up-account/set-up-account.component';
 import { SiteCoordinatorComponent } from "./site-coordinator.component";
 import { LocationsComponent } from './locations/locations/locations.component';
 import { AddLocationComponent } from './locations/add-location/add-location.component';
@@ -36,6 +37,7 @@ const routes: Routes = [{
     { path: 'addNewLocation', component: AddLocationComponent },
     { path: 'locationDetails/:locationId', component: LocationDetailsComponent },
     { path: 'userProfile', component: UserProfileComponent },
+    // { path: 'setUpAccount', component: SetUpAccountComponent },
   ]
 }];
 

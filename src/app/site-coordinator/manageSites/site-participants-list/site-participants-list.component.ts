@@ -125,12 +125,13 @@ export class SiteParticipantsListComponent implements OnInit {
     formData.append('file', this.file, this.file.name);
     console.log(formData)
     this.manageSitesService.importParticipants(this.siteId, formData).subscribe(data => {
+      console.log(data)
       this.toastr.success('Participant Imported successfully.');
      // this.successMessage = "Participant Imported successfully.";
       this.importedFile.nativeElement.value = "";
       this.file = {};
       this.activeTab = "new";
-      this.getSiteParticipant();
+      // this.getSiteParticipant();
       this.myFunction();
 
     }, error => {
