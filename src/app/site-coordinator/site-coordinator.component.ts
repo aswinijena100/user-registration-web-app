@@ -30,10 +30,15 @@ export class SiteCoordinatorComponent implements OnInit {
   opencloseNav() {
     this.opencloseNavval = !this.opencloseNavval;
   }
-  search() {
-    this.componentRef.search(this.filterQuery);
-  }
+
+    //to call search method onclick of enter
+    public handleKeyDown(event: any) {
+      if (event.keyCode == 13) {
+        this.componentRef.search(this.filterQuery);
+      }
+    }
   onActivate(componentRef) {
+    this.filterQuery="";
     this.componentRef = componentRef;
     console.log(this.componentRef.constructor.name)
     //Below will subscribe to the tab change emitter
@@ -43,10 +48,13 @@ export class SiteCoordinatorComponent implements OnInit {
         // Will receive the data from child here 
         console.log("tab chnage event triggered " + data)
         if (data == 'studies') {
+          this.filterQuery="";
           this.searchPlaceholder = "Search by  study ID or name"
         } else if (data == 'apps') {
+          this.filterQuery="";
           this.searchPlaceholder = "Search by APP ID or name"
         } else if (data == 'sites') {
+          this.filterQuery="";
           this.searchPlaceholder = "Search by site or study ID or name"
         }
       });

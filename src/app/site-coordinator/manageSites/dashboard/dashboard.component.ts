@@ -40,8 +40,7 @@ export class DashboardComponent implements OnInit {
     }, error => {
       this.studiesWithSites = [];
       this.studiesWithSitesBackup = [];
-      this.toastr.error(error.error.userMessage);
-      //this.errorMessage = error.error.userMessage;
+     this.errorMessage = error.error.userMessage;
     });
   }
   getStudies() {
@@ -54,8 +53,7 @@ export class DashboardComponent implements OnInit {
     }, error => {
       this.studies = [];
       this.studiesBackup = [];
-      this.toastr.error(error.error.userMessage);
-      //this.errorMessage = error.error.userMessage;
+      this.errorMessage = error.error.userMessage;
     });
   }
   getApps() {
@@ -68,8 +66,7 @@ export class DashboardComponent implements OnInit {
     }, error => {
       this.apps = [];
       this.appsBackup = [];
-      this.toastr.error(error.error.userMessage);
-     // this.errorMessage = error.error.userMessage;
+      this.errorMessage = error.error.userMessage;
     });
   }
   getLocation() {
@@ -104,7 +101,6 @@ export class DashboardComponent implements OnInit {
       if (query && query.trim() != '' && query.trim() != undefined) {
         this.studiesWithSites = this.studiesWithSitesBackup.filter(function (a) {
           return a.sites.some(function (b) {
-            debugger;
             return ((b.customId != null && b.customId != undefined && b.customId.toLowerCase().includes(query.toLowerCase()))
               || (b.name != null && b.name != undefined && b.name.toLowerCase().includes(query.toLowerCase()))
               || (a.name != null && a.name != undefined && a.name.toLowerCase().includes(query.toLowerCase())));

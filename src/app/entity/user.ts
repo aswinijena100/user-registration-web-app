@@ -14,11 +14,9 @@ export class User {
 
     status: number;
 
-    manageUsers: number;
-
     manageLocations: number;
 
-    manageUsersCheckBox: number;
+    superAdmin: number;
 
     manageLocationsCheckBox: number;
     
