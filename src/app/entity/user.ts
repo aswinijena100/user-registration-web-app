@@ -26,10 +26,12 @@ export class User {
 
     createdBy: number;
 
-    newPassword: String;
+    newPswd : String;
 
     password: String;
+   
+    currentPswd :String;
 
-    confirmPassword: string;
+    confirmPswd: string;
 
 }

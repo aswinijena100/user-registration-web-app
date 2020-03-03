@@ -3,6 +3,7 @@ import { ManageAccountService } from "../manage-account.service";
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../../../entity/user';
 import { ToastrService } from 'ngx-toastr';
+import { invalid } from '@angular/compiler/src/render3/view/util';
 
 @Component({
   selector: 'app-user-profile',
@@ -37,8 +38,12 @@ export class UserProfileComponent implements OnInit {
 
   }
   updateProfile(){
-    this.toastr.success('Success', 'This is Right');
-    this.toastr.error('Error', 'This is not Right');
+    //this.toastr.success('Success', 'This is Right');
+    //this.toastr.error('Error', 'This is not Right');
+    //console.log(this.user.firstName)
+    if (this.form.invalid ) {
+      return;
+    }
   }
 
 }

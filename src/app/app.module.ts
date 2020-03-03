@@ -12,6 +12,7 @@ import { DataService } from "./service/dataService";
 import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     SiteCoordinatorModule,
     DataTableModule,
+    FormsModule,
     HttpClientModule,
     NgSelectModule,
     ModalModule.forRoot(),
