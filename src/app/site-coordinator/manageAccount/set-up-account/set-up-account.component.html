@@ -71,8 +71,11 @@
         <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
         <div class="form-group ">
             <label for="newPswd">Password</label>
-            <input type="text" class="form-control" id="newPswd"  placeholder="Enter Password" [(ngModel)]="user.newPswd" #newPswd="ngModel" name="newPswd"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$">
+            <input type="text" class="form-control" id="newPswd"  placeholder="Enter Password" [(ngModel)]="user.newPswd" #newPswd="ngModel" name="newPswd"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$" required>
             <div *ngIf="newPswd.invalid && (newPswd.dirty || newPswd.touched)">
+              <span class="help-block with-errors error__msg" *ngIf="newPswd.errors.required">
+                Please fill out this filed.
+              </span>
               <span class="help-block with-errors error__msg" *ngIf="newPswd.errors.pattern">
                 Does not match Password criteria
               </span>
@@ -82,8 +85,11 @@
         <div class="col-xs-12 col-md-6 p-none">
         <div class="form-group ">
             <label for="confirmPswd">Confirm Password</label>
-            <input type="text" class="form-control" id="confirmPswd"  placeholder="Enter Confirm Password" [(ngModel)]="user.confirmPswd" #confirmPswd="ngModel" name="confirmPswd"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$">
+            <input type="text" class="form-control" id="confirmPswd"  placeholder="Enter Confirm Password" [(ngModel)]="user.confirmPswd" #confirmPswd="ngModel" name="confirmPswd"  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$" required>
             <div *ngIf="confirmPswd.invalid && (confirmPswd.dirty || confirmPswd.touched)">
+              <span class="help-block with-errors error__msg" *ngIf="confirmPswd.errors.required">
+                Please fill out this filed.
+              </span>
               <span class="help-block with-errors error__msg" *ngIf="confirmPswd.errors.pattern">
                 Does not match Password criteria
               </span>
