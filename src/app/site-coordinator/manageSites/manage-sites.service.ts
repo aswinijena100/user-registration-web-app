@@ -47,7 +47,20 @@ export class ManageSitesService {
     return this.dataService.HttpGetRequest('sites/' + partcipantId + '/participant',JSON.stringify(this.headers));
 
   }
+  siteDecommission(siteId){
+    this.generateAuthHeader();
+    return this.dataService.HttpPutRequest(JSON.stringify(siteId),'sites/' + siteId + '/decommission',JSON.stringify(this.headers));
+  }
+  enableDisableInvitation(siteId,dataSet){
+    this.generateAuthHeader();
+    return this.dataService.HttpPostRequest(JSON.stringify(dataSet),'sites/' + siteId + '/participants/activate',JSON.stringify(this.headers));
+  }
 
+   sendAndResendInvitation(siteId,dataSet){
+    this.generateAuthHeader();
+    console.log(dataSet);
+    return this.dataService.HttpPostRequest(JSON.stringify(dataSet),'sites/' + siteId + '/participants/invite',JSON.stringify(this.headers));
+   }
   generateAuthHeader() {
 
     // var authKey = window.localStorage.getItem("authKey");

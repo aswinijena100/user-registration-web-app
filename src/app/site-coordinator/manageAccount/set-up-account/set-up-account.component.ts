@@ -15,13 +15,26 @@ export class SetUpAccountComponent implements OnInit {
  
   @ViewChild('setupaccount',{ static: false }) form: any;
 
-  constructor(private manageAccountService: ManageAccountService, private route: ActivatedRoute,private toastr: ToastrService) { }
+  constructor(private manageAccountService: ManageAccountService,private router:Router, private route: ActivatedRoute,private toastr: ToastrService) { }
 
   ngOnInit() {
   }
 
  registerUser(){
-   
+  if (this.form.invalid ) {
+    return;
+  }else{
+    console.log(this.form.value)
+    this.manageAccountService.setUpAccount(this.form.value).subscribe(data => {
+      this.toastr.success('Profile Created Successfully');
+      this.router.navigate(['/userProfile'])
+     // this.successMessage = "Location Added successfully."
+    }, error => {
+      console.log(error);
+      this.toastr.error('Error', error.error.message);
+      //this.errorMessage = error.error.message;
+    })
+  }
  }
 
 }

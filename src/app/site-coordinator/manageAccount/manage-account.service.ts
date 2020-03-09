@@ -16,8 +16,15 @@ export class ManageAccountService {
     return this.dataService.HttpGetRequest('users/kR2g5m2pJPP0P31-WNFYK8Al7jBP0mJ-cTSFJJHJ4DewuCg', '');
    // return this.dataService.HttpGetRequest('users/'+authToken, JSON.stringify(this.headers));
   }
+  updateProfileChanges(formData) {
+    this.generateAuthHeader()
+    return this.dataService.HttpPostRequest(JSON.stringify(formData), 'updateUserProfile', JSON.stringify(this.headers));
+  }
 
+  setUpAccount(formData){
+    return this.dataService.HttpPostRequest(JSON.stringify(formData), 'user', JSON.stringify(this.headers));
 
+  }
   generateAuthHeader() {
 
     // var authKey = window.localStorage.getItem("authKey");

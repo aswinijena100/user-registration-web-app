@@ -15,13 +15,20 @@ export class UserProfileComponent implements OnInit {
   profileAutoCompleteData: any = {};
   errorMessage: string = '';
   successMessage: String = '';
-
+  passCritiria: string ='';
   @ViewChild('profile',{ static: false }) form: any;
 
     constructor(private manageAccountService: ManageAccountService, private route: ActivatedRoute,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.getProfileDetails();
+    this.passCritiria = `Your password must be 8 to 64 characters long.  
+                        - contain a lower case letter.
+                        - contain an upper case letter. 
+                        - contain a number.
+                        - contain a special character from the following set:
+                        !"" # $ % ' () * + , - . : ; < = > ? @ [] ^_  {} |~"' `;
+
   }
 
   getProfileDetails() {
@@ -38,11 +45,18 @@ export class UserProfileComponent implements OnInit {
 
   }
   updateProfile(){
-    //this.toastr.success('Success', 'This is Right');
-    //this.toastr.error('Error', 'This is not Right');
-    //console.log(this.user.firstName)
     if (this.form.invalid ) {
       return;
+    }else{
+      console.log(this.form.value)
+      this.manageAccountService.updateProfileChanges(this.form.value).subscribe(data => {
+        this.toastr.success('Profile Updated Successfully');
+       // this.successMessage = "Location Added successfully."
+      }, error => {
+        console.log(error);
+        this.toastr.error('Error', error.error.message);
+        //this.errorMessage = error.error.message;
+      })
     }
   }
 

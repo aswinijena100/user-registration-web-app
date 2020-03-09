@@ -54,17 +54,19 @@
     <div class="mt-xlg">
       <div class="flex__justify__space-between">
         <div class="subheader__title">Change Password</div>
-        <div><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="text__757b80__12 ml-xs display-inline-block">Password Criteria</span></div>
+        <div><i class="fa fa-question-circle-o" aria-hidden="true"></i><span class="text__757b80__12 ml-xs display-inline-block"><a href="#" data-toggle="tooltip" title={{passCritiria}}>
+          Password Criteria</a></span></div>
       </div>
       <div class="bg__white card__inside__pad box__shadow-cmn m-none">
           <div class="row border-bottom__c4d1e6">
             <div class="col-xs-12 col-md-12 p-none">
               <div class="form-group">
                   <label for="currentPswd">Current Password</label>
-                  <input type="password" class="form-control" id="currentPswd"  placeholder="Enter Current Password" [(ngModel)]="user.currentPswd"
-                  #currentPassword="ngModel"  name="currentPswd"
-                  pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$">
+                  <input type="password" class="form-control" id="currentPswd"  placeholder="Enter Current Password" [(ngModel)]="user.currentPswd" #currentPswd="ngModel"  name="currentPswd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$" required>
                   <div *ngIf="currentPswd.invalid && (currentPswd .dirty || currentPswd.touched)">
+                    <span class="help-block with-errors error__msg" *ngIf="currentPswd.errors.required">
+                      Please fill out this filed.
+                    </span>
                     <span class="help-block with-errors error__msg" *ngIf="currentPswd.errors.pattern">
                       Current Password is invalid
                     </span>

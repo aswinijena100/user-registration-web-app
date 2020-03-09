@@ -103,6 +103,7 @@
     <div *ngIf="studies.length==0">{{errorMessage}}</div>
 
   </div>
+  
   <div *ngIf="activeTab=='apps'">
     <div *ngFor="let app of apps" class="bg__white cards  box__shadow-cmn   p-xl">
       <div (click)="navigateToParticipantList('app',studyWithSite.id)" class="flex__justify__space-between flex__wrap">

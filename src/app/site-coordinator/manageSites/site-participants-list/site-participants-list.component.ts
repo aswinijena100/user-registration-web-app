@@ -23,6 +23,7 @@ export class SiteParticipantsListComponent implements OnInit {
   siteParticipants: any = {};
   siteParticipantsBackup: any = {};
   file: any;
+  Deactivate: any;
   activeTab: string = 'all';
   noOfCheckedEmails: number;
   @ViewChild("addParticipantForm", { static: true }) addParticipantForm: NgForm;
@@ -74,6 +75,7 @@ export class SiteParticipantsListComponent implements OnInit {
       this.modalRef.hide();
       form.reset();
       this.myFunction();
+      this.getSiteParticipant();
     }, error => {
       this.toastr.error(error.error.userMessage);
      // this.errorMessage = error.error.userMessage;
@@ -88,14 +90,16 @@ export class SiteParticipantsListComponent implements OnInit {
   }
   changeTab(tab) {
     this.activeTab = tab;
+    this.selectedAll = false;
     this.getSiteParticipant();
   }
   participantDetails(participantRegistryId) {
-    console.log(participantRegistryId)
+    console.log(participantRegistryId);
+    this.Deactivate = participantRegistryId; 
   }
   
-  rowCheckBoxChange() {
-    this.checkedEmails = this.siteParticipants.registryParticipants.filter(u => u.newlyCreatedUser == true);
+  rowCheckBoxChange(statusCheck) {
+    this.checkedEmails = this.siteParticipants.registryParticipants.filter(u => u.newlyCreatedUser === statusCheck);
     this.noOfCheckedEmails = this.checkedEmails.length;
     if (this.noOfCheckedEmails != this.siteParticipants.registryParticipants.length) {
       this.selectedAll = false;
@@ -106,12 +110,17 @@ export class SiteParticipantsListComponent implements OnInit {
   selectAll() {
     if (this.selectedAll) {
       this.checkedEmails = this.siteParticipants.registryParticipants;
+      for (var i = 0; i < this.checkedEmails.length; i++) {
+        this.checkedEmails[i].newlyCreatedUser = this.siteParticipants.registryParticipants; 
+      }
     } else {
-      this.checkedEmails = [];
+      this.checkedEmails = this.siteParticipants.registryParticipants;
+      for (var i = 0; i < this.checkedEmails.length; i++) {
+        this.checkedEmails[i].newlyCreatedUser = ''; 
+      }
+     
     }
-    for (var i = 0; i < this.checkedEmails.length; i++) {
-      this.checkedEmails[i].newlyCreatedUser = this.siteParticipants.registryParticipants; 
-    }
+    
    // this.noOfCheckedUsers = this.checkedEmails.length;
   }
   onFileChange(evt: any) {
@@ -131,11 +140,13 @@ export class SiteParticipantsListComponent implements OnInit {
       this.importedFile.nativeElement.value = "";
       this.file = {};
       this.activeTab = "new";
-      // this.getSiteParticipant();
+       this.getSiteParticipant();
       this.myFunction();
 
     }, error => {
-      this.toastr.error(error.error.userMessage);
+      console.log(JSON.stringify(error.error))
+      //this.errorMessage = `Error In importing.`;
+      this.toastr.error(JSON.stringify(error.error));
      // this.errorMessage = error.error.userMessage;
       this.importedFile.nativeElement.value = "";
       this.file = {};
@@ -143,4 +154,43 @@ export class SiteParticipantsListComponent implements OnInit {
 
     });
   }
+ decommissionSite(){
+  this.manageSitesService.siteDecommission(this.siteId).subscribe(data => {
+    this.toastr.success(data.message);
+  }, error => {
+    this.toastr.error(error.error.userMessage);
+  });
+ }
+enableAndDisable(status){
+  console.log(status)
+  console.log(this.Deactivate)
+  let datas={
+        'id': [this.Deactivate],
+        'status': status   
+  };
+  this.manageSitesService.enableDisableInvitation(this.siteId,datas).subscribe(data => {
+    this.toastr.success(data.message);
+  }, error => {
+    console.log(error)
+    this.toastr.error(error.error.userMessage);
+  });
+}
+
+sendResendInvitation(){
+      let datas={
+        'id': [this.Deactivate]
+    };
+    console.log(datas);
+    this.manageSitesService.sendAndResendInvitation(this.siteId,datas).subscribe(data => {
+      console.log(data.successBean.message);
+    this.toastr.success(data.successBean.message);
+    this.changeTab('invited');
+    }, error => {
+    console.log(error)
+    this.toastr.error(error.error.userMessage);
+    });
+}
+
+
+
 }

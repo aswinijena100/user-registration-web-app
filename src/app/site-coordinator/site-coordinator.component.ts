@@ -43,6 +43,8 @@ export class SiteCoordinatorComponent implements OnInit {
     console.log(this.componentRef.constructor.name)
     //Below will subscribe to the tab change emitter
     if (this.componentRef.constructor.name == "DashboardComponent") {
+      this.searchPlaceholder = "Search by site or study ID or name"
+
       componentRef.tabChangeItem.subscribe((data) => {
        // console.log(data)
         // Will receive the data from child here 
