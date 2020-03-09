@@ -110,12 +110,12 @@ export class SiteParticipantsListComponent implements OnInit {
   selectAll() {
     if (this.selectedAll) {
       this.checkedEmails = this.siteParticipants.registryParticipants;
-      for (var i = 0; i < this.checkedEmails.length; i++) {
+      for (var i = 0; i < 10; i++) {
         this.checkedEmails[i].newlyCreatedUser = this.siteParticipants.registryParticipants; 
       }
     } else {
       this.checkedEmails = this.siteParticipants.registryParticipants;
-      for (var i = 0; i < this.checkedEmails.length; i++) {
+      for (var i = 0; i < 10; i++) {
         this.checkedEmails[i].newlyCreatedUser = ''; 
       }
      
@@ -169,7 +169,8 @@ enableAndDisable(status){
         'status': status   
   };
   this.manageSitesService.enableDisableInvitation(this.siteId,datas).subscribe(data => {
-    this.toastr.success(data.message);
+    this.toastr.success(data.successBean.message);
+    this.getSiteParticipant(); 
   }, error => {
     console.log(error)
     this.toastr.error(error.error.userMessage);
