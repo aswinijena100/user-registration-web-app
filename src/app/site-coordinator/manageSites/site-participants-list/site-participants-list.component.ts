@@ -4,6 +4,8 @@ import { ManageSitesService } from "../manage-sites.service";
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
+import { SiteParticipant } from '../../../entity/siteParticipant';
+
 
 @Component({
   selector: 'app-site-participants-list',
@@ -26,9 +28,10 @@ export class SiteParticipantsListComponent implements OnInit {
   Deactivate: any;
   activeTab: string = 'all';
   noOfCheckedEmails: number;
+  objectLength: any;
   @ViewChild("addParticipantForm", { static: true }) addParticipantForm: NgForm;
   selectEmails: any;
-  constructor(private modalService: BsModalService, private manageSitesService: ManageSitesService, private route: ActivatedRoute,private toastr: ToastrService) { }
+  constructor(private modalService: BsModalService, private router: Router,private manageSitesService: ManageSitesService, private route: ActivatedRoute,private toastr: ToastrService) { }
 
   openModal(template: TemplateRef<any>) {
     // this.addParticipantForm.resetForm();
@@ -55,9 +58,10 @@ export class SiteParticipantsListComponent implements OnInit {
     this.siteParticipantsBackup = [];
     this.manageSitesService.getsiteParticipants(this.siteId, this.activeTab).subscribe(data => {
       this.siteParticipants = data;
-      this.siteParticipantsBackup = JSON.parse(JSON.stringify(this.siteParticipants));
+      this.siteParticipantsBackup = JSON.parse(JSON.stringify(this.siteParticipants.registryParticipants));
       console.log(this.siteParticipantsBackup)
       console.log(this.siteParticipants)
+      this.objectLength = Object.keys(this.siteParticipants.registryParticipants).length !=0;
     }, error => {
       this.siteParticipants = [];
       this.siteParticipantsBackup = [];
@@ -85,8 +89,15 @@ export class SiteParticipantsListComponent implements OnInit {
 
     });
   }
-  search() {
-    console.log("inside site ")
+  search(filterQuery) {
+    let query = filterQuery;
+  if (query && query.trim() != '' && query.trim() != undefined) {
+    this.siteParticipants.registryParticipants = this.siteParticipantsBackup.filter(function (a) {
+      return ((a.email != null && a.email != undefined && a.email.toLowerCase().includes(query.toLowerCase())));
+    });
+  } else {
+    this.siteParticipants.registryParticipants = this.siteParticipantsBackup;
+  }
   }
   changeTab(tab) {
     this.activeTab = tab;
@@ -145,9 +156,7 @@ export class SiteParticipantsListComponent implements OnInit {
 
     }, error => {
       console.log(JSON.stringify(error.error))
-      //this.errorMessage = `Error In importing.`;
       this.toastr.error(JSON.stringify(error.error));
-     // this.errorMessage = error.error.userMessage;
       this.importedFile.nativeElement.value = "";
       this.file = {};
       this.myFunction();
@@ -157,6 +166,7 @@ export class SiteParticipantsListComponent implements OnInit {
  decommissionSite(){
   this.manageSitesService.siteDecommission(this.siteId).subscribe(data => {
     this.toastr.success(data.message);
+    this.router.navigate(["/user/dashboard"])
   }, error => {
     this.toastr.error(error.error.userMessage);
   });
@@ -188,9 +198,13 @@ sendResendInvitation(){
     this.changeTab('invited');
     }, error => {
     console.log(error)
+    if(error.failedInvitations != ''){
+      this.errorMessage = JSON.stringify(error.failedInvitations);
+    }
     this.toastr.error(error.error.userMessage);
     });
 }
+
 
 
 

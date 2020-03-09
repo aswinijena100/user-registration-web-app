@@ -24,6 +24,16 @@ export class ParticipantDetailsComponent implements OnInit {
     })
   }
 
+  search(filterQuery) {
+    let query = filterQuery;
+  if (query && query.trim() != '' && query.trim() != undefined) {
+    this.participantDetails.consentHistory = this.particpantDetailsBackup.filter(function (a) {
+      return ((a.email != null && a.email != undefined && a.email.toLowerCase().includes(query.toLowerCase())));
+    });
+  } else {
+   this.participantDetails.consentHistory = this.particpantDetailsBackup;
+  }
+  }
  listDetails(){
   this.manageSitesService.showParticipantsDetails(this.partcipantId).subscribe(
     data => {

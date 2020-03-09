@@ -13,5 +13,9 @@ export class SiteParticipant {
     studies: any[] = [];
 
     studiesCount: number;
+    
+    registryParticipants: any[] = [];
+    
+    countByStatus: any[] = [];
 
 }

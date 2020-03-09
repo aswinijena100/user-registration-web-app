@@ -1,4 +1,4 @@
-<div class="subheader p-none pl-none">
+<div class="subheader p-none pl-none" ng-disabled="true" >
   <div class="max__w__1280 m-none">
     <div class="flex__justify__space-between">
       <div class="subheader__title flex__justify__space-between align__items__baseline">
@@ -88,9 +88,9 @@
     </div>
   </div>
   <div >
-    <ul class=" nav nav-tabs "  >
+    <ul class=" nav nav-tabs " *ngIf="siteParticipants.countByStatus" >
       <li [ngClass]="{'active':activeTab=='all'}"><a data-toggle="tab" (click)="changeTab('all')">All <span
-            class="text__fbbc05__11">({{siteParticipants.countByStatus.D + siteParticipants.countByStatus.I + siteParticipants.countByStatus.N}})</span></a></li>
+            class="text__fbbc05__11">({{siteParticipants.countByStatus.A }})</span></a></li>
       <li [ngClass]="{'active':activeTab=='new'}"><a data-toggle="tab" (click)="changeTab('new')">New <span
             class="text__747d84__11">({{siteParticipants.countByStatus.N}})</span></a></li>
       <li [ngClass]="{'active':activeTab=='invited'}"><a data-toggle="tab" (click)="changeTab('invited')">Invited <span
@@ -109,7 +109,7 @@
         <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113" (click)="sendResendInvitation()">Resend Invitation</button>
       </div>
       <div *ngIf="activeTab=='new' || activeTab=='invited'">
-        <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 bt__font12__pad113">Disable
+        <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 bt__font12__pad113" (click)="enableAndDisable('0')">Disable
           Invitation</button>
       </div>
       <div *ngIf="activeTab=='disable'">
@@ -123,9 +123,9 @@
   <div class="desk__view">
     <div class="flex__justify__space-between bg__white yel__tabs border-bottom__dee2e6">
       <div  >
-        <ul class=" nav nav-tabs " >
+        <ul class=" nav nav-tabs " *ngIf="siteParticipants.countByStatus" >
           <li [ngClass]="{'active':activeTab=='all'}"><a data-toggle="tab" (click)="changeTab('all')">All <span
-                class="text__fbbc05__11">({{siteParticipants.countByStatus.D + siteParticipants.countByStatus.I + siteParticipants.countByStatus.N}})</span></a></li>
+                class="text__fbbc05__11">({{siteParticipants.countByStatus.A}})</span></a></li>
           <li [ngClass]="{'active':activeTab=='new'}"><a data-toggle="tab" (click)="changeTab('new')">New <span
                 class="text__747d84__11">({{siteParticipants.countByStatus.N}})</span></a></li>
           <li [ngClass]="{'active':activeTab=='invited'}"><a data-toggle="tab" (click)="changeTab('invited')">Invited
@@ -144,7 +144,7 @@
             <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113" (click)="sendResendInvitation()">Resend Invitation</button>
           </div>
           <div *ngIf="activeTab=='new' || activeTab=='invited'">
-            <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 bt__font12__pad113">Disable
+            <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 bt__font12__pad113" (click)="enableAndDisable('0')">Disable
               Invitation</button>
           </div>
           <div *ngIf="activeTab=='disabled'">
