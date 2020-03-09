@@ -61,6 +61,11 @@ export class ManageSitesService {
     console.log(dataSet);
     return this.dataService.HttpPostRequest(JSON.stringify(dataSet),'sites/' + siteId + '/participants/invite',JSON.stringify(this.headers));
    }
+
+   addSite(siteObject){
+    this.generateAuthHeader();
+    return this.dataService.HttpPostRequest(JSON.stringify(siteObject),'sites',JSON.stringify(this.headers));
+  }
   generateAuthHeader() {
 
     // var authKey = window.localStorage.getItem("authKey");
@@ -69,7 +74,7 @@ export class ManageSitesService {
     // console.log(userId)
 
     // this.headers = { "authKey": authKey, "userId": userId };
-    this.headers = { "userId": "10" };
+    this.headers = { "userId": "1" };
 
   }
 }
