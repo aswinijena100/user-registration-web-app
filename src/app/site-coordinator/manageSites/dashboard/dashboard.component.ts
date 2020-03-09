@@ -25,7 +25,8 @@ export class DashboardComponent implements OnInit {
   activeTab: string = 'sites';
   addSite: any = {};
   errorMessage: String = "";
-  constructor(private locationService: LocationService,private router: Router, private modalService: BsModalService, private manageSiteService: ManageSitesService,private toastr: ToastrService) { }
+  locationId: String = "";
+  constructor(private locationService: LocationService, private router: Router, private modalService: BsModalService, private manageSiteService: ManageSitesService, private toastr: ToastrService) { }
   ngOnInit() {
     this.getstudiesWithSite();
   }
@@ -40,7 +41,7 @@ export class DashboardComponent implements OnInit {
     }, error => {
       this.studiesWithSites = [];
       this.studiesWithSitesBackup = [];
-     this.errorMessage = error.error.userMessage;
+      this.errorMessage = error.error.userMessage;
     });
   }
   getStudies() {
@@ -91,10 +92,17 @@ export class DashboardComponent implements OnInit {
       this.addSite.appInfoId = study.appInfoId;
     }
   }
-  addSiteData() {
-
+  addSiteData(template) {
+    this.addSite.locationId = this.locationId;
+    this.manageSiteService.addSite(this.addSite).subscribe(data => {
+      this.toastr.success(data.message);
+      this.modalRef.hide();
+    }, error => {
+      this.modalRef.hide();
+      this.toastr.error(error.error.userMessage);
+    });
   }
-  
+
   search(filterQuery) {
     let query = filterQuery;
     if (this.activeTab == 'sites') {
@@ -151,4 +159,5 @@ export class DashboardComponent implements OnInit {
       this.router.navigate(["/user/appParticipants/", id])
     }
   }
+
 }
