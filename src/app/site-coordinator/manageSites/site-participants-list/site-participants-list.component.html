@@ -30,7 +30,7 @@
               <button class="dropbtn btn bt__1a73e8 mr-sm" (click)="myFunction()">Add Participants
                 <i class="fa fa-caret-down"></i>
               </button>
-              <div class="dropdown-content" id="myDropdown">
+              <div class="dropdown-content myDropdown" id="myDropdown">
                 <div class="flex__justify__space-between mb-xs">
                   <div class="mr-sm">
                     <button class="bt__4285f4 font__bold" #template (click)="openModal(template)">Add Email</button>
@@ -66,7 +66,7 @@
           <button class="dropbtn btn bt__1a73e8 mr-sm font12" (click)="myFunction()">Add Participants
             <i class="fa fa-caret-down"></i>
           </button>
-          <div class="dropdown-content" id="myDropdown">
+          <div class="dropdown-content myDropdown" id="myDropdown">
             <div class="flex__justify__space-between mb-xs">
               <div class="mr-sm">
                 <button class="bt__4285f4 font__bold" #template (click)="openModal(template)">Add Email</button>
@@ -82,7 +82,7 @@
         </div>
       </div>
       <div>
-        <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font12">Decommission Site for
+        <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font12" (click)="decommissionSite()">Decommission Site for
           Study</button>
       </div>
     </div>
