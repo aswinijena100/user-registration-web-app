@@ -29,6 +29,7 @@ export class SiteParticipantsListComponent implements OnInit {
   activeTab: string = 'all';
   noOfCheckedEmails: number;
   objectLength: any;
+  Deactivates:any[] =[];
   @ViewChild("addParticipantForm", { static: true }) addParticipantForm: NgForm;
   selectEmails: any;
   constructor(private modalService: BsModalService, private router: Router,private manageSitesService: ManageSitesService, private route: ActivatedRoute,private toastr: ToastrService) { }
@@ -107,6 +108,11 @@ export class SiteParticipantsListComponent implements OnInit {
   participantDetails(participantRegistryId) {
     console.log(participantRegistryId);
     this.Deactivate = participantRegistryId; 
+    // for(var i=0;i < this.Deactivate ; i++)
+    //         {
+    //           this.Deactivate["[" + participantRegistryId[i].id + "]"] ; 
+    //         }
+            console.log(this.Deactivate)
   }
   
   rowCheckBoxChange(statusCheck) {
@@ -119,19 +125,22 @@ export class SiteParticipantsListComponent implements OnInit {
     }
   }
   selectAll() {
+    
     if (this.selectedAll) {
       this.checkedEmails = this.siteParticipants.registryParticipants;
       for (var i = 0; i < 10; i++) {
         this.checkedEmails[i].newlyCreatedUser = this.siteParticipants.registryParticipants; 
+      //  this.Deactivates = [this.checkedEmails[i].newlyCreatedUser[0].id];
       }
     } else {
       this.checkedEmails = this.siteParticipants.registryParticipants;
       for (var i = 0; i < 10; i++) {
         this.checkedEmails[i].newlyCreatedUser = ''; 
+        //this.Deactivates = [];
       }
      
     }
-    
+    console.log(this.Deactivates)
    // this.noOfCheckedUsers = this.checkedEmails.length;
   }
   onFileChange(evt: any) {
@@ -198,7 +207,7 @@ sendResendInvitation(){
     this.changeTab('invited');
     }, error => {
     console.log(error)
-    if(error.failedInvitations != ''){
+    if(error.failedInvitations.length != ''){
       this.errorMessage = JSON.stringify(error.failedInvitations);
     }
     this.toastr.error(error.error.userMessage);

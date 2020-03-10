@@ -15,6 +15,8 @@ export class ParticipantDetail {
     customAppId: String;
 
     appName: String;
+    
+    invitationDate:string;
 
     onboardringStatus: String
 

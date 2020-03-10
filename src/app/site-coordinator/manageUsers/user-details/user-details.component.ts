@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-details.component.scss']
 })
 export class UserDetailsComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {
   }
+  openModal(template){
 
+  }
 }

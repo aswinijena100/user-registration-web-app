@@ -16,6 +16,8 @@ export class User {
 
     manageLocations: number;
 
+    manageLocationsPermission:number;
+    
     superAdmin: number;
 
     manageLocationsCheckBox: number;

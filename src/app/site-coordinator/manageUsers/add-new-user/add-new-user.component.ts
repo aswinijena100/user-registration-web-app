@@ -13,6 +13,7 @@ export class AddNewUserComponent implements OnInit {
   appsBackup: any[] = [];
   selectedApps: any[] = [];
   user: User = new User();
+  modalRef:any;
   ngOnInit() {
     this.getAllApps();
   }
