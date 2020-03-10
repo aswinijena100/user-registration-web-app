@@ -33,7 +33,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     ModalModule.forRoot(),
     ToastrModule.forRoot({ positionClass: "toast-top-center", preventDuplicates: true, }) // ToastrModule added
   ],
-  providers: [DataService
+  providers: [DataService,
   { provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
