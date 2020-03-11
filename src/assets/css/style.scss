@@ -73,7 +73,7 @@ ul li{
 	background-color: #1a73e8 !important;
     border-color: #1a73e8 !important;
     font-size: 16px !important;
-    padding: 4px 15px !important
+	padding: 7px 20px !important;
 }
 .blue__btn:hover{
     color: #fff !important;
@@ -208,7 +208,8 @@ header{
 	background: #fff;
 	box-shadow: 0px 2px 6px 0px rgba(0,0,0,.12);
 	border-bottom:none !important; 
-	padding: 15px 0px !important;
+	padding: 23px 0px !important;
+	box-shadow: 0px 1px 2px 0px rgba(0,0,0,.12);
 }
 .subheader__menu{
 	padding-left:40px !important;
@@ -225,7 +226,7 @@ footer {
 	width:100%;
 	min-height:70px;   /* Height of the footer */
 	background: #f2f5f8;
-	border-top:1px solid #a7b5cc;
+	border-top:1px solid #c4d1e6;
 	font-size:12px;
 	margin-top:20px;
 	padding: 17px;
@@ -395,7 +396,11 @@ button{
 .background__dfe4ec{
 	background: #dfe4ec;
 }
-
+.table{
+	box-shadow: 1px 1px 5px 0px rgba(204, 215, 226, 1);
+	border-radius: 7px;
+	background: #fff;
+}
 .table th,.table td{
     border: none;
 	background: #fff;
