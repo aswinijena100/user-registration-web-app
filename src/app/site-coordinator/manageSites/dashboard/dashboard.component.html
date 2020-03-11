@@ -57,7 +57,7 @@
   </div>
   <div *ngIf="activeTab=='studies'">
     <div *ngFor="let study of studies" class="bg__white cards cards__var box__shadow-cmn">
-      <div (click)="navigateToParticipantList('study',studyWithSite.id)" class="flex__justify__space-between flex__wrap">
+      <div (click)="navigateToParticipantList('study',study.id)" class="flex__justify__space-between flex__wrap">
         <div class="">
           <div class="flex__ flex__row align__items__center ">
             <div class="img__container__left">
@@ -106,7 +106,7 @@
   
   <div *ngIf="activeTab=='apps'">
     <div *ngFor="let app of apps" class="bg__white cards  box__shadow-cmn   p-xl">
-      <div (click)="navigateToParticipantList('app',studyWithSite.id)" class="flex__justify__space-between flex__wrap">
+      <div (click)="navigateToParticipantList('app',app.id)" class="flex__justify__space-between flex__wrap">
         <div class="">
           <div class="">
             <div class="text__4285f4__12 text-capitalize">{{app.customId}}</div>
