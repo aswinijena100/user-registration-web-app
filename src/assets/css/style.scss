@@ -725,9 +725,9 @@ button{
 	font-size:16px;
 	line-height:18px;
 	padding:0px !important;
-	color: #353a3e;
+	color: #000;
 	height:auto !important;
-	font-weight:600;
+	font-weight:700;
 }
 .bg__white .form-group{
 	margin-bottom:0;
@@ -1268,4 +1268,24 @@ div.show + div{
 .ng-placeholder{
 	display:block !important;
 
+}
+.ng-select.ng-select-multiple{
+	border:none !important;
+	height: 26px !important;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container{
+	padding: 0 !important;
+}
+.ng-select.ng-select-multiple .ng-select-container{
+	border:none !important;
+}
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-placeholder{
+	padding:0  !important; 
+}
+.ng-select.ng-select-multiple.form-control:focus{
+	box-shadow: none !important;
+	border-top: none !important;
+}
+.ng-select.ng-select-multiple .ng-arrow-wrapper .ng-arrow{
+	top:-12px;
 }

@@ -47,7 +47,6 @@ export class SiteParticipantsListComponent implements OnInit {
     this.route.params.subscribe(params => {
       if (params['siteId'] != '' && params['siteId'] != 'undefined' && params['siteId'] != undefined)
         this.siteId = params['siteId'];
-      console.log(this.siteId)
       this.getSiteParticipant();
 
     })
@@ -61,9 +60,8 @@ export class SiteParticipantsListComponent implements OnInit {
     this.siteParticipantsBackup = [];
     this.manageSitesService.getsiteParticipants(this.siteId, this.activeTab).subscribe(data => {
       this.siteParticipants = data;
+      console.log(data)
       this.siteParticipantsBackup = JSON.parse(JSON.stringify(this.siteParticipants.registryParticipants));
-      console.log(this.siteParticipantsBackup)
-      console.log(this.siteParticipants)
       this.objectLength = Object.keys(this.siteParticipants.registryParticipants).length != 0;
     }, error => {
       this.siteParticipants = [];
@@ -138,14 +136,11 @@ export class SiteParticipantsListComponent implements OnInit {
   onFileChange(evt: any) {
     let file = evt.target.files[0];
     this.file = file;
-    console.log(this.file.name)
   }
   importPartcipants() {
     let formData = new FormData();
     formData.append('file', this.file, this.file.name);
-    console.log(formData)
     this.manageSitesService.importParticipants(this.siteId, formData).subscribe(data => {
-      console.log(data)
       this.toastr.success(data.successBean.message);
       this.importedFile.nativeElement.value = "";
       this.file = {};
@@ -153,14 +148,12 @@ export class SiteParticipantsListComponent implements OnInit {
       this.getSiteParticipant();
       this.myFunction();
     }, error => {
-      this.strings = error.error.errorBean.userMessage+"<br/><br/>Invalid Emails are <br/>"+ error.error.invalidEmails+"<br/><br/>Duplicate Emails are <br/>"+error.error.duplicateEmails;
-      this.toastr.error(this.strings);
-      var Invalids = {
-        "InvalidEmails" : error.error.invalidEmails,
-        "DuplicateEmails" : error.error.invalidEmails
-                     };
-     // this.toastr.error(JSON.stringify(error.error.invalidEmails));
-      
+      if(error.status == 400){
+        this.toastr.error(error.error.userMessage);
+      }else{
+        this.strings = error.error.errorBean.userMessage+"<br/><br/>Invalid Emails are <br/>"+ error.error.invalidEmails+"<br/><br/>Duplicate Emails are <br/>"+error.error.duplicateEmails;
+        this.toastr.error(this.strings);
+      }
       this.importedFile.nativeElement.value = "";
       this.file = {};
       this.myFunction();
@@ -168,13 +161,10 @@ export class SiteParticipantsListComponent implements OnInit {
     });
   }
   decommissionSite() {
-    console.log(this.siteId)
     this.manageSitesService.siteDecommission(this.siteId).subscribe(data => {
-      console.log(data)
       this.toastr.success(data.message);
       this.router.navigate(["/user/dashboard"])
     }, error => {
-      console.log(error)
       this.toastr.error(error.error.userMessage);
     });
   }
@@ -213,7 +203,6 @@ export class SiteParticipantsListComponent implements OnInit {
     this.checkedEmails = this.siteParticipants.registryParticipants.filter(u => u.newlyCreatedUser === true);
     var checkedEmailsIds = [];
     this.checkedEmails.forEach(function (checkedEmail) {
-      console.log(checkedEmail.id)
       checkedEmailsIds.push(checkedEmail.id);
     });
     let datas = {
@@ -228,7 +217,6 @@ export class SiteParticipantsListComponent implements OnInit {
           this.changeTab('invited');
           this.getSiteParticipant();
         }, error => {
-          console.log(error.error.errorBean)
           this.toastr.error(error.error.errorBean.userMessage);
 
         });

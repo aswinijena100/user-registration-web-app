@@ -279,10 +279,15 @@
             <td>
               <div>
                 <div class="form-group mb-none">
-                  <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser"
-                    (change)="rowCheckBoxChange('false')">
-                  <label for="{{participant.id}}"><span
+
+                   <div *ngIf="participant.enrollmentStatus !=='Yet to Enroll'">
+                    <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser"
+                    (change)="rowCheckBoxChange('false')"  >
+                    <label  for="{{participant.id}}"><span
                       (click)="redirectParticipant(participant.id)">{{participant.email}}</span></label>
+                    </div>
+                   <div *ngIf="participant.enrollmentStatus ==='Yet to Enroll'">
+                <span  (click)="redirectParticipant(participant.id)">{{participant.email}}</span> </div> 
                 </div>
               </div>
             </td>
