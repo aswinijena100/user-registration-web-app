@@ -177,8 +177,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let participant of mf.data">
-            <td (click)="participantDetails(participant.id)">{{participant.email}}</td>
+          <tr *ngFor="let participant of mf.data" (click)="participantDetails(participant.id)">
+            <td (click)="redirectParticipant(participant.id)">{{participant.email}}</td>
             <td ><div [ngClass]="{'text__353a3e__14': (participant.onboardingStatus == 'Invited'),  'text__8495a5__14': (participant.onboardingStatus == 'Disabled')}">{{participant.onboardingStatus}}</div></td>
             <td><div [ngClass]="{'text__353a3e__14': (participant.enrollmentStatus == 'Enrolled'),  'text__8495a5__14': (participant.enrollmentStatus == 'Withdrawn')}">{{participant.enrollmentStatus}}</div></td>
             <td>{{participant.enrollmentDate}}</td>
@@ -210,12 +210,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let participant of mf.data">
+          <tr *ngFor="let participant of mf.data" (click)="participantDetails(participant.id)">
             <td>
               <div>
                 <div class="form-group mb-none">
                   <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser" (change)="rowCheckBoxChange('true')">
-                  <label for="{{participant.id}}"><span (click)="participantDetails(participant.id)">{{participant.email}}</span></label>
+                  <label for="{{participant.id}}"  ><span  (click)="redirectParticipant(participant.id)">{{participant.email}}</span></label>
                 </div>
               </div>
             </td>
@@ -249,12 +249,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let participant of mf.data">
+          <tr *ngFor="let participant of mf.data" (click)="participantDetails(participant.id)">
             <td>
               <div>
                 <div class="form-group mb-none">
                   <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser" (change)="rowCheckBoxChange('false')">
-                  <label for="{{participant.id}}" ><span (click)="participantDetails(participant.id)">{{participant.email}}</span></label>
+                  <label for="{{participant.id}}" ><span (click)="redirectParticipant(participant.id)">{{participant.email}}</span></label>
                 </div>
               </div>
             </td>
@@ -292,12 +292,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let participant of mf.data">
+          <tr *ngFor="let participant of mf.data" (click)="participantDetails(participant.id)">
             <td>
               <div>
                 <div class="form-group mb-none">
                   <input type="checkbox"  id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser" (change)="rowCheckBoxChange('false')">
-                  <label for="{{participant.id}}"><span (click)="participantDetails(participant.id)">{{participant.email}}</span></label>
+                  <label for="{{participant.id}}" ><span (click)="redirectParticipant(participant.id)">{{participant.email}}</span></label>
                 </div>
               </div>
             </td>

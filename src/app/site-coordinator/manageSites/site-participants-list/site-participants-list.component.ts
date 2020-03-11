@@ -105,9 +105,11 @@ export class SiteParticipantsListComponent implements OnInit {
   }
   participantDetails(participantRegistryId) {
     this.Deactivate = participantRegistryId;
-  this.router.navigate(["/user/participantDetail",participantRegistryId])
   }
-  
+  redirectParticipant(userId){
+   this.router.navigate(["/user/participantDetail",userId])
+  }
+
   rowCheckBoxChange(statusCheck) {
     this.checkedEmails = this.siteParticipants.registryParticipants.filter(u => u.newlyCreatedUser === statusCheck);
     this.noOfCheckedEmails = this.checkedEmails.length;
@@ -190,6 +192,7 @@ sendResendInvitation(){
     this.manageSitesService.sendAndResendInvitation(this.siteId,datas).subscribe(data => {
     this.toastr.success(data.successBean.message);
     this.changeTab('invited');
+    this.getSiteParticipant(); 
     }, error => {
     if(error.failedInvitations.length != ''){
       this.errorMessage = JSON.stringify(error.failedInvitations);
