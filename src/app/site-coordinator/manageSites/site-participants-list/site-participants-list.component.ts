@@ -31,6 +31,7 @@ export class SiteParticipantsListComponent implements OnInit {
   objectLength: any;
   @ViewChild("addParticipantForm", { static: true }) addParticipantForm: NgForm;
   selectEmails: any;
+  strings: string;
   constructor(private modalService: BsModalService, private router: Router, private manageSitesService: ManageSitesService, private route: ActivatedRoute, private toastr: ToastrService) { }
 
   openModal(template: TemplateRef<any>) {
@@ -150,10 +151,14 @@ export class SiteParticipantsListComponent implements OnInit {
       this.getSiteParticipant();
       this.myFunction();
     }, error => {
-      console.log(error)
-      this.toastr.error(error.error.errorBean.userMessage);
-      //this.toastr.error('InvalidEmails',error.error.invalidEmails);
-      //);
+      this.strings = error.error.errorBean.userMessage+"<br/><br/>Invalid Emails are <br/>"+ error.error.invalidEmails+"<br/><br/>Duplicate Emails are <br/>"+error.error.duplicateEmails;
+      this.toastr.error(this.strings);
+      var Invalids = {
+        "InvalidEmails" : error.error.invalidEmails,
+        "DuplicateEmails" : error.error.invalidEmails
+                     };
+     // this.toastr.error(JSON.stringify(error.error.invalidEmails));
+      
       this.importedFile.nativeElement.value = "";
       this.file = {};
       this.myFunction();
@@ -161,10 +166,13 @@ export class SiteParticipantsListComponent implements OnInit {
     });
   }
   decommissionSite() {
+    console.log(this.siteId)
     this.manageSitesService.siteDecommission(this.siteId).subscribe(data => {
-      this.toastr.success(data.successBean.message);
+      console.log(data)
+      this.toastr.success(data.message);
       this.router.navigate(["/user/dashboard"])
     }, error => {
+      console.log(error)
       this.toastr.error(error.error.userMessage);
     });
   }

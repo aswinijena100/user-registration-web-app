@@ -30,7 +30,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     NgSelectModule,
     ModalModule.forRoot(),
-    ToastrModule.forRoot({positionClass : "toast-top-center",preventDuplicates: true,}) // ToastrModule added
+    ToastrModule.forRoot({positionClass : "toast-top-center",preventDuplicates: false, enableHtml: true, }) // ToastrModule added
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
