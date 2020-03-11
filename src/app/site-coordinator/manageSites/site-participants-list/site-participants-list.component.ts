@@ -58,6 +58,7 @@ export class SiteParticipantsListComponent implements OnInit {
     this.siteParticipantsBackup = [];
     this.manageSitesService.getsiteParticipants(this.siteId, this.activeTab).subscribe(data => {
       this.siteParticipants = data;
+      console.log(data)
       this.siteParticipantsBackup = JSON.parse(JSON.stringify(this.siteParticipants.registryParticipants));
       this.objectLength = Object.keys(this.siteParticipants.registryParticipants).length != 0;
     }, error => {
