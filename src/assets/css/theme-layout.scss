@@ -380,6 +380,7 @@
 	}
 	.table tbody tr:last-child td:first-child{
 		border-radius: 0px 0px 0px 10px !important;
+		border-bottom: 1px solid #c4d1e6 !important;
 	}
 	.table tbody tr:last-child td:last-child{
 		border-radius: 0px 0px 10px 0px !important;
@@ -406,7 +407,7 @@
 		display:inline-block;
 	}
 	.table tfoot td:last-child{
-		padding-bottom:0 !important;
+		padding-bottom:10px !important;
 		padding-top:10px !important;
 		margin-top: 0px;
 	}
@@ -452,7 +453,7 @@
 }
 @media (min-width: 1300px) {
     .max__w__1280{
-		max-width: 1200px;
+		max-width: 1060px;
 	}
 	.max__w__850{
 		max-width: 850px;
@@ -463,8 +464,6 @@
 	}
 }
 @media (min-width: 1400px) {
-    .max__w__1280{
-		max-width: 1280px;
-	}
+   
 }
 /* media queries scss */
