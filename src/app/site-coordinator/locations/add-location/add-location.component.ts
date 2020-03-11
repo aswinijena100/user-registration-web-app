@@ -19,18 +19,16 @@ export class AddLocationComponent implements OnInit {
 
   ngOnInit() {
   }
-  navigateToLocations() {
-    this.router.navigate(['/user/locations'])
-  }
+
   addLocation() {
     this.errorMessage = '';
     this.successMessage = '';
     this.locationService.addLocation(this.location).subscribe(data => {
-      this.toastr.success('Success', 'Location Added successfully.');
+      this.toastr.success( data.successBean.message);
      // this.successMessage = "Location Added successfully."
     }, error => {
       console.log(error);
-      this.toastr.error('Error', error.error.message);
+      this.toastr.error(error.error.userMessage);
       //this.errorMessage = error.error.message;
     })
   }

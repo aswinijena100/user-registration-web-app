@@ -11,10 +11,8 @@ export class ManageAccountService {
   constructor(private dataService: DataService) { }
 
   getProfileData() {
-    //this.headers = { "userId": "kR2g5m2pJPP0P31-WNFYK8Al7jBP0mJ-cTSFJJHJ4DewuCg" };
-    let authToken = "kR2g5m2pJPP0P31-WNFYK8Al7jBP0mJ-cTSFJJHJ4DewuCg";
-    return this.dataService.HttpGetRequest('users/kR2g5m2pJPP0P31-WNFYK8Al7jBP0mJ-cTSFJJHJ4DewuCg', '');
-   // return this.dataService.HttpGetRequest('users/'+authToken, JSON.stringify(this.headers));
+    this.headers = { "userId": "10" ,"authUserId":"TuKUeFdyWz4E2A1-LqQcoYKBpMsfLnl-KjiuRFuxWcM3sQg"};
+    return this.dataService.HttpGetRequest('users', '');
   }
   updateProfileChanges(formData) {
     this.generateAuthHeader()
@@ -23,7 +21,6 @@ export class ManageAccountService {
 
   setUpAccount(formData){
     return this.dataService.HttpPostRequest(JSON.stringify(formData), 'user', JSON.stringify(this.headers));
-
   }
   generateAuthHeader() {
 

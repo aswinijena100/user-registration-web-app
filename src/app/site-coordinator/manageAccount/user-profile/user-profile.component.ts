@@ -32,15 +32,13 @@ export class UserProfileComponent implements OnInit {
   }
 
   getProfileDetails() {
- 
     this.manageAccountService.getProfileData().subscribe(
       data => {
         console.log(data);
         this.profileAutoCompleteData = data;
         this.user = this.profileAutoCompleteData;
-        console.log(this.user);
       }, error => {
-        this.toastr.error('Error', 'Failed to get UserDetails');
+        this.toastr.error(error.error.userMessage);
       });
 
   }
@@ -48,14 +46,10 @@ export class UserProfileComponent implements OnInit {
     if (this.form.invalid ) {
       return;
     }else{
-      console.log(this.form.value)
       this.manageAccountService.updateProfileChanges(this.form.value).subscribe(data => {
-        this.toastr.success('Profile Updated Successfully');
-       // this.successMessage = "Location Added successfully."
+        this.toastr.success(data.successBean.message);
       }, error => {
-        console.log(error);
-        this.toastr.error('Error', error.error.message);
-        //this.errorMessage = error.error.message;
+        this.toastr.error( error.error.userMessage);
       })
     }
   }

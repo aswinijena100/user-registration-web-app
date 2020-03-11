@@ -3,6 +3,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '../../../entity/location';
 import { LocationService } from "../location.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-location-details',
@@ -18,7 +19,7 @@ export class LocationDetailsComponent implements OnInit {
   locationBackup: Location = new Location();
   errorMessage: String = "";
   successMessage: String = "";
-  constructor(private modalService: BsModalService, private route: ActivatedRoute, private locationService: LocationService) { }
+  constructor(private toastr: ToastrService,private modalService: BsModalService, private route: ActivatedRoute, private locationService: LocationService) { }
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
@@ -58,15 +59,16 @@ export class LocationDetailsComponent implements OnInit {
       }
     }
     this.locationService.updateLocation(locationBeanToUpdate, this.locationId).subscribe(data => {
-      this.successMessage = data.successBean.message;
+      // this.successMessage = data.successBean.message;
       this.location.name = data.name;
       this.location.description = data.description;
       this.location.status = data.status;
       this.locationBackup = JSON.parse(JSON.stringify(this.location));
+      this.toastr.success(data.successBean.message);
     }, error => {
-      console.log(error);
-      this.errorMessage = error.userMessage;
+      this.toastr.error( error.error.userMessage);
     });
     
   }
+
 }

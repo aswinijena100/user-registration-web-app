@@ -2,7 +2,7 @@
   <div class="max__w__1280 m-none">
     <div class="flex__justify__space-between">
       <div>
-        <a href="#" class="subheader__title">
+        <a routerLink="/user/locations" class="subheader__title">
           <img class="mr-sm" src="../../../../assets/images/left-arrow.gif" alt="Add new location">
           <span>Location Details</span>
         </a>
@@ -61,7 +61,7 @@
 <!-- modal -->
 <ng-template #template>
   <div class="modal-body modal__body">
-    <form #updateLocationForm="ngForm" (ngSubmit)="updateLocation('update');modalRef.hide()" autocomplete="off">
+    <form #updateLocationForm="ngForm" autocomplete="off">
       <div class="row border__bottom__c4d1e6">
         <div class="col-xs-12 col-md-12 p-none ">
           <div class="form-group background__dfe4ec border-radius__77">
@@ -105,7 +105,7 @@
       </div>
 
       <div class="p-xlg flex__justify__space-between">
-        <div><button type="submit" class="btn bt__add mr-sm" [disabled]="!updateLocationForm.form.valid">Save</button>
+        <div><button type="submit" class="btn bt__add mr-sm" [disabled]="!updateLocationForm.form.valid"  (click)="updateLocation('update');modalRef.hide()">Save</button>
           <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button></div>
         <div>
           <button type="submit"   [ngClass]="(locationBackup.status=='1')?'bt__757575':'bt__1a73e8'" class="btn flex__row__reverse" (click)="updateLocation('changeStauts');modalRef.hide()">{{(locationBackup.status=='1')?'Decommission Location':' Reactivate Location'}}</button>

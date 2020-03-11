@@ -75,15 +75,13 @@ export class SiteParticipantsListComponent implements OnInit {
       "email": this.emailIdToAdd
     }
     this.manageSitesService.addParticipant(this.siteId, participantToBeAdded).subscribe(data => {
-      this.toastr.success('Participant Added successfully.');
-     // this.successMessage = "Participant Added successfully.";
+      this.toastr.success(data.successBean.message);
       this.modalRef.hide();
       form.reset();
       this.myFunction();
       this.getSiteParticipant();
     }, error => {
       this.toastr.error(error.error.userMessage);
-     // this.errorMessage = error.error.userMessage;
       this.modalRef.hide();
       form.reset();
       this.myFunction();
@@ -106,14 +104,8 @@ export class SiteParticipantsListComponent implements OnInit {
     this.getSiteParticipant();
   }
   participantDetails(participantRegistryId) {
-    console.log(participantRegistryId);
-    this.Deactivate = participantRegistryId; 
-    // for(var i=0;i < this.Deactivate ; i++)
-    //         {
-    //           this.Deactivate["[" + participantRegistryId[i].id + "]"] ; 
-    //         }
-            console.log(this.Deactivate)
-            
+    this.Deactivate = participantRegistryId;
+  this.router.navigate(["/user/participantDetail",participantRegistryId])
   }
   
   rowCheckBoxChange(statusCheck) {
@@ -131,18 +123,14 @@ export class SiteParticipantsListComponent implements OnInit {
       this.checkedEmails = this.siteParticipants.registryParticipants;
       for (var i = 0; i < 10; i++) {
         this.checkedEmails[i].newlyCreatedUser = this.siteParticipants.registryParticipants; 
-      //  this.Deactivates = [this.checkedEmails[i].newlyCreatedUser[0].id];
       }
     } else {
       this.checkedEmails = this.siteParticipants.registryParticipants;
       for (var i = 0; i < 10; i++) {
         this.checkedEmails[i].newlyCreatedUser = ''; 
-        //this.Deactivates = [];
       }
      
     }
-    console.log(this.Deactivates)
-   // this.noOfCheckedUsers = this.checkedEmails.length;
   }
   onFileChange(evt: any) {
     let file = evt.target.files[0];
@@ -156,16 +144,13 @@ export class SiteParticipantsListComponent implements OnInit {
     console.log(formData)
     this.manageSitesService.importParticipants(this.siteId, formData).subscribe(data => {
       console.log(data)
-      this.toastr.success('Participant Imported successfully.');
-     // this.successMessage = "Participant Imported successfully.";
+      this.toastr.success(data.successBean.message);
       this.importedFile.nativeElement.value = "";
       this.file = {};
       this.activeTab = "new";
        this.getSiteParticipant();
       this.myFunction();
-
     }, error => {
-      console.log(JSON.stringify(error.error))
       this.toastr.error(JSON.stringify(error.error));
       this.importedFile.nativeElement.value = "";
       this.file = {};
@@ -175,7 +160,7 @@ export class SiteParticipantsListComponent implements OnInit {
   }
  decommissionSite(){
   this.manageSitesService.siteDecommission(this.siteId).subscribe(data => {
-    this.toastr.success(data.message);
+    this.toastr.success(data.successBean.message);
     this.router.navigate(["/user/dashboard"])
   }, error => {
     this.toastr.error(error.error.userMessage);
@@ -190,6 +175,7 @@ enableAndDisable(status){
   };
   this.manageSitesService.enableDisableInvitation(this.siteId,datas).subscribe(data => {
     this.toastr.success(data.successBean.message);
+    this.activeTab = "disabled";
     this.getSiteParticipant(); 
   }, error => {
     console.log(error)
@@ -201,13 +187,10 @@ sendResendInvitation(){
       let datas={
         'id': [this.Deactivate]
     };
-    console.log(datas);
     this.manageSitesService.sendAndResendInvitation(this.siteId,datas).subscribe(data => {
-      console.log(data.successBean.message);
     this.toastr.success(data.successBean.message);
     this.changeTab('invited');
     }, error => {
-    console.log(error)
     if(error.failedInvitations.length != ''){
       this.errorMessage = JSON.stringify(error.failedInvitations);
     }

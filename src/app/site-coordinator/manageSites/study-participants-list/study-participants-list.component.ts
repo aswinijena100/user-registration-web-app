@@ -3,7 +3,6 @@ import { ManageSitesService } from "../manage-sites.service";
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { StudyParticipant } from '../../../entity/studyParticipant';
 
-
 @Component({
   selector: 'app-study-participants-list',
   templateUrl: './study-participants-list.component.html',
@@ -13,7 +12,7 @@ export class StudyParticipantsListComponent implements OnInit {
   studyId: string = "";
   studyDetails: StudyParticipant = new StudyParticipant();
   participantRegistryListBackup: any[] = [];
-  constructor(private manageSitesService: ManageSitesService, private route: ActivatedRoute, ) { }
+  constructor(private manageSitesService: ManageSitesService , private router: Router,private route: ActivatedRoute, ) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -40,7 +39,10 @@ export class StudyParticipantsListComponent implements OnInit {
 
   }
 
-
+  participantDetails(participantRegistryId) {
+    this.router.navigate(["/user/participantDetail",participantRegistryId])
+    }
+    
   search(filterQuery) {
     let query = filterQuery;
     if (query && query.trim() != '' && query.trim() != undefined) {

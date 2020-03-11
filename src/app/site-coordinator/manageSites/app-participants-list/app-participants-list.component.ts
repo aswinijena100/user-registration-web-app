@@ -33,7 +33,10 @@ export class AppParticipantsListComponent implements OnInit {
       this.appParticipantsDetails();
     })
   }
-
+  participantDetails(participantRegistryId) {
+    this.router.navigate(["/user/participantDetail",participantRegistryId])
+    }
+    
  appParticipantsDetails(){
   this.manageSitesService.getappsParticipantRegistry(this.appId).subscribe(
     data => {
