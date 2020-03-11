@@ -33,7 +33,7 @@ export class SiteParticipantsListComponent implements OnInit {
   @ViewChild("addParticipantForm", { static: true }) addParticipantForm: NgForm;
   selectEmails: any;
   strings: string;
-  constructor( private spinner: NgxSpinnerService,private modalService: BsModalService, private router: Router, private manageSitesService: ManageSitesService, private route: ActivatedRoute, private toastr: ToastrService) { }
+  constructor(private spinner: NgxSpinnerService, private modalService: BsModalService, private router: Router, private manageSitesService: ManageSitesService, private route: ActivatedRoute, private toastr: ToastrService) { }
 
   openModal(template: TemplateRef<any>) {
     // this.addParticipantForm.resetForm();
@@ -148,10 +148,10 @@ export class SiteParticipantsListComponent implements OnInit {
       this.getSiteParticipant();
       this.myFunction();
     }, error => {
-      if(error.status == 400){
+      if (error.status == 400) {
         this.toastr.error(error.error.userMessage);
-      }else{
-        this.strings = error.error.errorBean.userMessage+"<br/><br/>Invalid Emails are <br/>"+ error.error.invalidEmails+"<br/><br/>Duplicate Emails are <br/>"+error.error.duplicateEmails;
+      } else {
+        this.strings = error.error.errorBean.userMessage + "<br/><br/>Invalid Emails are <br/>" + error.error.invalidEmails + "<br/><br/>Duplicate Emails are <br/>" + error.error.duplicateEmails;
         this.toastr.error(this.strings);
       }
       this.importedFile.nativeElement.value = "";
@@ -184,7 +184,11 @@ export class SiteParticipantsListComponent implements OnInit {
       } else {
         this.manageSitesService.enableDisableInvitation(this.siteId, datas).subscribe(data => {
           this.toastr.success(data.successBean.message);
-          this.activeTab = "disabled";
+          if (status === "0") {
+            this.activeTab = "disabled";
+          } else {
+            this.activeTab = "new";
+          }
           this.getSiteParticipant();
         }, error => {
           this.toastr.error(error.error.userMessage);
@@ -218,16 +222,15 @@ export class SiteParticipantsListComponent implements OnInit {
           this.getSiteParticipant();
         }, error => {
           this.toastr.error(error.error.errorBean.userMessage);
-
         });
       }
-      } else {
-        this.toastr.error("Please select atleast one participant for sending invitation");
-      }
-
+    } else {
+      this.toastr.error("Please select atleast one participant for sending invitation");
     }
 
-
-
-
   }
+
+
+
+
+}
