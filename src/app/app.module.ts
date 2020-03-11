@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { DataTableModule } from "angular-6-datatable";
+import {DataTableModule} from "angular-6-datatable";
 import { AppComponent } from './app.component';
 import { LoginComponent } from './site-coordinator/manageAccount/login/login.component'
 import { SiteCoordinatorModule } from "./site-coordinator/site-coordinator.module";
@@ -13,7 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,10 +30,9 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     HttpClientModule,
     NgSelectModule,
     ModalModule.forRoot(),
-    ToastrModule.forRoot({ positionClass: "toast-top-center", preventDuplicates: true, }) // ToastrModule added
+    ToastrModule.forRoot({positionClass : "toast-top-center",preventDuplicates: true,}) // ToastrModule added
   ],
-  providers: [DataService,
-  { provide: LocationStrategy, useClass: HashLocationStrategy }],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
