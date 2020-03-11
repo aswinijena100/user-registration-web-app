@@ -1,9 +1,10 @@
-<div class="subheader p-none pl-none" ng-disabled="true" >
+<div class="subheader p-none pl-none" ng-disabled="true">
   <div class="max__w__1280 m-none">
     <div class="flex__justify__space-between">
       <div class="subheader__title flex__justify__space-between align__items__baseline">
         <div>
-          <img routerLink="/user/dashboard" class="mr-sm" src="../../../../assets/images/left-arrow.gif" alt="Add new location">
+          <img routerLink="/user/dashboard" class="mr-sm" src="../../../../assets/images/left-arrow.gif"
+            alt="Add new location">
         </div>
         <div>
           <div class="mb-xs">Site Participant Registry</div>
@@ -36,7 +37,8 @@
                     <button class="bt__4285f4 font__bold" #template (click)="openModal(template)">Add Email</button>
                   </div>
                   <div>
-                    <input #importedFile type="file" accept=".xlsx" class="btn btn-success" id="import_participant_file" (change)="onFileChange($event)"/>
+                    <input #importedFile type="file" accept=".xlsx" class="btn btn-success" id="import_participant_file"
+                      (change)="onFileChange($event)" />
                     <button class="bt__4285f4 font__bold" (click)="importPartcipants()">Import Email List</button>
                   </div>
                 </div>
@@ -49,7 +51,8 @@
             </div>
           </div>
           <div>
-            <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font14" (click)="decommissionSite()">Decommission Site for
+            <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font14"
+              (click)="decommissionSite()">Decommission Site for
               Study</button>
           </div>
         </div>
@@ -82,13 +85,14 @@
         </div>
       </div>
       <div>
-        <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font12" (click)="decommissionSite()">Decommission Site for
+        <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font12"
+          (click)="decommissionSite()">Decommission Site for
           Study</button>
       </div>
     </div>
   </div>
-  <div >
-    <ul class=" nav nav-tabs " *ngIf="siteParticipants.countByStatus" >
+  <div>
+    <ul class=" nav nav-tabs " *ngIf="siteParticipants.countByStatus">
       <li [ngClass]="{'active':activeTab=='all'}"><a data-toggle="tab" (click)="changeTab('all')">All <span
             class="text__fbbc05__11">({{siteParticipants.countByStatus.A }})</span></a></li>
       <li [ngClass]="{'active':activeTab=='new'}"><a data-toggle="tab" (click)="changeTab('new')">New <span
@@ -103,17 +107,21 @@
   <div class="sred">
     <div class="flex__ flex__justify__center">
       <div *ngIf="activeTab=='new'" class="mr-sm">
-        <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113" (click)="sendResendInvitation()">Send Invitation</button>
+        <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113" (click)="sendResendInvitation()">Send
+          Invitation</button>
       </div>
       <div *ngIf="activeTab=='invited'" class="mr-sm">
-        <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113" (click)="sendResendInvitation()">Resend Invitation</button>
+        <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113" (click)="sendResendInvitation()">Resend
+          Invitation</button>
       </div>
       <div *ngIf="activeTab=='new' || activeTab=='invited'">
-        <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 bt__font12__pad113" (click)="enableAndDisable('0')">Disable
+        <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 bt__font12__pad113"
+          (click)="enableAndDisable('0')">Disable
           Invitation</button>
       </div>
       <div *ngIf="activeTab=='disable'">
-        <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113 bg__34a853" (click)="enableAndDisable('1')">Enable Invitation</button>
+        <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113 bg__34a853"
+          (click)="enableAndDisable('1')">Enable Invitation</button>
       </div>
     </div>
   </div>
@@ -122,8 +130,8 @@
 <div class="max__w__1280  p-none site__participant ">
   <div class="desk__view">
     <div class="flex__justify__space-between bg__white yel__tabs border-bottom__dee2e6">
-      <div  >
-        <ul class=" nav nav-tabs " *ngIf="siteParticipants.countByStatus" >
+      <div>
+        <ul class=" nav nav-tabs " *ngIf="siteParticipants.countByStatus">
           <li [ngClass]="{'active':activeTab=='all'}"><a data-toggle="tab" (click)="changeTab('all')">All <span
                 class="text__fbbc05__11">({{siteParticipants.countByStatus.A}})</span></a></li>
           <li [ngClass]="{'active':activeTab=='new'}"><a data-toggle="tab" (click)="changeTab('new')">New <span
@@ -138,17 +146,21 @@
       <div class="pr-xlg">
         <div class="flex__justify__space-between mb-xs">
           <div class="mr-sm" *ngIf="activeTab=='new'">
-            <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113" (click)="sendResendInvitation()">Send Invitation</button>
+            <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113" (click)="sendResendInvitation()">Send
+              Invitation</button>
           </div>
           <div class="mr-sm" *ngIf="activeTab=='invited'">
-            <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113" (click)="sendResendInvitation()">Resend Invitation</button>
+            <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113" (click)="sendResendInvitation()">Resend
+              Invitation</button>
           </div>
           <div *ngIf="activeTab=='new' || activeTab=='invited'">
-            <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 bt__font12__pad113" (click)="enableAndDisable('0')">Disable
+            <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 bt__font12__pad113"
+              (click)="enableAndDisable('0')">Disable
               Invitation</button>
           </div>
           <div *ngIf="activeTab=='disabled'">
-            <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113 bg__34a853" (click)="enableAndDisable('1')">Enable Invitation</button>
+            <button class="dropbtn btn bt__1a73e8 text__fff bt__font12__pad113 bg__34a853"
+              (click)="enableAndDisable('1')">Enable Invitation</button>
           </div>
         </div>
       </div>
@@ -178,9 +190,17 @@
         </thead>
         <tbody>
           <tr *ngFor="let participant of mf.data">
-            <td (click)="participantDetails(participant.id)">{{participant.email}}</td>
-            <td ><div [ngClass]="{'text__353a3e__14': (participant.onboardingStatus == 'Invited'),  'text__8495a5__14': (participant.onboardingStatus == 'Disabled')}">{{participant.onboardingStatus}}</div></td>
-            <td><div [ngClass]="{'text__353a3e__14': (participant.enrollmentStatus == 'Enrolled'),  'text__8495a5__14': (participant.enrollmentStatus == 'Withdrawn')}">{{participant.enrollmentStatus}}</div></td>
+            <td (click)="redirectParticipant(participant.id)">{{participant.email}}</td>
+            <td>
+              <div
+                [ngClass]="{'text__353a3e__14': (participant.onboardingStatus == 'Invited'),  'text__8495a5__14': (participant.onboardingStatus == 'Disabled')}">
+                {{participant.onboardingStatus}}</div>
+            </td>
+            <td>
+              <div
+                [ngClass]="{'text__353a3e__14': (participant.enrollmentStatus == 'Enrolled'),  'text__8495a5__14': (participant.enrollmentStatus == 'Withdrawn')}">
+                {{participant.enrollmentStatus}}</div>
+            </td>
             <td>{{participant.enrollmentDate}}</td>
           </tr>
         </tbody>
@@ -202,11 +222,13 @@
             <th>
               <mfDefaultSorter by="name">
                 <div class="form-group mb-none">
-                  <input type="checkbox" id="css" [(ngModel)]="selectedAll" (change)="selectAll();">
-                  <label for="css">Participant Email</label>
+                  <!-- <input type="checkbox" id="css" [(ngModel)]="selectedAll" (change)="selectAll();">
+                  <label for="css">Participant Email</label> -->
+                  <span>Participant Email</span>
+
                 </div>
               </mfDefaultSorter>
-            </th> 
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -214,8 +236,10 @@
             <td>
               <div>
                 <div class="form-group mb-none">
-                  <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser" (change)="rowCheckBoxChange('true')">
-                  <label for="{{participant.id}}"><span (click)="participantDetails(participant.id)">{{participant.email}}</span></label>
+                  <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser"
+                    (change)="rowCheckBoxChange('true')">
+                  <label for="{{participant.id}}"><span
+                      (click)="redirectParticipant(participant.id)">{{participant.email}}</span></label>
                 </div>
               </div>
             </td>
@@ -239,8 +263,10 @@
             <th>
               <mfDefaultSorter by="name">
                 <div class="form-group mb-none">
-                  <input type="checkbox" id="css" [(ngModel)]="selectedAll" (change)="selectAll();">
-                  <label for="css">Participant Email</label>
+                  <!-- <input type="checkbox" id="css" [(ngModel)]="selectedAll" (change)="selectAll();">
+                  <label for="css">Participant Email</label> -->
+
+                  <span>Participant Email</span>
                 </div>
               </mfDefaultSorter>
             </th>
@@ -253,8 +279,10 @@
             <td>
               <div>
                 <div class="form-group mb-none">
-                  <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser" (change)="rowCheckBoxChange('false')">
-                  <label for="{{participant.id}}" ><span (click)="participantDetails(participant.id)">{{participant.email}}</span></label>
+                  <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser"
+                    (change)="rowCheckBoxChange('false')">
+                  <label for="{{participant.id}}"><span
+                      (click)="redirectParticipant(participant.id)">{{participant.email}}</span></label>
                 </div>
               </div>
             </td>
@@ -282,8 +310,10 @@
             <th>
               <mfDefaultSorter by="name">
                 <div class="form-group mb-none">
-                  <input type="checkbox" id="css" [(ngModel)]="selectedAll" (change)="selectAll();">
-                  <label for="css">Participant Email</label>
+                  <!-- <input type="checkbox" id="css" [(ngModel)]="selectedAll" (change)="selectAll();">
+                  <label for="css">Participant Email</label> -->
+                  <span>Participant Email</span>
+
                 </div>
               </mfDefaultSorter>
             </th>
@@ -296,8 +326,10 @@
             <td>
               <div>
                 <div class="form-group mb-none">
-                  <input type="checkbox"  id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser" (change)="rowCheckBoxChange('false')">
-                  <label for="{{participant.id}}"><span (click)="participantDetails(participant.id)">{{participant.email}}</span></label>
+                  <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser"
+                    (change)="rowCheckBoxChange('false')">
+                  <label for="{{participant.id}}"><span
+                      (click)="redirectParticipant(participant.id)">{{participant.email}}</span></label>
                 </div>
               </div>
             </td>
@@ -328,7 +360,7 @@
             <label for="email">Email</label>
             <input type="text" class="form-control" id="study" value="" placeholder="Enter Email"
               pattern='(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)'
-              [(ngModel)]="emailIdToAdd"  required name="email" #email="ngModel">
+              [(ngModel)]="emailIdToAdd" required name="email" #email="ngModel">
           </div>
           <div *ngIf="email.invalid && (email.dirty || email.touched)">
             <span class="help-block with-errors error__msg" *ngIf="email.errors.required">

@@ -22,17 +22,17 @@ export class SiteParticipantsListComponent implements OnInit {
   siteId: String = "";
   selectedAll: any;
   checkedEmails: any[] = [];
+  checkedEmailsIds: any[] = [];
   siteParticipants: any = {};
   siteParticipantsBackup: any = {};
   file: any;
-  Deactivate: any;
   activeTab: string = 'all';
   noOfCheckedEmails: number;
   objectLength: any;
-  Deactivates:any[] =[];
   @ViewChild("addParticipantForm", { static: true }) addParticipantForm: NgForm;
   selectEmails: any;
-  constructor(private modalService: BsModalService, private router: Router,private manageSitesService: ManageSitesService, private route: ActivatedRoute,private toastr: ToastrService) { }
+  strings: string;
+  constructor(private modalService: BsModalService, private router: Router, private manageSitesService: ManageSitesService, private route: ActivatedRoute, private toastr: ToastrService) { }
 
   openModal(template: TemplateRef<any>) {
     // this.addParticipantForm.resetForm();
@@ -62,7 +62,7 @@ export class SiteParticipantsListComponent implements OnInit {
       this.siteParticipantsBackup = JSON.parse(JSON.stringify(this.siteParticipants.registryParticipants));
       console.log(this.siteParticipantsBackup)
       console.log(this.siteParticipants)
-      this.objectLength = Object.keys(this.siteParticipants.registryParticipants).length !=0;
+      this.objectLength = Object.keys(this.siteParticipants.registryParticipants).length != 0;
     }, error => {
       this.siteParticipants = [];
       this.siteParticipantsBackup = [];
@@ -79,6 +79,7 @@ export class SiteParticipantsListComponent implements OnInit {
       this.modalRef.hide();
       form.reset();
       this.myFunction();
+      this.activeTab = "new";
       this.getSiteParticipant();
     }, error => {
       this.toastr.error(error.error.userMessage);
@@ -90,24 +91,24 @@ export class SiteParticipantsListComponent implements OnInit {
   }
   search(filterQuery) {
     let query = filterQuery;
-  if (query && query.trim() != '' && query.trim() != undefined) {
-    this.siteParticipants.registryParticipants = this.siteParticipantsBackup.filter(function (a) {
-      return ((a.email != null && a.email != undefined && a.email.toLowerCase().includes(query.toLowerCase())));
-    });
-  } else {
-    this.siteParticipants.registryParticipants = this.siteParticipantsBackup;
-  }
+    if (query && query.trim() != '' && query.trim() != undefined) {
+      this.siteParticipants.registryParticipants = this.siteParticipantsBackup.filter(function (a) {
+        return ((a.email != null && a.email != undefined && a.email.toLowerCase().includes(query.toLowerCase())));
+      });
+    } else {
+      this.siteParticipants.registryParticipants = this.siteParticipantsBackup;
+    }
   }
   changeTab(tab) {
     this.activeTab = tab;
     this.selectedAll = false;
     this.getSiteParticipant();
   }
-  participantDetails(participantRegistryId) {
-    this.Deactivate = participantRegistryId;
-  this.router.navigate(["/user/participantDetail",participantRegistryId])
+
+  redirectParticipant(userId) {
+    this.router.navigate(["/user/participantDetail", userId])
   }
-  
+
   rowCheckBoxChange(statusCheck) {
     this.checkedEmails = this.siteParticipants.registryParticipants.filter(u => u.newlyCreatedUser === statusCheck);
     this.noOfCheckedEmails = this.checkedEmails.length;
@@ -118,18 +119,18 @@ export class SiteParticipantsListComponent implements OnInit {
     }
   }
   selectAll() {
-    
+
     if (this.selectedAll) {
       this.checkedEmails = this.siteParticipants.registryParticipants;
       for (var i = 0; i < 10; i++) {
-        this.checkedEmails[i].newlyCreatedUser = this.siteParticipants.registryParticipants; 
+        this.checkedEmails[i].newlyCreatedUser = this.siteParticipants.registryParticipants;
       }
     } else {
       this.checkedEmails = this.siteParticipants.registryParticipants;
       for (var i = 0; i < 10; i++) {
-        this.checkedEmails[i].newlyCreatedUser = ''; 
+        this.checkedEmails[i].newlyCreatedUser = '';
       }
-     
+
     }
   }
   onFileChange(evt: any) {
@@ -138,7 +139,6 @@ export class SiteParticipantsListComponent implements OnInit {
     console.log(this.file.name)
   }
   importPartcipants() {
-    console.log(this.file)
     let formData = new FormData();
     formData.append('file', this.file, this.file.name);
     console.log(formData)
@@ -148,57 +148,96 @@ export class SiteParticipantsListComponent implements OnInit {
       this.importedFile.nativeElement.value = "";
       this.file = {};
       this.activeTab = "new";
-       this.getSiteParticipant();
+      this.getSiteParticipant();
       this.myFunction();
     }, error => {
-      this.toastr.error(JSON.stringify(error.error));
+      this.strings = error.error.errorBean.userMessage+"<br/><br/>Invalid Emails are <br/>"+ error.error.invalidEmails+"<br/><br/>Duplicate Emails are <br/>"+error.error.duplicateEmails;
+      this.toastr.error(this.strings);
+      var Invalids = {
+        "InvalidEmails" : error.error.invalidEmails,
+        "DuplicateEmails" : error.error.invalidEmails
+                     };
+     // this.toastr.error(JSON.stringify(error.error.invalidEmails));
+      
       this.importedFile.nativeElement.value = "";
       this.file = {};
       this.myFunction();
 
     });
   }
- decommissionSite(){
-  this.manageSitesService.siteDecommission(this.siteId).subscribe(data => {
-    this.toastr.success(data.successBean.message);
-    this.router.navigate(["/user/dashboard"])
-  }, error => {
-    this.toastr.error(error.error.userMessage);
-  });
- }
-enableAndDisable(status){
-  console.log(status)
-  console.log(this.Deactivate)
-  let datas={
-        'id': [this.Deactivate],
-        'status': status   
-  };
-  this.manageSitesService.enableDisableInvitation(this.siteId,datas).subscribe(data => {
-    this.toastr.success(data.successBean.message);
-    this.activeTab = "disabled";
-    this.getSiteParticipant(); 
-  }, error => {
-    console.log(error)
-    this.toastr.error(error.error.userMessage);
-  });
-}
-
-sendResendInvitation(){
-      let datas={
-        'id': [this.Deactivate]
-    };
-    this.manageSitesService.sendAndResendInvitation(this.siteId,datas).subscribe(data => {
-    this.toastr.success(data.successBean.message);
-    this.changeTab('invited');
+  decommissionSite() {
+    console.log(this.siteId)
+    this.manageSitesService.siteDecommission(this.siteId).subscribe(data => {
+      console.log(data)
+      this.toastr.success(data.message);
+      this.router.navigate(["/user/dashboard"])
     }, error => {
-    if(error.failedInvitations.length != ''){
-      this.errorMessage = JSON.stringify(error.failedInvitations);
-    }
-    this.toastr.error(error.error.userMessage);
+      console.log(error)
+      this.toastr.error(error.error.userMessage);
     });
-}
+  }
+  enableAndDisable(status) {
+    this.checkedEmails = this.siteParticipants.registryParticipants.filter(u => u.newlyCreatedUser === true);
+    var checkedEmailsIds = [];
+    this.checkedEmails.forEach(function (checkedEmail) {
+      checkedEmailsIds.push(checkedEmail.id);
+    });
+    let datas = {
+      'id': checkedEmailsIds,
+      'status': status
+    };
+    if (checkedEmailsIds.length > 0) {
+      if (checkedEmailsIds.length > 11) {
+        this.toastr.error('Please select less than 10 participants');
+      } else {
+        this.manageSitesService.enableDisableInvitation(this.siteId, datas).subscribe(data => {
+          this.toastr.success(data.successBean.message);
+          this.activeTab = "disabled";
+          this.getSiteParticipant();
+        }, error => {
+          this.toastr.error(error.error.userMessage);
+        });
+      }
+    } else {
+      if (status === "0") {
+        this.toastr.error('Please select atleast one participant to disable');
+      } else {
+        this.toastr.error('Please select atleast one participant for to enable');
+      }
+    }
+  }
+
+  sendResendInvitation() {
+    this.checkedEmails = this.siteParticipants.registryParticipants.filter(u => u.newlyCreatedUser === true);
+    var checkedEmailsIds = [];
+    this.checkedEmails.forEach(function (checkedEmail) {
+      console.log(checkedEmail.id)
+      checkedEmailsIds.push(checkedEmail.id);
+    });
+    let datas = {
+      'id': checkedEmailsIds
+    };
+    if (checkedEmailsIds.length > 0) {
+      if (checkedEmailsIds.length > 11) {
+        this.toastr.error('Please select less than 10 participants');
+      } else {
+        this.manageSitesService.sendAndResendInvitation(this.siteId, datas).subscribe(data => {
+          this.toastr.success(data.successBean.message);
+          this.changeTab('invited');
+          this.getSiteParticipant();
+        }, error => {
+          console.log(error.error.errorBean)
+          this.toastr.error(error.error.errorBean.userMessage);
+
+        });
+      }
+      } else {
+        this.toastr.error("Please select atleast one participant for sending invitation");
+      }
+
+    }
 
 
 
 
-}
+  }
