@@ -3,7 +3,7 @@ import { ManageSitesService } from "../manage-sites.service";
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { ParticipantDetail } from '../../../entity/participantDetail';
 import { ToastrService } from 'ngx-toastr';
-
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-participant-details',
@@ -14,7 +14,7 @@ export class ParticipantDetailsComponent implements OnInit {
   partcipantId: string = "";
   participantDetails: ParticipantDetail = new ParticipantDetail();
   particpantDetailsBackup: any[] = [];
-  constructor(private manageSitesService: ManageSitesService,private route: ActivatedRoute,private toastr: ToastrService) { }
+  constructor(private _location: Location,private manageSitesService: ManageSitesService,private route: ActivatedRoute,private toastr: ToastrService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -61,5 +61,7 @@ export class ParticipantDetailsComponent implements OnInit {
    
  }
 
-
+ backClicked() {
+  this._location.back();
+}
 }
