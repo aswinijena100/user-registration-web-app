@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from "@angular/router";
 import { ToastrService } from 'ngx-toastr';
 import { SiteParticipant } from '../../../entity/siteParticipant';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class SiteParticipantsListComponent implements OnInit {
   @ViewChild("addParticipantForm", { static: true }) addParticipantForm: NgForm;
   selectEmails: any;
   strings: string;
-  constructor(private modalService: BsModalService, private router: Router, private manageSitesService: ManageSitesService, private route: ActivatedRoute, private toastr: ToastrService) { }
+  constructor( private spinner: NgxSpinnerService,private modalService: BsModalService, private router: Router, private manageSitesService: ManageSitesService, private route: ActivatedRoute, private toastr: ToastrService) { }
 
   openModal(template: TemplateRef<any>) {
     // this.addParticipantForm.resetForm();
@@ -42,6 +43,7 @@ export class SiteParticipantsListComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.route.params.subscribe(params => {
       if (params['siteId'] != '' && params['siteId'] != 'undefined' && params['siteId'] != undefined)
         this.siteId = params['siteId'];

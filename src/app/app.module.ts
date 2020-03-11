@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -29,10 +31,12 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     HttpClientModule,
     NgSelectModule,
+    NgxSpinnerModule,
     ModalModule.forRoot(),
     ToastrModule.forRoot({positionClass : "toast-top-center",preventDuplicates: false, enableHtml: true, }) // ToastrModule added
   ],
-  providers: [DataService],
+  providers: [DataService,    { provide: LocationStrategy, useClass: HashLocationStrategy }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
