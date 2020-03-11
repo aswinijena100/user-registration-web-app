@@ -113,6 +113,7 @@ export class SiteParticipantsListComponent implements OnInit {
     //           this.Deactivate["[" + participantRegistryId[i].id + "]"] ; 
     //         }
             console.log(this.Deactivate)
+            
   }
   
   rowCheckBoxChange(statusCheck) {

@@ -154,7 +154,7 @@ export class DashboardComponent implements OnInit {
     if (type == "site") {
       this.router.navigate(["/user/siteParticipants/", id])
     } else if (type == "study") {
-      this.router.navigate(["/user/studyParticipants/", id])
+      this.router.navigate(["/user/studyParticipants/", 1])
     } else if (type == "app") {
       this.router.navigate(["/user/appParticipants/", id])
     }

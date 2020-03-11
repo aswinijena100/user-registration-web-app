@@ -177,7 +177,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let participant of mf.data" (click)="participantDetails(participant.id)">
+          <tr *ngFor="let participant of mf.data">
             <td>{{participant.email}}</td>
             <td ><div [ngClass]="{'text__353a3e__14': (participant.onboardingStatus == 'Invited'),  'text__8495a5__14': (participant.onboardingStatus == 'Disabled')}">{{participant.onboardingStatus}}</div></td>
             <td><div [ngClass]="{'text__353a3e__14': (participant.enrollmentStatus == 'Enrolled'),  'text__8495a5__14': (participant.enrollmentStatus == 'Withdrawn')}">{{participant.enrollmentStatus}}</div></td>
@@ -249,7 +249,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let participant of mf.data" (click)="participantDetails(participant.id)">
+          <tr *ngFor="let participant of mf.data">
             <td>
               <div>
                 <div class="form-group mb-none">
@@ -292,7 +292,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let participant of mf.data" (click)="participantDetails(participant.id)">
+          <tr *ngFor="let participant of mf.data">
             <td>
               <div>
                 <div class="form-group mb-none">
