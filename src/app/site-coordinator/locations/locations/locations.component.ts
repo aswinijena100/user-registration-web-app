@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
 export class LocationsComponent implements OnInit {
   locations: Location[] = [];
   locationBackup: Location[] = [];
-
+  errorMessage: String = "";
   constructor(private locationService: LocationService, private router: Router) {
   }
 
@@ -27,6 +27,7 @@ export class LocationsComponent implements OnInit {
     }, error => {
       this.locations = [];
       this.locationBackup = [];
+      this.errorMessage="LOcations not found";
     });
   }
   locationDetails(locationId) {

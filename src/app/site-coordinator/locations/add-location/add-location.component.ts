@@ -24,7 +24,7 @@ export class AddLocationComponent implements OnInit {
     this.errorMessage = '';
     this.successMessage = '';
     this.locationService.addLocation(this.location).subscribe(data => {
-      this.toastr.success( data.successBean.message);
+      this.toastr.success(data.successBean.message);
      // this.successMessage = "Location Added successfully."
     }, error => {
       console.log(error);
