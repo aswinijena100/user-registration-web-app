@@ -27,7 +27,7 @@ export class LocationsComponent implements OnInit {
     }, error => {
       this.locations = [];
       this.locationBackup = [];
-      this.errorMessage="LOcations not found";
+      this.errorMessage="Locations not found";
     });
   }
   locationDetails(locationId) {
