@@ -204,6 +204,8 @@ export class SiteParticipantsListComponent implements OnInit {
   }
 
   sendResendInvitation() {
+    this.spinner.show();
+
     this.checkedEmails = this.siteParticipants.registryParticipants.filter(u => u.newlyCreatedUser === true);
     var checkedEmailsIds = [];
     this.checkedEmails.forEach(function (checkedEmail) {
@@ -217,11 +219,15 @@ export class SiteParticipantsListComponent implements OnInit {
         this.toastr.error('Please select less than 10 participants');
       } else {
         this.manageSitesService.sendAndResendInvitation(this.siteId, datas).subscribe(data => {
-          this.toastr.success(data.successBean.message);
           this.changeTab('invited');
           this.getSiteParticipant();
+          this.toastr.success(data.successBean.message);
+          this.spinner.hide();
+
         }, error => {
           this.toastr.error(error.error.errorBean.userMessage);
+          this.spinner.hide();
+
         });
       }
     } else {

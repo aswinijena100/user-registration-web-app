@@ -97,6 +97,7 @@ export class DashboardComponent implements OnInit {
     this.manageSiteService.addSite(this.addSite).subscribe(data => {
       this.toastr.success(data.message);
       this.modalRef.hide();
+      this.getstudiesWithSite();
     }, error => {
       this.modalRef.hide();
       this.toastr.error(error.error.userMessage);
