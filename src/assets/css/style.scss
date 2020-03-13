@@ -73,7 +73,7 @@ ul li{
 	background-color: #1a73e8 !important;
     border-color: #1a73e8 !important;
     font-size: 16px !important;
-	padding: 7px 20px !important;
+	padding: 5px 15px !important;
 }
 .blue__btn:hover{
     color: #fff !important;
@@ -106,7 +106,7 @@ header{
 	height: 32px !important;
 	font-size:14px !important;
 	background-color:  #f1f3f4 !important;
-	background-image: url(../images/search-icon.gif)  !important;
+	background-image: url(../svgs/search.svg)  !important;
 	background-repeat: no-repeat !important;
     background-position: 5% !important;
     text-indent: 25px !important;
@@ -607,7 +607,7 @@ button{
 	content: '';
     display: block;
     position: absolute;
-	top: 6px;
+	top: 2px;
     left: 6px;
     width: 5px;
     height: 10px;
@@ -817,7 +817,7 @@ button{
 	cursor:pointer;
 }
 .font14{
-	font-size: 14px !important;
+	font-size: 13px !important;
 }
 .font12{
 	font-size: 12px !important;
@@ -853,6 +853,10 @@ button{
 }
 .yel__tabs .nav-tabs{
     border-bottom:none;
+}
+.yel__tabs{
+	box-shadow: 1px 1px 5px 0px rgba(204, 215, 226, 1) !important;
+    border-radius: 7px;
 }
   
 
@@ -903,10 +907,7 @@ button{
 	line-height:13px;
 }
 /*Normal text2*/
-.text__353a3e__14{
-	color: #353a3e;
-    font-size: 14px;
-}
+
 /*Normal text2 on mouse over*/
 .text__4285f4__14{
 	font-size:14px;
@@ -1121,14 +1122,14 @@ select{
 	height:16px;
 }*/
 .fa__plus__minus[aria-expanded="true"]{
-	background: url(../images/minus.gif) no-repeat;
+	background: url(../svgs/minus.svg) no-repeat;
 	display: block;
 	background-position: 98%;
 	width:16px;
 	height:16px;
 }
 .fa__plus__minus[aria-expanded="false"]{
-	background: url(../images/plus.gif) no-repeat;
+	background: url(../svgs/plus.svg) no-repeat;
 	display: block;
 	background-position: 98%;
 	width: 16px;
@@ -1287,5 +1288,16 @@ div.show + div{
 	border-top: none !important;
 }
 .ng-select.ng-select-multiple .ng-arrow-wrapper .ng-arrow{
-	top:-12px;
+	top:-12px !important;
+}
+.ng-select.ng-select-multiple .ng-select-container{
+	box-shadow: none !important;
+}
+.ng-select.ng-select-opened>.ng-select-container .ng-arrow{
+	top:-12px !important;
+}
+
+.text__353a3e__14{
+	color: #353a3e !important;
+    font-size: 14px;
 }

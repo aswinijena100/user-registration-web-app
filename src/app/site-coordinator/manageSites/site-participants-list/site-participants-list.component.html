@@ -7,7 +7,7 @@
             alt="Add new location">
         </div>
         <div>
-          <div class="mb-xs">Site Participant Registry</div>
+          <div class="mb-xs">Site Participant Registry <span class="active__34a853n">Active</span></div>
           <div class="display-webkit-box overflow__auto">
             <div class="pr-xlg">
               <div class="text__4285f4__up__11">{{siteParticipants.customLocationId}}</div>
@@ -37,9 +37,10 @@
                     <button class="bt__4285f4 font__bold" #template (click)="openModal(template)">Add Email</button>
                   </div>
                   <div>
-                    <input #importedFile type="file" accept=".xlsx" class="btn btn-success" id="import_participant_file"
+                    <!-- <input #importedFile type="file" accept=".xlsx" class="btn btn-success" id="import_participant_file"
                       (change)="onFileChange($event)" />
-                    <button class="bt__4285f4 font__bold" (click)="importPartcipants()">Import Email List</button>
+                    <button class="bt__4285f4 font__bold" (click)="importPartcipants()">Import Email List</button> -->
+                    <button class="bt__4285f4 font__bold" #template1 (click)="openModal1(template1)">Import Email List</button>
                   </div>
                 </div>
                 <div class=" flex__row__reverse">
@@ -66,16 +67,16 @@
     <div class="flex__ flex__justify__center  ">
       <div class="">
         <div class="dropdown">
-          <button class="dropbtn btn bt__1a73e8 mr-sm font12" (click)="myFunction()">Add Participants
+          <button class="dropbtn btn bt__1a73e8 mr-sm font12" (click)="myFunction1()">Add Participants
             <i class="fa fa-caret-down"></i>
           </button>
-          <div class="dropdown-content myDropdown" id="myDropdown">
+          <div class="dropdown-content myDropdown" id="myDropdown1">
             <div class="flex__justify__space-between mb-xs">
               <div class="mr-sm">
                 <button class="bt__4285f4 font__bold" #template (click)="openModal(template)">Add Email</button>
               </div>
               <div>
-                <button class="bt__4285f4 font__bold">Import Email List</button>
+                <button class="bt__4285f4 font__bold" #template1 (click)="openModal1(template1)">Import Email List</button>
               </div>
             </div>
             <div class=" flex__row__reverse">
@@ -384,5 +385,27 @@
         </div>
       </div>
     </form>
+  </div>
+</ng-template>
+
+<ng-template #template1>
+  <div class="modal-body modal__body">
+    
+      <div class="row border__bottom__c4d1e6">
+        <div class="col-xs-12 col-md-12 p-none ">
+          <div class="form-group border-radius__77">
+            <button class="bt__4285f4 font__bold">Choose file</button><span class="text__353a3e__14 ml-sm">Filename_loremipsum.xlx</span>
+            <input style="display: none;" type="hidden" #importedFile type="file" accept=".xlsx" class="btn btn-success" id="import_participant_file"
+                      (change)="onFileChange($event)" />
+                      <!-- Please hide it and trigger event when choose file clicked -->
+          </div>      
+        </div>
+      </div>
+      <div class="p-xlg flex__justify__space-between">
+        <div>
+          <button class="bt__4285f4 font__bold btn bt__add mr-sm" (click)="importPartcipants()">Import</button>
+          <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button>
+        </div>
+      </div>
   </div>
 </ng-template>

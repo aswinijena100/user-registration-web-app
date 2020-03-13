@@ -22,7 +22,7 @@
                 <div class="col-xs-6 col-md-3  p-none"><span
                     *ngIf="studyWithSite.type!='OPEN'">{{studyWithSite.sites.length}}
                     sites</span><span *ngIf="studyWithSite.type=='OPEN'">Open Study</span></div>
-                <div class=" col-xs-6 col-md-9 text-right p-none mb__display__none">Enrolled/<span
+                <div class=" col-xs-6 col-md-9 text-right p-none mb__display__none">Enrolled / <span
                     *ngIf="studyWithSite.type!='OPEN'">Invited</span><span
                     *ngIf="studyWithSite.type=='OPEN'">Target</span></div>
               </div>
@@ -39,7 +39,7 @@
                     </div>
                     <div class="progress-label font__bold"
                       [ngClass]="(site.enrollmentPercentage<30)?'text__f85555__12':(site.enrollmentPercentage<70?'text__ffbc00__12':'text__63bb67__12')">
-                      <div><span *ngIf="site.invitedCount!=0">{{site.enrolledCount}}/{{site.invitedCount}}</span><span
+                      <div><span *ngIf="site.invitedCount!=0">{{site.enrolledCount}} / {{site.invitedCount}}</span><span
                           *ngIf="site.invitedCount==0">N/A</span></div>
                     </div>
                   </div>
@@ -86,7 +86,7 @@
                   </div>
                   <div class="progress-label font__bold"
                     [ngClass]="(study.enrollmentPercentage<30)?'text__f85555__12':(study.enrollmentPercentage<70?'text__ffbc00__12':'text__63bb67__12')">
-                    <span *ngIf="study.invitedCount!=0">{{study.enrolledCount}}/{{study.invitedCount}}</span><span
+                    <span *ngIf="study.invitedCount!=0">{{study.enrolledCount}} / {{study.invitedCount}}</span><span
                       *ngIf="study.invitedCount==0">N/A</span>
                   </div>
                 </div>
@@ -96,8 +96,8 @@
               <div class="text__b6c5db__50"> <span
                   *ngIf="study.invitedCount!=0">{{study.enrollmentPercentage| number : '.2-2' }}%</span><span
                   *ngIf="study.invitedCount==0">N/A</span></div>
-              <div class="text__757b80__12"><span *ngIf="study.type!='OPEN'">Enrolled/Invited</span><span
-                  *ngIf="study.type=='OPEN'">Enrolled/Target</span></div>
+              <div class="text__757b80__12"><span *ngIf="study.type!='OPEN'">Enrolled / Invited</span><span
+                  *ngIf="study.type=='OPEN'">Enrolled / Target</span></div>
             </div>
           </div>
         </div>
@@ -130,7 +130,7 @@
                   </div>
                   <div class="progress-label font__bold"
                     [ngClass]="(app.enrollmentPercentage<30)?'text__f85555__12':(app.enrollmentPercentage<70?'text__ffbc00__12':'text__63bb67__12')">
-                    <span *ngIf="app.invitedCount!=0">{{app.enrolledCount}}/{{app.invitedCount}}</span><span
+                    <span *ngIf="app.invitedCount!=0">{{app.enrolledCount}} / {{app.invitedCount}}</span><span
                       *ngIf="app.invitedCount==0">N/A</span>
                   </div>
                 </div>
@@ -140,7 +140,7 @@
               <div class="text__b6c5db__50"> <span
                   *ngIf="app.invitedCount!=0">{{app.enrollmentPercentage| number : '.2-2' }}%</span><span
                   *ngIf="app.invitedCount==0">N/A</span></div>
-              <div class="text__757b80__12">Enrolled/Invited</div>
+              <div class="text__757b80__12">Enrolled / Invited</div>
             </div>
           </div>
         </div>
