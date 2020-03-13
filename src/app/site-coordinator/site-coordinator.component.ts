@@ -25,7 +25,6 @@ export class SiteCoordinatorComponent implements OnInit {
   searchforbob(){
     this.searchforbobval = !this.searchforbobval;
     this.searchforbobval1 = !this.searchforbobval1;
-    
   }
   opencloseNav() {
     this.opencloseNavval = !this.opencloseNavval;
@@ -66,6 +65,9 @@ export class SiteCoordinatorComponent implements OnInit {
       this.searchPlaceholder = "Search by Participant Email"
     } else if(this.componentRef.constructor.name == "StudyParticipantsListComponent"){
       this.searchPlaceholder = "Search by Site ID or Participant Email"
-    } 
+    } else if(this.componentRef.constructor.name == "UserProfileComponent"){
+      this.searchforbobval = false;
+    this.searchforbobval1 = false;
+    }
   }
 }
