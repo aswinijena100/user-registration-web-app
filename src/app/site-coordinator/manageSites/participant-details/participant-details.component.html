@@ -26,11 +26,11 @@
       <!-- for desk__view button cotainer -->
       <section class="desk__view">
         <div class="flex__justify__space-between ">
-          <div class="mr-sm">
-            <button type="submit" class="btn bt__1a73e8 text__fff flex__row__reverse pad__5__13 font14 " (click)="sendInvitation()">Resend Invitation</button>
+          <div class="mr-sm" *ngIf="participantDetails.onboardringStatus !== 'Disabled'">
+            <button type="submit" class="btn bt__1a73e8 text__fff flex__row__reverse pad__5__13 font14 " (click)="sendInvitation()">{{(participantDetails.onboardringStatus ==="New" )?'Send Invitation':'Resend Invitation'}}</button>
           </div>
           <div>
-            <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font14" click)="EnableDisableInvitation()">Disable Invitation</button>
+            <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font14" (click)="EnableDisableInvitation()">{{participantDetails.onboardringStatus ==="Disabled"?'Enable Invitation':'Disable Invitation'}}</button>
           </div>
         </div>
       </section>
@@ -42,8 +42,8 @@
 <!-- for mobile button cotainer -->
 <section class="subheader p-none pl-none mobile__view border-top__c4d1e6">
   <div class=" flex__ flex__justify__center ">
-    <button type="submit" class="btn bt__1a73e8 text__fff  pad__5__13 font14 mr-sm">Resend Invitation</button>
-    <button type="submit" class="btn bt__757575  pad__5__13 font14">Disable Invitation</button>
+    <button type="submit" class="btn bt__1a73e8 text__fff  pad__5__13 font14 mr-sm" (click)="sendInvitation()">{{(participantDetails.onboardringStatus ==="New" || participantDetails.onboardringStatus ==="Disabled")?'Send Invitation':'Resend Invitation'}}</button>
+    <button type="submit" class="btn bt__757575  pad__5__13 font14" (click)="EnableDisableInvitation()">{{participantDetails.onboardringStatus ==="Disabled"?'Enable Invitation':'Disable Invitation'}}</button>
   </div>
 </section>
 <!-- for mobile button cotainer -->
@@ -65,7 +65,7 @@
             <div class="text__4285f4__12">Last Invitation Sent</div>
             <div class="text__8495a5__14">{{participantDetails.invitationDate}}</div>
           </div>
-          <div *ngFor="let enrollmentDetails of participantDetails.enrollments">
+           <div *ngFor="let enrollmentDetails of participantDetails.enrollments"> 
           <div  class="">
             <div class="text__4285f4__12">Enrollment Status </div>
             <div class="text__8495a5__14">{{enrollmentDetails.enrollmentStatus}}</div>
@@ -92,16 +92,16 @@
         <tr>
           <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
           <th>
-            <mfDefaultSorter by="name">Consent Version</mfDefaultSorter>
+            <mySorter by="consentVersion">Consent Version</mySorter>
           </th>
           <th>
-            <mfDefaultSorter by="email">Consented Date</mfDefaultSorter>
+            <mySorter by="consentedDate">Consented Date</mySorter>
           </th>
           <th>
-            <mfDefaultSorter by="age">Data Sharing Permisions </mfDefaultSorter>
+            <mySorter by="dataSharingPermissions">Data Sharing Permisions </mySorter>
           </th>
           <th>
-            <mfDefaultSorter by="age">Consent Document</mfDefaultSorter>
+            <mySorter by="consentDocumentPath">Consent Document</mySorter>
           </th>
         </tr>
       </thead>

@@ -52,8 +52,7 @@
           </div>
           <div>
             <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font14"
-              (click)="decommissionSite()">Decommission Site for
-              Study</button>
+              (click)="decommissionSite()">{{(siteParticipants.siteStatus === 1 )?'Decommission Site for Study':'Activate Site for Study'}}</button>
           </div>
         </div>
       </div>

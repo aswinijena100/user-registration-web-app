@@ -1,13 +1,16 @@
 <div class="min__height__100">
-  <ul class="subheader subheader__menu nav nav-tabs ">
-    <li [ngClass]="{'active':activeTab=='sites'}"><a (click)="changeTab('sites')" data-toggle="tab">Sites</a></li>
-    <li [ngClass]="{'active':activeTab=='studies'}"><a (click)="changeTab('studies')" data-toggle="tab">Studies</a></li>
-    <li [ngClass]="{'active':activeTab=='apps'}"><a (click)="changeTab('apps')" data-toggle="tab">Apps</a>
-    </li>
-  </ul>
-  <div class="tab-content">
+  <div class="subheader">
+    <ul class="max__w__1280 subheader__menu nav nav-tabs ">
+      <li [ngClass]="{'active':activeTab=='sites'}"><a (click)="changeTab('sites')" data-toggle="tab">Sites</a></li>
+      <li [ngClass]="{'active':activeTab=='studies'}"><a (click)="changeTab('studies')" data-toggle="tab">Studies</a></li>
+      <li [ngClass]="{'active':activeTab=='apps'}"><a (click)="changeTab('apps')" data-toggle="tab">Apps</a>
+      </li>
+    </ul>
+</div>
+<div class="max__w__1280">
+  <div class="tab-content ">
     <div *ngIf="activeTab=='sites'" class="site__content">
-      <div *ngFor="let studyWithSite of studiesWithSites" class="bg__white cards  box__shadow-cmn">
+      <div *ngFor="let studyWithSite of studiesWithSites" class="bg__white cards  box__shadow-cmn ml-none mr-none">
         <div  class="flex__ flex__row">
           <div class="img__container__left">
             <img class="" src="../../../assets/images/site-list-tab.gif" alt="A Study for Pregnant Women">
@@ -56,7 +59,7 @@
 
   </div>
   <div *ngIf="activeTab=='studies'">
-    <div *ngFor="let study of studies" class="bg__white cards cards__var box__shadow-cmn">
+    <div *ngFor="let study of studies" class="bg__white cards cards__var box__shadow-cmn ml-none mr-none">
       <div (click)="navigateToParticipantList('study',study.id)" class="flex__justify__space-between flex__wrap">
         <div class="">
           <div class="flex__ flex__row align__items__center ">
@@ -105,7 +108,7 @@
   </div>
   
   <div *ngIf="activeTab=='apps'">
-    <div *ngFor="let app of apps" class="bg__white cards  box__shadow-cmn   p-xl">
+    <div *ngFor="let app of apps" class="bg__white cards  box__shadow-cmn   p-xl ml-none mr-none">
       <div (click)="navigateToParticipantList('app',app.id)" class="flex__justify__space-between flex__wrap">
         <div class="">
           <div class="">
@@ -146,6 +149,7 @@
     <div *ngIf="apps.length==0">{{errorMessage}}</div>
 
   </div>
+</div>
 </div>
 
 <!-- loader -->
