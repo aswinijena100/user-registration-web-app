@@ -53,8 +53,7 @@
           </div>
           <div>
             <button type="submit" class="btn bt__757575 flex__row__reverse pad__5__13 font14"
-              (click)="decommissionSite()">Decommission Site for
-              Study</button>
+              (click)="decommissionSite()">{{(siteParticipants.siteStatus === 1 )?'Decommission Site for Study':'Activate Site for Study'}}</button>
           </div>
         </div>
       </div>
@@ -171,7 +170,7 @@
   <div class="tab-content site__table">
     <div *ngIf="activeTab=='all'" class="">
       <table class="table table-striped" [mfData]="siteParticipants.registryParticipants" #mf="mfDataTable"
-        [mfRowsOnPage]="5">
+        [mfRowsOnPage]="10">
         <thead>
           <tr>
             <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
@@ -216,7 +215,7 @@
     </div>
     <div *ngIf="activeTab=='new'" class="one__column__td">
       <table class="table table-striped" [mfData]="siteParticipants.registryParticipants" #mf="mfDataTable"
-        [mfRowsOnPage]="5">
+        [mfRowsOnPage]="10">
         <thead>
           <tr>
             <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
@@ -257,7 +256,7 @@
     </div>
     <div *ngIf="activeTab=='invited'" class="">
       <table class="table table-striped" [mfData]="siteParticipants.registryParticipants" #mf="mfDataTable"
-        [mfRowsOnPage]="5">
+        [mfRowsOnPage]="10">
         <thead>
           <tr>
             <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
@@ -309,7 +308,7 @@
     </div>
     <div *ngIf="activeTab=='disabled'" class="">
       <table class="table table-striped" [mfData]="siteParticipants.registryParticipants" #mf="mfDataTable"
-        [mfRowsOnPage]="5">
+        [mfRowsOnPage]="10">
         <thead>
           <tr>
             <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>

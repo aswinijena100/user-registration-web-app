@@ -65,8 +65,20 @@ export class ParticipantDetailsComponent implements OnInit {
     this._location.back();
   }
   sendInvitation() {
-
+    //let ids = this.participantDetails.participantRegistrySiteid;
+    console.log(this.partcipantId)
+    let datas = {
+      'id': [this.partcipantId]
+    };
+    console.log(datas)
+    this.manageSitesService.sendAndResendInvitation(this.participantDetails.siteId, datas).subscribe(data => {
+      this.toastr.success(data.successBean.message);
+      this.listDetails();
+    }, error => {
+      this.toastr.error(error.error.errorBean.userMessage);
+    });
   }
+
   EnableDisableInvitation() {
     let status = this.participantDetails.onboardringStatus === "Disabled" ? "1" : "0";
     let datas = {
@@ -77,8 +89,9 @@ export class ParticipantDetailsComponent implements OnInit {
       this.toastr.success(data.successBean.message);
       this.listDetails();
     }, error => {
-      this.toastr.error(error.error.userMessage);
+      this.toastr.error(error.error.errorBean.userMessage);
     });
 
   }
+
 }

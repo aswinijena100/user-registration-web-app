@@ -21,7 +21,7 @@
 
 <section class="max__w__1280 m-none site__participant">
   <div class="cards1 m-none">
-    <table class="table table-striped" [mfData]="appDetails.participants" #mf="mfDataTable" [mfRowsOnPage]="5">
+    <table class="table table-striped" [mfData]="appDetails.participants" #mf="mfDataTable" [mfRowsOnPage]="10">
       <thead>
         <tr>
           <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
@@ -48,7 +48,7 @@
         </tr> -->
 
         <tr *ngFor="let applists of mf.data">
-          <td (click)="participantDetails(participant.id)"><span class="tbl__td__label">Participant Email:</span> <span class="no_st_en" (click)="participantsDetails(applists.id)">{{applists.email}}</span></td>
+          <td><span class="tbl__td__label">Participant Email:</span> <span class="no_st_en" (click)="participantsDetails(applists.id)">{{applists.email}}</span></td>
           <td><span class="tbl__td__label">App registration Date:</span>  {{applists.registrationDate}}</td>
           <td><span class="tbl__td__label">App account Status:</span> <div [ngClass]="{'text__353a3e__14': (applists.registrationStatus == 'Active'),  'text__8495a5__14': (applists.registrationStatus == 'Inactive')}">{{applists.registrationStatus }}</div></td>
           <td ><span class="tbl__td__label">No of Studies Enrolled:</span> <span [ngClass]="{'no_st_en': (applists.enrolledStudies.length > 0),  '': (applists.enrolledStudies.length == 0)}" (click)="openModal(template,applists.enrolledStudies)">{{applists.enrolledStudies.length}}</span></td>
