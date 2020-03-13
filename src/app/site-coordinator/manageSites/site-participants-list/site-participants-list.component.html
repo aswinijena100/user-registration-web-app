@@ -169,7 +169,7 @@
   <div class="tab-content site__table">
     <div *ngIf="activeTab=='all'" class="">
       <table class="table table-striped" [mfData]="siteParticipants.registryParticipants" #mf="mfDataTable"
-        [mfRowsOnPage]="5">
+        [mfRowsOnPage]="10">
         <thead>
           <tr>
             <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
@@ -214,7 +214,7 @@
     </div>
     <div *ngIf="activeTab=='new'" class="one__column__td">
       <table class="table table-striped" [mfData]="siteParticipants.registryParticipants" #mf="mfDataTable"
-        [mfRowsOnPage]="5">
+        [mfRowsOnPage]="10">
         <thead>
           <tr>
             <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
@@ -255,7 +255,7 @@
     </div>
     <div *ngIf="activeTab=='invited'" class="">
       <table class="table table-striped" [mfData]="siteParticipants.registryParticipants" #mf="mfDataTable"
-        [mfRowsOnPage]="5">
+        [mfRowsOnPage]="10">
         <thead>
           <tr>
             <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
@@ -307,7 +307,7 @@
     </div>
     <div *ngIf="activeTab=='disabled'" class="">
       <table class="table table-striped" [mfData]="siteParticipants.registryParticipants" #mf="mfDataTable"
-        [mfRowsOnPage]="5">
+        [mfRowsOnPage]="10">
         <thead>
           <tr>
             <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>

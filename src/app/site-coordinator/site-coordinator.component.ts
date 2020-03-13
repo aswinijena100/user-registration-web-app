@@ -11,8 +11,7 @@ export class SiteCoordinatorComponent implements OnInit {
 
   searchPlaceholder: string = "Search by site or study ID or name"
   opencloseNavval: boolean = false;
-  searchforbobval:boolean = false;
-  searchforbobval1:boolean = true;
+  showSearchBar:Boolean=true;
   componentRef: any;
   filterQuery: string = "";
   constructor(router: Router) {
@@ -22,10 +21,6 @@ export class SiteCoordinatorComponent implements OnInit {
 
   }
 
-  searchforbob(){
-    this.searchforbobval = !this.searchforbobval;
-    this.searchforbobval1 = !this.searchforbobval1;
-  }
   opencloseNav() {
     this.opencloseNavval = !this.opencloseNavval;
   }
@@ -37,16 +32,13 @@ export class SiteCoordinatorComponent implements OnInit {
       }
     }
   onActivate(componentRef) {
+    this.showSearchBar=true;
     this.filterQuery="";
     this.componentRef = componentRef;
-    console.log(this.componentRef.constructor.name)
-    //Below will subscribe to the tab change emitter
     if (this.componentRef.constructor.name == "DashboardComponent") {
       this.searchPlaceholder = "Search by site or study ID or name"
 
       componentRef.tabChangeItem.subscribe((data) => {
-       // console.log(data)
-        // Will receive the data from child here 
         console.log("tab chnage event triggered " + data)
         if (data == 'studies') {
           this.filterQuery="";
@@ -66,8 +58,7 @@ export class SiteCoordinatorComponent implements OnInit {
     } else if(this.componentRef.constructor.name == "StudyParticipantsListComponent"){
       this.searchPlaceholder = "Search by Site ID or Participant Email"
     } else if(this.componentRef.constructor.name == "UserProfileComponent"){
-      this.searchforbobval = false;
-    this.searchforbobval1 = false;
+     this.showSearchBar=false;
     }
   }
 }

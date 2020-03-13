@@ -112,7 +112,9 @@ export class DashboardComponent implements OnInit {
           return a.sites.some(function (b) {
             return ((b.customId != null && b.customId != undefined && b.customId.toLowerCase().includes(query.toLowerCase()))
               || (b.name != null && b.name != undefined && b.name.toLowerCase().includes(query.toLowerCase()))
-              || (a.name != null && a.name != undefined && a.name.toLowerCase().includes(query.toLowerCase())));
+              || (a.name != null && a.name != undefined && a.name.toLowerCase().includes(query.toLowerCase()))
+              || (a.customId != null && a.customId != undefined && a.customId.toLowerCase().includes(query.toLowerCase()))  
+              );
           });
         });
       } else {
