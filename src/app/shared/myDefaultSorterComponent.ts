@@ -6,6 +6,7 @@ import { SortEvent, DataTable } from "angular-6-datatable";
     template: `<a style="cursor: pointer" (click)="sort()" class="text-nowrap">
             <ng-content></ng-content>
             <span *ngIf="isSortedByMeAsc" class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+            <i *ngIf="isSortedByMeAsc" class="fa fa-sort-desc" aria-hidden="true"></i>
             <span *ngIf="isSortedByMeDesc" class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
             <span *ngIf="!isSortedByMeAsc && !isSortedByMeDesc" class="glyphicon glyphicon-sort" aria-hidden="true"></span>
         </a>`

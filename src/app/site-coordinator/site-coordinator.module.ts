@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { CommonComponentsModule } from "../shared/commomModule";
 
 // components
 import { SiteCoordinatorRoutingModule } from './site-coordinator-routing.module';
@@ -46,6 +47,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
   ],
   imports: [
     CommonModule,
+    CommonComponentsModule,
     SiteCoordinatorRoutingModule,
     DataTableModule,
     FormsModule,
