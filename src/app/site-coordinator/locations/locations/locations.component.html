@@ -13,16 +13,16 @@
       <tr>
         <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
         <th>
-           <mfDefaultSorter by="name">Location ID</mfDefaultSorter>
+           <mySorter by="customId">Location ID</mySorter>
         </th>
         <th>
-          <mfDefaultSorter by="email">Location Name</mfDefaultSorter>
+          <mySorter by="name">Location Name</mySorter>
         </th>
         <th>
-          <mfDefaultSorter by="age">Associated Studies</mfDefaultSorter>
+          <mySorter by="studiesCount">Associated Studies</mySorter>
         </th>
         <th>
-          <mfDefaultSorter by="city">Status</mfDefaultSorter>
+          Status
         </th>
       </tr>
       </thead>
@@ -44,6 +44,5 @@
     </table>
   </div>
   <div *ngIf="locations.length==0">{{errorMessage}}</div>
-
 </div>
   

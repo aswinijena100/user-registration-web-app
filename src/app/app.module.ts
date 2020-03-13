@@ -33,7 +33,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     NgSelectModule,
     NgxSpinnerModule,
     ModalModule.forRoot(),
-    ToastrModule.forRoot({positionClass : "toast-top-center",preventDuplicates: false, enableHtml: true, }) // ToastrModule added
+    ToastrModule.forRoot({positionClass : "toast-top-center",preventDuplicates: true, enableHtml: true, }) // ToastrModule added
   ],
   providers: [DataService,    { provide: LocationStrategy, useClass: HashLocationStrategy }
   ],
