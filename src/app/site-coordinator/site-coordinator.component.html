@@ -47,7 +47,7 @@
         </a>
       </div>
       <div class="navbar-nav inner-addon right-addon search-icon ">
-        <div  class="position__relative" [ngClass]="searchforbobval ? ' display__block ' : 'display__none '">
+        <div  class="position__relative">
           <input type="text" [attr.placeholder]="searchPlaceholder" autocomplete="off" [(ngModel)]="filterQuery"
           class="form-control search-box search__" />
           <i class="fa fa-times-circle cursor__pointer cir__pos" aria-hidden="true" (click)="searchforbob()"></i>
