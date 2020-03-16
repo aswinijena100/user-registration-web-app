@@ -36,19 +36,20 @@
         <thead>
           <tr>
             <th>
-              <mfDefaultSorter by="name">Participant Email</mfDefaultSorter>
+              <mySorter by="name">Participant Email</mySorter>
             </th>
             <th *ngIf="studyDetails.type!='OPEN'">
-              <mfDefaultSorter by="email">Site ID</mfDefaultSorter>
+              <mfDefaultSorter by="locationName">Site ID</mfDefaultSorter>
             </th>
             <th  *ngIf="studyDetails.type!='OPEN'">
-              <mfDefaultSorter by="age">Onboarding Status </mfDefaultSorter>
+              <mfDefaultSorter by="onboardingStatus">Onboarding Status </mfDefaultSorter>
+
             </th>
             <th>
-              <mfDefaultSorter by="age">Enrollment Status </mfDefaultSorter>
+              <mySorter by="enrollmentStatus">Enrollment Status </mySorter>
             </th>
             <th>
-              <mfDefaultSorter by="city">Enrollment Date</mfDefaultSorter>
+              <mySorter by="enrollmentDate">Enrollment Date</mySorter>
             </th>
           </tr>
         </thead>
