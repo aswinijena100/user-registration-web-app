@@ -8,6 +8,10 @@
           <div>
             <div class="mb-xs">Study Participant Registry</div>
             <div class="flex__justify__space-between ">
+              <div  *ngIf="studyDetails.type=='OPEN'" class="pr-xlg">
+                <div class="text__4285f4__up__11">SITE</div>
+                <div class="text__8495a5__12">NA (Open Study)</div>
+              </div>
               <div class="pr-xlg">
                 <div class="text__4285f4__up__11">{{studyDetails.customStudyId}}</div>
                 <div class="text__8495a5__12">{{studyDetails.studyName}}</div>
@@ -15,6 +19,9 @@
               <div class="pr-xlg">
                 <div class="text__4285f4__up__11">{{studyDetails.customAppId}}</div>
                 <div class="text__8495a5__12">{{studyDetails.appName}}</div>
+              </div>
+              <div  *ngIf="studyDetails.type=='OPEN'" class="pr-xlg">
+                <div class="text__4285f4__up__11">Enrollment Target: {{studyDetails.target}}</div>
               </div>
             </div>
           </div>
@@ -31,10 +38,10 @@
             <th>
               <mfDefaultSorter by="name">Participant Email</mfDefaultSorter>
             </th>
-            <th>
+            <th *ngIf="studyDetails.type!='OPEN'">
               <mfDefaultSorter by="email">Site ID</mfDefaultSorter>
             </th>
-            <th>
+            <th  *ngIf="studyDetails.type!='OPEN'">
               <mfDefaultSorter by="age">Onboarding Status </mfDefaultSorter>
             </th>
             <th>
@@ -48,8 +55,8 @@
         <tbody>
           <tr *ngFor="let lists of mf.data">
             <td (click)="participantDetails(lists.id)"> {{lists.email}}</td>
-            <td>Site{{lists.locationName}}</td>
-            <td> <div [ngClass]="{'text__353a3e__14': (lists.onboardingStatus == 'Invited'),  'text__8495a5__14': (lists.onboardingStatus == 'Disabled')}">{{lists.onboardingStatus }}</div></td>  
+            <td  *ngIf="studyDetails.type!='OPEN'">{{lists.locationName}}</td>
+            <td  *ngIf="studyDetails.type!='OPEN'"> <div [ngClass]="{'text__353a3e__14': (lists.onboardingStatus == 'Invited'),  'text__8495a5__14': (lists.onboardingStatus == 'Disabled')}">{{lists.onboardingStatus }}</div></td>  
             <td><div [ngClass]="{'text__353a3e__14': (lists.enrollmentStatus == 'Enrolled'),  'text__8495a5__14': (lists.enrollmentStatus == 'Withdrawn')}">{{lists.enrollmentStatus }}</div></td>
             <td>{{lists.enrollmentDate}}</td>
           </tr>
