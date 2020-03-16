@@ -90,3 +90,6 @@ input[type="checkbox"] {
     transform: rotate(45deg);
    
   }
+  .table.table-striped thead tr th:last-child{
+      border-radius:0 !important;
+  }
