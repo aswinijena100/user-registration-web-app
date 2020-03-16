@@ -41,19 +41,19 @@
               d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0" />
           </svg>
         </span>
-        <a href="#" class="" [ngClass]="searchforbobval1 ? ' display__block ' : 'display__none '">
+        <a href="#" class="">
           <img class="mr-sm" src="../../../assets/images/landing-logo.gif" />
           <span class="header__logo__text">FDA MyStudies </span>
         </a>
       </div>
-      <div class="navbar-nav inner-addon right-addon search-icon ">
-        <div  class="position__relative" [ngClass]="searchforbobval ? ' display__block ' : 'display__none '">
+      <div *ngIf="showSearchBar" class="navbar-nav inner-addon right-addon search-icon ">
+        <div  class="position__relative">
           <input type="text" [attr.placeholder]="searchPlaceholder" autocomplete="off" [(ngModel)]="filterQuery"
           class="form-control search-box search__" />
-          <i class="fa fa-times-circle cursor__pointer cir__pos" aria-hidden="true" (click)="searchforbob()"></i>
+          <i class="fa fa-times-circle cursor__pointer cir__pos" aria-hidden="true"></i>
         </div>
-        <div  [ngClass]="searchforbobval1 ? ' display__block ' : 'display__none '">
-          <i class="fa fa-search cursor__pointer" aria-hidden="true" (click)="searchforbob()"></i>
+        <div >
+          <i class="fa fa-search cursor__pointer" aria-hidden="true"></i>
         </div>
       </div>
     </div>

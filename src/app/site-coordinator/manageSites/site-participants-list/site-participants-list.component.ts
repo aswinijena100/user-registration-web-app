@@ -41,7 +41,12 @@ export class SiteParticipantsListComponent implements OnInit {
     this.successMessage = '';
     this.modalRef = this.modalService.show(template);
   }
-
+  openModal1(template1: TemplateRef<any>) {
+    // this.addParticipantForm.resetForm();
+    this.errorMessage = '';
+    this.successMessage = '';
+    this.modalRef = this.modalService.show(template1);
+  }
   ngOnInit() {
 
     this.route.params.subscribe(params => {
@@ -54,6 +59,9 @@ export class SiteParticipantsListComponent implements OnInit {
 
   myFunction() {
     document.getElementById("myDropdown").classList.toggle("show");
+  }
+  myFunction1() {
+    document.getElementById("myDropdown1").classList.toggle("show");
   }
   getSiteParticipant() {
     this.siteParticipants = [];
