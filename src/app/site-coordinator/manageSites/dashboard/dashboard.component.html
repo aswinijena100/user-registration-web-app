@@ -17,7 +17,7 @@
           </div>
           <div class="width__100">
             <div class=" row">
-              <div class="col-xs-12  col-md-12 p-none text__353a3e__20" >{{studyWithSite.customId}}</div>
+              <div class="col-xs-12  col-md-12 p-none text__353a3e__20 cursor__pointer" >{{studyWithSite.customId}}</div>
               <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
                 <div class="col-xs-6 col-md-3  p-none"><span
                     *ngIf="studyWithSite.type!='OPEN'">{{studyWithSite.sites.length}}
@@ -70,7 +70,7 @@
             </div>
             <div>
               <div class="text__4285f4__12 text-capitalize">{{study.customId}}</div>
-              <div class="col-xs-12  col-md-12 p-none text__353a3e__20">{{study.name}}</div>
+              <div class="col-xs-12  col-md-12 p-none text__353a3e__20 cursor__pointer">{{study.name}}</div>
               <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
                 <div class="col-xs-6 col-md-12  p-none"><span *ngIf="study.type!='OPEN'">{{study.totalSitesCount}}
                     sites</span><span *ngIf="study.type=='OPEN'">Open Study</span></div>
@@ -115,7 +115,7 @@
         <div class="">
           <div class="">
             <div class="text__4285f4__12 text-capitalize">{{app.customId}}</div>
-            <div class="col-xs-12  col-md-12 p-none text__353a3e__20">{{app.name}}</div>
+            <div class="col-xs-12  col-md-12 p-none text__353a3e__20 cursor__pointer">{{app.name}}</div>
             <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
               <div class="col-xs-6 col-md-12  p-none">{{app.totalStudiesCount}} Studies<span
                   *ngIf="app.appPermission!=0">, {{app.appUsersCount}}  App Users</span></div>

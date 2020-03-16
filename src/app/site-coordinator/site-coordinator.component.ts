@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
 })
 export class SiteCoordinatorComponent implements OnInit {
 
-  searchPlaceholder: string = "Search by site or study ID or name"
+  searchPlaceholder: string = "Search by Site or Study ID or Name"
   opencloseNavval: boolean = false;
   showSearchBar:Boolean=true;
   componentRef: any;

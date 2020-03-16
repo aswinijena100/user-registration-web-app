@@ -24,7 +24,7 @@
     <table class="table table-striped" [mfData]="appDetails.participants" #mf="mfDataTable" [mfRowsOnPage]="10">
       <thead>
         <tr>
-          <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
+          <!-- <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span> -->
           <th>
             <mfDefaultSorter by="Email">Participant Email</mfDefaultSorter>
           </th>
@@ -112,7 +112,7 @@
         <div class="text__4285f4__12 text-uppercase">{{applists.customStudyId}}</div>
         <div class="flex__justify__space-between">
           <div>
-            <div class="col-xs-12  col-md-12 p-none text__353a3e__20">{{applists.studyName}}</div>
+            <div class="col-xs-12  col-md-12 p-none text__353a3e__20 cursor__pointer">{{applists.studyName}}</div>
             <div *ngFor="let appsitesList of applists.sites" class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
               <div class="col-xs-6 col-md-12  p-none">Site ID : <span class="text__4285f4__12 blue__link">{{appsitesList.customSiteId}} {{appsitesList.siteName}}</span></div>
             </div>

@@ -1301,3 +1301,20 @@ div.show + div{
 	color: #353a3e !important;
     font-size: 14px;
 }
+.pagination li{
+	cursor:pointer;
+}
+.fa-sort-asc{
+	color:#c4d1e6;
+	font-size: 15px;
+	margin-left: 8px;
+	vertical-align: top;
+    line-height: 10px;
+}
+.fa-sort-desc{
+	color:#c4d1e6;
+	font-size: 15px;
+	margin-left: 8px;
+	vertical-align: top;
+    line-height: 10px;
+}
