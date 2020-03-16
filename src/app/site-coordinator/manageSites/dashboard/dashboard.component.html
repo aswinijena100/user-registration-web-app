@@ -27,8 +27,10 @@
                     *ngIf="studyWithSite.type=='OPEN'">Target</span></div>
               </div>
               <div class="col-xs-12 col-md-12 p-none  border__bottom__red progress__bar">
-                <div *ngFor="let site of studyWithSite.sites" class="row display-flex-center progress__bar__row" (click)="navigateToParticipantList('site',site.id)">
-                  <div class="col-xs-12 col-md-8 p-none">{{site.name}}</div>
+                <div *ngFor="let site of studyWithSite.sites" class="row display-flex-center progress__bar__row" (click)="studyWithSite.type!='OPEN'?navigateToParticipantList('site',site.id):navigateToParticipantList('study',studyWithSite.id)">
+                  <div class="col-xs-12 col-md-8 p-none"><span
+                    *ngIf="studyWithSite.type!='OPEN'">{{site.name}}
+                    sites</span><span *ngIf="studyWithSite.type=='OPEN'">Enrollment Registry</span></div>
                   <div class="col-xs-12 col-md-4 p-none lh__6">
                     <div class="prog">
                       <div class="pro__base">

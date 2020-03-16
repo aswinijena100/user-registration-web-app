@@ -46,14 +46,14 @@
           <span class="header__logo__text">FDA MyStudies </span>
         </a>
       </div>
-      <div class="navbar-nav inner-addon right-addon search-icon ">
+      <div *ngIf="showSearchBar" class="navbar-nav inner-addon right-addon search-icon ">
         <div  class="position__relative">
           <input type="text" [attr.placeholder]="searchPlaceholder" autocomplete="off" [(ngModel)]="filterQuery"
           class="form-control search-box search__" />
-          <i class="fa fa-times-circle cursor__pointer cir__pos" aria-hidden="true" (click)="searchforbob()"></i>
+          <i class="fa fa-times-circle cursor__pointer cir__pos" aria-hidden="true"></i>
         </div>
         <div >
-          <i class="fa fa-search cursor__pointer" aria-hidden="true" (click)="searchforbob()"></i>
+          <i class="fa fa-search cursor__pointer" aria-hidden="true"></i>
         </div>
       </div>
     </div>
