@@ -28,7 +28,7 @@
               </div>
               <div class="col-xs-12 col-md-12 p-none  border__bottom__red progress__bar">
                 <div *ngFor="let site of studyWithSite.sites" class="row display-flex-center progress__bar__row" (click)="studyWithSite.type!='OPEN'?navigateToParticipantList('site',site.id):navigateToParticipantList('study',studyWithSite.id)">
-                  <div class="col-xs-12 col-md-8 p-none"><span
+                  <div class="col-xs-12 col-md-8 p-none cursor__pointer"><span
                     *ngIf="studyWithSite.type!='OPEN'">{{site.name}}
                     sites</span><span *ngIf="studyWithSite.type=='OPEN'">Enrollment Registry</span></div>
                   <div class="col-xs-12 col-md-4 p-none lh__6">
@@ -185,7 +185,7 @@
             <label for="Location">Location</label>
             <select class="form-control" [(ngModel)]="locationId" required name="newSiteLocation" #newSiteLocation="ngModel">
               <option value="" disabled selected>Select Location</option>
-              <option *ngFor="let location of locations" value="{{location.id}}">
+              <option class="cursor__pointer" *ngFor="let location of locations" value="{{location.id}}">
                 {{location.name}}</option>
             </select>
           </div>

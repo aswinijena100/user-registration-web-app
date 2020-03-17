@@ -93,14 +93,17 @@
   </div>
   <div>
     <ul class=" nav nav-tabs " *ngIf="siteParticipants.countByStatus">
-      <li [ngClass]="{'active':activeTab=='all'}"><a data-toggle="tab" (click)="changeTab('all')">All <span
-            class="text__fbbc05__11">({{siteParticipants.countByStatus.A }})</span></a></li>
+      <li [ngClass]="{'active':activeTab=='all'}">
+        <a data-toggle="tab" (click)="changeTab('all')">All 
+        <span class="font11">({{siteParticipants.countByStatus.A }})</span>
+        </a>
+      </li>
       <li [ngClass]="{'active':activeTab=='new'}"><a data-toggle="tab" (click)="changeTab('new')">New <span
-            class="text__747d84__11">({{siteParticipants.countByStatus.N}})</span></a></li>
+            class="font11">({{siteParticipants.countByStatus.N}})</span></a></li>
       <li [ngClass]="{'active':activeTab=='invited'}"><a data-toggle="tab" (click)="changeTab('invited')">Invited <span
-            class="text__747d84__11">({{siteParticipants.countByStatus.I}})</span></a></li>
+            class="font11">({{siteParticipants.countByStatus.I}})</span></a></li>
       <li [ngClass]="{'active':activeTab=='disabled'}"><a data-toggle="tab" (click)="changeTab('disabled')">Disabled
-          <span class="text__747d84__11">({{siteParticipants.countByStatus.D}})</span></a></li>
+          <span class="font11">({{siteParticipants.countByStatus.D}})</span></a></li>
       <li></li>
     </ul>
   </div>
@@ -133,13 +136,13 @@
       <div>
         <ul class=" nav nav-tabs " *ngIf="siteParticipants.countByStatus">
           <li [ngClass]="{'active':activeTab=='all'}"><a data-toggle="tab" (click)="changeTab('all')">All <span
-                class="text__fbbc05__11">({{siteParticipants.countByStatus.A}})</span></a></li>
+            class="font11">({{siteParticipants.countByStatus.A}})</span></a></li>
           <li [ngClass]="{'active':activeTab=='new'}"><a data-toggle="tab" (click)="changeTab('new')">New <span
-                class="text__747d84__11">({{siteParticipants.countByStatus.N}})</span></a></li>
+                class="font11">({{siteParticipants.countByStatus.N}})</span></a></li>
           <li [ngClass]="{'active':activeTab=='invited'}"><a data-toggle="tab" (click)="changeTab('invited')">Invited
-              <span class="text__747d84__11">({{siteParticipants.countByStatus.I}})</span></a></li>
+              <span class="font11">({{siteParticipants.countByStatus.I}})</span></a></li>
           <li [ngClass]="{'active':activeTab=='disabled'}"><a data-toggle="tab" (click)="changeTab('disabled')">Disabled
-              <span class="text__747d84__11">({{siteParticipants.countByStatus.D}})</span></a></li>
+              <span class="font11">({{siteParticipants.countByStatus.D}})</span></a></li>
           <li></li>
         </ul>
       </div>
@@ -190,7 +193,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let participant of mf.data">
-            <td (click)="redirectParticipant(participant.id)">{{participant.email}}</td>
+            <td (click)="redirectParticipant(participant.id)" ><span class="no_st_en">{{participant.email}}</span></td>
             <td>
               <div
                 [ngClass]="{'text__353a3e__14': (participant.onboardingStatus == 'Invited'),  'text__8495a5__14': (participant.onboardingStatus == 'Disabled')}">
@@ -238,8 +241,8 @@
                 <div class="form-group mb-none">
                   <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser"
                     (change)="rowCheckBoxChange('true')">
-                  <label for="{{participant.id}}"><span
-                      (click)="redirectParticipant(participant.id)">{{participant.email}}</span></label>
+                  <label for="{{participant.id}}">
+                  <span class="no_st_en" (click)="redirectParticipant(participant.id)">{{participant.email}}</span></label>
                 </div>
               </div>
             </td>
@@ -283,7 +286,7 @@
                    <div *ngIf="participant.enrollmentStatus =='Yet to Enroll'">
                     <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser"
                     (change)="rowCheckBoxChange('false')"  >
-                    <label  for="{{participant.id}}"><span
+                    <label  for="{{participant.id}}"><span class="no_st_en"
                       (click)="redirectParticipant(participant.id)">{{participant.email}}</span></label>
                     </div>
                    <div *ngIf="participant.enrollmentStatus !='Yet to Enroll'">
@@ -333,7 +336,7 @@
                 <div class="form-group mb-none">
                   <input type="checkbox" id="{{participant.id}}" [(ngModel)]="participant.newlyCreatedUser"
                     (change)="rowCheckBoxChange('false')">
-                  <label for="{{participant.id}}"><span
+                  <label for="{{participant.id}}"><span class="no_st_en"
                       (click)="redirectParticipant(participant.id)">{{participant.email}}</span></label>
                 </div>
               </div>

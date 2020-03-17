@@ -55,7 +55,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let lists of mf.data">
-            <td (click)="participantDetails(lists.id)"> {{lists.email}}</td>
+            <td (click)="participantDetails(lists.id)"><span>class="no_st_en" {{lists.email}}</span></td>
             <td  *ngIf="studyDetails.type!='OPEN'">{{lists.locationName}}</td>
             <td  *ngIf="studyDetails.type!='OPEN'"> <div [ngClass]="{'text__353a3e__14': (lists.onboardingStatus == 'Invited'),  'text__8495a5__14': (lists.onboardingStatus == 'Disabled')}">{{lists.onboardingStatus }}</div></td>  
             <td><div [ngClass]="{'text__353a3e__14': (lists.enrollmentStatus == 'Enrolled'),  'text__8495a5__14': (lists.enrollmentStatus == 'Withdrawn')}">{{lists.enrollmentStatus }}</div></td>

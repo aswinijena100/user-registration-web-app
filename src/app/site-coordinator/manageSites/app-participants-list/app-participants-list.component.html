@@ -9,8 +9,8 @@
             <div class="mb-xs">App Participant Registry</div>
             <div class=" ">
               <div class="pr-xlg flex__justify__space-between">
-                <div class="text__4285f4__up__11 mr-xs">{{appDetails.customAppId}} : </div>
-                <div class="text__8495a5__12">{{appDetails.appName}}</div>
+                <div class="text__4285f4__up__11 mr-xs">{{appDetails.customAppId}} : <span class="text__8495a5__12">{{appDetails.appName}}</span></div>
+                
               </div>
             </div>
           </div>
@@ -29,13 +29,13 @@
             <mfDefaultSorter by="Email">Participant Email</mfDefaultSorter>
           </th>
           <th>
-            <mfDefaultSorter by="Date">App registration Date</mfDefaultSorter>
+            <mfDefaultSorter by="Date">App Registration Date</mfDefaultSorter>
           </th>
           <th>
-            <mfDefaultSorter by="Status">App account Status</mfDefaultSorter>
+            <mfDefaultSorter by="Status">App Account Status</mfDefaultSorter>
           </th>
           <th>
-            <mfDefaultSorter by="Enrolled">No of Studies Enrolled</mfDefaultSorter>
+            <mfDefaultSorter by="Enrolled">Number of Studies Enrolled</mfDefaultSorter>
           </th>
         </tr>
       </thead> 
@@ -112,9 +112,9 @@
         <div class="text__4285f4__12 text-uppercase">{{applists.customStudyId}}</div>
         <div class="flex__justify__space-between">
           <div>
-            <div class="col-xs-12  col-md-12 p-none text__353a3e__20 cursor__pointer">{{applists.studyName}}</div>
+            <div class="col-xs-12  col-md-12 p-none text__353a3e__20">{{applists.studyName}}</div>
             <div *ngFor="let appsitesList of applists.sites" class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
-              <div class="col-xs-6 col-md-12  p-none">Site ID : <span class="text__4285f4__12 blue__link">{{appsitesList.customSiteId}} {{appsitesList.siteName}}</span></div>
+              <div class="col-xs-6 col-md-12  p-none cursor__none">Site ID : <span class="text__4285f4__12 blue__link cursor__none">{{appsitesList.customSiteId}} {{appsitesList.siteName}}</span></div>
             </div>
           </div>
           <div *ngFor="let appsitesLists of applists.sites">
