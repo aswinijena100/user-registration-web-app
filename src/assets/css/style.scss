@@ -73,7 +73,7 @@ ul li{
 	background-color: #1a73e8 !important;
     border-color: #1a73e8 !important;
     font-size: 16px !important;
-	padding: 5px 15px !important;
+	padding: 5px 13px !important;
 }
 .blue__btn:hover{
     color: #fff !important;
@@ -759,17 +759,20 @@ button{
 /*input paceholder text color */
 ::-webkit-input-placeholder { /* Edge */
     color: #9a9c9d;
-    font-weight: normal !important;
+	font-weight: normal !important;
+	font-size: 13px;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: #9a9c9d;
-    font-weight: normal !important;
+	font-weight: normal !important;
+	font-size: 13px;
 }
 
 ::placeholder {
     color: #9a9c9d;
-    font-weight: normal !important;
+	font-weight: normal !important;
+	font-size: 13px;
 }
 /*input paceholder text color*/
 
@@ -964,19 +967,19 @@ button{
 }
 .text__63bb67__12{
 	color: #34a853;
-    font-size: 12px;
+    font-size: 11px;
 }
 .text__ffbc00__12{
 	color:#fbbc05;
-	font-size:12px;
+	font-size:11px;
 }
 .text__f85555__12{
 	color:#ea4335;
-	font-size:12px;
+	font-size:11px;
 }
 .text__8495a5__12{
 	color:#8495a5;
-	font-size:12px;
+	font-size:11px;
 }
 
 .text__fbbc05__15{
@@ -1274,6 +1277,7 @@ div.show + div{
 .ng-select.ng-select-multiple{
 	border:none !important;
 	height: 26px !important;
+	line-height:10px;
 }
 .ng-select.ng-select-multiple .ng-select-container .ng-value-container{
 	padding: 0 !important;
@@ -1321,4 +1325,7 @@ div.show + div{
 }
 .font11{
 	font-size:11px !important
+}
+.form-control:disabled, .form-control[readonly]{
+	background-color: transparent !important;
 }
