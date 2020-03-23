@@ -74,7 +74,7 @@ input[type="checkbox"] {
 
  input[type="checkbox"]:checked+label::before {
     background-color: #353a3e;
-    border-color: #dee2e6;
+    border-color: #353a3e;
 }
   
 .site__participant  input:checked + label:after {

@@ -125,11 +125,11 @@
 	
 	.table td:first-child{
 		border-radius:7px 7px 0 0;
-		padding-top:16px !important;
+		//padding-top:16px !important;
 	}
 	.table td:last-child{
 		border-radius:0 0 7px 7px;
-		padding-bottom:16px !important;
+		//padding-bottom:16px !important;
 	}
 	.table tfoot td:first-child{
 		padding-bottom:0 !important;
@@ -151,7 +151,7 @@
 	.table td {
 		border-top: none !important;
 		padding-bottom: 0 !important;
-		padding:12px 20px;
+		padding:11px 20px;
 	}
 	.table thead th{
 		background: #dfe3e8;
@@ -349,6 +349,7 @@
 	}
 	.table td:first-child{
 		border-radius:0;
+		padding-top:11px !important;
 	}
 	.table td:last-child{
 		border-radius:0;
@@ -359,7 +360,7 @@
 	}
 	.table td {
 		border-top: 1px solid #c4d1e6 !important;
-		padding:15px 30px;
+		padding:11px 30px;
 	}
 	.table thead tr th{
 		background: #fff;
@@ -370,7 +371,7 @@
 		color:#1a73e8;
 	}
 	.table.table-striped thead tr th:first-child{
-		border-radius: 10px 0 0 0  !important;
+		border-radius: 7px 0 0 0  !important;
 	}
 	.table.table-striped thead tr th:last-child{
 		border-radius: 0 10px 0 0  !important;
@@ -379,20 +380,20 @@
 		display:contents;
 	}
 	.table tbody tr:last-child td:first-child{
-		border-radius: 0px 0px 0px 10px !important;
+		border-radius: 0px 0px 0px 7px !important;
 		border-bottom: 1px solid #c4d1e6 !important;
 	}
 	.table tbody tr:last-child td:last-child{
-		border-radius: 0px 0px 10px 0px !important;
+		border-radius: 0px 0px 7px 0px !important;
 	}
 	.table thead th:last-child{
-		border-radius: 0 10px 0 0 !important;
+		border-radius: 0 7px 0 0 !important;
 	}
 	.table thead th:first-child{
-		border-radius: 10px 0 0 0 !important;
+		border-radius: 7px 0 0 0 !important;
 	}
 	.table td {
-		padding: 12px 30px !important;
+		padding: 11px 30px !important;
 	}
 	.table tbody tr{
 		background: #fff !important;
@@ -421,7 +422,7 @@
 	}
 	.yel__tabs{
 		margin-top:20px;
-		border-radius: 10px 10px 0 0;
+		border-radius: 7px 7px 0 0;
 		box-shadow: none;
 		border:none;
 	}
@@ -460,7 +461,7 @@
 		margin:  auto !important;
 	}
 	.modal.show .modal-dialog {
-		max-width: 600px;
+		width: 600px;
 	}
 }
 @media (min-width: 1400px) {

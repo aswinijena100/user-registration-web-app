@@ -43,7 +43,7 @@
                   </div>
                 </div>
                 <div class=" flex__row__reverse">
-                  <a download="Email_Import_Template" target="_blank" href="/assets/Email_Import_Template.xlsx">
+                  <a download="Email_Import_Template" target="_blank" href="/assets/Email_Import_Template.xlsx" class="p-none">
                     <div class="text__4285f4__10">Download Template </div>
                   </a>
                 </div>
@@ -368,15 +368,16 @@
             <input type="text" class="form-control" id="study" value="" placeholder="Enter Email"
               pattern='(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)'
               [(ngModel)]="emailIdToAdd" required name="email" #email="ngModel">
+              <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                <span class="help-block with-errors error__msg" *ngIf="email.errors.required">
+                  Please fill the above field.
+                </span>
+                <span class="help-block with-errors error__msg" *ngIf="email.errors.pattern">
+                  email is invalid.
+                </span>
+              </div>
           </div>
-          <div *ngIf="email.invalid && (email.dirty || email.touched)">
-            <span class="help-block with-errors error__msg" *ngIf="email.errors.required">
-              Please fill the above field.
-            </span>
-            <span class="help-block with-errors error__msg" *ngIf="email.errors.pattern">
-              email is invalid.
-            </span>
-          </div>
+          
         </div>
       </div>
       <div class="p-xlg flex__justify__space-between">

@@ -182,18 +182,31 @@
       <div class="row border__bottom__c4d1e6">
         <div class="col-xs-12 col-md-12 p-none">
           <div class="form-group">
-            <label for="Location">Location</label>
-            <select class="form-control" [(ngModel)]="locationId" required name="newSiteLocation" #newSiteLocation="ngModel">
-              <option value="" disabled selected>Select Location</option>
-              <option class="cursor__pointer" *ngFor="let location of locations" value="{{location.id}}">
-                {{location.name}}</option>
-            </select>
-          </div>
-          <div *ngIf="newSiteLocation.dirty || newSiteLocation.touched">
-            <span class="help-block with-errors error__msg"
-              *ngIf=" (locationId=='' || locationId==null || locationId==0)">
-              Please fill out this filed.
-            </span>
+           
+            
+            <div class="form-item">
+              <label for="Location">Location</label>
+              <div class="select-wrap">
+                <!-- <select id="select" class="form-item__element form-item__element--select" required>
+                  <option disabled selected value="">Please select value</option>
+                  <option value="1">Value 1</option>
+                  <option value="2">Value 2</option>
+                </select> -->
+                <select class="form-item__element form-item__element--select" [(ngModel)]="locationId" required name="newSiteLocation" #newSiteLocation="ngModel">
+                  <option disabled selected value="">Select Location</option>
+                  <option class="cursor__pointer" *ngFor="let location of locations" value="{{location.id}}">
+                    {{location.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div *ngIf="newSiteLocation.dirty || newSiteLocation.touched">
+              <span class="help-block with-errors error__msg"
+                *ngIf=" (locationId=='' || locationId==null || locationId==0)">
+                Please fill out this filed.
+              </span>
+            </div>
+
+            
           </div>
         </div>
       </div>
