@@ -3,14 +3,14 @@
       <div class="flex__justify__space-between" >
         <div class="subheader__title flex__justify__space-between align__items__baseline">
           <div>
-            <a routerLink="/user/dashboard" ><img class="mr-sm" src="../../../../assets/images/left-arrow.gif" alt="Add new location"></a>
+            <a routerLink="/user/dashboard" ><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path fill="#1a73e8" d="M20 11H6.83l2.88-2.88c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L3.71 11.3c-.39.39-.39 1.02 0 1.41L8.3 17.3c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L6.83 13H20c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg></a>
           </div>
           <div>
             <div class="mb-xs">App Participant Registry</div>
             <div class=" ">
               <div class="pr-xlg flex__justify__space-between">
-                <div class="text__4285f4__up__11 mr-xs">{{appDetails.customAppId}} : </div>
-                <div class="text__8495a5__12">{{appDetails.appName}}</div>
+                <div class="text__4285f4__up__11 mr-xs">{{appDetails.customAppId}} : <span class="text__8495a5__12">{{appDetails.appName}}</span></div>
+                
               </div>
             </div>
           </div>
@@ -24,18 +24,18 @@
     <table class="table table-striped" [mfData]="appDetails.participants" #mf="mfDataTable" [mfRowsOnPage]="10">
       <thead>
         <tr>
-          <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span>
+          <!-- <span class="text__387fea__12 mobile__view mr-sm" style="background:transparent">Sort By: </span> -->
           <th>
             <mfDefaultSorter by="Email">Participant Email</mfDefaultSorter>
           </th>
           <th>
-            <mfDefaultSorter by="Date">App registration Date</mfDefaultSorter>
+            <mfDefaultSorter by="Date">App Registration Date</mfDefaultSorter>
           </th>
           <th>
-            <mfDefaultSorter by="Status">App account Status</mfDefaultSorter>
+            <mfDefaultSorter by="Status">App Account Status</mfDefaultSorter>
           </th>
           <th>
-            <mfDefaultSorter by="Enrolled">No of Studies Enrolled</mfDefaultSorter>
+            <mfDefaultSorter by="Enrolled">Number of Studies Enrolled</mfDefaultSorter>
           </th>
         </tr>
       </thead> 
@@ -103,40 +103,91 @@
     </section>
   </section>
 </section> -->
+ <!-- <span    (click)="openModal(template)">click here</span> -->
 
-<ng-template #template>
+ <ng-template #template>
   <div #appsListData class="modal-body modal__body">
     <button type="button" class="close pad__15__20" (click)="modalRef.hide()">&times;</button>
     <ul  class="app__level__pop__list">
       <li *ngFor="let applists of contents">
         <div class="text__4285f4__12 text-uppercase">{{applists.customStudyId}}</div>
-        <div class="flex__justify__space-between">
+        <!-- <div class="flex__justify__space-between">
           <div>
             <div class="col-xs-12  col-md-12 p-none text__353a3e__20">{{applists.studyName}}</div>
             <div *ngFor="let appsitesList of applists.sites" class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
-              <div class="col-xs-6 col-md-12  p-none">Site ID : <span class="text__4285f4__12 blue__link">{{appsitesList.customSiteId}} {{appsitesList.siteName}}</span></div>
+              <div class="col-xs-6 col-md-12  p-none cursor__none">
+                Site ID : <span class="text__4285f4__12 blue__link cursor__none">{{appsitesList.customSiteId}} {{appsitesList.siteName}}</span>
+              </div>
+              <div *ngFor="let appsitesLists of applists.sites">
+                <div><span class="text__757b80__12">Date of Enrollment: </span> <span class="text__202124__12">{{appsitesLists.enrollmentDate}}</span> </div>
+                <div ><span class="text__757b80__12">Date of Withdrawal: </span> <span class="text__202124__12">{{appsitesLists.withdrawlDate ? appsitesLists.withdrawlDate :'N/A'}}</span> </div>
+              </div>
             </div>
-          </div>
-          <div *ngFor="let appsitesLists of applists.sites">
-            <div><span class="text__757b80__12">Date of Enrollment: </span> <span class="text__202124__12">{{appsitesLists.enrollmentDate}}</span> </div>
-            <div ><span class="text__757b80__12">Date of Withdrawal: </span> <span class="text__202124__12">{{appsitesLists.withdrawlDate ? appsitesLists.withdrawlDate :'N/A'}}</span> </div>
-          </div>
+          </div> -->
+          <div>
+            <div  class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none flex__justify__space-between">
+              <div class="  p-none cursor__none">
+                Site ID : <span class="text__4285f4__12 blue__link cursor__none">Location1 Location1</span>
+              </div>
+              <div >
+                <div><span class="text__757b80__12">Date of Enrollment: </span> <span class="text__202124__12">19/03/2020</span> </div>
+              </div>
+              <div>
+                <div ><span class="text__757b80__12">Date of Withdrawal: </span> <span class="text__202124__12">19/03/2020</span> </div>
+              </div>
+            </div>
+
+            <div  class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none flex__justify__space-between">
+              <div class="  p-none cursor__none">
+                Site ID : <span class="text__4285f4__12 blue__link cursor__none">Location1 Location1</span>
+              </div>
+              <div >
+                <div><span class="text__757b80__12">Date of Enrollment: </span> <span class="text__202124__12">19/03/2020</span> </div>
+              </div>
+              <div>
+                <div ><span class="text__757b80__12">Date of Withdrawal: </span> <span class="text__202124__12">19/03/2020</span> </div>
+              </div>
+            </div>
         </div>
       </li>
-      <!-- <li>
-        <div class="text__4285f4__12 text-capitalize">STUDY003</div>
-        <div class="col-xs-12  col-md-12 p-none text__353a3e__20">A Study for Fitness</div>
-        <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
-          <div class="col-xs-6 col-md-12  p-none">Site ID : <span class="text__4285f4__12">Site 2 Lorem ipsum dolor sit amet B</span></div>
-        </div>
-      </li>
-      <li>
-        <div class="text__4285f4__12 text-capitalize">STUDY003</div>
-        <div class="col-xs-12  col-md-12 p-none text__353a3e__20">Diet and Nutrition Study</div>
-        <div class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none">
-          <div class="col-xs-6 col-md-12  p-none">Site ID : <span class="text__4285f4__12">Site 2 Lorem ipsum dolor sit amet C</span></div>
-        </div>
-      </li> -->
     </ul>
   </div>
 </ng-template>
+
+
+<!-- <ng-template #template>
+  <div #appsListData class="modal-body modal__body">
+    <button type="button" class="close pad__15__20" (click)="modalRef.hide()">&times;</button>
+    <ul  class="app__level__pop__list">
+      <li>
+        <div class="text__4285f4__12 text-uppercase">{{applists.customStudyId}}</div>
+       <div>
+            <div  class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none flex__justify__space-between">
+              <div class="  p-none cursor__none">
+                Site ID : <span class="text__4285f4__12 blue__link cursor__none">Location1 Location1</span>
+              </div>
+              <div >
+                <div><span class="text__757b80__12">Date of Enrollment: </span> <span class="text__202124__12">19/03/2020</span> </div>
+              </div>
+              <div>
+                <div ><span class="text__757b80__12">Date of Withdrawal: </span> <span class="text__202124__12">19/03/2020</span> </div>
+              </div>
+            </div>
+
+            <div  class="text__757b80__12 row flex-wrap-unset col-xs-12  col-md-12 p-none flex__justify__space-between">
+              <div class="  p-none cursor__none">
+                Site ID : <span class="text__4285f4__12 blue__link cursor__none">Location1 Location1</span>
+              </div>
+              <div >
+                <div><span class="text__757b80__12">Date of Enrollment: </span> <span class="text__202124__12">19/03/2020</span> </div>
+              </div>
+              <div>
+                <div ><span class="text__757b80__12">Date of Withdrawal: </span> <span class="text__202124__12">19/03/2020</span> </div>
+              </div>
+            </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</ng-template> -->
+

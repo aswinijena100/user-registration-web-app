@@ -96,6 +96,33 @@ ul.subheader__menu li.active a{
 }
 
 .subheader{
-    min-height: 70px;
-    line-height: 33px;
+    height: 67px;
+    line-height: 59px;
+    padding:0 !important;
 }
+
+.text__353a3e__20{
+    font-weight:700;
+}
+
+.form-item__element--select {
+  font-size:16px;
+  font-weight:700;
+}
+.form-item__element--select:invalid {
+    color: #9a9c9d;
+    font-weight: normal !important;
+    font-size:16px;
+}
+.form-item__element--select [disabled] {
+    color: #9a9c9d;
+    font-weight: normal !important;
+    font-size:16px;
+}
+.form-item__element--select option {
+  color: #000;
+  font-weight:700;
+  font-size:16px;
+}
+
+

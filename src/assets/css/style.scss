@@ -125,14 +125,15 @@ header{
 .navbar__name{
 	background: #a7b5cc;
     color: #fff;
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
     display: inline-block;
     border-radius: 50%;
-    line-height: 27px;
+    line-height: 33px;
     text-align: center;
-	font-size: 20px;
-	margin-left: 10px;
+    font-size: 14px;
+    margin-left: 10px;
+
 }
 
 .bs__example a.nav-link{
@@ -160,7 +161,7 @@ header{
     width: 100%;
     height: 3px;
     position: absolute;
-	bottom: -14px;
+	bottom: -16px;
 	left: 0;
 }
 
@@ -496,10 +497,11 @@ button{
 	margin-bottom:0;
 }
 .modal__body .form-control{
-	padding:0px !important;
-	color: #353a3e;
-	height:auto !important;
-	font-size: 13px;
+	padding: 0px !important;
+    color: #000 !important;
+    height: auto !important;
+    font-size: 16px;
+    font-weight: 700;
 }
 .modal__body .form-control:disabled,.modal__body .form-control[readonly]{
 	background: #dfe4ec;
@@ -607,12 +609,13 @@ button{
 	content: '';
     display: block;
     position: absolute;
-	top: 2px;
+    top: 1px;
     left: 6px;
     width: 5px;
-    height: 10px;
+    height: 11px;
     border: solid #fff;
-    border-width: 0 2px 2px 0;
+    border-width: 0px 1px 1px 0;
+    -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
   }
   .custom__labels input[type="checkbox"]:checked+label::before {
@@ -715,8 +718,8 @@ button{
 }
 .bg__white label{
 	margin-bottom:0 !important;
-	font-size: 11px;
-	line-height:13px;
+	font-size: 11px !important;
+	line-height:14px;
     color: #4285f4;
 	text-transform:capitalize;
 }
@@ -759,17 +762,17 @@ button{
 /*input paceholder text color */
 ::-webkit-input-placeholder { /* Edge */
     color: #9a9c9d;
-    font-weight: normal !important;
+	font-weight: normal !important;
 }
 
 :-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: #9a9c9d;
-    font-weight: normal !important;
+	font-weight: normal !important;
 }
 
 ::placeholder {
     color: #9a9c9d;
-    font-weight: normal !important;
+	font-weight: normal !important;
 }
 /*input paceholder text color*/
 
@@ -827,27 +830,28 @@ button{
     border-bottom: none;
 }
 .yel__tabs li a{
-	color:#747d84;
+	color:#8495a5 !important;
 	font-size:15px;
 	font-weight:700;
+	cursor:pointer;
 }
 .yel__tabs li.active:nth-child(1) a{
-	color:#fbbc05;
+	color:#fbbc05 !important;
     font-size:15px;
 	border-bottom: 2px solid #fbbc05;
 }
 .yel__tabs li.active:nth-child(2) a{
-	color:#4285f4;
+	color:#4285f4 !important;
     font-size:15px;
     border-bottom: 2px solid #4285f4;
 }
 .yel__tabs li.active:nth-child(3) a{
-	color:#34a853;
+	color:#34a853 !important;
     font-size:15px;
     border-bottom: 2px solid #34a853;
 }
 .yel__tabs li.active:nth-child(4) a{
-	color:#ea4335;
+	color:#ea4335 !important;
     font-size:15px;
     border-bottom: 2px solid #ea4335;
 }
@@ -955,6 +959,11 @@ button{
 .subheader__title{
 	color:#8495a5;
 	font-size:16px;
+	cursor:pointer;
+}
+.subheader__title svg{
+	margin-right: 7px !important;
+    margin-bottom: 2px;
 }
 
 .text__797f84__10{
@@ -963,19 +972,19 @@ button{
 }
 .text__63bb67__12{
 	color: #34a853;
-    font-size: 12px;
+    font-size: 11px;
 }
 .text__ffbc00__12{
 	color:#fbbc05;
-	font-size:12px;
+	font-size:11px;
 }
 .text__f85555__12{
 	color:#ea4335;
-	font-size:12px;
+	font-size:11px;
 }
 .text__8495a5__12{
 	color:#8495a5;
-	font-size:12px;
+	font-size:11px;
 }
 
 .text__fbbc05__15{
@@ -997,6 +1006,7 @@ button{
 	font-size: 16px !important;
 	color: #353a3e !important;
 	line-height: 16px;
+	font-weight:700;
 }
 /*Style Guide*/
 
@@ -1166,7 +1176,9 @@ div.show + div{
 .show .card-body{
 	margin-top: -5px;
 }
-
+.card-header{
+	background: #f2f5f8 !important;
+}
 .sub__accordian .card-header{
 	border: none !important;
 	background: #fff !important;
@@ -1273,6 +1285,7 @@ div.show + div{
 .ng-select.ng-select-multiple{
 	border:none !important;
 	height: 26px !important;
+	line-height:10px;
 }
 .ng-select.ng-select-multiple .ng-select-container .ng-value-container{
 	padding: 0 !important;
@@ -1296,8 +1309,42 @@ div.show + div{
 .ng-select.ng-select-opened>.ng-select-container .ng-arrow{
 	top:-12px !important;
 }
-
+.ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-input{
+	margin-top: -13px;
+    margin-left: -3px;
+}
 .text__353a3e__14{
 	color: #353a3e !important;
     font-size: 14px;
 }
+.pagination li{
+	cursor:pointer;
+}
+.fa-sort-asc{
+	color:#c4d1e6;
+	font-size: 15px;
+	margin-left: 8px;
+	vertical-align: top;
+    line-height: 10px;
+}
+.fa-sort-desc{
+	color:#c4d1e6;
+	font-size: 15px;
+	margin-left: 8px;
+	vertical-align: top;
+    line-height: 10px;
+}
+.font11{
+	font-size:11px !important;
+}
+.form-control:disabled, .form-control[readonly]{
+	background-color: transparent !important;
+}
+.modal-dialog {
+	max-width: 600px !important;
+}
+
+.table td, .table th{
+	vertical-align: inherit !important;
+}
+
