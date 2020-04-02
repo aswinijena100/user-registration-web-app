@@ -8,7 +8,7 @@
           <div>
             <div class="mb-xs">Study Participant Registry</div>
             <div class="flex__justify__space-between ">
-              <div  *ngIf="studyDetails.type=='OPEN'" class="pr-xlg">
+              <div  *ngIf="studyDetails.studyType=='OPEN'" class="pr-xlg">
                 <div class="text__4285f4__up__11">SITE</div>
                 <div class="text__8495a5__12">NA (Open Study)</div>
               </div>
@@ -20,8 +20,8 @@
                 <div class="text__4285f4__up__11">{{studyDetails.customAppId}}</div>
                 <div class="text__8495a5__12">{{studyDetails.appName}}</div>
               </div>
-              <div  *ngIf="studyDetails.type=='OPEN'" class="pr-xlg">
-                <div class="text__4285f4__up__11">Enrollment Target: {{studyDetails.target}}</div>
+              <div  *ngIf="studyDetails.studyType=='OPEN'" class="pr-xlg">
+                <div class="text__4285f4__up__11">Enrollment Target: {{studyDetails.targetEnrollment}}</div>
               </div>
             </div>
           </div>
@@ -38,10 +38,10 @@
             <th>
               <mySorter by="name">Participant Email</mySorter>
             </th>
-            <th *ngIf="studyDetails.type!='OPEN'">
+            <th *ngIf="studyDetails.studyType!='OPEN'">
               <mfDefaultSorter by="locationName">Site ID</mfDefaultSorter>
             </th>
-            <th  *ngIf="studyDetails.type!='OPEN'">
+            <th  *ngIf="studyDetails.studyType!='OPEN'">
               <mfDefaultSorter by="onboardingStatus">Onboarding Status </mfDefaultSorter>
 
             </th>

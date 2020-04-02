@@ -17,9 +17,13 @@ export class StudyParticipant {
     locationName: String;
 
     locationStatus: String;
-    
+
+    studyType: String = "";
+
+    targetEnrollment: number = 0;
+
     registryParticipants: any[] = [];
 
-  
+
 
 }
