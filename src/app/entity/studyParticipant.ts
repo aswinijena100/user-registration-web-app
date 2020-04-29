@@ -1,29 +1,25 @@
 export class StudyParticipant {
+  studyId: number;
 
-    studyId: number;
+  customStudyId: String;
 
-    customStudyId: String;
+  studyName: String;
 
-    studyName: String;
+  appId: number;
 
-    appId: number;
+  customAppId: String;
 
-    customAppId: String;
+  appName: String;
 
-    appName: String;
+  customLocationId: String;
 
-    customLocationId: String;
+  locationName: String;
 
-    locationName: String;
+  locationStatus: String;
 
-    locationStatus: String;
+  studyType: String = "";
 
-    studyType: String = "";
+  targetEnrollment: number = 0;
 
-    targetEnrollment: number = 0;
-
-    registryParticipants: any[] = [];
-
-
-
+  registryParticipants: any[] = [];
 }

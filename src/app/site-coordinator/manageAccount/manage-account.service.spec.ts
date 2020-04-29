@@ -1,11 +1,11 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { ManageAccountService } from './manage-account.service';
+import { ManageAccountService } from "./manage-account.service";
 
-describe('ManageAccountService', () => {
+describe("ManageAccountService", () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
-  it('should be created', () => {
+  it("should be created", () => {
     const service: ManageAccountService = TestBed.get(ManageAccountService);
     expect(service).toBeTruthy();
   });

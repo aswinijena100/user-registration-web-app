@@ -1,93 +1,151 @@
 <div class="subheader p-none pl-none">
   <div class="max__w__1280 m-none">
-      <div class="flex__justify__space-between" >
-        <div class="subheader__title flex__justify__space-between align__items__baseline">
-          <div>
-           <a routerLink="/user/dashboard" ><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path fill="#1a73e8" d="M20 11H6.83l2.88-2.88c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L3.71 11.3c-.39.39-.39 1.02 0 1.41L8.3 17.3c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L6.83 13H20c.55 0 1-.45 1-1s-.45-1-1-1z"/></svg></a> 
-          </div>
-          <div>
-            <div class="mb-xs">Study Participant Registry</div>
-            <div class="flex__justify__space-between ">
-              <div  *ngIf="studyDetails.studyType=='OPEN'" class="pr-xlg">
-                <div class="text__4285f4__up__11">SITE</div>
-                <div class="text__8495a5__12">NA (Open Study)</div>
+    <div class="flex__justify__space-between">
+      <div
+        class="subheader__title flex__justify__space-between align__items__baseline"
+      >
+        <div>
+          <a routerLink="/user/dashboard"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+            >
+              <path
+                fill="#1a73e8"
+                d="M20 11H6.83l2.88-2.88c.39-.39.39-1.02 0-1.41-.39-.39-1.02-.39-1.41 0L3.71 11.3c-.39.39-.39 1.02 0 1.41L8.3 17.3c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41L6.83 13H20c.55 0 1-.45 1-1s-.45-1-1-1z"
+              /></svg
+          ></a>
+        </div>
+        <div>
+          <div class="mb-xs">Study Participant Registry</div>
+          <div class="flex__justify__space-between">
+            <div *ngIf="studyDetails.studyType == 'OPEN'" class="pr-xlg">
+              <div class="text__4285f4__up__11">SITE</div>
+              <div class="text__8495a5__12">NA (Open Study)</div>
+            </div>
+            <div class="pr-xlg">
+              <div class="text__4285f4__up__11">
+                {{ studyDetails.customStudyId }}
               </div>
-              <div class="pr-xlg">
-                <div class="text__4285f4__up__11">{{studyDetails.customStudyId}}</div>
-                <div class="text__8495a5__12">{{studyDetails.studyName}}</div>
+              <div class="text__8495a5__12">{{ studyDetails.studyName }}</div>
+            </div>
+            <div class="pr-xlg">
+              <div class="text__4285f4__up__11">
+                {{ studyDetails.customAppId }}
               </div>
-              <div class="pr-xlg">
-                <div class="text__4285f4__up__11">{{studyDetails.customAppId}}</div>
-                <div class="text__8495a5__12">{{studyDetails.appName}}</div>
-              </div>
-              <div  *ngIf="studyDetails.studyType=='OPEN'" class="pr-xlg">
-                <div class="text__4285f4__up__11">Enrollment Target: {{studyDetails.targetEnrollment}}</div>
+              <div class="text__8495a5__12">{{ studyDetails.appName }}</div>
+            </div>
+            <div *ngIf="studyDetails.studyType == 'OPEN'" class="pr-xlg">
+              <div class="text__4285f4__up__11">
+                Enrollment Target: {{ studyDetails.targetEnrollment }}
               </div>
             </div>
           </div>
         </div>
       </div>
-  </div> 
+    </div>
+  </div>
 </div>
 
-  <div class="max__w__1280 m-none site__participant">
-    <div class="cards1 m-none">
-      <table class="table table-striped" [mfData]="studyDetails.registryParticipants" #mf="mfDataTable" [mfRowsOnPage]="10">
-        <thead>
-          <tr>
-            <th>
-              <mySorter by="name">Participant Email</mySorter>
-            </th>
-            <th *ngIf="studyDetails.studyType!='OPEN'">
-              <mfDefaultSorter by="locationName">Site ID</mfDefaultSorter>
-            </th>
-            <th  *ngIf="studyDetails.studyType!='OPEN'">
-              <mfDefaultSorter by="onboardingStatus">Onboarding Status </mfDefaultSorter>
-
-            </th>
-            <th>
-              <mySorter by="enrollmentStatus">Enrollment Status </mySorter>
-            </th>
-            <th>
-              <mySorter by="enrollmentDate">Enrollment Date</mySorter>
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let lists of mf.data">
-            <td (click)="participantDetails(lists.id)"><span>class="no_st_en" {{lists.email}}</span></td>
-            <td  *ngIf="studyDetails.type!='OPEN'">{{lists.locationName}}</td>
-            <td  *ngIf="studyDetails.type!='OPEN'"> <div [ngClass]="{'text__353a3e__14': (lists.onboardingStatus == 'Invited'),  'text__8495a5__14': (lists.onboardingStatus == 'Disabled')}">{{lists.onboardingStatus }}</div></td>  
-            <td><div [ngClass]="{'text__353a3e__14': (lists.enrollmentStatus == 'Enrolled'),  'text__8495a5__14': (lists.enrollmentStatus == 'Withdrawn')}">{{lists.enrollmentStatus }}</div></td>
-            <td>{{lists.enrollmentDate}}</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="5">
-              <mfBootstrapPaginator></mfBootstrapPaginator>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
+<div class="max__w__1280 m-none site__participant">
+  <div class="cards1 m-none">
+    <table
+      class="table table-striped"
+      [mfData]="studyDetails.registryParticipants"
+      #mf="mfDataTable"
+      [mfRowsOnPage]="10"
+    >
+      <thead>
+        <tr>
+          <th>
+            <mySorter by="name">Participant Email</mySorter>
+          </th>
+          <th *ngIf="studyDetails.studyType != 'OPEN'">
+            <mfDefaultSorter by="locationName">Site ID</mfDefaultSorter>
+          </th>
+          <th *ngIf="studyDetails.studyType != 'OPEN'">
+            <mfDefaultSorter by="onboardingStatus"
+              >Onboarding Status
+            </mfDefaultSorter>
+          </th>
+          <th>
+            <mySorter by="enrollmentStatus">Enrollment Status </mySorter>
+          </th>
+          <th>
+            <mySorter by="enrollmentDate">Enrollment Date</mySorter>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let lists of mf.data">
+          <td (click)="participantDetails(lists.id)">
+            <span>class="no_st_en" {{ lists.email }}</span>
+          </td>
+          <td *ngIf="studyDetails.type != 'OPEN'">{{ lists.locationName }}</td>
+          <td *ngIf="studyDetails.type != 'OPEN'">
+            <div
+              [ngClass]="{
+                text__353a3e__14: lists.onboardingStatus == 'Invited',
+                text__8495a5__14: lists.onboardingStatus == 'Disabled'
+              }"
+            >
+              {{ lists.onboardingStatus }}
+            </div>
+          </td>
+          <td>
+            <div
+              [ngClass]="{
+                text__353a3e__14: lists.enrollmentStatus == 'Enrolled',
+                text__8495a5__14: lists.enrollmentStatus == 'Withdrawn'
+              }"
+            >
+              {{ lists.enrollmentStatus }}
+            </div>
+          </td>
+          <td>{{ lists.enrollmentDate }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="5">
+            <mfBootstrapPaginator></mfBootstrapPaginator>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
   </div>
-  </div>
+</div>
 
 <ng-template #template>
   <div class="modal-body modal__body">
     <form>
       <div class="row border__bottom__c4d1e6">
-        <div class="col-xs-12 col-md-12 p-none ">
+        <div class="col-xs-12 col-md-12 p-none">
           <div class="form-group border-radius__77">
             <label for="email">Email</label>
-            <input type="text" class="form-control" id="study" value="" placeholder="Enter Email">
+            <input
+              type="text"
+              class="form-control"
+              id="study"
+              value=""
+              placeholder="Enter Email"
+            />
           </div>
         </div>
       </div>
       <div class="p-xlg flex__justify__space-between">
-          <div><button type="submit" class="btn bt__add mr-sm">Add</button>
-              <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">Cancel</button>
-          </div>
+        <div>
+          <button type="submit" class="btn bt__add mr-sm">Add</button>
+          <button
+            type="button"
+            class="btn bt__cancel"
+            (click)="modalRef.hide()"
+          >
+            Cancel
+          </button>
+        </div>
       </div>
     </form>
   </div>

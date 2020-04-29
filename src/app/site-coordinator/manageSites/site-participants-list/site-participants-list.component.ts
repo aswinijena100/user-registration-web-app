@@ -1,25 +1,30 @@
-import { Component, OnInit, TemplateRef, ViewChild, ElementRef } from '@angular/core';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import {
+  Component,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+  ElementRef,
+} from "@angular/core";
+import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 import { ManageSitesService } from "../manage-sites.service";
-import { NgForm } from '@angular/forms';
+import { NgForm } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
-import { ToastrService } from 'ngx-toastr';
-import { SiteParticipant } from '../../../entity/siteParticipant';
-import { NgxSpinnerService } from 'ngx-spinner';
-
+import { ToastrService } from "ngx-toastr";
+import { SiteParticipant } from "../../../entity/siteParticipant";
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
-  selector: 'app-site-participants-list',
-  templateUrl: './site-participants-list.component.html',
-  styleUrls: ['./site-participants-list.component.scss']
+  selector: "app-site-participants-list",
+  templateUrl: "./site-participants-list.component.html",
+  styleUrls: ["./site-participants-list.component.scss"],
 })
 export class SiteParticipantsListComponent implements OnInit {
-  @ViewChild('importedFile', { static: false }) importedFile: ElementRef;
+  @ViewChild("importedFile", { static: false }) importedFile: ElementRef;
 
   emailIdToAdd: string = "";
   modalRef: BsModalRef;
-  errorMessage = '';
-  successMessage = '';
+  errorMessage = "";
+  successMessage = "";
   siteId: String = "";
   selectedAll: any;
   checkedEmails: any[] = [];
@@ -27,34 +32,43 @@ export class SiteParticipantsListComponent implements OnInit {
   siteParticipants: any = {};
   siteParticipantsBackup: any = {};
   file: any;
-  activeTab: string = 'all';
+  activeTab: string = "all";
   noOfCheckedEmails: number;
   objectLength: any;
   @ViewChild("addParticipantForm", { static: true }) addParticipantForm: NgForm;
   selectEmails: any;
   strings: string;
-  constructor(private spinner: NgxSpinnerService, private modalService: BsModalService, private router: Router, private manageSitesService: ManageSitesService, private route: ActivatedRoute, private toastr: ToastrService) { }
+  constructor(
+    private spinner: NgxSpinnerService,
+    private modalService: BsModalService,
+    private router: Router,
+    private manageSitesService: ManageSitesService,
+    private route: ActivatedRoute,
+    private toastr: ToastrService
+  ) {}
 
   openModal(template: TemplateRef<any>) {
     // this.addParticipantForm.resetForm();
-    this.errorMessage = '';
-    this.successMessage = '';
+    this.errorMessage = "";
+    this.successMessage = "";
     this.modalRef = this.modalService.show(template);
   }
   openModal1(template1: TemplateRef<any>) {
     // this.addParticipantForm.resetForm();
-    this.errorMessage = '';
-    this.successMessage = '';
+    this.errorMessage = "";
+    this.successMessage = "";
     this.modalRef = this.modalService.show(template1);
   }
   ngOnInit() {
-
-    this.route.params.subscribe(params => {
-      if (params['siteId'] != '' && params['siteId'] != 'undefined' && params['siteId'] != undefined)
-        this.siteId = params['siteId'];
+    this.route.params.subscribe((params) => {
+      if (
+        params["siteId"] != "" &&
+        params["siteId"] != "undefined" &&
+        params["siteId"] != undefined
+      )
+        this.siteId = params["siteId"];
       this.getSiteParticipant();
-
-    })
+    });
   }
 
   myFunction() {
@@ -66,43 +80,61 @@ export class SiteParticipantsListComponent implements OnInit {
   getSiteParticipant() {
     this.siteParticipants = [];
     this.siteParticipantsBackup = [];
-    this.manageSitesService.getsiteParticipants(this.siteId, this.activeTab).subscribe(data => {
-      this.siteParticipants = data;
-      console.log(data)
-      this.siteParticipantsBackup = JSON.parse(JSON.stringify(this.siteParticipants.registryParticipants));
-      this.objectLength = Object.keys(this.siteParticipants.registryParticipants).length != 0;
-    }, error => {
-      this.siteParticipants = [];
-      this.siteParticipantsBackup = [];
-    });
+    this.manageSitesService
+      .getsiteParticipants(this.siteId, this.activeTab)
+      .subscribe(
+        (data) => {
+          this.siteParticipants = data;
+          console.log(data);
+          this.siteParticipantsBackup = JSON.parse(
+            JSON.stringify(this.siteParticipants.registryParticipants)
+          );
+          this.objectLength =
+            Object.keys(this.siteParticipants.registryParticipants).length != 0;
+        },
+        (error) => {
+          this.siteParticipants = [];
+          this.siteParticipantsBackup = [];
+        }
+      );
   }
   addParticipant(form: NgForm) {
-    this.errorMessage = '';
-    this.successMessage = '';
+    this.errorMessage = "";
+    this.successMessage = "";
     let participantToBeAdded = {
-      "email": this.emailIdToAdd
-    }
-    this.manageSitesService.addParticipant(this.siteId, participantToBeAdded).subscribe(data => {
-      this.toastr.success(data.successBean.message);
-      this.modalRef.hide();
-      form.reset();
-      this.myFunction();
-      this.activeTab = "new";
-      this.getSiteParticipant();
-    }, error => {
-      this.toastr.error(error.error.userMessage);
-      this.modalRef.hide();
-      form.reset();
-      this.myFunction();
-
-    });
+      email: this.emailIdToAdd,
+    };
+    this.manageSitesService
+      .addParticipant(this.siteId, participantToBeAdded)
+      .subscribe(
+        (data) => {
+          this.toastr.success(data.successBean.message);
+          this.modalRef.hide();
+          form.reset();
+          this.myFunction();
+          this.activeTab = "new";
+          this.getSiteParticipant();
+        },
+        (error) => {
+          this.toastr.error(error.error.userMessage);
+          this.modalRef.hide();
+          form.reset();
+          this.myFunction();
+        }
+      );
   }
   search(filterQuery) {
     let query = filterQuery;
-    if (query && query.trim() != '' && query.trim() != undefined) {
-      this.siteParticipants.registryParticipants = this.siteParticipantsBackup.filter(function (a) {
-        return ((a.email != null && a.email != undefined && a.email.toLowerCase().includes(query.toLowerCase())));
-      });
+    if (query && query.trim() != "" && query.trim() != undefined) {
+      this.siteParticipants.registryParticipants = this.siteParticipantsBackup.filter(
+        function (a) {
+          return (
+            a.email != null &&
+            a.email != undefined &&
+            a.email.toLowerCase().includes(query.toLowerCase())
+          );
+        }
+      );
     } else {
       this.siteParticipants.registryParticipants = this.siteParticipantsBackup;
     }
@@ -114,31 +146,36 @@ export class SiteParticipantsListComponent implements OnInit {
   }
 
   redirectParticipant(userId) {
-    this.router.navigate(["/user/participantDetail", userId])
+    this.router.navigate(["/user/participantDetail", userId]);
   }
 
   rowCheckBoxChange(statusCheck) {
-    this.checkedEmails = this.siteParticipants.registryParticipants.filter(u => u.newlyCreatedUser === statusCheck);
+    this.checkedEmails = this.siteParticipants.registryParticipants.filter(
+      (u) => u.newlyCreatedUser === statusCheck
+    );
     this.noOfCheckedEmails = this.checkedEmails.length;
-    if (this.noOfCheckedEmails != this.siteParticipants.registryParticipants.length) {
+    if (
+      this.noOfCheckedEmails !=
+      this.siteParticipants.registryParticipants.length
+    ) {
       this.selectedAll = false;
     } else {
       this.selectedAll = true;
     }
   }
   selectAll() {
-
     if (this.selectedAll) {
       this.checkedEmails = this.siteParticipants.registryParticipants;
       for (var i = 0; i < 10; i++) {
-        this.checkedEmails[i].newlyCreatedUser = this.siteParticipants.registryParticipants;
+        this.checkedEmails[
+          i
+        ].newlyCreatedUser = this.siteParticipants.registryParticipants;
       }
     } else {
       this.checkedEmails = this.siteParticipants.registryParticipants;
       for (var i = 0; i < 10; i++) {
-        this.checkedEmails[i].newlyCreatedUser = '';
+        this.checkedEmails[i].newlyCreatedUser = "";
       }
-
     }
   }
   onFileChange(evt: any) {
@@ -147,66 +184,85 @@ export class SiteParticipantsListComponent implements OnInit {
   }
   importPartcipants() {
     let formData = new FormData();
-    formData.append('file', this.file, this.file.name);
-    this.manageSitesService.importParticipants(this.siteId, formData).subscribe(data => {
-      this.toastr.success(data.successBean.message);
-      this.importedFile.nativeElement.value = "";
-      this.file = {};
-      this.activeTab = "new";
-      this.getSiteParticipant();
-      this.myFunction();
-    }, error => {
-      if (error.status == 400) {
-        this.toastr.error(error.error.userMessage);
-      } else {
-        this.strings = error.error.errorBean.userMessage + "<br/><br/>Invalid Emails are <br/>" + error.error.invalidEmails + "<br/><br/>Duplicate Emails are <br/>" + error.error.duplicateEmails;
-        this.toastr.error(this.strings);
+    formData.append("file", this.file, this.file.name);
+    this.manageSitesService.importParticipants(this.siteId, formData).subscribe(
+      (data) => {
+        this.toastr.success(data.successBean.message);
+        this.importedFile.nativeElement.value = "";
+        this.file = {};
+        this.activeTab = "new";
+        this.getSiteParticipant();
+        this.myFunction();
+      },
+      (error) => {
+        if (error.status == 400) {
+          this.toastr.error(error.error.userMessage);
+        } else {
+          this.strings =
+            error.error.errorBean.userMessage +
+            "<br/><br/>Invalid Emails are <br/>" +
+            error.error.invalidEmails +
+            "<br/><br/>Duplicate Emails are <br/>" +
+            error.error.duplicateEmails;
+          this.toastr.error(this.strings);
+        }
+        this.importedFile.nativeElement.value = "";
+        this.file = {};
+        this.myFunction();
       }
-      this.importedFile.nativeElement.value = "";
-      this.file = {};
-      this.myFunction();
-
-    });
+    );
   }
   decommissionSite() {
-    this.manageSitesService.siteDecommission(this.siteId).subscribe(data => {
-      this.toastr.success(data.message);
-      this.router.navigate(["/user/dashboard"])
-    }, error => {
-      this.toastr.error(error.error.userMessage);
-    });
+    this.manageSitesService.siteDecommission(this.siteId).subscribe(
+      (data) => {
+        this.toastr.success(data.message);
+        this.router.navigate(["/user/dashboard"]);
+      },
+      (error) => {
+        this.toastr.error(error.error.userMessage);
+      }
+    );
   }
   enableAndDisable(status) {
-    this.checkedEmails = this.siteParticipants.registryParticipants.filter(u => u.newlyCreatedUser === true);
+    this.checkedEmails = this.siteParticipants.registryParticipants.filter(
+      (u) => u.newlyCreatedUser === true
+    );
     var checkedEmailsIds = [];
     this.checkedEmails.forEach(function (checkedEmail) {
       checkedEmailsIds.push(checkedEmail.id);
     });
     let datas = {
-      'id': checkedEmailsIds,
-      'status': status
+      id: checkedEmailsIds,
+      status: status,
     };
     if (checkedEmailsIds.length > 0) {
       if (checkedEmailsIds.length > 11) {
-        this.toastr.error('Please select less than 10 participants');
+        this.toastr.error("Please select less than 10 participants");
       } else {
-        this.manageSitesService.enableDisableInvitation(this.siteId, datas).subscribe(data => {
-          this.toastr.success(data.successBean.message);
-          if (status === "0") {
-            this.activeTab = "disabled";
-          } else {
-            this.activeTab = "new";
-          }
-          this.getSiteParticipant();
-        }, error => {
-          this.toastr.error(error.error.userMessage);
-        });
+        this.manageSitesService
+          .enableDisableInvitation(this.siteId, datas)
+          .subscribe(
+            (data) => {
+              this.toastr.success(data.successBean.message);
+              if (status === "0") {
+                this.activeTab = "disabled";
+              } else {
+                this.activeTab = "new";
+              }
+              this.getSiteParticipant();
+            },
+            (error) => {
+              this.toastr.error(error.error.userMessage);
+            }
+          );
       }
     } else {
       if (status === "0") {
-        this.toastr.error('Please select atleast one participant to disable');
+        this.toastr.error("Please select atleast one participant to disable");
       } else {
-        this.toastr.error('Please select atleast one participant for to enable');
+        this.toastr.error(
+          "Please select atleast one participant for to enable"
+        );
       }
     }
   }
@@ -214,37 +270,39 @@ export class SiteParticipantsListComponent implements OnInit {
   sendResendInvitation() {
     this.spinner.show();
 
-    this.checkedEmails = this.siteParticipants.registryParticipants.filter(u => u.newlyCreatedUser === true);
+    this.checkedEmails = this.siteParticipants.registryParticipants.filter(
+      (u) => u.newlyCreatedUser === true
+    );
     var checkedEmailsIds = [];
     this.checkedEmails.forEach(function (checkedEmail) {
       checkedEmailsIds.push(checkedEmail.id);
     });
     let datas = {
-      'id': checkedEmailsIds
+      id: checkedEmailsIds,
     };
     if (checkedEmailsIds.length > 0) {
       if (checkedEmailsIds.length > 11) {
-        this.toastr.error('Please select less than 10 participants');
+        this.toastr.error("Please select less than 10 participants");
       } else {
-        this.manageSitesService.sendAndResendInvitation(this.siteId, datas).subscribe(data => {
-          this.changeTab('invited');
-          this.getSiteParticipant();
-          this.toastr.success(data.successBean.message);
-          this.spinner.hide();
-
-        }, error => {
-          this.toastr.error(error.error.errorBean.userMessage);
-          this.spinner.hide();
-
-        });
+        this.manageSitesService
+          .sendAndResendInvitation(this.siteId, datas)
+          .subscribe(
+            (data) => {
+              this.changeTab("invited");
+              this.getSiteParticipant();
+              this.toastr.success(data.successBean.message);
+              this.spinner.hide();
+            },
+            (error) => {
+              this.toastr.error(error.error.errorBean.userMessage);
+              this.spinner.hide();
+            }
+          );
       }
     } else {
-      this.toastr.error("Please select atleast one participant for sending invitation");
+      this.toastr.error(
+        "Please select atleast one participant for sending invitation"
+      );
     }
-
   }
-
-
-
-
 }

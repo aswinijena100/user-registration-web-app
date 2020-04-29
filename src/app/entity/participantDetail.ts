@@ -1,30 +1,27 @@
 export class ParticipantDetail {
+  id: number;
 
-    id: number;
+  siteId: String;
 
-    siteId: String;
+  customLocationId: String;
 
-    customLocationId: String
+  locationName: String;
 
-    locationName: String;
+  customStudyId: String;
 
-    customStudyId: String;
+  studyName: String;
 
-    studyName: String
+  customAppId: String;
 
-    customAppId: String;
+  appName: String;
 
-    appName: String;
-    
-    invitationDate:string;
+  invitationDate: string;
 
-    onboardringStatus: String
+  onboardringStatus: String;
 
-    email: String;
+  email: String;
 
-    enrollments: any[] = [];
+  enrollments: any[] = [];
 
-    consentHistory: any[] = [];
-
-
+  consentHistory: any[] = [];
 }

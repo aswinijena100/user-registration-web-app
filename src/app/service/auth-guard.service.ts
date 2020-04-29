@@ -1,31 +1,33 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import {
-  CanActivate, Router,
+  CanActivate,
+  Router,
   ActivatedRouteSnapshot,
-  RouterStateSnapshot
-} from '@angular/router';
-import { AuthService } from '../service/auth.service';
-import { UseExistingWebDriver } from 'protractor/built/driverProviders';
-import { User } from '../entity/user';
+  RouterStateSnapshot,
+} from "@angular/router";
+import { AuthService } from "../service/auth.service";
+import { UseExistingWebDriver } from "protractor/built/driverProviders";
+import { User } from "../entity/user";
 
 @Injectable()
 export class AuthGuard implements CanActivate {
-  user:User;
-  constructor(private authService: AuthService, private router: Router) { 
-    this.user=JSON.parse(window.localStorage.getItem("currentUser"));
-
+  user: User;
+  constructor(private authService: AuthService, private router: Router) {
+    this.user = JSON.parse(window.localStorage.getItem("currentUser"));
   }
-  ngOnInit(){
-    console.log("in auth guard")
-
+  ngOnInit() {
+    console.log("in auth guard");
   }
   flag: boolean;
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+  canActivate(
+    route: ActivatedRouteSnapshot,
+    state: RouterStateSnapshot
+  ): boolean {
     let url: string = state.url;
     return this.checkLogin(url);
   }
   checkLogin(url: string): boolean {
-    this.authService.userloginedOrNot().subscribe(res => this.flag = res);
+    this.authService.userloginedOrNot().subscribe((res) => (this.flag = res));
     if (this.flag) {
       // if (this.user.stRole == 2) {
       //   this.router.navigate(['/user/createSearch']);
@@ -37,7 +39,7 @@ export class AuthGuard implements CanActivate {
     // Store the attempted URL for redirecting
     this.authService.redirectUrl = url;
     // Navigate to the login page with extras
-    this.router.navigate(['/login']);
+    this.router.navigate(["/login"]);
     return false;
   }
 }

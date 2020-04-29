@@ -1,17 +1,15 @@
 export class Location {
+  id: number;
 
-    id: number;
+  name: String;
 
-    name: String;
+  customId: String;
 
-    customId: String
+  description: String;
 
-    description: String;
+  status: String;
 
-    status: String;
+  studies: any[] = [];
 
-    studies: any[] = [];
-
-    studiesCount: number;
-
+  studiesCount: number;
 }

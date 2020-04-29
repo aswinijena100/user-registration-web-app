@@ -1,14 +1,14 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { Location } from '../../../entity/location';
+import { Component, OnInit, TemplateRef, ViewChild } from "@angular/core";
+import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
+import { Router, ActivatedRoute, ParamMap } from "@angular/router";
+import { Location } from "../../../entity/location";
 import { LocationService } from "../location.service";
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from "ngx-toastr";
 
 @Component({
-  selector: 'app-location-details',
-  templateUrl: './location-details.component.html',
-  styleUrls: ['./location-details.component.scss']
+  selector: "app-location-details",
+  templateUrl: "./location-details.component.html",
+  styleUrls: ["./location-details.component.scss"],
 })
 export class LocationDetailsComponent implements OnInit {
   @ViewChild("updateLocationForm", { static: false }) updateLocationForm: any;
@@ -19,56 +19,69 @@ export class LocationDetailsComponent implements OnInit {
   locationBackup: Location = new Location();
   errorMessage: String = "";
   successMessage: String = "";
-  constructor(private toastr: ToastrService,private modalService: BsModalService, private route: ActivatedRoute, private locationService: LocationService) { }
+  constructor(
+    private toastr: ToastrService,
+    private modalService: BsModalService,
+    private route: ActivatedRoute,
+    private locationService: LocationService
+  ) {}
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      if (params['locationId'] != '' && params['locationId'] != 'undefined' && params['locationId'] != undefined)
-        this.locationId = params['locationId'];
-      console.log(this.locationId)
+    this.route.params.subscribe((params) => {
+      if (
+        params["locationId"] != "" &&
+        params["locationId"] != "undefined" &&
+        params["locationId"] != undefined
+      )
+        this.locationId = params["locationId"];
+      console.log(this.locationId);
       this.getLocationDetails();
-
-    })
+    });
   }
   getLocationDetails() {
-    this.locationService.getLocationDetails(this.locationId).subscribe(data => {
-      this.location = data[0];
-      this.locationBackup = JSON.parse(JSON.stringify(this.location));
-      console.log(this.location)
-    }, error => {
-      this.location = new Location();
-      this.locationBackup = new Location();
-    });
+    this.locationService.getLocationDetails(this.locationId).subscribe(
+      (data) => {
+        this.location = data[0];
+        this.locationBackup = JSON.parse(JSON.stringify(this.location));
+        console.log(this.location);
+      },
+      (error) => {
+        this.location = new Location();
+        this.locationBackup = new Location();
+      }
+    );
   }
   updateLocation(task) {
-    this.errorMessage = '';
-    this.successMessage = '';
-    let locationBeanToUpdate: {} = {
-    }
-    if (task == 'update') {
+    this.errorMessage = "";
+    this.successMessage = "";
+    let locationBeanToUpdate: {} = {};
+    if (task == "update") {
       locationBeanToUpdate = {
-        "name": this.location.name,
-        "description": this.location.description
-      }
+        name: this.location.name,
+        description: this.location.description,
+      };
     } else {
       locationBeanToUpdate = {
-        "status": this.location.status == "1" ? "0" : "1",
-      }
+        status: this.location.status == "1" ? "0" : "1",
+      };
     }
-    this.locationService.updateLocation(locationBeanToUpdate, this.locationId).subscribe(data => {
-      // this.successMessage = data.successBean.message;
-      this.location.name = data.name;
-      this.location.description = data.description;
-      this.location.status = data.status;
-      this.locationBackup = JSON.parse(JSON.stringify(this.location));
-      this.toastr.success(data.successBean.message);
-    }, error => {
-      this.toastr.error( error.error.userMessage);
-    });
-    
+    this.locationService
+      .updateLocation(locationBeanToUpdate, this.locationId)
+      .subscribe(
+        (data) => {
+          // this.successMessage = data.successBean.message;
+          this.location.name = data.name;
+          this.location.description = data.description;
+          this.location.status = data.status;
+          this.locationBackup = JSON.parse(JSON.stringify(this.location));
+          this.toastr.success(data.successBean.message);
+        },
+        (error) => {
+          this.toastr.error(error.error.userMessage);
+        }
+      );
   }
-
 }

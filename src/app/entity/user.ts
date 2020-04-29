@@ -1,39 +1,37 @@
 export class User {
+  id: number;
 
-    id: number;
+  email: String;
 
-    email: String;
+  firstName: String;
 
-    firstName: String
+  lastName: String;
 
-    lastName: String;
+  phoneNumber: String;
 
-    phoneNumber: String;
+  emailChanged: number;
 
-    emailChanged: number;
+  status: number;
 
-    status: number;
+  manageLocations: number;
 
-    manageLocations: number;
+  manageLocationsPermission: number;
 
-    manageLocationsPermission:number;
-    
-    superAdmin: number;
+  superAdmin: number;
 
-    manageLocationsCheckBox: number;
-    
-    urAdminAuthId: string;
+  manageLocationsCheckBox: number;
 
-    created: String;
+  urAdminAuthId: string;
 
-    createdBy: number;
+  created: String;
 
-    newPswd : String;
+  createdBy: number;
 
-    password: String;
-   
-    currentPswd :String;
+  newPswd: String;
 
-    confirmPswd: string;
+  password: String;
 
+  currentPswd: String;
+
+  confirmPswd: string;
 }
