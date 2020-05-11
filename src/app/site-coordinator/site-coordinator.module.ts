@@ -25,7 +25,7 @@ import { ManageSitesService } from "./manageSites/manage-sites.service";
 import { ManageUsersService } from "./manageUsers/manage-users.service";
 import { LocationService } from "./locations/location.service";
 //libraries
-import { DataTableModule } from "angular-6-datatable";
+import { NgxDataTableModule } from "angular-9-datatable";
 import { FormsModule } from "@angular/forms";
 import { NgSelectModule } from "@ng-select/ng-select";
 
@@ -50,7 +50,7 @@ import { NgSelectModule } from "@ng-select/ng-select";
     CommonModule,
     CommonComponentsModule,
     SiteCoordinatorRoutingModule,
-    DataTableModule,
+    NgxDataTableModule,
     FormsModule,
     NgSelectModule,
   ],

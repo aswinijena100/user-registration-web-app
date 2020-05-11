@@ -11,7 +11,7 @@ import { ToastrService } from "ngx-toastr";
   styleUrls: ["./location-details.component.scss"],
 })
 export class LocationDetailsComponent implements OnInit {
-  @ViewChild("updateLocationForm", { static: false }) updateLocationForm: any;
+  @ViewChild("updateLocationForm") updateLocationForm: any;
 
   modalRef: BsModalRef;
   locationId: string = "";

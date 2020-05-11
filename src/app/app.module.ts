@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
-import { DataTableModule } from "angular-6-datatable";
+import { NgxDataTableModule } from "angular-9-datatable";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./site-coordinator/manageAccount/login/login.component";
 import { SiteCoordinatorModule } from "./site-coordinator/site-coordinator.module";
@@ -15,6 +15,7 @@ import { ToastrModule } from "ngx-toastr";
 import { FormsModule } from "@angular/forms";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -24,10 +25,11 @@ import { HashLocationStrategy, LocationStrategy } from "@angular/common";
     ForgotPasswordComponent,
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
     SiteCoordinatorModule,
-    DataTableModule,
+    NgxDataTableModule,
     FormsModule,
     HttpClientModule,
     NgSelectModule,

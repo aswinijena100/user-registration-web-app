@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: "user",
     loadChildren:
-      "./site-coordinator/site-coordinator.module#SiteCoordinatorModule",
+      () => import('./site-coordinator/site-coordinator.module').then(m => m.SiteCoordinatorModule),
   },
 ];
 @NgModule({
