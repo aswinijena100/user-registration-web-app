@@ -124,4 +124,16 @@ export class AddNewUserComponent implements OnInit {
     changedSite.disabled = changedSite.permission == 1 ? true : false;
     changedSite.selected = changedSite.permission == 1 ? true : false;
   }
+
+  addUser() {
+    console.log(this.user);
+    this.user.apps = this.selectedApps;
+  }
+  locationsCheckBoxChange(e) {
+    if (e.target.checked) {
+      this.user.manageLocations = 1;
+    } else {
+      this.user.manageLocations = 0;
+    }
+  }
 }

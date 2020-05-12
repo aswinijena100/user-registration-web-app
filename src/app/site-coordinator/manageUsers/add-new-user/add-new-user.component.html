@@ -23,7 +23,7 @@
 </section>
 
 <section class="max__w__850 add__location">
-  <form #addUserForm="ngForm" autocomplete="off">
+  <form #addUserForm="ngForm" autocomplete="off" (submit)="addUser()">
     <section class="bg__white card__inside__pad box__shadow-cmn m-none">
       <div class="row border-bottom__c4d1e6">
         <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
@@ -164,29 +164,37 @@
                 [(ngModel)]="user.manageLocationsCheckBox"
                 name="manageLocationsCheckBox"
                 #manageLocationsCheckBox="ngModel"
+                [ngModelOptions]="{ standalone: true }"
+                (change)="locationsCheckBoxChange($event)"
               />
               <label for="pe">Locations</label>
             </div>
             <div class="pl-xl pt-xs">
               <span>
                 <input
+                  [value]="1"
                   type="radio"
                   id="test3"
                   name="radio-group2"
-                  [(ngModel)]="user.manageLocationsPermission"
+                  [(ngModel)]="user.manageLocations"
                   name="manageLocationsPermission"
                   #manageLocationsPermission="ngModel"
+                  [ngModelOptions]="{ standalone: true }"
+                  [disabled]="!user.manageLocationsCheckBox"
                 />
                 <label for="test3">View</label>
               </span>
               <span>
                 <input
+                  [value]="2"
                   type="radio"
                   id="test4"
                   name="radio-group2"
-                  [(ngModel)]="user.manageLocationsPermission"
+                  [(ngModel)]="user.manageLocations"
                   name="manageLocationsPermission"
                   #manageLocationsPermission="ngModel"
+                  [ngModelOptions]="{ standalone: true }"
+                  [disabled]="!user.manageLocationsCheckBox"
                 />
                 <label for="test4">View And Edit</label>
               </span>
@@ -578,7 +586,11 @@
     </section>
 
     <section class="btn__container">
-      <button type="submit" class="btn bt__add bt__add__auto mr-sm">
+      <button
+        [disabled]="!addUserForm.form.valid"
+        type="submit"
+        class="btn bt__add bt__add__auto mr-sm"
+      >
         Create User and Invite
       </button>
       <button type="button" class="btn bt__cancel" (click)="modalRef.hide()">

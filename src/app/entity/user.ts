@@ -15,8 +15,6 @@ export class User {
 
   manageLocations: number;
 
-  manageLocationsPermission: number;
-
   superAdmin: number;
 
   manageLocationsCheckBox: number;
@@ -34,4 +32,6 @@ export class User {
   currentPswd: String;
 
   confirmPswd: string;
+
+  apps: any[] = [];
 }
