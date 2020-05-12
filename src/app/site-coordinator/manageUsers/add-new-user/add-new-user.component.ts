@@ -31,31 +31,7 @@ export class AddNewUserComponent implements OnInit {
       }
     );
   }
-  items = [
-    {
-      id: 1,
-      name: "First",
-      description: "First accordion",
-    },
-    {
-      id: 2,
-      name: "Second",
-      description: "Second accordion",
-    },
-    {
-      id: 3,
-      name: "Third",
-      description: "Third accordion",
-    },
-  ];
 
-  addItem() {
-    this.items.push({
-      id: this.items.length + 1,
-      name: "Item #" + (this.items.length + 1),
-      description: "Item #" + (this.items.length + 1) + " accordion",
-    });
-  }
   itemChanged() {
     console.log(this.selectedApps);
   }
@@ -124,16 +100,28 @@ export class AddNewUserComponent implements OnInit {
     changedSite.disabled = changedSite.permission == 1 ? true : false;
     changedSite.selected = changedSite.permission == 1 ? true : false;
   }
-
-  addUser() {
-    console.log(this.user);
-    this.user.apps = this.selectedApps;
-  }
   locationsCheckBoxChange(e) {
     if (e.target.checked) {
       this.user.manageLocations = 1;
     } else {
       this.user.manageLocations = 0;
+    }
+  }
+  addUser() {
+    console.log(this.user);
+    this.user.apps = this.selectedApps;
+    var checkedBoxes = document.querySelectorAll(
+      "input[name=checkbox2]:checked"
+    );
+    if (
+      this.user.superAdmin ||
+      (this.selectedApps.length > 0 && checkedBoxes.length > 0)
+    ) {
+      //do a server calll
+    } else {
+      alert(
+        "Please assign the user at least one permission from the permissions set shown."
+      );
     }
   }
 }

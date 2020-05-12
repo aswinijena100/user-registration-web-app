@@ -369,6 +369,7 @@
                       <div class="custom__labels">
                         <input
                           type="checkbox"
+                          name="checkbox2"
                           id="appCheckBox{{ app.id }}"
                           [(ngModel)]="app.selected"
                           [ngModelOptions]="{ standalone: true }"
@@ -444,6 +445,7 @@
                                   (change)="studyCheckBoxChange($event, study)"
                                   [disabled]="study.disabled"
                                   type="checkbox"
+                                  name="checkbox2"
                                   id="studyCheckBox{{ study.studyId }}"
                                   [(ngModel)]="study.selected"
                                   [ngModelOptions]="{ standalone: true }"
@@ -519,6 +521,7 @@
                                   (change)="siteCheckBoxChange($event, site)"
                                   [disabled]="site.disabled"
                                   type="checkbox"
+                                  name="checkbox2"
                                   id="siteCheckBox{{ site.siteId }}"
                                   [ngModelOptions]="{ standalone: true }"
                                   [(ngModel)]="site.selected"
@@ -565,7 +568,7 @@
                   </div>
                 </div>
               </div>
-              <div>
+              <div (click)="deleteAppFromList(app.id)">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   height="20"
