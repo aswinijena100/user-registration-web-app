@@ -1,5 +1,5 @@
 # Stage 1
-FROM node:8.11.2-alpine as node
+FROM node:12.16.3-alpine as node
 
 WORKDIR /usr/src/app
 
@@ -12,7 +12,7 @@ COPY . .
 RUN npm run build
 
 # Stage 2
-FROM nginx:1.13.12-alpine
+FROM 1.17.10-alpine
 
 COPY --from=node /usr/src/app/dist/angular-docker /usr/share/nginx/html
 
