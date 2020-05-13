@@ -12,7 +12,7 @@ export class ManageAccountService {
 
   getProfileData() {
     this.headers = {
-      userId: "10",
+      userId: "1",
       authUserId: "TuKUeFdyWz4E2A1-LqQcoYKBpMsfLnl-KjiuRFuxWcM3sQg",
     };
     return this.dataService.HttpGetRequest(

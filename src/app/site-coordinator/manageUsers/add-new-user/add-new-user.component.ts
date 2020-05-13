@@ -109,7 +109,7 @@ export class AddNewUserComponent implements OnInit {
   }
   addUser() {
     console.log(this.user);
-    this.user.apps = this.selectedApps;
+
     var checkedBoxes = document.querySelectorAll(
       "input[name=checkbox2]:checked"
     );
@@ -117,7 +117,11 @@ export class AddNewUserComponent implements OnInit {
       this.user.superAdmin ||
       (this.selectedApps.length > 0 && checkedBoxes.length > 0)
     ) {
-      //do a server calll
+      if (this.user.superAdmin) {
+        this.user.apps = [];
+      } else {
+        this.user.apps = this.selectedApps;
+      }
     } else {
       alert(
         "Please assign the user at least one permission from the permissions set shown."
