@@ -1,19 +1,11 @@
-# Stage 1
-FROM node:12.16.3-alpine as node
-
-WORKDIR /usr/src/app
-
-COPY package*.json ./
+FROM node:13.3.0 AS compile-image
 
 RUN npm install
 
-COPY . .
 
-RUN npm run build
+COPY . ./
+RUN ng build --oat --prod
 
-# Stage 2
-FROM 1.17.10-alpine
-
-COPY --from=node /usr/src/app/dist/angular-docker /usr/share/nginx/html
-
-COPY ./nginx.conf /etc/nginx/conf.d/default.conf
+FROM nginx
+COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=compile-image /dist/userRegistrationWeb /usr/share/nginx/html
