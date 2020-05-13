@@ -13,7 +13,7 @@ export class SetUpAccountComponent implements OnInit {
   user: User = new User();
   //profileAutoCompleteData: any = {};
 
-  @ViewChild("setupaccount", { static: false }) form: any;
+  @ViewChild("setupaccount") form: any;
 
   constructor(
     private manageAccountService: ManageAccountService,

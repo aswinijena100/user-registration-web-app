@@ -10,7 +10,7 @@ import { AppParticipant } from "../../../entity/appParticipant";
   styleUrls: ["./app-participants-list.component.scss"],
 })
 export class AppParticipantsListComponent implements OnInit {
-  @ViewChild("appsListData", { static: false }) appsListData: any;
+  @ViewChild("appsListData") appsListData: any;
   appId: string = "";
   appDetails: AppParticipant = new AppParticipant();
   particpantappDetailsBackup: any[] = [];

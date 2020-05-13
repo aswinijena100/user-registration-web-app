@@ -12,7 +12,7 @@ import { NgForm, NgModel } from "@angular/forms";
   styleUrls: ["./add-location.component.scss"],
 })
 export class AddLocationComponent implements OnInit {
-  @ViewChild("addLocationForm", { static: false }) addLocationForm: any;
+  @ViewChild("addLocationForm") addLocationForm: any;
   location: Location = new Location();
   errorMessage = "";
   successMessage = "";

@@ -19,7 +19,7 @@ import { NgxSpinnerService } from "ngx-spinner";
   styleUrls: ["./site-participants-list.component.scss"],
 })
 export class SiteParticipantsListComponent implements OnInit {
-  @ViewChild("importedFile", { static: false }) importedFile: ElementRef;
+  @ViewChild("importedFile") importedFile: ElementRef;
 
   emailIdToAdd: string = "";
   modalRef: BsModalRef;

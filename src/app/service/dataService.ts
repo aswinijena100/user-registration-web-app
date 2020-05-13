@@ -29,10 +29,16 @@ const imageHttpOptions = {
 };
 @Injectable()
 export class DataService {
-  // baseUrl = 'http://localhost:8080/urwebappws/';  //local server URL to web api
+  baseUrl = "http://localhost:8080/urwebappws/"; //local server URL to web api
   // baseUrl = "http://192.168.0.122:8080/urwebappws/";//firdose system
   // baseUrl = "http://192.168.0.44:8085/urwebappws/"; //44 system url
+<<<<<<< HEAD
   baseUrl = "http://35.222.67.4:8086/urwebappws/";
+=======
+  // baseUrl = "http://192.168.0.44:8085/urwebappws/"; //44 system url
+  // baseUrl = "http://35.222.67.4:8086/urwebappws/"; //gcp instance system url
+
+>>>>>>> 338694c74bc294257e59c76b6d62974188c6f15f
   serviceUrl: string;
   count: number = 0;
   headersFromService: {};

@@ -16,7 +16,7 @@ export class UserProfileComponent implements OnInit {
   errorMessage: string = "";
   successMessage: String = "";
   passCritiria: string = "";
-  @ViewChild("profile", { static: false }) form: any;
+  @ViewChild("profile") form: any;
 
   constructor(
     private manageAccountService: ManageAccountService,

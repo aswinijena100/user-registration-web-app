@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { SortEvent, DataTable } from "angular-6-datatable";
+import { SortEvent, DataTable } from "angular-9-datatable";
 
 @Component({
   selector: "mySorter",
