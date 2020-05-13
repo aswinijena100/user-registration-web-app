@@ -1,4 +1,5 @@
-import { Injectable } from "@angular/core";
+import { Injectable, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+
 import { Observable, throwError } from "rxjs";
 import {
   HttpErrorResponse,
@@ -30,7 +31,8 @@ const imageHttpOptions = {
 export class DataService {
   // baseUrl = 'http://localhost:8080/urwebappws/';  //local server URL to web api
   // baseUrl = "http://192.168.0.122:8080/urwebappws/";//firdose system
-  baseUrl = "http://192.168.0.44:8085/urwebappws/"; //44 system url
+  // baseUrl = "http://192.168.0.44:8085/urwebappws/"; //44 system url
+  baseUrl = "http://35.222.67.4:8086/urwebappws/";
   serviceUrl: string;
   count: number = 0;
   headersFromService: {};
@@ -76,7 +78,7 @@ export class DataService {
           // })
         } else if (err.status == 401) {
           window.localStorage.clear();
-          this.router.navigate(["/login"]);
+          //  this.router.navigate(["/login"]);
         }
         return throwError(err);
       }),
@@ -118,7 +120,7 @@ export class DataService {
           });
         } else if (err.status == 401) {
           window.localStorage.clear();
-          this.router.navigate(["/login"]);
+          // this.router.navigate(["/login"]);
         }
         return throwError(err);
       }),
@@ -148,7 +150,7 @@ export class DataService {
           });
         } else if (err.status == 401) {
           window.localStorage.clear();
-          this.router.navigate(["/login"]);
+          // this.router.navigate(["/login"]);
         }
         return throwError(err);
       }),

@@ -12,8 +12,8 @@ export class ManageAccountService {
 
   getProfileData() {
     this.headers = {
-      userId: "10",
-      authUserId: "TuKUeFdyWz4E2A1-LqQcoYKBpMsfLnl-KjiuRFuxWcM3sQg",
+      userId: "1",
+      authUserId: "X7Pv1hOr6yx99K2-Ts7Q3KGGZqTlBh7-8uC6NtIM0HwMyRV",
     };
     return this.dataService.HttpGetRequest(
       "users",

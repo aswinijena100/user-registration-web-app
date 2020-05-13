@@ -26,7 +26,7 @@ import { ManageUsersService } from "./manageUsers/manage-users.service";
 import { LocationService } from "./locations/location.service";
 //libraries
 import { DataTableModule } from "angular-6-datatable";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgSelectModule } from "@ng-select/ng-select";
 
 @NgModule({
@@ -53,6 +53,7 @@ import { NgSelectModule } from "@ng-select/ng-select";
     DataTableModule,
     FormsModule,
     NgSelectModule,
+    ReactiveFormsModule,
   ],
   providers: [
     ManageAccountService,

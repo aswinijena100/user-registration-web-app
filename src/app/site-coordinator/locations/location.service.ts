@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { DataService } from "../../service/dataService";
 import { Location } from "../../entity/location";
+
 @Injectable()
 export class LocationService {
   headers: {};

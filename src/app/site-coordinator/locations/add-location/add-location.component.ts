@@ -4,6 +4,7 @@ import { Location } from "../../../entity/location";
 import { LocationService } from "../location.service";
 import { ToastrService } from "ngx-toastr";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
+import { NgForm, NgModel } from "@angular/forms";
 
 @Component({
   selector: "app-add-location",

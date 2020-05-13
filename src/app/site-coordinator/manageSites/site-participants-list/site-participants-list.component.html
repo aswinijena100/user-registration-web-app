@@ -72,7 +72,7 @@
                   </div>
                   <div>
                     <!-- <input #importedFile type="file" accept=".xlsx" class="btn btn-success" id="import_participant_file"
-                      (change)="onFileChange($event)" />
+                      (change)="onFileChange($event)"  error list/>
                     <button class="bt__4285f4 font__bold" (click)="importPartcipants()">Import Email List</button> -->
                     <button
                       class="bt__4285f4 font__bold"
@@ -189,6 +189,7 @@
           ></a
         >
       </li>
+
       <li [ngClass]="{ active: activeTab == 'disabled' }">
         <a data-toggle="tab" (click)="changeTab('disabled')"
           >Disabled
@@ -254,6 +255,7 @@
               ></a
             >
           </li>
+
           <li [ngClass]="{ active: activeTab == 'new' }">
             <a data-toggle="tab" (click)="changeTab('new')"
               >New

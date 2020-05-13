@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { SiteCoordinatorComponent } from "./site-coordinator.component";
+import { ModalModule } from "ngx-bootstrap";
+import { NO_ERRORS_SCHEMA } from "@angular/core";
+import { RouterTestingModule } from "@angular/router/testing";
 
 describe("SiteCoordinatorComponent", () => {
   let component: SiteCoordinatorComponent;
@@ -9,6 +12,8 @@ describe("SiteCoordinatorComponent", () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SiteCoordinatorComponent],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [ModalModule.forRoot(), RouterTestingModule.withRoutes([])],
     }).compileComponents();
   }));
 

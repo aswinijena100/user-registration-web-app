@@ -1,5 +1,9 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import {
+  NgModule,
+  CUSTOM_ELEMENTS_SCHEMA,
+  NO_ERRORS_SCHEMA,
+} from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { DataTableModule } from "angular-6-datatable";
 import { AppComponent } from "./app.component";
@@ -12,7 +16,7 @@ import { DataService } from "./service/dataService";
 import { HttpClientModule } from "@angular/common/http";
 import { NgSelectModule } from "@ng-select/ng-select";
 import { ToastrModule } from "ngx-toastr";
-import { FormsModule } from "@angular/forms";
+import { NgForm, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
@@ -29,6 +33,7 @@ import { HashLocationStrategy, LocationStrategy } from "@angular/common";
     SiteCoordinatorModule,
     DataTableModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgSelectModule,
     NgxSpinnerModule,
@@ -39,10 +44,12 @@ import { HashLocationStrategy, LocationStrategy } from "@angular/common";
       enableHtml: true,
     }), // ToastrModule added
   ],
+  exports: [FormsModule, ReactiveFormsModule],
   providers: [
     DataService,
     { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
