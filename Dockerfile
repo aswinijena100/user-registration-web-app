@@ -1,11 +1,14 @@
-FROM node:13.3.0 AS compile-image
-
+#Stage 1
+FROM node:latest AS compile-image
 RUN npm install
-
+WORKDIR /app
+COPY package.json ./
 
 COPY . ./
-RUN ng build --oat --prod
+RUN npm install -g @angular/cli
+RUN npm install typescript@3.8.3
+RUN ng build --aot --prod
 
+#Stage2
 FROM nginx
-COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=compile-image /dist/userRegistrationWeb /usr/share/nginx/html
+COPY --from=compile-image /app/dist/userRegistrationWeb /usr/share/nginx/html
