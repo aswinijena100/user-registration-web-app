@@ -6,7 +6,7 @@ import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { LocationService } from "../location.service";
 import { RouterTestingModule } from "@angular/router/testing";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
-import { ModalModule } from "ngx-bootstrap";
+import { ModalModule } from "ngx-bootstrap/modal";
 import { DataService } from "../../../service/dataService";
 import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";

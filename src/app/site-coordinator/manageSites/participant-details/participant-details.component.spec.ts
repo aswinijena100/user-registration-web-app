@@ -4,7 +4,7 @@ import { ParticipantDetailsComponent } from "./participant-details.component";
 import { SiteCoordinatorModule } from "../../site-coordinator.module";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
-import { ModalModule } from "ngx-bootstrap";
+import { ModalModule } from "ngx-bootstrap/modal";
 import { LocationService } from "../../locations/location.service";
 import { DataService } from "src/app/service/dataService";
 import { RouterTestingModule } from "@angular/router/testing";

@@ -6,7 +6,7 @@ import { SiteCoordinatorModule } from "../../site-coordinator.module";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { RouterTestingModule } from "@angular/router/testing";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
-import { ModalModule } from "ngx-bootstrap";
+import { ModalModule } from "ngx-bootstrap/modal";
 import { DataService } from "../../../service/dataService";
 import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
@@ -17,7 +17,7 @@ describe("LocationsComponent", () => {
   let service: LocationService;
   let valueServiceSpy: jasmine.SpyObj<LocationService>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         SiteCoordinatorModule,
@@ -40,7 +40,7 @@ describe("LocationsComponent", () => {
         // expect(service.getLocation()).toBe('real value');
         component = fixture.componentInstance; // UserComponent test instance
       });
-  }));
+  });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LocationsComponent);
@@ -51,7 +51,7 @@ describe("LocationsComponent", () => {
   it("should create", () => {
     expect(component).toBeTruthy();
   });
-  it(`should have one user`, async(() => {
+  it(`should have one user`, () => {
     expect(component.locations.length).toBe(0);
-  }));
+  });
 });
