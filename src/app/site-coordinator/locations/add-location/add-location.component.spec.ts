@@ -10,7 +10,8 @@ import { ModalModule } from "ngx-bootstrap/modal";
 import { DataService } from "../../../service/dataService";
 import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
-
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 describe("AddLocationComponent", () => {
   let component: AddLocationComponent;
   let fixture: ComponentFixture<AddLocationComponent>;
@@ -19,6 +20,8 @@ describe("AddLocationComponent", () => {
     TestBed.configureTestingModule({
       imports: [
         SiteCoordinatorModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
         HttpClientModule,
         RouterTestingModule.withRoutes([]),
         ModalModule.forRoot(),

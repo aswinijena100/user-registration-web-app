@@ -10,7 +10,8 @@ import { DataService } from "src/app/service/dataService";
 import { RouterTestingModule } from "@angular/router/testing";
 import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
-
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 describe("ParticipantDetailsComponent", () => {
   let component: ParticipantDetailsComponent;
   let fixture: ComponentFixture<ParticipantDetailsComponent>;
@@ -19,6 +20,8 @@ describe("ParticipantDetailsComponent", () => {
     TestBed.configureTestingModule({
       imports: [
         SiteCoordinatorModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
         HttpClientModule,
         ModalModule.forRoot(),
         RouterTestingModule.withRoutes([]),

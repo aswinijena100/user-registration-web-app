@@ -11,7 +11,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
 import { LocationService } from "../../locations/location.service";
 import { NgForm, FormsModule, ReactiveFormsModule } from "@angular/forms";
-
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 describe("SetUpAccountComponent", () => {
   let component: SetUpAccountComponent;
   let fixture: ComponentFixture<SetUpAccountComponent>;
@@ -23,6 +24,8 @@ describe("SetUpAccountComponent", () => {
         SiteCoordinatorModule,
         HttpClientModule,
         FormsModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
         RouterTestingModule.withRoutes([]),
         ModalModule.forRoot(),
         ToastrModule.forRoot({

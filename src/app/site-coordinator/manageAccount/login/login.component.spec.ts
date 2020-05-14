@@ -12,6 +12,8 @@ import { DataService } from "../../../service/dataService";
 import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
 import { LocationService } from "../../locations/location.service";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 describe("LoginComponent", () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
@@ -22,6 +24,8 @@ describe("LoginComponent", () => {
       imports: [
         SiteCoordinatorModule,
         HttpClientModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
         RouterTestingModule.withRoutes([]),
         ModalModule.forRoot(),
         ToastrModule.forRoot({

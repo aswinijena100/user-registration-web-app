@@ -17,7 +17,7 @@ describe("LocationsComponent", () => {
   let service: LocationService;
   let valueServiceSpy: jasmine.SpyObj<LocationService>;
 
-  beforeEach(() => {
+  beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
         SiteCoordinatorModule,
@@ -40,7 +40,7 @@ describe("LocationsComponent", () => {
         // expect(service.getLocation()).toBe('real value');
         component = fixture.componentInstance; // UserComponent test instance
       });
-  });
+  }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(LocationsComponent);

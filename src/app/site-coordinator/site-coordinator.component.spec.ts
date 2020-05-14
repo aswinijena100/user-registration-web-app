@@ -4,6 +4,8 @@ import { SiteCoordinatorComponent } from "./site-coordinator.component";
 import { ModalModule } from "ngx-bootstrap/modal";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { RouterTestingModule } from "@angular/router/testing";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 
 describe("SiteCoordinatorComponent", () => {
   let component: SiteCoordinatorComponent;
@@ -13,7 +15,12 @@ describe("SiteCoordinatorComponent", () => {
     TestBed.configureTestingModule({
       declarations: [SiteCoordinatorComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      imports: [ModalModule.forRoot(), RouterTestingModule.withRoutes([])],
+      imports: [
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
+        ModalModule.forRoot(),
+        RouterTestingModule.withRoutes([]),
+      ],
     }).compileComponents();
   }));
 

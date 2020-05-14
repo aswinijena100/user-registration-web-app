@@ -9,7 +9,8 @@ import { LocationService } from "../../locations/location.service";
 import { DataService } from "src/app/service/dataService";
 import { RouterTestingModule } from "@angular/router/testing";
 import { HttpClientModule } from "@angular/common/http";
-
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 describe("AppParticipantsListComponent", () => {
   let component: AppParticipantsListComponent;
   let fixture: ComponentFixture<AppParticipantsListComponent>;
@@ -18,6 +19,8 @@ describe("AppParticipantsListComponent", () => {
     TestBed.configureTestingModule({
       imports: [
         SiteCoordinatorModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
         HttpClientModule,
         ModalModule.forRoot(),
         RouterTestingModule.withRoutes([]),

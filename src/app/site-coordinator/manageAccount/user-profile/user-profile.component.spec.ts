@@ -7,6 +7,8 @@ import { DataService } from "../../../service/dataService";
 import { RouterTestingModule } from "@angular/router/testing";
 import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 
 describe("UserProfileComponent", () => {
   let component: UserProfileComponent;
@@ -16,6 +18,8 @@ describe("UserProfileComponent", () => {
     TestBed.configureTestingModule({
       imports: [
         SiteCoordinatorModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
         RouterTestingModule.withRoutes([]),
         HttpClientModule,
         ToastrModule.forRoot({

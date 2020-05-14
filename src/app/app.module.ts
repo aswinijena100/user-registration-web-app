@@ -1,4 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import {
   NgModule,
   CUSTOM_ELEMENTS_SCHEMA,
@@ -19,7 +21,6 @@ import { ToastrModule } from "ngx-toastr";
 import { NgForm, FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxSpinnerModule } from "ngx-spinner";
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -29,8 +30,9 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     ForgotPasswordComponent,
   ],
   imports: [
-    BrowserAnimationsModule,
     BrowserModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     AppRoutingModule,
     SiteCoordinatorModule,
     NgxDataTableModule,

@@ -10,6 +10,8 @@ import { DataService } from "../../../service/dataService";
 import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
 import { LocationService } from "../../locations/location.service";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 describe("UserDetailsComponent", () => {
   let component: UserDetailsComponent;
   let fixture: ComponentFixture<UserDetailsComponent>;
@@ -18,6 +20,8 @@ describe("UserDetailsComponent", () => {
     TestBed.configureTestingModule({
       imports: [
         SiteCoordinatorModule,
+        BrowserAnimationsModule,
+        NoopAnimationsModule,
         HttpClientModule,
         RouterTestingModule.withRoutes([]),
         ModalModule.forRoot(),

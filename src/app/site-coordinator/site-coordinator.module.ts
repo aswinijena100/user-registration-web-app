@@ -26,7 +26,7 @@ import { ManageUsersService } from "./manageUsers/manage-users.service";
 import { LocationService } from "./locations/location.service";
 //libraries
 import { NgxDataTableModule } from "angular-9-datatable";
-import { FormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgSelectModule } from "@ng-select/ng-select";
 
 @NgModule({

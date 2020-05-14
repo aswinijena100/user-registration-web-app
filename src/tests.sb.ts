@@ -1,11 +1,26 @@
 // Import spec files individually for Stackblitz
-import "./app/site-coordinator/site-coordinator.component.spec";
+import "./app/site-coordinator/site-coordinator.component.spec.ts";
 
-import "./app/site-coordinator/locations/locations/locations.component.spec";
-import "./app/site-coordinator/locations/location.service.spec";
-import "./app/site-coordinator/locations/location-details/location-details.component.spec";
-import "./app/site-coordinator/locations/add-location/add-location.component.spec";
-import "./app/site-coordinator/manageAccount/user-profile/user-profile.component.spec";
+import "./app/site-coordinator/locations/locations/locations.component.spec.ts";
+import "./app/site-coordinator/locations/location.service.spec.ts";
+import "./app/site-coordinator/locations/location-details/location-details.component.spec.ts";
+import "./app/site-coordinator/locations/add-location/add-location.component.spec.ts";
+import "./app/site-coordinator/manageAccount/user-profile/user-profile.component.spec.ts";
+import "./app/site-coordinator/manageAccount/manage-account.service.spec.ts";
+import "./app/site-coordinator/manageAccount/forgot-password/forgot-password.component.spec.ts";
+import "./app/site-coordinator/manageAccount/login/login.component.spec.ts";
+import "./app/site-coordinator/manageAccount/set-up-account/set-up-account.component.spec.ts";
+import "./app/site-coordinator/manageSites/app-participants-list/app-participants-list.component.spec.ts";
+import "./app/site-coordinator/manageSites/dashboard/dashboard.component.spec.ts";
+import "./app/site-coordinator/manageSites/participant-details/participant-details.component.spec.ts";
+import "./app/site-coordinator/manageSites/site-participants-list/site-participants-list.component.spec.ts";
+import "./app/site-coordinator/manageSites/study-participants-list/study-participants-list.component.spec.ts";
+import "./app/site-coordinator/manageSites/manage-sites.service.spec.ts";
+import "./app/site-coordinator/manageUsers/add-new-user/add-new-user.component.spec.ts";
+import "./app/site-coordinator/manageUsers/manage-users/manage-users.component.spec.ts";
+import "./app/site-coordinator/manageUsers/update-user/update-user.component.spec.ts";
+import "./app/site-coordinator/manageUsers/user-details/user-details.component.spec.ts";
+import "./app/site-coordinator/manageUsers/manage-users.service.spec.ts";
 
 // import './app/about/about.component.spec.ts';
 // import './app/app-initial.component.spec.ts';
