@@ -43,8 +43,8 @@ const routes: Routes = [
       },
       { path: "manageUsers", component: ManageUsersComponent },
       { path: "addNewUser", component: AddNewUserComponent },
-      { path: "updateUser", component: UpdateUserComponent },
-      { path: "userDetails", component: UserDetailsComponent },
+      { path: "updateUser/:adminId", component: UpdateUserComponent },
+      { path: "userDetails/:adminId", component: UserDetailsComponent },
       { path: "locations", component: LocationsComponent },
       { path: "addNewLocation", component: AddLocationComponent },
       {

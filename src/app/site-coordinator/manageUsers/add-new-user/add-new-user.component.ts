@@ -1,13 +1,18 @@
 import { Component, OnInit } from "@angular/core";
 import { ManageUsersService } from "../manage-users.service";
 import { User } from "src/app/entity/user";
+import { ToastrService } from "ngx-toastr";
+
 @Component({
   selector: "app-add-new-user",
   templateUrl: "./add-new-user.component.html",
   styleUrls: ["./add-new-user.component.scss"],
 })
 export class AddNewUserComponent implements OnInit {
-  constructor(private manageUsersService: ManageUsersService) {}
+  constructor(
+    private manageUsersService: ManageUsersService,
+    private toastr: ToastrService
+  ) {}
   apps: any[] = [];
   appsBackup: any[] = [];
   selectedApps: any[] = [];
@@ -122,6 +127,15 @@ export class AddNewUserComponent implements OnInit {
       } else {
         this.user.apps = this.selectedApps;
       }
+      this.manageUsersService.addUser(this.user).subscribe(
+        (data) => {
+          this.toastr.success(data.successBean.message);
+        },
+        (error) => {
+          console.log(error);
+          this.toastr.error(error.error.userMessage);
+        }
+      );
     } else {
       alert(
         "Please assign the user at least one permission from the permissions set shown."

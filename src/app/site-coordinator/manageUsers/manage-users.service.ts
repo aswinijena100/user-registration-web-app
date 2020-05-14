@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { DataService } from "../../service/dataService";
+import { User } from "src/app/entity/user";
 
 @Injectable({
   providedIn: "root",
@@ -12,6 +13,21 @@ export class ManageUsersService {
     this.generateAuthHeader();
     return this.dataService.HttpGetRequest(
       "apps/details",
+      JSON.stringify(this.headers)
+    );
+  }
+  getusers(adminId?: string) {
+    this.generateAuthHeader();
+    return this.dataService.HttpGetRequest(
+      "manageusers/" + (adminId == undefined ? "" : adminId),
+      JSON.stringify(this.headers)
+    );
+  }
+  addUser(user: User) {
+    this.generateAuthHeader();
+    return this.dataService.HttpPostRequest(
+      JSON.stringify(user),
+      "manageusers/",
       JSON.stringify(this.headers)
     );
   }

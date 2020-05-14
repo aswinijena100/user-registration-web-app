@@ -17,7 +17,7 @@
   <div class="cards1 m-none">
     <table
       class="table table-striped"
-      [mfData]="data"
+      [mfData]="users"
       #mf="mfDataTable"
       [mfRowsOnPage]="5"
     >
@@ -39,16 +39,19 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr
+          *ngFor="let user of mf.data"
+          routerLink="/user/userDetails/{{ user.id }}"
+        >
           <td>
             <span class="tbl__td__label">First Name:</span
-            ><span class="no_st_en">Andreas</span>
+            ><span class="no_st_en">{{ user.firstName }}</span>
           </td>
-          <td><span class="tbl__td__label">Last Name:</span>Brixen</td>
           <td>
-            <span class="tbl__td__label">Email:</span>andreasbrixen@gmail.com
+            <span class="tbl__td__label">Last Name:</span>{{ user.lastName }}
           </td>
-          <td><span class="tbl__td__label">Status:</span>Invited</td>
+          <td><span class="tbl__td__label">Email:</span>{{ user.email }}</td>
+          <td><span class="tbl__td__label">Status:</span>{{ user.status }}</td>
         </tr>
       </tbody>
       <tfoot>
