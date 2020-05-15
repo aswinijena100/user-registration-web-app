@@ -14,6 +14,8 @@ import { ToastrModule } from "ngx-toastr";
 import { LocationService } from "../../locations/location.service";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
+const loginServiceSpy = jasmine.createSpyObj("LoginService", ["login"]);
+
 describe("LoginComponent", () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
@@ -45,7 +47,15 @@ describe("LoginComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it("should create component", () => {
     expect(component).toBeTruthy();
   });
+
+  // it("component initial state", () => {
+  //   expect(component.submitted).toBeFalsy();
+  //   expect(component.loginForm).toBeDefined();
+  //   expect(component.loginForm.invalid).toBeTruthy();
+  //   expect(component.authError).toBeFalsy();
+  //   expect(component.authErrorMsg).toBeUndefined();
+  // });
 });

@@ -27,7 +27,26 @@ describe("UpdateUserComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
-    expect(component).toBeTruthy();
-  });
+  // it("should create", () => {
+  //   expect(component).toBeTruthy();
+  // });
+  // it("should have one user", async(() => {
+  //
+  // }));
+
+  // it("should accept Firstname", () => {
+  //   expect(component).toBeTruthy();
+  // });
+  // it("should accept Lastname", () => {
+  //   expect(component).toBeTruthy();
+  // });
+  // it("email is Un editable", () => {
+  //   expect(component).toBeTruthy();
+  // });
+  // it("Form shuld be valid", () => {
+  //   expect(component).toBeTruthy();
+  // });
+  // it("Form shuld be valid", () => {
+  //   expect(component).toBeTruthy();
+  // });
 });
