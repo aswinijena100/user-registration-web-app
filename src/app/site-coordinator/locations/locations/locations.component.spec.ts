@@ -1,4 +1,10 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import {
+  async,
+  fakeAsync,
+  ComponentFixture,
+  TestBed,
+  tick,
+} from "@angular/core/testing";
 import { LocationService } from "../location.service";
 import { UserServiceMock } from "../../../mocks/user.service.mock";
 import { LocationsComponent } from "./locations.component";
@@ -8,18 +14,24 @@ import { RouterTestingModule } from "@angular/router/testing";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 import { ModalModule } from "ngx-bootstrap/modal";
 import { DataService } from "../../../service/dataService";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
 import { Router } from "@angular/router";
 import { By } from "@angular/platform-browser";
+import { addMatchers } from "../../../../testing";
+
+class FakeRouter {
+  navigateByUrl(url: string) {
+    return url;
+  }
+}
 
 describe("LocationsComponent", () => {
   let component: LocationsComponent;
   let fixture: ComponentFixture<LocationsComponent>;
   let service: LocationService;
   let valueServiceSpy: jasmine.SpyObj<LocationService>;
-
-  //let loggedIn = true;
+  let router: Router;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -35,7 +47,15 @@ describe("LocationsComponent", () => {
         }),
       ],
       schemas: [NO_ERRORS_SCHEMA],
-      providers: [LocationService, DataService, BsModalService, BsModalRef],
+      providers: [
+        LocationService,
+        DataService,
+        BsModalService,
+        BsModalRef,
+        {
+          useClass: UserServiceMock,
+        },
+      ],
     })
       .compileComponents()
       .then(() => {
@@ -62,6 +82,57 @@ describe("LocationsComponent", () => {
     );
   });
 
+  it("should DISPLAY Locations", () => {
+    const compiled = fixture.nativeElement.querySelectorAll(
+      ".subheader__title"
+    );
+    expect(compiled.length).toBe(1, "should display all locations list");
+  });
+
+  it("should call onClick method", () => {
+    fixture.detectChanges();
+    const onClickMock = spyOn(component, "newAddLocation");
+    fixture.debugElement
+      .query(By.css("button"))
+      .triggerEventHandler("click", null);
+    expect(onClickMock).toHaveBeenCalled();
+  });
+
+  it("should auto click on NewAddLocation Button", async(() => {
+    spyOn(component, "newAddLocation");
+    fixture.detectChanges();
+    let button = fixture.debugElement.nativeElement.querySelector("button");
+    button.click();
+
+    fixture.whenStable().then(() => {
+      expect(component.newAddLocation).toHaveBeenCalled();
+    });
+  }));
+
+  it("should get the user List via refresh function", fakeAsync(() => {
+    component.getLocation();
+    tick();
+    fixture.detectChanges();
+    expect(component.locations.length).toBe(
+      1,
+      "Location list after function call"
+    );
+  }));
+
+  // it("#getValue should return stubbed value from a spy", () => {
+  //   const { service, stubValue, valueServiceSpy } = setup();
+  //   expect(service.getLocation()).toBe(
+  //     stubValue,
+  //     "service returned stub value"
+  //   );
+  //   expect(valueServiceSpy.getValue.calls.count()).toBe(
+  //     1,
+  //     "spy method was called once"
+  //   );
+  //   expect(valueServiceSpy.getValue.calls.mostRecent().returnValue).toBe(
+  //     stubValue
+  //   );
+  // });
   // it("should render title ", async(() => {
   //   const fixture = TestBed.createComponent(LocationsComponent);
   //   fixture.detectChanges();

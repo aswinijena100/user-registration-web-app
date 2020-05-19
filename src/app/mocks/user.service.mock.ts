@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { ActivationEnd } from "@angular/router";
+//import { ActivationEnd } from "@angular/router";
 
 @Injectable()
 export class UserServiceMock {

@@ -39,6 +39,10 @@ export class LocationsComponent implements OnInit {
     console.log(locationId);
     this.router.navigate(["/user/locationDetails/", locationId]);
   }
+  newAddLocation() {
+    this.router.navigate(["/user/addNewLocation"]);
+  }
+
   search(filterQuery) {
     let query = filterQuery;
     if (query && query.trim() != "" && query.trim() != undefined) {
