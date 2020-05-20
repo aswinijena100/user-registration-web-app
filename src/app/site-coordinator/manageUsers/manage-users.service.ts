@@ -31,6 +31,14 @@ export class ManageUsersService {
       JSON.stringify(this.headers)
     );
   }
+  updateUser(user: User) {
+    this.generateAuthHeader();
+    return this.dataService.HttpPutRequest(
+      JSON.stringify(user),
+      "manageusers/" + user.id + "/",
+      JSON.stringify(this.headers)
+    );
+  }
   generateAuthHeader() {
     // var authKey = window.localStorage.getItem("authKey");
     // var userId = parseInt(window.localStorage.getItem("userId"));
@@ -38,6 +46,6 @@ export class ManageUsersService {
     // console.log(userId)
 
     // this.headers = { "authKey": authKey, "userId": userId };
-    this.headers = { userId: "1" };
+    this.headers = { userId: "10" };
   }
 }

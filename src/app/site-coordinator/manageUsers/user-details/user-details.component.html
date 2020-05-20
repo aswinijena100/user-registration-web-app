@@ -52,19 +52,22 @@
           >
             <div class="">
               <div class="text__4285f4__12">First Name</div>
-              <div class="text__34a853__14">Andreas</div>
+              <div class="text__34a853__14">{{ user.firstName }}</div>
             </div>
             <div class="">
               <div class="text__4285f4__12">Last Name</div>
-              <div class="text__34a853__14">brixen</div>
+              <div class="text__34a853__14">{{ user.lastName }}</div>
             </div>
             <div class="">
               <div class="text__4285f4__12">Role</div>
-              <div class="text__353a3e__14">Super Admin</div>
+              <div class="text__353a3e__14">
+                <span *ngIf="user.superAdmin == 1">Super Admin</span>
+                <span *ngIf="user.superAdmin != 1">Site Admin</span>
+              </div>
             </div>
             <div class="">
               <div class="text__4285f4__12">Status</div>
-              <div class="text__353a3e__14">Active</div>
+              <div class="text__353a3e__14">{{ user.status }}</div>
             </div>
           </div>
         </div>
@@ -104,30 +107,9 @@
   <section class="bg__white card__inside__pad box__shadow-cmn m-none">
     <div class="form-group">
       <div class="text__353a3e__16 pb-lg">Sites, Studies and Apps</div>
-
-      <div class="navbar-nav inner-addon right-addon search-icon">
-        <input
-          type="text"
-          placeholder="Search an App"
-          autocomplete="off"
-          class="form-control search-box search__ search__user__details"
-        />
-      </div>
-
-      <div class="select__form-control__parent">
-        <label class="wrap"
-          >Select and Add App
-          <select
-            class="form-control select__form-control"
-            Placeholder="Enter App ID or Name"
-          >
-            <option value="APP001">Health Studies App (APP001)</option>
-          </select>
-        </label>
-      </div>
     </div>
 
-    <div class="form-group pt-none">
+    <!-- <div class="form-group pt-none">
       <div class="accordion" id="accordionExample">
         <div class="card">
           <div class="flex__justify__space-between">
@@ -330,6 +312,229 @@
               </div>
             </div>
             <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                height="20"
+                viewBox="0 0 24 24"
+                width="20"
+              >
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path
+                  fill="#a7b5cc"
+                  d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v10zM18 4h-2.5l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <div class="form-group pt-none">
+      <div class="accordion" id="accordionExample">
+        <div *ngFor="let app of selectedApps" class="card">
+          <div class="flex__justify__space-between">
+            <div class="acc__dele">
+              <div class="card-header">
+                <div class="mb-0 flex__justify__space-between">
+                  <div class="">
+                    <div class="custom__labels">
+                      <input
+                        type="checkbox"
+                        name="checkbox2"
+                        id="appCheckBox{{ app.id }}"
+                        [(ngModel)]="app.selected"
+                        [ngModelOptions]="{ standalone: true }"
+                        (change)="appCheckBoxChange($event, app)"
+                        disabled
+                      />
+                      <label for="appCheckBox{{ app.id }}"
+                        >{{ app.name
+                        }}<span class="text__353a3e__11 ml-xs"
+                          >({{ app.customId }})</span
+                        ></label
+                      >
+                    </div>
+                    <div class="pl-xl pt-xs">
+                      <span>
+                        <input
+                          type="radio"
+                          [value]="1"
+                          [(ngModel)]="app.permission"
+                          [disabled]="!app.selected"
+                          [ngModelOptions]="{ standalone: true }"
+                          id="appRadioView{{ app.id }}"
+                          name="appRadioGroup{{ app.id }}"
+                          (change)="appRadioButtonChange($event, app)"
+                        />
+                        <label for="appRadioView{{ app.id }}">View</label>
+                      </span>
+                      <span>
+                        <input
+                          type="radio"
+                          [value]="2"
+                          [(ngModel)]="app.permission"
+                          [disabled]="!app.selected"
+                          [ngModelOptions]="{ standalone: true }"
+                          id="appRadioEdit{{ app.id }}"
+                          name="appRadioGroup{{ app.id }}"
+                          (change)="appRadioButtonChange($event, app)"
+                        />
+                        <label for="appRadioEdit{{ app.id }}"
+                          >View And Edit</label
+                        >
+                      </span>
+                    </div>
+                  </div>
+                  <div
+                    class="fa__plus__minus"
+                    type="button"
+                    data-toggle="collapse"
+                    [attr.data-target]="'#collapse' + app.id"
+                    aria-expanded="false"
+                  ></div>
+                </div>
+              </div>
+              <div
+                id="collapse{{ app.id }}"
+                class="collapse"
+                data-parent="#accordionExample"
+              >
+                <div class="card-body">
+                  <div
+                    class="accordion sub__accordian card-body__pad"
+                    id="accordionExample{{ app.id }}"
+                  >
+                    <div class="text__ffbc00__12 pb-sm">
+                      Total {{ app.studies.length }} Studies
+                    </div>
+
+                    <div class="card" *ngFor="let study of app.studies">
+                      <div class="card-header">
+                        <div class="mb-0 flex__justify__space-between">
+                          <div class="">
+                            <div class="custom__labels">
+                              <input
+                                (change)="studyCheckBoxChange($event, study)"
+                                [disabled]="study.disabled"
+                                type="checkbox"
+                                name="checkbox2"
+                                id="studyCheckBox{{ study.studyId }}"
+                                [(ngModel)]="study.selected"
+                                [ngModelOptions]="{ standalone: true }"
+                              />
+                              <label for="studyCheckBox{{ study.studyId }}"
+                                >{{ study.studyName }}
+                              </label>
+                            </div>
+                            <div class="custom__labels__radio">
+                              <span>
+                                <input
+                                  [disabled]="study.disabled || !study.selected"
+                                  type="radio"
+                                  [value]="1"
+                                  [(ngModel)]="study.permission"
+                                  [ngModelOptions]="{ standalone: true }"
+                                  id="studyRadioView{{ study.studyId }}"
+                                  name="studyRadioGroup{{ study.studyId }}"
+                                  (change)="
+                                    studyRadioButtonChange($event, study)
+                                  "
+                                />
+                                <label for="studyRadioView{{ study.studyId }}"
+                                  >View</label
+                                >
+                              </span>
+                              <span>
+                                <input
+                                  [disabled]="study.disabled || !study.selected"
+                                  type="radio"
+                                  [value]="2"
+                                  [(ngModel)]="study.permission"
+                                  [ngModelOptions]="{ standalone: true }"
+                                  id="studyRadioEdit{{ study.studyId }}"
+                                  name="studyRadioGroup{{ study.studyId }}"
+                                  (change)="
+                                    studyRadioButtonChange($event, study)
+                                  "
+                                />
+                                <label for="studyRadioEdit{{ study.studyId }}"
+                                  >View And Edit</label
+                                >
+                              </span>
+                            </div>
+                          </div>
+                          <div
+                            class="fa__plus__minus"
+                            type="button"
+                            data-toggle="collapse"
+                            [attr.data-target]="'#collapseTwo' + study.studyId"
+                            aria-expanded="false"
+                          ></div>
+                        </div>
+                      </div>
+                      <div
+                        id="collapseTwo{{ study.studyId }}"
+                        class="collapse"
+                        [attr.data-parent]="'#accordionExample' + app.id"
+                      >
+                        <div class="card-body">
+                          <div class="text__ffbc00__12 pad__T10__B20">
+                            Total {{ study.sites.length }} Sites
+                          </div>
+                          <div class="" *ngFor="let site of study.sites">
+                            <div class="custom__labels">
+                              <input
+                                (change)="siteCheckBoxChange($event, site)"
+                                [disabled]="site.disabled"
+                                type="checkbox"
+                                name="checkbox2"
+                                id="siteCheckBox{{ site.siteId }}"
+                                [ngModelOptions]="{ standalone: true }"
+                                [(ngModel)]="site.selected"
+                              />
+                              <label for="siteCheckBox{{ site.siteId }}"
+                                >{{ site.locationName }}
+                              </label>
+                            </div>
+                            <div class="custom__labels__radio">
+                              <span>
+                                <input
+                                  [disabled]="site.disabled || !site.selected"
+                                  type="radio"
+                                  [value]="1"
+                                  [(ngModel)]="site.permission"
+                                  [ngModelOptions]="{ standalone: true }"
+                                  id="siteRadioRead{{ site.siteId }}"
+                                  name="siteRadioGroup{{ site.siteId }}"
+                                />
+                                <label for="siteRadioRead{{ site.siteId }}"
+                                  >View</label
+                                >
+                              </span>
+                              <span>
+                                <input
+                                  [disabled]="site.disabled || !site.selected"
+                                  type="radio"
+                                  [value]="2"
+                                  [(ngModel)]="site.permission"
+                                  [ngModelOptions]="{ standalone: true }"
+                                  id="siteRadioEdit{{ site.siteId }}"
+                                  name="siteRadioGroup{{ site.siteId }}"
+                                />
+                                <label for="siteRadioEdit{{ site.siteId }}"
+                                  >View And Edit</label
+                                >
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div (click)="deleteAppFromList(app.id)">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 height="20"

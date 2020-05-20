@@ -14,6 +14,7 @@ export class UserDetailsComponent implements OnInit {
   userBackup: User = new User();
   errorMessage: String = "";
   successMessage: String = "";
+  selectedApps: any[] = [];
 
   constructor(
     private toastr: ToastrService,
@@ -38,7 +39,9 @@ export class UserDetailsComponent implements OnInit {
       (data) => {
         this.user = data[0];
         this.userBackup = JSON.parse(JSON.stringify(this.user));
-        console.log(this.user);
+        this.selectedApps = this.user.apps;
+
+        console.log(this.selectedApps);
       },
       (error) => {
         this.user = new User();

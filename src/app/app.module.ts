@@ -39,7 +39,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
       positionClass: "toast-top-center",
       preventDuplicates: true,
       enableHtml: true,
-    }), // ToastrModule added
+    }),
   ],
   providers: [
     DataService,

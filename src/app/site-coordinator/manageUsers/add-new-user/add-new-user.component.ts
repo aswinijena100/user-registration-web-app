@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { ManageUsersService } from "../manage-users.service";
 import { User } from "src/app/entity/user";
 import { ToastrService } from "ngx-toastr";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-add-new-user",
@@ -10,6 +11,7 @@ import { ToastrService } from "ngx-toastr";
 })
 export class AddNewUserComponent implements OnInit {
   constructor(
+    private router: Router,
     private manageUsersService: ManageUsersService,
     private toastr: ToastrService
   ) {}
@@ -129,17 +131,24 @@ export class AddNewUserComponent implements OnInit {
       }
       this.manageUsersService.addUser(this.user).subscribe(
         (data) => {
-          this.toastr.success(data.successBean.message);
+          console.log("in sucess");
+          this.toastr.success(data.message);
+          this.router.navigate(["/user/manageUsers"]);
         },
         (error) => {
           console.log(error);
           this.toastr.error(error.error.userMessage);
+          // this.router.navigate(["/user/manageUsers"]);
         }
       );
     } else {
-      alert(
+      this.toastr.error(
         "Please assign the user at least one permission from the permissions set shown."
       );
+      return;
     }
+  }
+  cancel() {
+    this.router.navigate(["/user/manageUsers"]);
   }
 }
