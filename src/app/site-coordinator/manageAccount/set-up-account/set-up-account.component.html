@@ -1,221 +1,127 @@
 <header>
-  <div id="desktop-menu">
-    <div class="bs-example bs__example">
-      <nav class="navbar navbar-expand-md p-none">
-        <a href="#" class="navbar-brand">
-          <img class="mr-sm" src="../../../assets/images/landing-logo.gif" />
-          <span class="header__logo__text">FDA MyStudies </span>
-        </a>
-      </nav>
+    <div id="desktop-menu">
+        <div class="bs-example bs__example">
+            <nav class="navbar navbar-expand-md p-none">
+                <a href="#" class="navbar-brand">
+                    <img class="mr-sm" src="../../../assets/images/landing-logo.png" />
+                    <!-- <span class="header__logo__text">FDA MyStudies </span> -->
+                </a>
+            </nav>
+        </div>
     </div>
-  </div>
 </header>
 
 <section class="max__w__850 add__location">
-  <form #setupaccount="ngForm" autocomplete="off">
-    <h2 class="subheader__title mb-sm mt-lg">Set Up Account</h2>
-    <section class="bg__white card__inside__pad box__shadow-cmn m-none">
-      <div class="mt-lg">
-        <div class="row border-bottom__c4d1e6">
-          <div class="col-xs-12 col-md-12 p-none">
-            <div class="form-group">
-              <label for="email">Email ID</label>
-              <input
-                type="text"
-                class="form-control"
-                id="email"
-                placeholder="Enter Email"
-                [(ngModel)]="user.email"
-                name="email"
-                #email="ngModel"
-                pattern='(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)'
-                required
-              />
-              <div *ngIf="email.invalid && (email.dirty || email.touched)">
-                <span
-                  class="help-block with-errors error__msg"
-                  *ngIf="email.errors.required"
-                >
+    <form #setupaccount="ngForm" autocomplete="off">
+        <h2 class="subheader__title mb-sm mt-lg">Set Up Account</h2>
+        <section class="bg__white card__inside__pad box__shadow-cmn m-none">
+            <div class="mt-lg">
+                <div class="row border-bottom__c4d1e6">
+                    <div class="col-xs-12 col-md-12 p-none">
+                        <div class="form-group">
+                            <label for="email">Email ID</label>
+                            <input type="text" class="form-control" id="email" placeholder="Enter Email" [(ngModel)]="user.email" name="email" #email="ngModel" pattern='(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)'
+                                required />
+                            <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                                <span class="help-block with-errors error__msg" *ngIf="email.errors.required">
                   Please fill out this filed.
                 </span>
-                <span
-                  class="help-block with-errors error__msg"
-                  *ngIf="email.errors.pattern"
-                >
+                                <span class="help-block with-errors error__msg" *ngIf="email.errors.pattern">
                   Email entered is invalid.
                 </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
-            <div class="form-group">
-              <label for="fname">First Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="fname"
-                placeholder="Enter First Name"
-                [(ngModel)]="user.firstName"
-                name="firstName"
-                #firstName="ngModel"
-                pattern="^[A-Za-z]{3,50}$"
-                required
-              />
-              <div
-                *ngIf="
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
+                        <div class="form-group">
+                            <label for="fname">First Name</label>
+                            <input type="text" class="form-control" id="fname" placeholder="Enter First Name" [(ngModel)]="user.firstName" name="firstName" #firstName="ngModel" pattern="^[A-Za-z]{3,50}$" required />
+                            <div *ngIf="
                   firstName.invalid && (firstName.dirty || firstName.touched)
-                "
-              >
-                <span
-                  class="help-block with-errors error__msg"
-                  *ngIf="firstName.errors.required"
-                >
+                ">
+                                <span class="help-block with-errors error__msg" *ngIf="firstName.errors.required">
                   Please fill out this filed.
                 </span>
-                <span
-                  class="help-block with-errors error__msg"
-                  *ngIf="firstName.errors.pattern"
-                >
+                                <span class="help-block with-errors error__msg" *ngIf="firstName.errors.pattern">
                   Please enter atlest 4 alphabets with no space.
                 </span>
-              </div>
-            </div>
-          </div>
-          <div class="col-xs-12 col-md-6 p-none">
-            <div class="form-group">
-              <label for="lname">Last Name</label>
-              <input
-                type="text"
-                class="form-control"
-                id="lname"
-                placeholder="Enter Last Name"
-                [(ngModel)]="user.lastName"
-                name="lastName"
-                #lastName="ngModel"
-                pattern="^[A-Za-z]{3,50}$"
-                required
-              />
-              <div
-                *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
-              >
-                <span
-                  class="help-block with-errors error__msg"
-                  *ngIf="lastName.errors.required"
-                >
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6 p-none">
+                        <div class="form-group">
+                            <label for="lname">Last Name</label>
+                            <input type="text" class="form-control" id="lname" placeholder="Enter Last Name" [(ngModel)]="user.lastName" name="lastName" #lastName="ngModel" pattern="^[A-Za-z]{3,50}$" required />
+                            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                                <span class="help-block with-errors error__msg" *ngIf="lastName.errors.required">
                   Please fill out this filed.
                 </span>
-                <span
-                  class="help-block with-errors error__msg"
-                  *ngIf="lastName.errors.pattern"
-                >
+                                <span class="help-block with-errors error__msg" *ngIf="lastName.errors.pattern">
                   Please enter atleast 3 alphabets with no space.
                 </span>
-              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <h2 class="subheader__title mb-sm">Create Password</h2>
-    <section class="bg__white card__inside__pad box__shadow-cmn m-none">
-      <div class="row">
-        <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
-          <div class="form-group">
-            <label for="newPswd">Password</label>
-            <input
-              type="text"
-              class="form-control"
-              id="newPswd"
-              placeholder="Enter Password"
-              [(ngModel)]="user.newPswd"
-              #newPswd="ngModel"
-              name="newPswd"
-              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$"
-              required
-            />
-            <div *ngIf="newPswd.invalid && (newPswd.dirty || newPswd.touched)">
-              <span
-                class="help-block with-errors error__msg"
-                *ngIf="newPswd.errors.required"
-              >
+        <h2 class="subheader__title mb-sm">Create Password</h2>
+        <section class="bg__white card__inside__pad box__shadow-cmn m-none">
+            <div class="row">
+                <div class="col-xs-12 col-md-6 p-none border-right__c4d1e6">
+                    <div class="form-group">
+                        <label for="newPswd">Password</label>
+                        <input type="text" class="form-control" id="newPswd" placeholder="Enter Password" [(ngModel)]="user.newPswd" #newPswd="ngModel" name="newPswd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$" required />
+                        <div *ngIf="newPswd.invalid && (newPswd.dirty || newPswd.touched)">
+                            <span class="help-block with-errors error__msg" *ngIf="newPswd.errors.required">
                 Please fill out this filed.
               </span>
-              <span
-                class="help-block with-errors error__msg"
-                *ngIf="newPswd.errors.pattern"
-              >
+                            <span class="help-block with-errors error__msg" *ngIf="newPswd.errors.pattern">
                 Does not match Password criteria
               </span>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-12 col-md-6 p-none">
-          <div class="form-group">
-            <label for="confirmPswd">Confirm Password</label>
-            <input
-              type="text"
-              class="form-control"
-              id="confirmPswd"
-              placeholder="Enter Confirm Password"
-              [(ngModel)]="user.confirmPswd"
-              #confirmPswd="ngModel"
-              name="confirmPswd"
-              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$"
-              required
-            />
-            <div
-              *ngIf="
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6 p-none">
+                    <div class="form-group">
+                        <label for="confirmPswd">Confirm Password</label>
+                        <input type="text" class="form-control" id="confirmPswd" placeholder="Enter Confirm Password" [(ngModel)]="user.confirmPswd" #confirmPswd="ngModel" name="confirmPswd" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,}$" required
+                        />
+                        <div *ngIf="
                 confirmPswd.invalid &&
                 (confirmPswd.dirty || confirmPswd.touched)
-              "
-            >
-              <span
-                class="help-block with-errors error__msg"
-                *ngIf="confirmPswd.errors.required"
-              >
+              ">
+                            <span class="help-block with-errors error__msg" *ngIf="confirmPswd.errors.required">
                 Please fill out this filed.
               </span>
-              <span
-                class="help-block with-errors error__msg"
-                *ngIf="confirmPswd.errors.pattern"
-              >
+                            <span class="help-block with-errors error__msg" *ngIf="confirmPswd.errors.pattern">
                 Does not match Password criteria
               </span>
-            </div>
-            <div
-              *ngIf="
+                        </div>
+                        <div *ngIf="
                 !confirmPswd.invalid &&
                 (confirmPswd.dirty || confirmPswd.touched)
-              "
-            >
-              <span
-                class="help-block with-errors error__msg"
-                *ngIf="user.confirmPswd !== user.newPswd"
-              >
+              ">
+                            <span class="help-block with-errors error__msg" *ngIf="user.confirmPswd !== user.newPswd">
                 Entered Password does not match
               </span>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="btn__container flex__justify__space-between mb-xlg">
-      <div>
-        <button
-          type="submit"
-          class="btn bt__add mr-sm"
-          [disabled]="
+        </section>
+        <section class="btn__container flex__justify__space-between mb-xlg">
+            <div>
+                <button type="submit" class="btn bt__add mr-sm" [disabled]="
             setupaccount.form.invalid || user.confirmPswd != user.newPswd
-          "
-          (click)="registerUser()"
-        >
+          " (click)="registerUser()">
           Submit
         </button>
-        <button type="button" class="btn bt__cancel">Cancel</button>
-      </div>
-    </section>
-  </form>
+                <button type="button" class="btn bt__cancel">Cancel</button>
+            </div>
+        </section>
+    </form>
 </section>
