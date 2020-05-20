@@ -26,7 +26,6 @@ export class LocationsComponent implements OnInit {
       (data) => {
         this.locations = data;
         this.locationBackup = JSON.parse(JSON.stringify(this.locations));
-        console.log(this.locations);
       },
       (error) => {
         this.locations = [];
@@ -36,7 +35,6 @@ export class LocationsComponent implements OnInit {
     );
   }
   locationDetails(locationId) {
-    console.log(locationId);
     this.router.navigate(["/user/locationDetails/", locationId]);
   }
   newAddLocation() {

@@ -11,6 +11,14 @@ import { HttpClientModule } from "@angular/common/http";
 import { ToastrModule } from "ngx-toastr";
 
 describe("LocationService", () => {
+  let httpClientSpy: { get: jasmine.Spy };
+  let locationService: LocationService;
+
+  beforeEach(() => {
+    httpClientSpy = jasmine.createSpyObj("HttpClient", ["get"]);
+    locationService = new LocationService(<any>httpClientSpy);
+  });
+
   beforeEach(() =>
     TestBed.configureTestingModule({
       imports: [
